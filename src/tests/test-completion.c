@@ -22,13 +22,15 @@
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksource.h>
+#include <gtksourceview/completion-providers/words/gtksourcecompletionwords.h>
+
+static GtkWidget *view;
+static GtkSourceCompletion *comp;
+
+static const gboolean change_keys = FALSE;
 
 typedef struct _TestProvider TestProvider;
 typedef struct _TestProviderClass TestProviderClass;
-
-static GtkSourceCompletionWords *word_provider;
-static TestProvider *fixed_provider;
-static TestProvider *random_provider;
 
 struct _TestProvider
 {
@@ -38,10 +40,7 @@ struct _TestProvider
 	gint priority;
 	gchar *name;
 
-	GdkPixbuf *provider_icon;
-
-	GdkPixbuf *item_icon;
-	GIcon *item_gicon;
+	GdkPixbuf *icon;
 
 	/* If it's a random provider, a subset of 'proposals' are choosen on
 	 * each populate. Otherwise, all the proposals are shown. */
@@ -72,6 +71,13 @@ static gint
 test_provider_get_priority (GtkSourceCompletionProvider *provider)
 {
 	return ((TestProvider *)provider)->priority;
+}
+
+static gboolean
+test_provider_match (GtkSourceCompletionProvider *provider,
+                     GtkSourceCompletionContext  *context)
+{
+	return TRUE;
 }
 
 static GList *
@@ -118,16 +124,25 @@ test_provider_get_icon (GtkSourceCompletionProvider *provider)
 {
 	TestProvider *tp = (TestProvider *)provider;
 
-	return tp->is_random ? NULL : tp->provider_icon;
+	if (tp->icon == NULL)
+	{
+		GtkIconTheme *theme = gtk_icon_theme_get_default ();
+		tp->icon = gtk_icon_theme_load_icon (theme, GTK_STOCK_DIALOG_INFO, 16, 0, NULL);
+	}
+
+	return tp->icon;
 }
 
 static void
 test_provider_iface_init (GtkSourceCompletionProviderIface *iface)
 {
 	iface->get_name = test_provider_get_name;
+
 	iface->populate = test_provider_populate;
+	iface->match = test_provider_match;
 	iface->get_priority = test_provider_get_priority;
-	iface->get_icon = test_provider_get_icon;
+
+	//iface->get_icon = test_provider_get_icon;
 }
 
 static void
@@ -138,9 +153,7 @@ test_provider_dispose (GObject *gobject)
 	g_list_free_full (self->proposals, g_object_unref);
 	self->proposals = NULL;
 
-	g_clear_object (&self->provider_icon);
-	g_clear_object (&self->item_icon);
-	g_clear_object (&self->item_gicon);
+	g_clear_object (&self->icon);
 
 	G_OBJECT_CLASS (test_provider_parent_class)->dispose (gobject);
 }
@@ -168,94 +181,56 @@ test_provider_class_init (TestProviderClass *klass)
 static void
 test_provider_init (TestProvider *self)
 {
-	GtkIconTheme *theme;
-	GIcon *icon;
-	GIcon *emblem_icon;
-	GEmblem *emblem;
-
-	theme = gtk_icon_theme_get_default ();
-	self->provider_icon = gtk_icon_theme_load_icon (theme, "dialog-information", 16, 0, NULL);
-
-	self->item_icon = gtk_icon_theme_load_icon (theme, "trophy-gold", 16, 0, NULL);
-
-	icon = g_themed_icon_new ("trophy-silver");
-	emblem_icon = g_themed_icon_new ("emblem-urgent");
-	emblem = g_emblem_new (emblem_icon);
-	self->item_gicon = g_emblemed_icon_new (icon, emblem);
-	g_object_unref (icon);
-	g_object_unref (emblem_icon);
-	g_object_unref (emblem);
 }
 
 static void
-test_provider_set_fixed (TestProvider *provider,
-			 gint          nb_proposals)
+test_provider_set_fixed (TestProvider *provider)
 {
-	GtkSourceCompletionItem *item;
 	GList *proposals = NULL;
-	gint i;
 
-	g_list_free_full (provider->proposals, g_object_unref);
+	GdkPixbuf *icon = test_provider_get_icon (GTK_SOURCE_COMPLETION_PROVIDER (provider));
 
-	item = gtk_source_completion_item_new2 ();
-	gtk_source_completion_item_set_markup (item, "A very <b>long</b> proposal. I <i>repeat</i>, a very long proposal!");
-	gtk_source_completion_item_set_text (item, "A very long proposal. I repeat, a very long proposal!");
-	gtk_source_completion_item_set_icon (item, provider->item_icon);
-	gtk_source_completion_item_set_info (item, "To test the horizontal scrollbar and the markup.");
-	proposals = g_list_prepend (proposals, item);
+	proposals = g_list_prepend (proposals,
+	                            gtk_source_completion_item_new ("Proposal 3",
+								    "Proposal 3",
+								    icon,
+								    "This is the third proposal... \n"
+								    "it is so cool it takes two lines to describe"));
 
-	item = gtk_source_completion_item_new2 ();
-	gtk_source_completion_item_set_markup (item, "A proposal with a <b>symbolic</b> icon");
-	gtk_source_completion_item_set_text (item, "Test setting the icon-name property");
-	gtk_source_completion_item_set_icon_name (item, "face-cool-symbolic");
-	proposals = g_list_prepend (proposals, item);
+	proposals = g_list_prepend (proposals,
+	                            gtk_source_completion_item_new ("Proposal 2",
+								    "Proposal 2",
+								    icon,
+								    "This is the second proposal..."));
 
-	item = gtk_source_completion_item_new2 ();
-	gtk_source_completion_item_set_markup (item, "A proposal with an emblem <b>GIcon</b>");
-	gtk_source_completion_item_set_text (item, "Test setting the GIcon property");
-	gtk_source_completion_item_set_gicon (item, provider->item_gicon);
-	proposals = g_list_prepend (proposals, item);
-
-	for (i = nb_proposals - 1; i > 0; i--)
-	{
-		gchar *name = g_strdup_printf ("Proposal %d", i);
-
-		item = gtk_source_completion_item_new2 ();
-		gtk_source_completion_item_set_label (item, name);
-		gtk_source_completion_item_set_text (item, name);
-		gtk_source_completion_item_set_icon (item, provider->item_icon);
-		gtk_source_completion_item_set_info (item, "The extra info of the proposal.\nA second line.");
-		proposals = g_list_prepend (proposals, item);
-
-		g_free (name);
-	}
+	proposals = g_list_prepend (proposals,
+	                            gtk_source_completion_item_new ("Proposal 1",
+								    "Proposal 1",
+								    icon,
+								    NULL));
 
 	provider->proposals = proposals;
 	provider->is_random = 0;
 }
 
 static void
-test_provider_set_random (TestProvider *provider,
-			  gint          nb_proposals)
+test_provider_set_random (TestProvider *provider)
 {
+	GdkPixbuf *icon = test_provider_get_icon (GTK_SOURCE_COMPLETION_PROVIDER (provider));
+
 	GList *proposals = NULL;
 	gint i;
 
-	g_list_free_full (provider->proposals, g_object_unref);
-
-	for (i = 0; i < nb_proposals; i++)
+	for (i = 0; i < 10; i++)
 	{
-		GtkSourceCompletionItem *item;
-		gchar *padding = g_strnfill ((i * 3) % 10, 'o');
-		gchar *name = g_strdup_printf ("Propo%ssal %d", padding, i);
+		gchar *name = g_strdup_printf ("Proposal %d", i);
 
-		item = gtk_source_completion_item_new2 ();
-		gtk_source_completion_item_set_label (item, name);
-		gtk_source_completion_item_set_text (item, name);
-		gtk_source_completion_item_set_icon (item, provider->item_icon);
-		proposals = g_list_prepend (proposals, item);
+		proposals = g_list_prepend (proposals,
+					    gtk_source_completion_item_new (name,
+									    name,
+									    icon,
+									    NULL));
 
-		g_free (padding);
 		g_free (name);
 	}
 
@@ -264,209 +239,170 @@ test_provider_set_random (TestProvider *provider,
 }
 
 static void
-add_remove_provider (GtkToggleButton             *button,
-		     GtkSourceCompletion         *completion,
-		     GtkSourceCompletionProvider *provider)
+remember_toggled_cb (GtkToggleButton *button,
+		     gpointer user_data)
 {
-	g_return_if_fail (provider != NULL);
-
-	if (gtk_toggle_button_get_active (button))
-	{
-		gtk_source_completion_add_provider (completion, provider, NULL);
-	}
-	else
-	{
-		gtk_source_completion_remove_provider (completion, provider, NULL);
-	}
+	g_object_set (comp, "remember-info-visibility",
+		      gtk_toggle_button_get_active (button),
+		      NULL);
 }
 
 static void
-enable_word_provider_toggled_cb (GtkToggleButton     *button,
-				 GtkSourceCompletion *completion)
+select_on_show_toggled_cb (GtkToggleButton *button,
+			   gpointer user_data)
 {
-	add_remove_provider (button,
-			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (word_provider));
+	g_object_set (comp, "select-on-show",
+		      gtk_toggle_button_get_active (button),
+		      NULL);
 }
 
 static void
-enable_fixed_provider_toggled_cb (GtkToggleButton     *button,
-				  GtkSourceCompletion *completion)
+show_headers_toggled_cb (GtkToggleButton *button,
+			 gpointer user_data)
 {
-	add_remove_provider (button,
-			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (fixed_provider));
+	g_object_set (comp, "show-headers",
+		      gtk_toggle_button_get_active (button),
+		      NULL);
 }
 
 static void
-enable_random_provider_toggled_cb (GtkToggleButton     *button,
-				   GtkSourceCompletion *completion)
+toggle_active_property (gpointer     source,
+                        gpointer     dest,
+                        const gchar *name)
 {
-	add_remove_provider (button,
-			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (random_provider));
+	gboolean value;
+
+	g_object_get (source, name, &value, NULL);
+	g_object_set (dest, "active", value, NULL);
 }
 
 static void
-nb_proposals_changed_cb (GtkSpinButton *spin_button,
-			 TestProvider  *provider)
+show_icons_toggled_cb (GtkToggleButton *button,
+		       gpointer user_data)
 {
-	gint nb_proposals = gtk_spin_button_get_value_as_int (spin_button);
-
-	if (provider->is_random)
-	{
-		test_provider_set_random (provider, nb_proposals);
-	}
-	else
-	{
-		test_provider_set_fixed (provider, nb_proposals);
-	}
+	g_object_set (comp, "show-icons",
+		      gtk_toggle_button_get_active (button),
+		      NULL);
 }
 
-static void
-create_completion (GtkSourceView       *source_view,
-		   GtkSourceCompletion *completion)
-{
-	/* Words completion provider */
-	word_provider = gtk_source_completion_words_new (NULL, NULL);
-
-	gtk_source_completion_words_register (word_provider,
-	                                      gtk_text_view_get_buffer (GTK_TEXT_VIEW (source_view)));
-
-	gtk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (word_provider),
-	                                    NULL);
-
-	g_object_set (word_provider, "priority", 10, NULL);
-
-	/* Fixed provider: the proposals don't change */
-	fixed_provider = g_object_new (test_provider_get_type (), NULL);
-	test_provider_set_fixed (fixed_provider, 3);
-	fixed_provider->priority = 5;
-	fixed_provider->name = g_strdup ("Fixed Provider");
-
-	gtk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (fixed_provider),
-	                                    NULL);
-
-	/* Random provider: the proposals vary on each populate */
-	random_provider = g_object_new (test_provider_get_type (), NULL);
-	test_provider_set_random (random_provider, 10);
-	random_provider->priority = 1;
-	random_provider->name = g_strdup ("Random Provider");
-
-	gtk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (random_provider),
-	                                    NULL);
-}
-
-static void
+static GtkWidget *
 create_window (void)
 {
-	GtkBuilder *builder;
-	GError *error = NULL;
-	GtkWindow *window;
-	GtkSourceView *source_view;
+	GtkWidget *window;
+	GtkWidget *vbox;
+	GtkWidget *hbox;
+	GtkWidget *remember;
+	GtkWidget *select_on_show;
+	GtkWidget *show_headers;
+	GtkWidget *show_icons;
 	GtkSourceCompletion *completion;
-	GtkCheckButton *remember_info_visibility;
-	GtkCheckButton *select_on_show;
-	GtkCheckButton *show_headers;
-	GtkCheckButton *show_icons;
-	GtkCheckButton *enable_word_provider;
-	GtkCheckButton *enable_fixed_provider;
-	GtkCheckButton *enable_random_provider;
-	GtkSpinButton *nb_fixed_proposals;
-	GtkSpinButton *nb_random_proposals;
 
-	builder = gtk_builder_new ();
+	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_resize (GTK_WINDOW (window), 600, 400);
 
-	gtk_builder_add_from_resource (builder,
-				       "/org/gnome/gtksourceview/tests/ui/test-completion.ui",
-				       &error);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 1);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 1);
 
-	if (error != NULL)
-	{
-		g_error ("Impossible to load test-completion.ui: %s", error->message);
-	}
+	view = gtk_source_view_new ();
+	GtkWidget *scroll = gtk_scrolled_window_new (NULL, NULL);
+	gtk_container_add (GTK_CONTAINER (scroll), view);
 
-	window = GTK_WINDOW (gtk_builder_get_object (builder, "window"));
-	source_view = GTK_SOURCE_VIEW (gtk_builder_get_object (builder, "source_view"));
-	remember_info_visibility = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_remember_info_visibility"));
-	select_on_show = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_select_on_show"));
-	show_headers = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_show_headers"));
-	show_icons = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_show_icons"));
-	enable_word_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_word_provider"));
-	enable_fixed_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_fixed_provider"));
-	enable_random_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_random_provider"));
-	nb_fixed_proposals = GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "spinbutton_nb_fixed_proposals"));
-	nb_random_proposals = GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "spinbutton_nb_random_proposals"));
+	remember = gtk_check_button_new_with_label ("Remember info visibility");
+	select_on_show = gtk_check_button_new_with_label ("Select first on show");
+	show_headers = gtk_check_button_new_with_label ("Show headers");
+	show_icons = gtk_check_button_new_with_label ("Show icons");
 
-	completion = gtk_source_view_get_completion (source_view);
+	completion = gtk_source_view_get_completion (GTK_SOURCE_VIEW (view));
 
-	g_signal_connect (window,
-			  "destroy",
+	toggle_active_property (completion, remember, "remember-info-visibility");
+	toggle_active_property (completion, select_on_show, "select-on-show");
+	toggle_active_property (completion, show_headers, "show-headers");
+	toggle_active_property (completion, show_icons, "show-icons");
+
+	gtk_box_pack_start (GTK_BOX (hbox), remember, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (hbox), select_on_show, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (hbox), show_headers, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (hbox), show_icons, FALSE, FALSE, 0);
+
+	gtk_box_pack_start (GTK_BOX (vbox), scroll, TRUE, TRUE, 0);
+	gtk_box_pack_end (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+	gtk_container_add (GTK_CONTAINER (window), vbox);
+
+	g_signal_connect (window, "destroy",
 			  G_CALLBACK (gtk_main_quit),
+			   NULL);
+	g_signal_connect (remember, "toggled",
+			  G_CALLBACK (remember_toggled_cb),
+			  NULL);
+	g_signal_connect (select_on_show, "toggled",
+			  G_CALLBACK (select_on_show_toggled_cb),
+			  NULL);
+	g_signal_connect (show_headers, "toggled",
+			  G_CALLBACK (show_headers_toggled_cb),
+			  NULL);
+	g_signal_connect (show_icons, "toggled",
+			  G_CALLBACK (show_icons_toggled_cb),
 			  NULL);
 
-	g_object_bind_property (completion, "remember-info-visibility",
-				remember_info_visibility, "active",
-				G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+	return window;
+}
 
-	g_object_bind_property (completion, "select-on-show",
-				select_on_show, "active",
-				G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+static void
+create_completion (void)
+{
+	GtkSourceCompletionWords *prov_words;
 
-	g_object_bind_property (completion, "show-headers",
-				show_headers, "active",
-				G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+	comp = gtk_source_view_get_completion (GTK_SOURCE_VIEW (view));
 
-	g_object_bind_property (completion, "show-icons",
-				show_icons, "active",
-				G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+	/* Words completion provider */
+	prov_words = gtk_source_completion_words_new (NULL, NULL);
 
-	create_completion (source_view, completion);
+	gtk_source_completion_words_register (prov_words,
+	                                      gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	g_signal_connect (enable_word_provider,
-			  "toggled",
-			  G_CALLBACK (enable_word_provider_toggled_cb),
-			  completion);
+	gtk_source_completion_add_provider (comp,
+	                                    GTK_SOURCE_COMPLETION_PROVIDER (prov_words),
+	                                    NULL);
 
-	g_signal_connect (enable_fixed_provider,
-			  "toggled",
-			  G_CALLBACK (enable_fixed_provider_toggled_cb),
-			  completion);
+	g_object_set (prov_words, "priority", 10, NULL);
+	g_object_unref (prov_words);
 
-	g_signal_connect (enable_random_provider,
-			  "toggled",
-			  G_CALLBACK (enable_random_provider_toggled_cb),
-			  completion);
+	/* Fixed provider: the proposals don't change */
+	TestProvider *tp = g_object_new (test_provider_get_type (), NULL);
+	test_provider_set_fixed (tp);
+	tp->priority = 5;
+	tp->name = g_strdup ("Fixed Provider");
 
-	g_signal_connect (nb_fixed_proposals,
-			  "value-changed",
-			  G_CALLBACK (nb_proposals_changed_cb),
-			  fixed_provider);
+	gtk_source_completion_add_provider (comp,
+	                                    GTK_SOURCE_COMPLETION_PROVIDER (tp),
+	                                    NULL);
+	g_object_unref (tp);
 
-	g_signal_connect (nb_random_proposals,
-			  "value-changed",
-			  G_CALLBACK (nb_proposals_changed_cb),
-			  random_provider);
+	/* Random provider: the proposals vary on each populate */
+	tp = g_object_new (test_provider_get_type (), NULL);
+	test_provider_set_random (tp);
+	tp->priority = 1;
+	tp->name = g_strdup ("Random Provider");
 
-	g_object_unref (builder);
+	gtk_source_completion_add_provider (comp,
+	                                    GTK_SOURCE_COMPLETION_PROVIDER (tp),
+	                                    NULL);
+	g_object_unref (tp);
 }
 
 int
 main (int argc, char *argv[])
 {
+	GtkWidget *window;
+
 	gtk_init (&argc, &argv);
 
-	create_window ();
+	window = create_window ();
+	create_completion ();
+
+	gtk_widget_show_all (window);
 
 	gtk_main ();
-
-	/* Not really useful, except for debugging memory leaks. */
-	g_object_unref (word_provider);
-	g_object_unref (fixed_provider);
-	g_object_unref (random_provider);
-
 	return 0;
 }

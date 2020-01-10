@@ -19,9 +19,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef GTK_SOURCE_COMPLETION_WORDS_BUFFER_H
-#define GTK_SOURCE_COMPLETION_WORDS_BUFFER_H
+#ifndef __GTK_SOURCE_COMPLETION_WORDS_BUFFER_H__
+#define __GTK_SOURCE_COMPLETION_WORDS_BUFFER_H__
 
+#include <glib-object.h>
 #include <gtk/gtk.h>
 
 #include "gtksourcecompletionwordslibrary.h"
@@ -42,7 +43,7 @@ typedef struct _GtkSourceCompletionWordsBufferPrivate		GtkSourceCompletionWordsB
 
 struct _GtkSourceCompletionWordsBuffer {
 	GObject parent;
-
+	
 	GtkSourceCompletionWordsBufferPrivate *priv;
 };
 
@@ -51,24 +52,27 @@ struct _GtkSourceCompletionWordsBufferClass {
 };
 
 G_GNUC_INTERNAL
-GType		 gtk_source_completion_words_buffer_get_type			(void) G_GNUC_CONST;
+GType gtk_source_completion_words_buffer_get_type (void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
 GtkSourceCompletionWordsBuffer *
-		 gtk_source_completion_words_buffer_new				(GtkSourceCompletionWordsLibrary *library,
-										 GtkTextBuffer                   *buffer);
+		 gtk_source_completion_words_buffer_new 	(GtkSourceCompletionWordsLibrary *library,
+								 GtkTextBuffer                   *buffer);
 
 G_GNUC_INTERNAL
-GtkTextBuffer 	*gtk_source_completion_words_buffer_get_buffer			(GtkSourceCompletionWordsBuffer  *buffer);
+GtkTextBuffer 	*gtk_source_completion_words_buffer_get_buffer	(GtkSourceCompletionWordsBuffer  *buffer);
 
 G_GNUC_INTERNAL
-void		 gtk_source_completion_words_buffer_set_scan_batch_size		(GtkSourceCompletionWordsBuffer  *buffer,
-										 guint                            size);
+void		 gtk_source_completion_words_buffer_set_scan_batch_size (GtkSourceCompletionWordsBuffer *buffer,
+                                                                         guint                           size);
 
 G_GNUC_INTERNAL
-void		 gtk_source_completion_words_buffer_set_minimum_word_size	(GtkSourceCompletionWordsBuffer  *buffer,
-										 guint                            size);
+void		 gtk_source_completion_words_buffer_set_minimum_word_size (GtkSourceCompletionWordsBuffer *buffer,
+                                                                           guint                           size);
+
+G_GNUC_INTERNAL
+GtkTextMark     *gtk_source_completion_words_buffer_get_mark	(GtkSourceCompletionWordsBuffer *buffer);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_WORDS_BUFFER_H */
+#endif /* __GTK_SOURCE_COMPLETION_WORDS_BUFFER_H__ */

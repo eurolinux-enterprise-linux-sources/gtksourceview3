@@ -26,6 +26,9 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+#ifdef G_OS_WIN32
+#include <io.h>
+#endif
 
 #include <string.h>
 #include <fcntl.h>
@@ -35,26 +38,23 @@
 #include "gtksourceview-i18n.h"
 #include "gtksourcelanguage-private.h"
 #include "gtksourcelanguage.h"
-
-#ifdef G_OS_WIN32
-#include <io.h>
-#endif
+#include "gtksourceview-marshal.h"
 
 /**
  * SECTION:language
- * @Short_description: Represents a syntax highlighted language
+ * @Short_description: Object representing a syntax highlighted language
  * @Title: GtkSourceLanguage
  * @See_also: #GtkSourceLanguageManager
  *
- * A #GtkSourceLanguage represents a programming or markup language, affecting
- * syntax highlighting and [context classes][context-classes].
- *
- * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
- * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+ * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
+ * particular language. Use #GtkSourceLanguageManager to obtain a
+ * #GtkSourceLanguage instance, and gtk_source_buffer_set_language() to apply it
+ * to a #GtkSourceBuffer.
  */
 
 #define DEFAULT_SECTION _("Others")
 
+/* Properties */
 enum {
 	PROP_0,
 	PROP_ID,
@@ -63,7 +63,7 @@ enum {
 	PROP_HIDDEN
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceLanguage, gtk_source_language, G_TYPE_OBJECT)
+G_DEFINE_TYPE (GtkSourceLanguage, gtk_source_language, G_TYPE_OBJECT)
 
 static GtkSourceLanguage *process_language_node (xmlTextReaderPtr	 reader,
 						 const gchar		*filename);
@@ -124,12 +124,8 @@ _gtk_source_language_new_from_file (const gchar              *filename,
         }
 	else
 	{
-		g_warning ("Unable to open '%s'", filename);
+		g_warning("Unable to open '%s'", filename);
 
-		if (fd != -1)
-		{
-			close (fd);
-		}
     	}
 
 	if (lang != NULL)
@@ -229,45 +225,43 @@ gtk_source_language_class_init (GtkSourceLanguageClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_ID,
 					 g_param_spec_string ("id",
-						 	      "Language id",
-							      "Language id",
+						 	      _("Language id"),
+							      _("Language id"),
 							      NULL,
-							      G_PARAM_READABLE |
-							      G_PARAM_STATIC_STRINGS));
+							      G_PARAM_READABLE));
 
 	g_object_class_install_property (object_class,
 					 PROP_NAME,
 					 g_param_spec_string ("name",
-						 	      "Language name",
-							      "Language name",
+						 	      _("Language name"),
+							      _("Language name"),
 							      NULL,
-							      G_PARAM_READABLE |
-							      G_PARAM_STATIC_STRINGS));
+							      G_PARAM_READABLE));
 
 	g_object_class_install_property (object_class,
 					 PROP_SECTION,
 					 g_param_spec_string ("section",
-						 	      "Language section",
-							      "Language section",
+						 	      _("Language section"),
+							      _("Language section"),
 							      NULL,
-							      G_PARAM_READABLE |
-							      G_PARAM_STATIC_STRINGS));
+							      G_PARAM_READABLE));
 
 	g_object_class_install_property (object_class,
 					 PROP_HIDDEN,
 					 g_param_spec_boolean ("hidden",
-							       "Hidden",
-							       "Whether the language should be hidden from the user",
+							       _("Hidden"),
+							       _("Whether the language should be hidden from the user"),
 							       FALSE,
-							       G_PARAM_READABLE |
-							       G_PARAM_STATIC_STRINGS));
+							       G_PARAM_READABLE));
+
+	g_type_class_add_private (object_class, sizeof(GtkSourceLanguagePrivate));
 }
 
 static void
 gtk_source_language_init (GtkSourceLanguage *lang)
 {
-	lang->priv = gtk_source_language_get_instance_private (lang);
-
+	lang->priv = G_TYPE_INSTANCE_GET_PRIVATE (lang, GTK_SOURCE_TYPE_LANGUAGE,
+						  GtkSourceLanguagePrivate);
 	lang->priv->styles = g_hash_table_new_full (g_str_hash,
 						    g_str_equal,
 						    g_free,
@@ -557,9 +551,8 @@ gtk_source_language_get_hidden (GtkSourceLanguage *language)
  * @language: a #GtkSourceLanguage.
  * @name: metadata property name.
  *
- * Returns: (nullable) (transfer none): value of property @name stored in
- * the metadata of @language or %NULL if language does not contain the
- * specified metadata property.
+ * Returns: value of property @name stored in the metadata of @language
+ * or %NULL if language doesn't contain that metadata property.
  * The returned string is owned by @language and should not be freed
  * or modified.
  **/
@@ -582,9 +575,9 @@ gtk_source_language_get_metadata (GtkSourceLanguage *language,
  * retrieve the "mimetypes" metadata property and split it into an
  * array.
  *
- * Returns: (nullable) (array zero-terminated=1) (transfer full):
- * a newly-allocated %NULL terminated array containing the mime types
- * or %NULL if no mime types are found.
+ * Returns: (array zero-terminated=1) (transfer full): a newly-allocated
+ * %NULL terminated array containing the mime types or %NULL if no
+ * mime types are found.
  * The returned array must be freed with g_strfreev().
  **/
 gchar **
@@ -609,9 +602,8 @@ gtk_source_language_get_mime_types (GtkSourceLanguage *language)
  * an utility wrapper around gtk_source_language_get_metadata() to
  * retrieve the "globs" metadata property and split it into an array.
  *
- * Returns: (nullable) (array zero-terminated=1) (transfer full):
- * a newly-allocated %NULL terminated array containing the globs or %NULL
- * if no globs are found.
+ * Returns: (array zero-terminated=1) (transfer full): a newly-allocated
+ * %NULL terminated array containing the globs or %NULL if no globs are found.
  * The returned array must be freed with g_strfreev().
  **/
 gchar **
@@ -844,9 +836,9 @@ force_styles (GtkSourceLanguage *language)
  *
  * Returns the ids of the styles defined by this @language.
  *
- * Returns: (nullable) (array zero-terminated=1) (transfer full):
- * a newly-allocated %NULL terminated array containing ids of the
- * styles defined by this @language or %NULL if no style is defined.
+ * Returns: (array zero-terminated=1) (transfer full): a  %NULL terminated
+ * array containing ids of the styles defined by this @language or
+ * %NULL if no style is defined.
  * The returned array must be freed with g_strfreev().
 */
 gchar **
@@ -883,10 +875,10 @@ get_style_info (GtkSourceLanguage *language, const char *style_id)
  *
  * Returns the name of the style with ID @style_id defined by this @language.
  *
- * Returns: (nullable) (transfer none): the name of the style with ID @style_id
- * defined by this @language or %NULL if the style has no name or there is no
- * style with ID @style_id defined by this @language.
- * The returned string is owned by the @language and must not be modified.
+ * Returns: the name of the style with ID @style_id defined by this @language or
+ * %NULL if the style has no name or there is no style with ID @style_id defined
+ * by this @language. The returned string is owned by the @language and must
+ * not be modified.
  */
 const gchar *
 gtk_source_language_get_style_name (GtkSourceLanguage *language,
@@ -911,9 +903,9 @@ gtk_source_language_get_style_name (GtkSourceLanguage *language,
  * Returns the ID of the style to use if the specified @style_id
  * is not present in the current style scheme.
  *
- * Returns: (nullable) (transfer none): the ID of the style to use if the
- * specified @style_id is not present in the current style scheme or %NULL
- * if the style has no fallback defined.
+ * Returns: the ID of the style to use if the specified @style_id
+ * is not present in the current style scheme or %NULL if the style has
+ * no fallback defined.
  * The returned string is owned by the @language and must not be modified.
  *
  * Since: 3.4

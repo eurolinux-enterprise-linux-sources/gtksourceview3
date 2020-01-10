@@ -19,13 +19,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
+#ifndef __GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H__
+#define __GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H__
 
 #include <glib-object.h>
 #include <gtksourceview/gtksourcecompletionproposal.h>
-
-#include "gtksourceview/gtksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
@@ -43,7 +41,7 @@ typedef struct _GtkSourceCompletionWordsProposalPrivate		GtkSourceCompletionWord
 
 struct _GtkSourceCompletionWordsProposal {
 	GObject parent;
-
+	
 	GtkSourceCompletionWordsProposalPrivate *priv;
 };
 
@@ -51,22 +49,22 @@ struct _GtkSourceCompletionWordsProposalClass {
 	GObjectClass parent_class;
 };
 
-GTK_SOURCE_INTERNAL
-GType		 gtk_source_completion_words_proposal_get_type	(void) G_GNUC_CONST;
+G_GNUC_INTERNAL
+GType gtk_source_completion_words_proposal_get_type (void) G_GNUC_CONST;
 
-GTK_SOURCE_INTERNAL
+G_GNUC_INTERNAL
 GtkSourceCompletionWordsProposal *
 		 gtk_source_completion_words_proposal_new 	(const gchar                      *word);
 
-GTK_SOURCE_INTERNAL
+G_GNUC_INTERNAL
 const gchar 	*gtk_source_completion_words_proposal_get_word 	(GtkSourceCompletionWordsProposal *proposal);
 
-GTK_SOURCE_INTERNAL
+G_GNUC_INTERNAL
 void		 gtk_source_completion_words_proposal_use 	(GtkSourceCompletionWordsProposal *proposal);
 
-GTK_SOURCE_INTERNAL
+G_GNUC_INTERNAL
 void		 gtk_source_completion_words_proposal_unuse 	(GtkSourceCompletionWordsProposal *proposal);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H */
+#endif /* __GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H__ */

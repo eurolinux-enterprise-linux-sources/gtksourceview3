@@ -1,27 +1,32 @@
-SUBDIRS = gtksourceview po data docs tests testsuite win32
+ACLOCAL_AMFLAGS  = -I m4 ${ACLOCAL_FLAGS}
 
-@CODE_COVERAGE_RULES@
+SUBDIRS = gtksourceview po data docs tests
 
-AM_DISTCHECK_CONFIGURE_FLAGS =		\
-	--enable-gtk-doc		\
-	--enable-introspection		\
-	--enable-vala			\
-	--enable-glade-catalog
-
-pkgconfig_DATA = gtksourceview-@GSV_API_VERSION@.pc
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gtksourceview-3.0.pc
 
 EXTRA_DIST = \
+	intltool-extract.in \
+	intltool-merge.in \
+	intltool-update.in \
 	gtksourceview.doap \
-	gtksourceview.pc.in \
+	gtksourceview-3.0.pc.in	\
+	gtksourceview-zip.in \
+	COPYING.lib \
 	HACKING \
 	MAINTAINERS \
-	config.h.win32.in \
-	config.h.win32
+	ChangeLog.20070526 \
+	ChangeLog.soc-2006 \
+	ChangeLog-20090418
+
+DISTCLEANFILES = \
+	intltool-extract \
+	intltool-merge \
+	intltool-update
 
 MAINTAINERCLEANFILES = 		\
 	ABOUT-NLS		\
 	aclocal.m4		\
-	compile			\
 	config.guess		\
 	config.h.in		\
 	config.rpath		\
@@ -31,35 +36,18 @@ MAINTAINERCLEANFILES = 		\
 	INSTALL			\
 	install-sh		\
 	ltmain.sh		\
-	m4/ax_append_compile_flags.m4 \
-	m4/ax_append_flag.m4	\
-	m4/ax_append_link_flags.m4 \
-	m4/ax_check_compile_flag.m4 \
-	m4/ax_check_link_flag.m4 \
-	m4/ax_code_coverage.m4	\
-	m4/ax_compiler_flags_cflags.m4 \
-	m4/ax_compiler_flags_gir.m4 \
-	m4/ax_compiler_flags_ldflags.m4 \
-	m4/ax_compiler_flags.m4	\
-	m4/ax_is_release.m4	\
-	m4/ax_pkg_check_modules.m4 \
-	m4/ax_require_defined.m4 \
-	m4/ax_valgrind_check.m4 \
 	m4/codeset.m4		\
-	m4/extern-inline.m4	\
-	m4/fcntl-o.m4		\
 	m4/gettext.m4		\
 	m4/glibc21.m4		\
 	m4/glibc2.m4		\
-	m4/gtk-3.0.m4		\
 	m4/gtk-doc.m4		\
 	m4/iconv.m4		\
 	m4/intdiv0.m4		\
 	m4/intldir.m4		\
 	m4/intl.m4		\
 	m4/intlmacosx.m4	\
+	m4/intltool.m4		\
 	m4/intmax.m4		\
-	m4/introspection.m4	\
 	m4/inttypes_h.m4	\
 	m4/inttypes-pri.m4	\
 	m4/lcmessage.m4		\
@@ -74,13 +62,11 @@ MAINTAINERCLEANFILES = 		\
 	m4/ltsugar.m4		\
 	m4/ltversion.m4		\
 	m4/nls.m4		\
-	m4/pkg.m4		\
 	m4/po.m4		\
 	m4/printf-posix.m4	\
 	m4/progtest.m4		\
 	m4/size_max.m4		\
 	m4/stdint_h.m4		\
-	m4/threadlib.m4		\
 	m4/uintmax_t.m4		\
 	m4/visibility.m4	\
 	m4/wchar_t.m4		\
@@ -95,10 +81,27 @@ MAINTAINERCLEANFILES = 		\
 	po/en@quot.header	\
 	po/insert-header.sin	\
 	po/quot.sed		\
-	po/remove-potcdate.sed	\
 	po/remove-potcdate.sin	\
-	po/stamp-po		\
-	test-driver		\
 	`find "$(srcdir)" -type f -name Makefile.in -print`
+
+DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-glade-catalog
+
+CHANGELOG_START = GTKSOURCEVIEW_2_6_1
+
+dist-hook:
+	@if test -d "$(srcdir)/.git"; \
+	then \
+		echo Creating ChangeLog && \
+		(GIT_DIR=$(top_srcdir)/.git \
+		  ./missing --run git log $(CHANGELOG_START)^^.. --stat -M -C --name-status  --date=short --no-color) | \
+		  fmt --split-only > ChangeLog.tmp \
+		&& mv -f ChangeLog.tmp $(top_distdir)/ChangeLog \
+		|| ( rm -f ChangeLog.tmp ; \
+		  echo Failed to generate ChangeLog >&2 ); \
+	else \
+		echo A git clone is required to generate a ChangeLog >&2; \
+	fi
+
+@GNOME_CODE_COVERAGE_RULES@
 
 -include $(top_srcdir)/git.mk

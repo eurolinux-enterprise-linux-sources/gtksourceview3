@@ -17,106 +17,35 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
 
- You should have received a copy of the GNU Lesser General Public License
- along with this library; if not, see <http://www.gnu.org/licenses/>.
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 -->
-<language id="fortran" name="Fortran 95" version="2.0" _section="Source">
+<language id="fortran" _name="Fortran 95" version="2.0" _section="Sources">
   <metadata>
     <property name="mimetypes">text/x-fortran</property>
-    <property name="globs">*.f;*.f90;*.f95;*.for;*.F;*.F90</property>
+    <property name="globs">*.f;*.f90;*.f95;*.for</property>
     <property name="line-comment-start">!</property>
   </metadata>
 
   <styles>
-    <style id="comment" name="Comment" map-to="def:comment"/>
-    <style id="string" name="String" map-to="def:string"/>
-    <style id="floating-point" name="Floating Point" map-to="def:floating-point"/>
-    <style id="keyword" name="Keyword" map-to="def:keyword"/>
-    <style id="intrinsic" name="Intrinsic function" map-to="def:builtin"/>
-    <style id="boz-literal" name="BOZ Literal" map-to="def:base-n-integer"/>
-    <style id="decimal" name="Decimal" map-to="def:decimal"/>
-    <style id="type" name="Data Type" map-to="def:type"/>
-    <style id="preprocessor" name="Preprocessor" map-to="def:preprocessor"/>
-    <style id="openmp-directives" name="OpenMP directives" map-to="def:preprocessor"/>
-    <style id="included-file" name="Included File" map-to="def:string"/>
-    <style id="escaped-character" name="Escaped Character" map-to="def:special-char"/>
+    <style id="comment" _name="Comment" map-to="def:comment"/>
+    <style id="floating-point" _name="Floating Point" map-to="def:floating-point"/>
+    <style id="keyword" _name="Keyword" map-to="def:keyword"/>
+    <style id="intrinsic" _name="Intrinsic function" map-to="def:builtin"/>
+    <style id="boz-literal" _name="BOZ Literal" map-to="def:base-n-integer"/>
+    <style id="decimal" _name="Decimal" map-to="def:decimal"/>
+    <style id="type" _name="Data Type" map-to="def:type"/>
   </styles>
 
   <default-regex-options case-sensitive="false"/>
 
   <definitions>
-    <!-- regexs -->
-    <define-regex id="preproc-start">^#</define-regex>
-    <define-regex id="escaped-character" extended="true">
-      \\(                   # leading backslash
-      [\\\"\'nrbtfav\?] |   # escaped character
-      [0-7]{1,3} |          # one, two, or three octal digits
-      x[0-9A-Fa-f]+         # 'x' followed by hex digits
-      )
-    </define-regex>
 
-    <!-- Preprocessor -->
-    <context id="if0-comment" style-ref="comment">
-      <start>\%{preproc-start}if\b\s*0\b</start>
-      <end>\%{preproc-start}(endif|else|elif)\b</end>
-      <include>
-        <context id="if-in-if0">
-          <start>\%{preproc-start}if(n?def)?\b</start>
-          <end>\%{preproc-start}endif\b</end>
-          <include>
-            <context ref="if-in-if0"/>
-            <context ref="def:in-comment"/>
-          </include>
-        </context>
-        <context ref="def:in-comment"/>
-      </include>
-    </context>
-
-    <context id="include" style-ref="preprocessor">
-      <match extended="true">
-        \%{preproc-start}
-        (include|import)\s*
-        (".*?"|&lt;.*&gt;)
-      </match>
-      <include>
-        <context id="included-file" sub-pattern="2" style-ref="included-file" class="path"/>
-      </include>
-    </context>
-
-    <context id="preprocessor" style-ref="preprocessor" end-at-line-end="true">
-      <start extended="true">
-        \%{preproc-start}
-        (define|undef|error|pragma|ident|if(n?def)?|else|elif|endif|line|warning)
-        \b
-      </start>
-    </context>
-
-    <context id="openmp-directives" style-ref="openmp-directives" end-at-line-end="true">
-      <start extended="true">
-        ((^[Cc])|^\s*!)\$
-      </start>
-    </context>
-
-    <!--
-    <context id="string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
-      <match>(L?'[^']*')|(L?"[^"]*")</match>
-    </context>
-    -->
-    <context id="string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
-      <start>L?"</start>
-      <end>"</end>
-      <include>
-        <context id="escaped-character" style-ref="escaped-character">
-          <match>\%{escaped-character}</match>
-        </context>
-        <context ref="def:line-continue"/>
-      </include>
-    </context>
-
-    <!-- Note: contains an hack to avoid considering ^COMMON or ^CHARACTER a comment -->
+    <!-- Note: contains an hack to avoid considering ^COMMON a comment -->
     <context id="line-comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
-      <start>(![^$])|(^[Cc](\s|[^$OoAaYyHh]))|(^[Cc]$)</start>
+      <start>!|(^[Cc](\b|[^OoAaYy]))</start>
       <include>
         <context ref="def:escape"/>
         <context ref="def:in-line-comment"/>
@@ -143,71 +72,45 @@
     </context>
 
     <context id="keywords" style-ref="keyword">
-      <keyword>abstract</keyword>
       <keyword>allocate</keyword>
       <keyword>assign</keyword>
       <keyword>assignment</keyword>
-      <keyword>associate</keyword>
-      <keyword>bind</keyword>
-      <keyword>block</keyword>
+      <keyword>block data</keyword>
       <keyword>call</keyword>
       <keyword>case</keyword>
-      <keyword>class</keyword>
       <keyword>common</keyword>
       <keyword>contains</keyword>
       <keyword>continue</keyword>
-      <keyword>critical</keyword>
       <keyword>cycle</keyword>
       <keyword>data</keyword>
       <keyword>deallocate</keyword>
       <keyword>default</keyword>
-      <keyword>do concurrent</keyword>
       <keyword>do</keyword>
       <keyword>elemental</keyword>
       <keyword>elseif</keyword>
       <keyword>else</keyword>
       <keyword>elsewhere</keyword>
-      <keyword>endassociate</keyword>
-      <keyword>endblock</keyword>
-      <keyword>endcritical</keyword>
       <keyword>enddo</keyword>
-      <keyword>endenum</keyword>
-      <keyword>endfunction</keyword>
       <keyword>endif</keyword>
-      <keyword>endinterface</keyword>
-      <keyword>endmodule</keyword>
-      <keyword>endprocedure</keyword>
-      <keyword>endprogram</keyword>
       <keyword>endselect</keyword>
-      <keyword>endsubmodule</keyword>
-      <keyword>endsubroutine</keyword>
       <keyword>end</keyword>
-      <keyword>enum</keyword>
       <keyword>entry</keyword>
       <keyword>equivalence</keyword>
-      <keyword>error stop</keyword>
       <keyword>exit</keyword>
-      <keyword>extends</keyword>
       <keyword>external</keyword>
-      <keyword>final</keyword>
       <keyword>forall</keyword>
       <keyword>function</keyword>
-      <keyword>generic</keyword>
       <keyword>go to</keyword>
       <keyword>goto</keyword>
       <keyword>if</keyword>
       <keyword>implicit none</keyword>
-      <keyword>implicit</keyword>
-      <keyword>import</keyword>
-      <keyword>impure</keyword>
       <keyword>in</keyword>
-      <keyword>[^#]include</keyword>
+      <keyword>include</keyword>
       <keyword>inout</keyword>
       <keyword>interface</keyword>
       <keyword>intrinsic</keyword>
       <keyword>kind</keyword>
       <keyword>len</keyword>
-      <keyword>lock</keyword>
       <keyword>module</keyword>
       <keyword>namelist</keyword>
       <keyword>nullify</keyword>
@@ -225,14 +128,9 @@
       <keyword>save</keyword>
       <keyword>select</keyword>
       <keyword>stop</keyword>
-      <keyword>submodule</keyword>
       <keyword>subroutine</keyword>
-      <keyword>sync all</keyword>
-      <keyword>sync images</keyword>
-      <keyword>sync memory</keyword>
       <keyword>then</keyword>
       <keyword>type</keyword>
-      <keyword>unlock</keyword>
       <keyword>use</keyword>
       <keyword>where</keyword>
       <keyword>while</keyword>
@@ -248,7 +146,6 @@
       <keyword>print</keyword>
       <keyword>read</keyword>
       <keyword>rewind</keyword>
-      <keyword>wait</keyword>
       <keyword>write</keyword>
     </context>
 
@@ -271,7 +168,6 @@
       <keyword>iostat</keyword>
       <keyword>name</keyword>
       <keyword>named</keyword>
-      <keyword>newunit</keyword>
       <keyword>nextrec</keyword>
       <keyword>nml</keyword>
       <keyword>number</keyword>
@@ -282,6 +178,7 @@
       <keyword>rec</keyword>
       <keyword>recl</keyword>
       <keyword>sequential</keyword>
+      <keyword>size</keyword>
       <keyword>status</keyword>
       <keyword>unformatted</keyword>
       <keyword>unit</keyword>
@@ -291,7 +188,6 @@
     <context id="intrinsics" style-ref="intrinsic">
       <keyword>abs</keyword>
       <keyword>achar</keyword>
-      <keyword>acosh</keyword>
       <keyword>acos</keyword>
       <keyword>adjustl</keyword>
       <keyword>adjustr</keyword>
@@ -309,24 +205,10 @@
       <keyword>amod</keyword>
       <keyword>anint</keyword>
       <keyword>any</keyword>
-      <keyword>asinh</keyword>
       <keyword>asin</keyword>
       <keyword>associated</keyword>
       <keyword>atan2</keyword>
-      <keyword>atanh</keyword>
       <keyword>atan</keyword>
-      <keyword>atomic_define</keyword>
-      <keyword>atomic_ref</keyword>
-      <keyword>bessel_j0</keyword>
-      <keyword>bessel_j1</keyword>
-      <keyword>bessel_jn</keyword>
-      <keyword>bessel_y0</keyword>
-      <keyword>bessel_y1</keyword>
-      <keyword>bessel_yn</keyword>
-      <keyword>bge</keyword>
-      <keyword>bgt</keyword>
-      <keyword>ble</keyword>
-      <keyword>blt</keyword>
       <keyword>bit_size</keyword>
       <keyword>btest</keyword>
       <keyword>c_associated</keyword>
@@ -348,8 +230,6 @@
       <keyword>clog</keyword>
       <keyword>cmplx</keyword>
       <keyword>command_argument_count</keyword>
-      <keyword>compiler_options</keyword>
-      <keyword>compiler_version</keyword>
       <keyword>conjg</keyword>
       <keyword>cosh</keyword>
       <keyword>cos</keyword>
@@ -394,8 +274,6 @@
       <keyword>dnint</keyword>
       <keyword>dot_product</keyword>
       <keyword>dprod</keyword>
-      <keyword>dshiftl</keyword>
-      <keyword>dshiftr</keyword>
       <keyword>dsign</keyword>
       <keyword>dsinh</keyword>
       <keyword>dsin</keyword>
@@ -404,16 +282,12 @@
       <keyword>dtan</keyword>
       <keyword>eoshift</keyword>
       <keyword>epsilon</keyword>
-      <keyword>erfc_scaled</keyword>
       <keyword>erfc</keyword>
       <keyword>erf</keyword>
-      <keyword>execute_command_line</keyword>
       <keyword>exp</keyword>
       <keyword>exponent</keyword>
-      <keyword>findloc</keyword>
       <keyword>float</keyword>
       <keyword>floor</keyword>
-      <keyword>flush</keyword>
       <keyword>fraction</keyword>
       <keyword>gamma</keyword>
       <keyword>getarg</keyword>
@@ -421,12 +295,9 @@
       <keyword>get_command_argument</keyword>
       <keyword>get_environment_variable</keyword>
       <keyword>huge</keyword>
-      <keyword>hypot</keyword>
       <keyword>iabs</keyword>
       <keyword>iachar</keyword>
-      <keyword>iall</keyword>
       <keyword>iand</keyword>
-      <keyword>iany</keyword>
       <keyword>iargc</keyword>
       <keyword>ibclr</keyword>
       <keyword>ibits</keyword>
@@ -435,47 +306,12 @@
       <keyword>idim</keyword>
       <keyword>idint</keyword>
       <keyword>idnint</keyword>
-      <keyword>ieee_class</keyword>
-      <keyword>ieee_copy_sign</keyword>
-      <keyword>ieee_get_flag</keyword>
-      <keyword>ieee_get_halting_mode</keyword>
-      <keyword>ieee_get_rounding_mode</keyword>
-      <keyword>ieee_get_status</keyword>
-      <keyword>ieee_is_finite</keyword>
-      <keyword>ieee_is_nan</keyword>
-      <keyword>ieee_is_negative</keyword>
-      <keyword>ieee_is_normal</keyword>
-      <keyword>ieee_logb</keyword>
-      <keyword>ieee_next_after</keyword>
-      <keyword>ieee_rem</keyword>
-      <keyword>ieee_rint</keyword>
-      <keyword>ieee_scalb</keyword>
-      <keyword>ieee_selected_real_kind</keyword>
-      <keyword>ieee_set_flag</keyword>
-      <keyword>ieee_set_halting_mode</keyword>
-      <keyword>ieee_set_rounding_mode</keyword>
-      <keyword>ieee_set_status</keyword>
-      <keyword>ieee_support_datatype</keyword>
-      <keyword>ieee_support_denormal</keyword>
-      <keyword>ieee_support_divide</keyword>
-      <keyword>ieee_support_flag</keyword>
-      <keyword>ieee_support_halting</keyword>
-      <keyword>ieee_support_inf</keyword>
-      <keyword>ieee_support_nan</keyword>
-      <keyword>ieee_support_rounding</keyword>
-      <keyword>ieee_support_sqrt</keyword>
-      <keyword>ieee_support_standard</keyword>
-      <keyword>ieee_unordered</keyword>
-      <keyword>ieee_value</keyword>
       <keyword>ieor</keyword>
       <keyword>ifix</keyword>
-      <keyword>image_index</keyword>
       <keyword>index</keyword>
       <keyword>int</keyword>
       <keyword>ior</keyword>
-      <keyword>iparity</keyword>
       <keyword>iqint</keyword>
-      <keyword>is_contiguous</keyword>
       <keyword>is_iostat_end</keyword>
       <keyword>is_iostat_eor</keyword>
       <keyword>ishftc</keyword>
@@ -483,8 +319,6 @@
       <keyword>isign</keyword>
       <keyword>kind</keyword>
       <keyword>lbound</keyword>
-      <keyword>lcobound</keyword>
-      <keyword>leadz</keyword>
       <keyword>len_trim</keyword>
       <keyword>len</keyword>
       <keyword>lge</keyword>
@@ -492,12 +326,9 @@
       <keyword>lle</keyword>
       <keyword>llt</keyword>
       <keyword>loc</keyword>
-      <keyword>log_gamma</keyword>
       <keyword>log10</keyword>
       <keyword>log</keyword>
       <keyword>logical</keyword>
-      <keyword>maskl</keyword>
-      <keyword>maskr</keyword>
       <keyword>matmul</keyword>
       <keyword>max0</keyword>
       <keyword>max1</keyword>
@@ -505,7 +336,6 @@
       <keyword>maxloc</keyword>
       <keyword>maxval</keyword>
       <keyword>max</keyword>
-      <keyword>merge_bits</keyword>
       <keyword>merge</keyword>
       <keyword>min0</keyword>
       <keyword>min1</keyword>
@@ -520,15 +350,10 @@
       <keyword>nearest</keyword>
       <keyword>new_line</keyword>
       <keyword>nint</keyword>
-      <keyword>norm2</keyword>
       <keyword>not</keyword>
       <keyword>null</keyword>
-      <keyword>num_images</keyword>
       <keyword>or</keyword>
       <keyword>pack</keyword>
-      <keyword>parity</keyword>
-      <keyword>popcnt</keyword>
-      <keyword>poppar</keyword>
       <keyword>precision</keyword>
       <keyword>present</keyword>
       <keyword>product</keyword>
@@ -575,9 +400,6 @@
       <keyword>selected_real_kind</keyword>
       <keyword>set_exponent</keyword>
       <keyword>shape</keyword>
-      <keyword>shifta</keyword>
-      <keyword>shiftl</keyword>
-      <keyword>shiftr</keyword>
       <keyword>sign</keyword>
       <keyword>sinh</keyword>
       <keyword>sin</keyword>
@@ -586,19 +408,15 @@
       <keyword>spacing</keyword>
       <keyword>spread</keyword>
       <keyword>sqrt</keyword>
-      <keyword>storage_size</keyword>
       <keyword>sum</keyword>
       <keyword>system_clock</keyword>
       <keyword>tanh</keyword>
       <keyword>tan</keyword>
-      <keyword>this_image</keyword>
       <keyword>tiny</keyword>
-      <keyword>trailz</keyword>
       <keyword>transfer</keyword>
       <keyword>transpose</keyword>
       <keyword>trim</keyword>
       <keyword>ubound</keyword>
-      <keyword>ucobound</keyword>
       <keyword>unpack</keyword>
       <keyword>verify</keyword>
       <keyword>zabs</keyword>
@@ -615,7 +433,6 @@
       <keyword>complex</keyword>
       <keyword>double complex</keyword>
       <keyword>double precision</keyword>
-      <keyword>enumerator</keyword>
       <keyword>integer</keyword>
       <keyword>logical</keyword>
       <keyword>procedure</keyword>
@@ -624,28 +441,17 @@
 
     <context id="type-attributes" style-ref="type">
       <keyword>allocatable</keyword>
-      <keyword>asynchronous</keyword>
-      <keyword>codimension</keyword>
-      <keyword>contiguous</keyword>
-      <keyword>deferred</keyword>
       <keyword>dimension</keyword>
       <keyword>external</keyword>
       <keyword>intent</keyword>
       <keyword>intrinsic</keyword>
-      <keyword>non_overridable</keyword>
-      <keyword>nopass</keyword>
       <keyword>optional</keyword>
       <keyword>parameter</keyword>
-      <keyword>pass</keyword>
       <keyword>pointer</keyword>
       <keyword>private</keyword>
-      <keyword>protected</keyword>
       <keyword>public</keyword>
       <keyword>save</keyword>
-      <keyword>synchronous</keyword>
       <keyword>target</keyword>
-      <keyword>value</keyword>
-      <keyword>volatile</keyword>
     </context>
 
     <context id="attributes">
@@ -699,10 +505,6 @@
         <context ref="read-write"/>
         <context ref="input-output"/>
         <context ref="intrinsics"/>
-        <context ref="if0-comment"/>
-        <context ref="include"/>
-        <context ref="preprocessor"/>
-        <context ref="openmp-directives"/>
       </include>
     </context>
 

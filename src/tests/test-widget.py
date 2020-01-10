@@ -2,8 +2,6 @@
 # -*- Mode: Python; py-indent-offset: 4 -*-
 # vim: tabstop=4 shiftwidth=4 expandtab
 
-# WARNING: test-widget.c is more complete and is better maintained.
-
 import os, os.path
 import sys
 
@@ -75,7 +73,7 @@ class AboutDialog(Gtk.AboutDialog):
         Gtk.AboutDialog.__init__(self)
         self.set_name('GtkSourceView Test')
         self.set_copyright('Copyright (c) 2010 Ignacio Casal Quinteiro')
-        self.set_website_label('https://wiki.gnome.org/Projects/GtkSourceView')
+        self.set_website_label('http://projects.gnome.org/gtksourceview/')
         self.set_authors(['Ignacio Casal Quinteiro', 'Paolo Borelli'])
         self.set_transient_for(parent)
         self.connect("response", lambda d, r: d.destroy())

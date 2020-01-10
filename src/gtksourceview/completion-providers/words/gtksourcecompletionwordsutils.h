@@ -3,7 +3,6 @@
  * This file is part of GtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
- * Copyright (C) 2013 - Sébastien Wilmet
  *
  * gtksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,28 +19,26 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef GTK_SOURCE_COMPLETION_WORDS_UTILS_H
-#define GTK_SOURCE_COMPLETION_WORDS_UTILS_H
+#ifndef __GTK_SOURCE_COMPLETION_WORDS_UTILS_H__
+#define __GTK_SOURCE_COMPLETION_WORDS_UTILS_H__
 
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
-G_GNUC_INTERNAL
-GSList		*_gtk_source_completion_words_utils_scan_words		(gchar *text,
-									 guint  minimum_word_size);
+typedef gboolean (*CharacterCheck)(gunichar ch, gpointer data);
 
 G_GNUC_INTERNAL
-gchar		*_gtk_source_completion_words_utils_get_end_word	(gchar *text);
+gboolean	 gtk_source_completion_words_utils_forward_word_end 	(GtkTextIter    *iter,
+									 CharacterCheck  valid,
+									 gpointer        data);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_completion_words_utils_adjust_region	(GtkTextIter *start,
-									 GtkTextIter *end);
-
-G_GNUC_INTERNAL
-void		 _gtk_source_completion_words_utils_check_scan_region	(const GtkTextIter *start,
-									 const GtkTextIter *end);
+gboolean	 gtk_source_completion_words_utils_backward_word_start 	(GtkTextIter    *iter,
+									 CharacterCheck  valid,
+									 CharacterCheck  valid_start,
+									 gpointer        data);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_WORDS_UTILS_H */
+#endif /* __GTK_SOURCE_COMPLETION_WORDS_UTILS_H__ */

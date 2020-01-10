@@ -23,19 +23,16 @@
 #include <config.h>
 #endif
 
-#include "gtksourcelanguagemanager.h"
-
 #include <string.h>
-#include <gio/gio.h>
-
-#include "gtksourcelanguage.h"
-#include "gtksourcelanguage-private.h"
-#include "gtksourceview-utils.h"
 #include "gtksourceview-i18n.h"
+#include "gtksourcelanguage-private.h"
+#include "gtksourcelanguage.h"
+#include "gtksourceview-utils.h"
+#include <gio/gio.h>
 
 /**
  * SECTION:languagemanager
- * @Short_description: Provides access to GtkSourceLanguages
+ * @Short_description: Object which provides access to #GtkSourceLanguage<!-- -->s
  * @Title: GtkSourceLanguageManager
  * @See_also: #GtkSourceLanguage
  *
@@ -68,9 +65,8 @@ struct _GtkSourceLanguageManagerPrivate
 	gchar          **ids; /* Cache the IDs of the available languages */
 };
 
-static GtkSourceLanguageManager *default_instance;
+G_DEFINE_TYPE (GtkSourceLanguageManager, gtk_source_language_manager, G_TYPE_OBJECT)
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceLanguageManager, gtk_source_language_manager, G_TYPE_OBJECT)
 
 static void
 gtk_source_language_manager_set_property (GObject 	*object,
@@ -151,28 +147,30 @@ gtk_source_language_manager_class_init (GtkSourceLanguageManagerClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_SEARCH_PATH,
 					 g_param_spec_boxed ("search-path",
-						 	     "Language specification directories",
-							     "List of directories where the "
-							     "language specification files (.lang) "
-							     "are located",
+						 	     _("Language specification directories"),
+							     _("List of directories where the "
+							       "language specification files (.lang) "
+							       "are located"),
 							     G_TYPE_STRV,
-							     G_PARAM_READWRITE |
-							     G_PARAM_STATIC_STRINGS));
+							     G_PARAM_READWRITE));
 
 	g_object_class_install_property (object_class,
 					 PROP_LANGUAGE_IDS,
 					 g_param_spec_boxed ("language-ids",
-						 	     "Language ids",
-							     "List of the ids of the available languages",
+						 	     _("Language ids"),
+							     _("List of the ids of the available "
+							       "languages"),
 							     G_TYPE_STRV,
-							     G_PARAM_READABLE |
-							     G_PARAM_STATIC_STRINGS));
+							     G_PARAM_READABLE));
+
+	g_type_class_add_private (object_class, sizeof(GtkSourceLanguageManagerPrivate));
 }
 
 static void
 gtk_source_language_manager_init (GtkSourceLanguageManager *lm)
 {
-	lm->priv = gtk_source_language_manager_get_instance_private (lm);
+	lm->priv = G_TYPE_INSTANCE_GET_PRIVATE (lm, GTK_SOURCE_TYPE_LANGUAGE_MANAGER,
+						GtkSourceLanguageManagerPrivate);
 	lm->priv->language_ids = NULL;
 	lm->priv->ids = NULL;
 	lm->priv->lang_dirs = NULL;
@@ -205,20 +203,16 @@ gtk_source_language_manager_new (void)
 GtkSourceLanguageManager *
 gtk_source_language_manager_get_default (void)
 {
-	if (default_instance == NULL)
+	static GtkSourceLanguageManager *instance;
+
+	if (instance == NULL)
 	{
-		default_instance = gtk_source_language_manager_new ();
-		g_object_add_weak_pointer (G_OBJECT (default_instance),
-					   (gpointer) &default_instance);
+		instance = gtk_source_language_manager_new ();
+		g_object_add_weak_pointer (G_OBJECT (instance),
+					   (gpointer) &instance);
 	}
 
-	return default_instance;
-}
-
-GtkSourceLanguageManager *
-_gtk_source_language_manager_peek_default (void)
-{
-	return default_instance;
+	return instance;
 }
 
 static void
@@ -231,7 +225,7 @@ notify_search_path (GtkSourceLanguageManager *mgr)
 /**
  * gtk_source_language_manager_set_search_path:
  * @lm: a #GtkSourceLanguageManager.
- * @dirs: (nullable) (array zero-terminated=1):
+ * @dirs: (allow-none) (array zero-terminated=1):
  * a %NULL-terminated array of strings or %NULL.
  *
  * Sets the list of directories where the @lm looks for
@@ -415,10 +409,11 @@ ensure_languages (GtkSourceLanguageManager *lm)
  *
  * Returns the ids of the available languages.
  *
- * Returns: (nullable) (array zero-terminated=1) (transfer none):
- * a %NULL-terminated array of strings containing the ids of the available
- * languages or %NULL if no language is available.
- * The array is sorted alphabetically according to the language name.
+ * Returns: (transfer none): a %NULL-terminated array of string
+ * containing the ids of the available languages or %NULL if
+ * no language is available.
+ * The array is sorted alphabetically according to the language
+ * name.
  * The array is owned by @lm and must not be modified.
  */
 const gchar * const *
@@ -439,9 +434,9 @@ gtk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
  * Gets the #GtkSourceLanguage identified by the given @id in the language
  * manager.
  *
- * Returns: (nullable) (transfer none): a #GtkSourceLanguage, or %NULL
- * if there is no language identified by the given @id. Return value is
- * owned by @lm and should not be freed.
+ * Returns: (transfer none): a #GtkSourceLanguage, or %NULL if there is no language
+ * identified by the given @id. Return value is owned by @lm and should not
+ * be freed.
  */
 GtkSourceLanguage *
 gtk_source_language_manager_get_language (GtkSourceLanguageManager *lm,
@@ -602,8 +597,8 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
 /**
  * gtk_source_language_manager_guess_language:
  * @lm: a #GtkSourceLanguageManager.
- * @filename: (nullable): a filename in Glib filename encoding, or %NULL.
- * @content_type: (nullable): a content type (as in GIO API), or %NULL.
+ * @filename: (allow-none): a filename in Glib filename encoding, or %NULL.
+ * @content_type: (allow-none): a content type (as in GIO API), or %NULL.
  *
  * Picks a #GtkSourceLanguage for given file name and content type,
  * according to the information in lang files. Either @filename or
@@ -638,9 +633,9 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
  * etc. Use gtk_source_language_get_mime_types() and gtk_source_language_get_globs()
  * if you need full control over file -> language mapping.
  *
- * Returns: (nullable) (transfer none): a #GtkSourceLanguage, or %NULL if there
- * is no suitable language for given @filename and/or @content_type. Return
- * value is owned by @lm and should not be freed.
+ * Returns: (transfer none): a #GtkSourceLanguage, or %NULL if there is no suitable language
+ * for given @filename and/or @content_type. Return value is owned by @lm
+ * and should not be freed.
  *
  * Since: 2.4
  */

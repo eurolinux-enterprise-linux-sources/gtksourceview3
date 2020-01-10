@@ -1,10 +1,8 @@
 TESTS = check-language.sh
 
 LANGUAGES =			\
-	abnf.lang		\
 	actionscript.lang	\
 	ada.lang		\
-	ansforth94.lang		\
 	asp.lang		\
 	automake.lang		\
 	awk.lang		\
@@ -12,17 +10,15 @@ LANGUAGES =			\
 	bibtex.lang		\
 	bluespec.lang		\
 	boo.lang		\
-	cg.lang			\
 	changelog.lang		\
-	chdr.lang		\
 	c.lang			\
+	cg.lang			\
+	chdr.lang		\
 	cmake.lang		\
 	cobol.lang		\
-	cpphdr.lang		\
 	cpp.lang		\
 	csharp.lang		\
 	css.lang		\
-	csv.lang		\
 	cuda.lang		\
 	def.lang		\
 	desktop.lang		\
@@ -33,7 +29,6 @@ LANGUAGES =			\
 	dot.lang		\
 	dpatch.lang		\
 	dtd.lang		\
-	dtl.lang		\
 	eiffel.lang		\
 	erlang.lang		\
 	fcl.lang		\
@@ -42,43 +37,30 @@ LANGUAGES =			\
 	fsharp.lang		\
 	gap.lang		\
 	gdb-log.lang		\
-	genie.lang		\
 	glsl.lang		\
 	go.lang			\
-	groovy.lang		\
 	gtk-doc.lang		\
 	gtkrc.lang		\
 	haddock.lang		\
 	haskell.lang		\
 	haskell-literate.lang	\
-	haxe.lang		\
 	html.lang		\
-	idl-exelis.lang		\
 	idl.lang		\
+	idl-exelis.lang		\
 	imagej.lang		\
 	ini.lang		\
-	jade.lang		\
+	j.lang			\
 	java.lang		\
 	javascript.lang		\
-	j.lang			\
 	json.lang		\
-	julia.lang		\
-	kotlin.lang		\
 	latex.lang		\
-	less.lang		\
-	lex.lang		\
 	libtool.lang		\
-	llvm.lang		\
-	logcat.lang		\
 	lua.lang		\
 	m4.lang			\
 	makefile.lang		\
 	mallard.lang		\
 	markdown.lang		\
 	matlab.lang		\
-	maxima.lang		\
-	mediawiki.lang		\
-	meson.lang		\
 	modelica.lang		\
 	mxml.lang		\
 	nemerle.lang		\
@@ -95,53 +77,37 @@ LANGUAGES =			\
 	pascal.lang		\
 	perl.lang		\
 	php.lang		\
-	pig.lang		\
 	pkgconfig.lang		\
 	po.lang			\
+	python.lang		\
+	python3.lang		\
 	prolog.lang		\
 	protobuf.lang		\
 	puppet.lang		\
-	python3.lang		\
-	python.lang		\
 	R.lang			\
 	rpmspec.lang		\
-	rst.lang		\
 	ruby.lang		\
-	rust.lang		\
-	scala.lang		\
 	scheme.lang		\
 	scilab.lang		\
-	scss.lang		\
 	sh.lang			\
 	sml.lang		\
 	sparql.lang		\
 	sql.lang		\
-	sweave.lang		\
-	swift.lang		\
 	systemverilog.lang	\
 	t2t.lang		\
 	tcl.lang		\
-	tera.lang		\
 	texinfo.lang		\
-	thrift.lang		\
-	toml.lang		\
 	vala.lang		\
 	vbnet.lang		\
 	verilog.lang		\
 	vhdl.lang		\
 	xml.lang		\
 	xslt.lang		\
-	yacc.lang		\
-	yaml.lang
+	yacc.lang
 
-languagesdir = $(datadir)/gtksourceview-@GSV_API_VERSION@/language-specs
+languagesdir = $(datadir)/gtksourceview-3.0/language-specs
 languages_DATA = $(LANGUAGES) language.rng language2.rng language.dtd
 
-EXTRA_DIST =			\
-	$(languages_DATA)	\
-	check-language.sh	\
-	language-specs.its	\
-	language-specs.pot	\
-	update-pot.sh
+EXTRA_DIST = $(languages_DATA) check-language.sh
 
 -include $(top_srcdir)/git.mk

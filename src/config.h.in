@@ -1,16 +1,17 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Defined if native language support should be enabled. */
+/* Define to 1 if translation of program messages to the user's native
+   language is requested. */
 #undef ENABLE_NLS
 
 /* Define to the gettext package name. */
 #undef GETTEXT_PACKAGE
 
-/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+/* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
    CoreFoundation framework. */
 #undef HAVE_CFLOCALECOPYCURRENT
 
-/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+/* Define to 1 if you have the MacOS X function CFPreferencesCopyAppValue in
    the CoreFoundation framework. */
 #undef HAVE_CFPREFERENCESCOPYAPPVALUE
 
@@ -54,7 +55,8 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
 #undef LT_OBJDIR
 
 /* Defined if os is Mac OSX */
@@ -86,6 +88,3 @@
 
 /* Version number of package */
 #undef VERSION
-
-/* defines how to decorate public symbols while building */
-#undef _GTK_SOURCE_EXTERN

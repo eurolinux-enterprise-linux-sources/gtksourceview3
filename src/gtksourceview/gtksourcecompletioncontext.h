@@ -19,16 +19,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef GTK_SOURCE_COMPLETION_CONTEXT_H
-#define GTK_SOURCE_COMPLETION_CONTEXT_H
-
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#  if defined (__GNUC__)
-#    warning "Only <gtksourceview/gtksource.h> can be included directly."
-#  elif defined (G_OS_WIN32)
-#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
-#  endif
-#endif
+#ifndef __GTK_SOURCE_COMPLETION_CONTEXT_H__
+#define __GTK_SOURCE_COMPLETION_CONTEXT_H__
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
@@ -55,7 +47,7 @@ typedef struct _GtkSourceCompletionContextPrivate	GtkSourceCompletionContextPriv
  * By default, it occurs when the user presses
  * <keycombo><keycap>Control</keycap><keycap>space</keycap></keycombo>.
  */
-typedef enum _GtkSourceCompletionActivation
+typedef enum
 {
 	GTK_SOURCE_COMPLETION_ACTIVATION_NONE = 0,
 	GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE = 1 << 0,
@@ -79,31 +71,25 @@ struct _GtkSourceCompletionContextClass {
 	void (*_gtk_source_reserved3) (void);
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
-GType		 gtk_source_completion_context_get_type (void) G_GNUC_CONST;
+GType gtk_source_completion_context_get_type (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_context_add_proposals 	(GtkSourceCompletionContext   *context,
+void 		 gtk_source_completion_context_add_proposals 	(GtkSourceCompletionContext   *context,
 								 GtkSourceCompletionProvider  *provider,
 								 GList                        *proposals,
 								 gboolean                      finished);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_context_get_iter		(GtkSourceCompletionContext   *context,
+void		 gtk_source_completion_context_get_iter		(GtkSourceCompletionContext   *context,
 								 GtkTextIter                  *iter);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionActivation
 		 gtk_source_completion_context_get_activation	(GtkSourceCompletionContext   *context);
 
-G_GNUC_INTERNAL
 GtkSourceCompletionContext *
 		_gtk_source_completion_context_new		(GtkSourceCompletion          *completion,
 								 GtkTextIter                  *position);
 
-G_GNUC_INTERNAL
 void		_gtk_source_completion_context_cancel		(GtkSourceCompletionContext   *context);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_CONTEXT_H */
+#endif /* __GTK_SOURCE_COMPLETION_CONTEXT_H__ */

@@ -125,15 +125,14 @@
     </attribute>
   </optional>
   <optional>
-    <attribute name="underline"/>
+    <attribute name="underline">
+      <ref name="boolean-value"/>
+    </attribute>
   </optional>
   <optional>
     <attribute name="strikethrough">
       <ref name="boolean-value"/>
     </attribute>
-  </optional>
-  <optional>
-    <attribute name="scale"/>
   </optional>
 </define>
 

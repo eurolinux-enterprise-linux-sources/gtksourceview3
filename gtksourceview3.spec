@@ -1,30 +1,23 @@
-%global glib_version 2.48
-%global gtk_version 3.20
+%define gtk_version 3.0.0
 
-%global po_package gtksourceview-3.0
+%define po_package gtksourceview-3.0
 
-Name: gtksourceview3
-Version: 3.24.8
-Release: 1%{?dist}
 Summary: A library for viewing source files
-
-License: LGPLv2+
-URL: https://wiki.gnome.org/Projects/GtkSourceView
-Source0: https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-%{version}.tar.xz
-
-BuildRequires: pkgconfig(gdk-pixbuf-2.0)
-BuildRequires: pkgconfig(gladeui-2.0)
-BuildRequires: pkgconfig(gobject-introspection-1.0)
-BuildRequires: pkgconfig(glib-2.0) >= %{glib_version}
-BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk_version}
-BuildRequires: pkgconfig(libxml-2.0)
-BuildRequires: pkgconfig(pango)
+Name: gtksourceview3
+Version: 3.8.1
+Release: 2%{?dist}
+License: LGPLv2+ and GPLv2+
+# the library itself is LGPL, some .lang files are GPL
+Group: System Environment/Libraries
+URL: http://gtksourceview.sourceforge.net/
+#VCS: git:git://git.gnome.org/gtksourceview
+Source0: http://download.gnome.org/sources/gtksourceview/3.8/gtksourceview-%{version}.tar.xz
+BuildRequires: libxml2-devel
+BuildRequires: gtk3-devel >= %{gtk_version}
+BuildRequires: glade-devel
+BuildRequires: intltool >= 0.35
 BuildRequires: gettext
-BuildRequires: itstool
-BuildRequires: vala
-
-Requires: glib2%{?_isa} >= %{glib_version}
-Requires: gtk3%{?_isa} >= %{gtk_version}
+BuildRequires: gobject-introspection-devel
 
 %description
 GtkSourceView is a text widget that extends the standard GTK+
@@ -36,34 +29,30 @@ This package contains version 3 of GtkSourceView. The older version
 
 %package devel
 Summary: Files to compile applications that use gtksourceview3
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+Requires: gtk3-devel >= %{gtk_version}
+Requires: libxml2-devel
 
 %description devel
 gtksourceview3-devel contains the files required to compile
 applications which use GtkSourceView 3.
 
-%package tests
-Summary: Tests for the gtksourceview3 package
-Requires: %{name}%{?_isa} = %{version}-%{release}
-
-%description tests
-The gtksourceview3-tests package contains tests that can be used to verify
-the functionality of the installed gtksourceview package.
-
 %prep
 %setup -q -n gtksourceview-%{version}
 
 %build
-%configure --disable-gtk-doc --disable-static --enable-glade-catalog \
- --enable-installed-tests
+%configure --disable-gtk-doc --disable-static --enable-glade-catalog
 
 make %{?_smp_mflags}
 
 %install
-%make_install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 # remove unwanted files
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+rm -f $RPM_BUILD_ROOT%{_datadir}/gtksourceview-3.0/language-specs/check.sh
+rm -f $RPM_BUILD_ROOT%{_datadir}/gtksourceview-3.0/language-specs/convert.py
 
 %find_lang %{po_package}
 
@@ -72,13 +61,14 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %postun -p /sbin/ldconfig
 
 %files -f %{po_package}.lang
-%doc README AUTHORS NEWS MAINTAINERS
-%license COPYING
+%defattr(-,root,root,-)
+%doc README AUTHORS COPYING NEWS MAINTAINERS
 %{_datadir}/gtksourceview-3.0
 %{_libdir}/*.so.*
 %{_libdir}/girepository-1.0/GtkSource-3.0.typelib
 
 %files devel
+%defattr(-,root,root,-)
 %{_includedir}/gtksourceview-3.0
 %{_datadir}/gtk-doc/html/*
 %{_libdir}/pkgconfig/*.pc
@@ -87,38 +77,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %dir %{_datadir}/glade
 %dir %{_datadir}/glade/catalogs
 %{_datadir}/glade/catalogs/gtksourceview.xml
-%dir %{_datadir}/vala
-%dir %{_datadir}/vala/vapi
-%{_datadir}/vala/vapi/gtksourceview-3.0.deps
-%{_datadir}/vala/vapi/gtksourceview-3.0.vapi
-
-%files tests
-%{_libexecdir}/installed-tests/gtksourceview-3.0/
-%{_datadir}/installed-tests/gtksourceview-3.0/
 
 %changelog
-* Tue Jun 26 2018 Kalev Lember <klember@redhat.com> - 3.24.8-1
-- Update to 3.24.8
-- Resolves: #1569278
-
-* Wed Mar 14 2018 Kalev Lember <klember@redhat.com> - 3.24.7-1
-- Update to 3.24.7
-- Resolves: #1569278
-
-* Sun Nov 27 2016 Kalev Lember <klember@redhat.com> - 3.22.2-1
-- Update to 3.22.2
-- Resolves: #1386983
-
-* Thu Jan 08 2015 David King <amigadave@amigadave.com> - 3.14.3-1
-- Update to 3.14.3
-- Resolves: #1174500
-
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.8.1-4
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.8.1-3
-- Mass rebuild 2013-12-27
-
 * Mon May 13 2013 Matthias Clasen <mclasen@redhat.com> - 3.8.1-2
 - Install a glade catalog
 

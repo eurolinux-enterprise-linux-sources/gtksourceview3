@@ -16,22 +16,14 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef GTK_SOURCE_UNDO_MANAGER_H
-#define GTK_SOURCE_UNDO_MANAGER_H
-
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#  if defined (__GNUC__)
-#    warning "Only <gtksourceview/gtksource.h> can be included directly."
-#  elif defined (G_OS_WIN32)
-#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
-#  endif
-#endif
+#ifndef __GTK_SOURCE_UNDO_MANAGER_H__
+#define __GTK_SOURCE_UNDO_MANAGER_H__
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
@@ -64,33 +56,22 @@ struct _GtkSourceUndoManagerIface
 	void     (*can_redo_changed)          (GtkSourceUndoManager *manager);
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 GType     gtk_source_undo_manager_get_type                  (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean  gtk_source_undo_manager_can_undo                  (GtkSourceUndoManager *manager);
-
-GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean  gtk_source_undo_manager_can_redo                  (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_undo                      (GtkSourceUndoManager *manager);
-
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_redo                      (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager);
-
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_end_not_undoable_action   (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_can_undo_changed          (GtkSourceUndoManager *manager);
-
-GTK_SOURCE_AVAILABLE_IN_ALL
 void      gtk_source_undo_manager_can_redo_changed          (GtkSourceUndoManager *manager);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_UNDO_MANAGER_H */
+#endif /* __GTK_SOURCE_UNDO_MANAGER_H__ */
+
+

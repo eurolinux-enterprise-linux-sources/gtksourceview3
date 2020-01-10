@@ -23,9 +23,70 @@
 #include <config.h>
 #endif
 
+#ifdef OS_OSX
+#include <gtkosxapplication.h>
+#endif
+
 #include <string.h>
 
 #include "gtksourceview-i18n.h"
+
+static gchar *
+get_locale_dir (void)
+{
+	gchar *locale_dir;
+
+#ifdef G_OS_WIN32
+	gchar *win32_dir;
+
+	win32_dir = g_win32_get_package_installation_directory_of_module (NULL);
+
+	locale_dir = g_build_filename (win32_dir, "share", "locale", NULL);
+
+	g_free (win32_dir);
+#elif defined (OS_OSX)
+	if (gtkosx_application_get_bundle_id () != NULL)
+	{
+		locale_dir = g_build_filename (gtkosx_application_get_resource_path (), "share", "locale", NULL);
+	}
+	else
+	{
+		locale_dir = g_build_filename (DATADIR, "locale", NULL);
+	}
+#else
+	locale_dir = g_build_filename (DATADIR, "locale", NULL);
+#endif
+
+	return locale_dir;
+}
+
+/*
+ * Small hack since we don't have a proper place where
+ * do gettext initialization.
+ */
+const gchar *
+_gtksourceview_gettext (const gchar *msgid)
+{
+	static gboolean initialized = FALSE;
+
+	G_GNUC_UNUSED const char translator_credits[] = N_("translator-credits");
+	/* above is a dummy variable to get the string into po files */
+
+	if (G_UNLIKELY (!initialized))
+	{
+		gchar *locale_dir;
+
+		locale_dir = get_locale_dir ();
+
+		bindtextdomain (GETTEXT_PACKAGE, locale_dir);
+		g_free (locale_dir);
+
+		bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+		initialized = TRUE;
+	}
+
+	return g_dgettext (GETTEXT_PACKAGE, msgid);
+}
 
 /**
  * _gtksourceview_dgettext:
@@ -33,36 +94,39 @@
  * Try to translate string from given domain. It returns
  * duplicated string which must be freed with g_free().
  */
-gchar *
-_gtksourceview_dgettext (const gchar *domain,
-                         const gchar *string)
-{
 #ifdef ENABLE_NLS
-	const gchar *translated;
+char *
+_gtksourceview_dgettext (const char *domain,
+                         const char *string)
+{
 	gchar *tmp;
+	const gchar *translated;
 
 	g_return_val_if_fail (string != NULL, NULL);
 
 	if (domain == NULL)
-	{
-		return g_strdup (_(string));
-	}
+		return g_strdup (_gtksourceview_gettext (string));
 
 	translated = dgettext (domain, string);
 
-	if (g_strcmp0 (translated, string) == 0)
-	{
-		return g_strdup (_(string));
-	}
+	if (strcmp (translated, string) == 0)
+		return g_strdup (_gtksourceview_gettext (string));
 
 	if (g_utf8_validate (translated, -1, NULL))
-	{
 		return g_strdup (translated);
-	}
 
 	tmp = g_locale_to_utf8 (translated, -1, NULL, NULL, NULL);
-	return tmp != NULL ? tmp : g_strdup (string);
-#else
-	return g_strdup (string);
-#endif
+
+	if (tmp == NULL)
+		return g_strdup (string);
+	else
+		return tmp;
 }
+#else
+char *
+_gtksourceview_dgettext (const char *domain,
+                         const char *string)
+{
+	return g_strdup (string);
+}
+#endif
