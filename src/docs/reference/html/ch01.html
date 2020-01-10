@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>API reference: GtkSourceView 3 Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
+<link rel="up" href="index.html" title="GtkSourceView 3 Reference Manual">
+<link rel="prev" href="index.html" title="GtkSourceView 3 Reference Manual">
+<link rel="next" href="GtkSourceBuffer.html" title="GtkSourceBuffer">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><img src="up-insensitive.png" width="16" height="16" border="0"></td>
+<td><a accesskey="p" href="index.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkSourceBuffer.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="id-1.2"></a>API reference</h1></div></div></div>
+<div class="toc"><dl class="toc">
+<dt>
+<span class="refentrytitle"><a href="GtkSourceBuffer.html">GtkSourceBuffer</a></span><span class="refpurpose"> — Buffer object for GtkSourceView</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletion.html">GtkSourceCompletion</a></span><span class="refpurpose"> — Main Completion Object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionContext.html">GtkSourceCompletionContext</a></span><span class="refpurpose"> — The context of a completion</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionInfo.html">GtkSourceCompletionInfo</a></span><span class="refpurpose"> — Calltips object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionItem.html">GtkSourceCompletionItem</a></span><span class="refpurpose"> — Simple implementation of GtkSourceCompletionProposal</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionProposal.html">GtkSourceCompletionProposal</a></span><span class="refpurpose"> — Completion proposal interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionProvider.html">GtkSourceCompletionProvider</a></span><span class="refpurpose"> — Completion provider interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceCompletionWords.html">GtkSourceCompletionWords</a></span><span class="refpurpose"> — A GtkSourceCompletionProvider for the completion of words</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceEncoding.html">GtkSourceEncoding</a></span><span class="refpurpose"> — Character encoding</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceFile.html">GtkSourceFile</a></span><span class="refpurpose"> — On-disk representation of a GtkSourceBuffer</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceFileLoader.html">GtkSourceFileLoader</a></span><span class="refpurpose"> — Load a file into a GtkSourceBuffer</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceFileSaver.html">GtkSourceFileSaver</a></span><span class="refpurpose"> — Save a GtkSourceBuffer into a file</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceGutter.html">GtkSourceGutter</a></span><span class="refpurpose"> — Gutter object for GtkSourceView</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceGutterRenderer.html">GtkSourceGutterRenderer</a></span><span class="refpurpose"> — Gutter cell renderer</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceGutterRendererPixbuf.html">GtkSourceGutterRendererPixbuf</a></span><span class="refpurpose"> — Renders a pixbuf in the gutter</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceGutterRendererText.html">GtkSourceGutterRendererText</a></span><span class="refpurpose"> — Renders text in the gutter</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceLanguage.html">GtkSourceLanguage</a></span><span class="refpurpose"> — Object representing a syntax highlighted language</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceLanguageManager.html">GtkSourceLanguageManager</a></span><span class="refpurpose"> — Object which provides access to GtkSourceLanguages</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceMark.html">GtkSourceMark</a></span><span class="refpurpose"> — Mark object for GtkSourceBuffer</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceMarkAttributes.html">GtkSourceMarkAttributes</a></span><span class="refpurpose"> — The source mark attributes object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourcePrintCompositor.html">GtkSourcePrintCompositor</a></span><span class="refpurpose"> — Compose a GtkSourceBuffer for printing</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceSearchContext.html">GtkSourceSearchContext</a></span><span class="refpurpose"> — Search context</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceSearchSettings.html">GtkSourceSearchSettings</a></span><span class="refpurpose"> — Search settings</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceStyle.html">GtkSourceStyle</a></span><span class="refpurpose"> — Object representyng a style</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceStyleScheme.html">GtkSourceStyleScheme</a></span><span class="refpurpose"> — Object controlling the appearance of GtkSourceView</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceStyleSchemeManager.html">GtkSourceStyleSchemeManager</a></span><span class="refpurpose"> — Object which provides access to GtkSourceStyleSchemes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceUndoManager.html">GtkSourceUndoManager</a></span><span class="refpurpose"> — Undo manager interface for GtkSourceView</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="gtksourceview-3.0-GtkSourceUtils.html">GtkSourceUtils</a></span><span class="refpurpose"> — Utilities functions</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkSourceView.html">GtkSourceView</a></span><span class="refpurpose"> — The view object</span>
+</dt>
+</dl></div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>
