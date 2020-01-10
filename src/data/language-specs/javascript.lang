@@ -51,7 +51,7 @@
   <definitions>
 
     <!--regex-->
-    <define-regex id="regex-opts">[iomx]*[neus]?[iomx]*</define-regex>
+    <define-regex id="regex-opts">[gim]*</define-regex>
 
     <!--contexts NOT used in the main context-->
     <context id="escape" style-ref="escape">
@@ -73,7 +73,8 @@
           [^/]*
           \/
           \%{regex-opts}
-          ([),;.]|\s|$)
+          \s*
+          ([),;.\/\]:}]|$)
         )</start>
       <end>\/\%{regex-opts}</end>
       <include>
@@ -133,6 +134,10 @@
       <keyword>void</keyword>
       <keyword>while</keyword>
       <keyword>with</keyword>
+      <keyword>class</keyword>
+      <keyword>extends</keyword>
+      <keyword>super</keyword>
+      <keyword>static</keyword>
     </context>
 
     <context id="unofficial-keywords" style-ref="keyword">
@@ -293,10 +298,7 @@
     </context>
 
     <context id="future-words" style-ref="future-words">
-      <keyword>class</keyword>
       <keyword>enum</keyword>
-      <keyword>extends</keyword>
-      <keyword>super</keyword>
 
       <!-- in strict mode -->
       <keyword>implements</keyword>
@@ -305,7 +307,17 @@
       <keyword>private</keyword>
       <keyword>protected</keyword>
       <keyword>public</keyword>
-      <keyword>static</keyword>
+    </context>
+
+    <context id="template-string" style-ref="string">
+      <start>`</start>
+      <end>`</end>
+      <include>
+        <context id="template-expression" style-ref="function">
+          <start>\$\{</start>
+          <end>\}</end>
+        </context>
+      </include>
     </context>
 
     <!--main context-->
@@ -316,6 +328,7 @@
         <context ref="def:c-like-close-comment-outside-comment"/>
         <context ref="def:string" style-ref="string"/>
         <context ref="def:single-quoted-string" style-ref="string"/>
+        <context ref="template-string"/>
         <context ref="def:float"/>
         <context ref="def:decimal"/>
         <context ref="def:octal"/>

@@ -19,13 +19,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcestyle.h"
 #include "gtksourcestyle-private.h"
 #include "gtksourceview-i18n.h"
 
 /**
  * SECTION:style
- * @Short_description: Object representyng a style
+ * @Short_description: Represents a style
  * @Title: GtkSourceStyle
  * @See_also: #GtkSourceStyleScheme, #GtkSourceStyleSchemeManager
  *
@@ -45,7 +49,7 @@ static void	gtk_source_style_get_property	(GObject      *object,
 
 struct _GtkSourceStyleClass
 {
-  GObjectClass parent_class;
+	GObjectClass parent_class;
 };
 
 G_DEFINE_TYPE (GtkSourceStyle, gtk_source_style, G_TYPE_OBJECT)
@@ -64,11 +68,14 @@ enum
 	PROP_ITALIC,
 	PROP_ITALIC_SET,
 	PROP_UNDERLINE,
+	PROP_PANGO_UNDERLINE,
 	PROP_UNDERLINE_SET,
 	PROP_STRIKETHROUGH,
 	PROP_STRIKETHROUGH_SET,
 	PROP_SCALE,
-	PROP_SCALE_SET
+	PROP_SCALE_SET,
+	PROP_UNDERLINE_COLOR,
+	PROP_UNDERLINE_COLOR_SET
 };
 
 static void
@@ -86,128 +93,158 @@ gtk_source_style_class_init (GtkSourceStyleClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_LINE_BACKGROUND,
 					 g_param_spec_string ("line-background",
-							      _("Line background"),
-							      _("Line background color"),
+							      "Line background",
+							      "Line background color",
 							      NULL,
 							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_BACKGROUND,
 					 g_param_spec_string ("background",
-							      _("Background"),
-							      _("Background color"),
+							      "Background",
+							      "Background color",
 							      NULL,
 							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_FOREGROUND,
 					 g_param_spec_string ("foreground",
-							      _("Foreground"),
-							      _("Foreground color"),
+							      "Foreground",
+							      "Foreground color",
 							      NULL,
 							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_BOLD,
 					 g_param_spec_boolean ("bold",
-							       _("Bold"),
-							       _("Bold"),
+							       "Bold",
+							       "Bold",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_ITALIC,
 					 g_param_spec_boolean ("italic",
-							       _("Italic"),
-							       _("Italic"),
+							       "Italic",
+							       "Italic",
+							       FALSE,
+							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+
+	/**
+	 * GtkSourceStyle:underline
+	 *
+	 * Deprecated: 3.18: Use pango-underline.
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_UNDERLINE,
+					 g_param_spec_boolean ("underline",
+							       "Underline",
+							       "Underline",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
-					 PROP_UNDERLINE,
-					 g_param_spec_boolean ("underline",
-							       _("Underline"),
-							       _("Underline"),
-							       FALSE,
-							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+					 PROP_PANGO_UNDERLINE,
+					 g_param_spec_enum ("pango-underline",
+							    "Pango Underline",
+							    "Pango Underline",
+							    PANGO_TYPE_UNDERLINE,
+							    PANGO_UNDERLINE_NONE,
+							    G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_STRIKETHROUGH,
 					 g_param_spec_boolean ("strikethrough",
-							       _("Strikethrough"),
-							       _("Strikethrough"),
+							       "Strikethrough",
+							       "Strikethrough",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_SCALE,
 					 g_param_spec_string ("scale",
-							      _("Scale"),
-							      _("Text scale factor"),
+							      "Scale",
+							      "Text scale factor",
+							      NULL,
+							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+
+	g_object_class_install_property (object_class,
+					 PROP_UNDERLINE_COLOR,
+					 g_param_spec_string ("underline-color",
+							      "Underline Color",
+							      "Underline color",
 							      NULL,
 							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_LINE_BACKGROUND_SET,
 					 g_param_spec_boolean ("line-background-set",
-							       _("Line background set"),
-							       _("Whether line background color is set"),
+							       "Line background set",
+							       "Whether line background color is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_FOREGROUND_SET,
 					 g_param_spec_boolean ("foreground-set",
-							       _("Foreground set"),
-							       _("Whether foreground color is set"),
+							       "Foreground set",
+							       "Whether foreground color is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_BACKGROUND_SET,
 					 g_param_spec_boolean ("background-set",
-							       _("Background set"),
-							       _("Whether background color is set"),
+							       "Background set",
+							       "Whether background color is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_BOLD_SET,
 					 g_param_spec_boolean ("bold-set",
-							       _("Bold set"),
-							       _("Whether bold attribute is set"),
+							       "Bold set",
+							       "Whether bold attribute is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_ITALIC_SET,
 					 g_param_spec_boolean ("italic-set",
-							       _("Italic set"),
-							       _("Whether italic attribute is set"),
+							       "Italic set",
+							       "Whether italic attribute is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_UNDERLINE_SET,
 					 g_param_spec_boolean ("underline-set",
-							       _("Underline set"),
-							       _("Whether underline attribute is set"),
+							       "Underline set",
+							       "Whether underline attribute is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_STRIKETHROUGH_SET,
 					 g_param_spec_boolean ("strikethrough-set",
-							       _("Strikethrough set"),
-							       _("Whether strikethrough attribute is set"),
+							       "Strikethrough set",
+							       "Whether strikethrough attribute is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	g_object_class_install_property (object_class,
 					 PROP_SCALE_SET,
 					 g_param_spec_boolean ("scale-set",
-							       _("Scale set"),
-							       _("Whether scale attribute is set"),
+							       "Scale set",
+							       "Whether scale attribute is set",
+							       FALSE,
+							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+
+	g_object_class_install_property (object_class,
+					 PROP_UNDERLINE_COLOR_SET,
+					 g_param_spec_boolean ("underline-color-set",
+							       "Underline color set",
+							       "Whether underline color attribute is set",
 							       FALSE,
 							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 }
@@ -298,7 +335,12 @@ gtk_source_style_set_property (GObject      *object,
 			break;
 
 		case PROP_UNDERLINE:
-			style->underline = g_value_get_boolean (value) != 0;
+			style->underline = g_value_get_boolean (value) ? PANGO_UNDERLINE_SINGLE : PANGO_UNDERLINE_NONE;
+			SET_MASK (style, UNDERLINE);
+			break;
+
+		case PROP_PANGO_UNDERLINE:
+			style->underline = (PangoUnderline) g_value_get_enum (value);
 			SET_MASK (style, UNDERLINE);
 			break;
 
@@ -318,6 +360,20 @@ gtk_source_style_set_property (GObject      *object,
 			{
 				style->scale = NULL;
 				UNSET_MASK (style, SCALE);
+			}
+			break;
+
+		case PROP_UNDERLINE_COLOR:
+			string = g_value_get_string (value);
+			if (string != NULL)
+			{
+				style->underline_color = g_intern_string (string);
+				SET_MASK (style, UNDERLINE_COLOR);
+			}
+			else
+			{
+				style->underline_color = NULL;
+				UNSET_MASK (style, UNDERLINE_COLOR);
 			}
 			break;
 
@@ -348,8 +404,13 @@ gtk_source_style_set_property (GObject      *object,
 		case PROP_STRIKETHROUGH_SET:
 			MODIFY_MASK (style, value, STRIKETHROUGH);
 			break;
+
 		case PROP_SCALE_SET:
 			MODIFY_MASK (style, value, SCALE);
+			break;
+
+		case PROP_UNDERLINE_COLOR_SET:
+			MODIFY_MASK (style, value, UNDERLINE_COLOR);
 			break;
 
 		default:
@@ -389,14 +450,23 @@ gtk_source_style_get_property (GObject      *object,
 			break;
 
 		case PROP_UNDERLINE:
-			g_value_set_boolean (value, style->underline);
+			g_value_set_boolean (value, style->underline != PANGO_UNDERLINE_NONE);
+			break;
+
+		case PROP_PANGO_UNDERLINE:
+			g_value_set_enum (value, style->underline);
 			break;
 
 		case PROP_STRIKETHROUGH:
 			g_value_set_boolean (value, style->strikethrough);
 			break;
+
 		case PROP_SCALE:
 			g_value_set_string (value, style->scale);
+			break;
+
+		case PROP_UNDERLINE_COLOR:
+			g_value_set_string (value, style->underline_color);
 			break;
 
 		case PROP_FOREGROUND_SET:
@@ -426,8 +496,13 @@ gtk_source_style_get_property (GObject      *object,
 		case PROP_STRIKETHROUGH_SET:
 			GET_MASK (style, value, STRIKETHROUGH);
 			break;
+
 		case PROP_SCALE_SET:
 			GET_MASK (style, value, SCALE);
+			break;
+
+		case PROP_UNDERLINE_COLOR_SET:
+			GET_MASK (style, value, UNDERLINE_COLOR);
 			break;
 
 		default:
@@ -463,6 +538,7 @@ gtk_source_style_copy (const GtkSourceStyle *style)
 	copy->italic = style->italic;
 	copy->bold = style->bold;
 	copy->underline = style->underline;
+	copy->underline_color = style->underline_color;
 	copy->strikethrough = style->strikethrough;
 	copy->mask = style->mask;
 	copy->scale = style->scale;
@@ -471,20 +547,23 @@ gtk_source_style_copy (const GtkSourceStyle *style)
 }
 
 /**
- * _gtk_source_style_apply:
- * @style: (allow-none): a #GtkSourceStyle to apply.
+ * gtk_source_style_apply:
+ * @style: (nullable): a #GtkSourceStyle to apply, or %NULL.
  * @tag: a #GtkTextTag to apply styles to.
  *
- * Applies text styles set in @style if it's not %NULL, or
- * unsets style fields in @tag set with _gtk_source_style_apply()
- * if @style is %NULL. Note that it does not touch fields which
- * are not set in @style. To reset everything use @style == %NULL.
+ * This function modifies the #GtkTextTag properties that are related to the
+ * #GtkSourceStyle properties. Other #GtkTextTag properties are left untouched.
  *
- * Since: 2.0
+ * If @style is non-%NULL, applies @style to @tag.
+ *
+ * If @style is %NULL, the related *-set properties of #GtkTextTag are set to
+ * %FALSE.
+ *
+ * Since: 3.22
  */
 void
-_gtk_source_style_apply (const GtkSourceStyle *style,
-			 GtkTextTag           *tag)
+gtk_source_style_apply (const GtkSourceStyle *style,
+			GtkTextTag           *tag)
 {
 	g_return_if_fail (GTK_IS_TEXT_TAG (tag));
 
@@ -539,11 +618,23 @@ _gtk_source_style_apply (const GtkSourceStyle *style,
 
 		if (style->mask & GTK_SOURCE_STYLE_USE_UNDERLINE)
 		{
-			g_object_set (tag, "underline", style->underline ? PANGO_UNDERLINE_SINGLE : PANGO_UNDERLINE_NONE, NULL);
+			g_object_set (tag, "underline", style->underline, NULL);
 		}
 		else
 		{
 			g_object_set (tag, "underline-set", FALSE, NULL);
+		}
+
+		if (style->mask & GTK_SOURCE_STYLE_USE_UNDERLINE_COLOR)
+		{
+			GdkRGBA underline_rgba;
+
+			gdk_rgba_parse (&underline_rgba, style->underline_color);
+			g_object_set (tag, "underline-rgba", &underline_rgba, NULL);
+		}
+		else
+		{
+			g_object_set (tag, "underline-rgba-set", FALSE, NULL);
 		}
 
 		if (style->mask & GTK_SOURCE_STYLE_USE_STRIKETHROUGH)
@@ -610,6 +701,7 @@ _gtk_source_style_apply (const GtkSourceStyle *style,
 			      "style-set", FALSE,
 			      "weight-set", FALSE,
 			      "underline-set", FALSE,
+			      "underline-rgba-set", FALSE,
 			      "strikethrough-set", FALSE,
 			      "scale-set", FALSE,
 			      NULL);

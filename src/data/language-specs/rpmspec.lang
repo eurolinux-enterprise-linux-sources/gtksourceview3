@@ -47,14 +47,14 @@
   <definitions>
 
     <context id="define" style-ref="define" end-at-line-end="true">
-      <start>%define</start>
+      <start>%(?:define|global)</start>
       <include>
         <context ref="def:line-continue" ignore-style="true"/>
       </include>
     </context>
 
     <context id="conditional-define" style-ref="define" end-at-line-end="true">
-      <start>%\{\!\?.*%define</start>
+      <start>%\{\!\?.*%(?:define|global)</start>
       <end>\}</end>
       <include>
         <context ref="def:line-continue" ignore-style="true"/>
@@ -69,6 +69,7 @@
       <keyword>[A-Za-z]+Req</keyword>
       <keyword>Build[A-Za-z]+</keyword>
       <keyword>Conflicts</keyword>
+      <keyword>Enhances</keyword>
       <keyword>Epoch</keyword>
       <keyword>Group</keyword>
       <keyword>Icon</keyword>
@@ -119,7 +120,9 @@
       <keyword>defattr</keyword>
       <keyword>docdir</keyword>
       <keyword>doc</keyword>
+      <keyword>license</keyword>
       <keyword>setup</keyword>
+      <keyword>autosetup</keyword>
       <keyword>config</keyword>
       <keyword>configure</keyword>
       <keyword>make</keyword>

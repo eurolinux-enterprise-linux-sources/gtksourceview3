@@ -28,6 +28,10 @@
  * #GtkSourceCompletionProposal interface.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcecompletionitem.h"
 #include "gtksourcecompletionproposal.h"
 #include "gtksourceview-i18n.h"
@@ -39,9 +43,10 @@ struct _GtkSourceCompletionItemPrivate
 	gchar *text;
 	gchar *info;
 	GdkPixbuf *icon;
+	gchar *icon_name;
+	GIcon *gicon;
 };
 
-/* Properties */
 enum
 {
 	PROP_0,
@@ -49,6 +54,8 @@ enum
 	PROP_MARKUP,
 	PROP_TEXT,
 	PROP_ICON,
+	PROP_ICON_NAME,
+	PROP_GICON,
 	PROP_INFO
 };
 
@@ -85,6 +92,18 @@ gtk_source_completion_proposal_get_icon_impl (GtkSourceCompletionProposal *self)
 	return GTK_SOURCE_COMPLETION_ITEM (self)->priv->icon;
 }
 
+static const gchar *
+gtk_source_completion_proposal_get_icon_name_impl (GtkSourceCompletionProposal *self)
+{
+	return GTK_SOURCE_COMPLETION_ITEM (self)->priv->icon_name;
+}
+
+static GIcon *
+gtk_source_completion_proposal_get_gicon_impl (GtkSourceCompletionProposal *self)
+{
+	return GTK_SOURCE_COMPLETION_ITEM (self)->priv->gicon;
+}
+
 static gchar *
 gtk_source_completion_proposal_get_info_impl (GtkSourceCompletionProposal *self)
 {
@@ -102,6 +121,8 @@ gtk_source_completion_proposal_iface_init (gpointer g_iface,
 	iface->get_markup = gtk_source_completion_proposal_get_markup_impl;
 	iface->get_text = gtk_source_completion_proposal_get_text_impl;
 	iface->get_icon = gtk_source_completion_proposal_get_icon_impl;
+	iface->get_icon_name = gtk_source_completion_proposal_get_icon_name_impl;
+	iface->get_gicon = gtk_source_completion_proposal_get_gicon_impl;
 	iface->get_info = gtk_source_completion_proposal_get_info_impl;
 }
 
@@ -119,6 +140,13 @@ gtk_source_completion_item_finalize (GObject *object)
 	if (self->priv->icon != NULL)
 	{
 		g_object_unref (self->priv->icon);
+	}
+
+	g_free (self->priv->icon_name);
+
+	if (self->priv->gicon != NULL)
+	{
+		g_object_unref (self->priv->gicon);
 	}
 
 	G_OBJECT_CLASS (gtk_source_completion_item_parent_class)->finalize (object);
@@ -153,6 +181,12 @@ gtk_source_completion_item_get_property (GObject    *object,
 		case PROP_ICON:
 			g_value_set_object (value, self->priv->icon);
 			break;
+		case PROP_ICON_NAME:
+			g_value_set_string (value, self->priv->icon_name);
+			break;
+		case PROP_GICON:
+			g_value_set_object (value, self->priv->gicon);
+			break;
 		default:
 			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 			break;
@@ -182,13 +216,11 @@ gtk_source_completion_item_set_property (GObject      *object,
 		case PROP_LABEL:
 			g_free (self->priv->label);
 			self->priv->label = g_value_dup_string (value);
-
 			emit_changed (self);
 			break;
 		case PROP_MARKUP:
 			g_free (self->priv->markup);
 			self->priv->markup = g_value_dup_string (value);
-
 			emit_changed (self);
 			break;
 		case PROP_TEXT:
@@ -198,7 +230,6 @@ gtk_source_completion_item_set_property (GObject      *object,
 		case PROP_INFO:
 			g_free (self->priv->info);
 			self->priv->info = g_value_dup_string (value);
-
 			emit_changed (self);
 			break;
 		case PROP_ICON:
@@ -208,6 +239,20 @@ gtk_source_completion_item_set_property (GObject      *object,
 			}
 
 			self->priv->icon = GDK_PIXBUF (g_value_dup_object (value));
+			emit_changed (self);
+			break;
+		case PROP_ICON_NAME:
+			g_free (self->priv->icon_name);
+			self->priv->icon_name = g_value_dup_string (value);
+			emit_changed (self);
+			break;
+		case PROP_GICON:
+			if (self->priv->gicon != NULL)
+			{
+				g_object_unref (self->priv->gicon);
+			}
+
+			self->priv->gicon = G_ICON (g_value_dup_object (value));
 			emit_changed (self);
 			break;
 		default:
@@ -233,10 +278,11 @@ gtk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_LABEL,
 					 g_param_spec_string ("label",
-							      _("Label"),
-							      _("Label to be shown for this item"),
+							      "Label",
+							      "Label to be shown for this item",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletionItem:markup:
@@ -246,10 +292,11 @@ gtk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_MARKUP,
 					 g_param_spec_string ("markup",
-							      _("Markup"),
-							      _("Markup to be shown for this item"),
+							      "Markup",
+							      "Markup to be shown for this item",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletionItem:text:
@@ -259,24 +306,57 @@ gtk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_TEXT,
 					 g_param_spec_string ("text",
-							      _("Text"),
-							      _("Item text"),
+							      "Text",
+							      "Item text",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletionItem:icon:
 	 *
-	 * Icon to be shown for this proposal.
+	 * The #GdkPixbuf for the icon to be shown for this proposal.
 	 */
 	g_object_class_install_property (object_class,
 					 PROP_ICON,
 					 g_param_spec_object ("icon",
-							      _("Icon"),
-							      _("Icon to be shown for this item"),
+							      "Icon",
+							      "Pixbuf of the icon to be shown for this item",
 							      GDK_TYPE_PIXBUF,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
+	/**
+	 * GtkSourceCompletionItem:icon-name:
+	 *
+	 * The icon name for the icon to be shown for this proposal.
+	 *
+	 * Since: 3.18
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_ICON_NAME,
+					 g_param_spec_string ("icon-name",
+							      "Icon Name",
+							      "Icon name of the icon to be shown for this item",
+							      NULL,
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
+
+	/**
+	 * GtkSourceCompletionItem:gicon:
+	 *
+	 * The #GIcon for the icon to be shown for this proposal.
+	 *
+	 * Since: 3.18
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_GICON,
+					 g_param_spec_object ("gicon",
+							      "GIcon",
+							      "GIcon of the icon to be shown for this item",
+							      G_TYPE_ICON,
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 	/**
 	 * GtkSourceCompletionItem:info:
 	 *
@@ -285,10 +365,11 @@ gtk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_INFO,
 					 g_param_spec_string ("info",
-							      _("Info"),
-							      _("Info to be shown for this item"),
+							      "Info",
+							      "Info to be shown for this item",
 							      NULL,
-							      G_PARAM_READWRITE));
+							      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -301,8 +382,8 @@ gtk_source_completion_item_init (GtkSourceCompletionItem *self)
  * gtk_source_completion_item_new:
  * @label: The item label.
  * @text: The item text.
- * @icon: (allow-none): The item icon.
- * @info: (allow-none): The item extra information.
+ * @icon: (nullable): The item icon.
+ * @info: (nullable): The item extra information.
  *
  * Create a new #GtkSourceCompletionItem with label @label, icon @icon and
  * extra information @info. Both @icon and @info can be %NULL in which case
@@ -328,8 +409,8 @@ gtk_source_completion_item_new (const gchar *label,
  * gtk_source_completion_item_new_with_markup:
  * @markup: The item markup label.
  * @text: The item text.
- * @icon: (allow-none): The item icon.
- * @info: (allow-none): The item extra information.
+ * @icon: (nullable): The item icon.
+ * @info: (nullable): The item extra information.
  *
  * Create a new #GtkSourceCompletionItem with markup label @markup, icon
  * @icon and extra information @info. Both @icon and @info can be %NULL in
@@ -355,10 +436,10 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 
 /**
  * gtk_source_completion_item_new_from_stock:
- * @label: (allow-none): The item label.
+ * @label: (nullable): The item label.
  * @text: The item text.
  * @stock: The stock icon.
- * @info: (allow-none): The item extra information.
+ * @info: (nullable): The item extra information.
  *
  * Creates a new #GtkSourceCompletionItem from a stock item. If @label is %NULL,
  * the stock label will be used.

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourcePrintCompositor: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes">
-<link rel="next" href="GtkSourceSearchContext.html" title="GtkSourceSearchContext">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="up" href="ch07.html" title="Printing">
+<link rel="prev" href="ch07.html" title="Printing">
+<link rel="next" href="ch08.html" title="Search and Replace">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,9 +20,9 @@
                   <a href="#GtkSourcePrintCompositor.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="GtkSourceMarkAttributes.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourceSearchContext.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="u" href="ch07.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch07.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="ch08.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourcePrintCompositor"></a><div class="titlepage"></div>
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourcePrintCompositor.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="returnvalue">GtkWrapMode</span></a>
+<a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="returnvalue">GtkWrapMode</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-get-wrap-mode" title="gtk_source_print_compositor_get_wrap_mode ()">gtk_source_print_compositor_get_wrap_mode</a> <span class="c_punctuation">()</span>
@@ -342,7 +342,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourcePrintCompositor.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -410,7 +410,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a></td>
+<td class="property_type"><a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourcePrintCompositor.html#GtkSourcePrintCompositor--wrap-mode" title="The “wrap-mode” property">wrap-mode</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -419,7 +419,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourcePrintCompositor.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -432,7 +432,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourcePrintCompositor.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourcePrintCompositor
 </pre>
 </div>
@@ -446,11 +446,11 @@
 <p>The <a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> object is used to compose a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>
 for printing. You can set various configuration options to customize the
 printed output. <a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> is designed to be used with the
-high-level printing API of gtk+, i.e. <a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#GtkPrintOperation"><span class="type">GtkPrintOperation</span></a>.</p>
+high-level printing API of gtk+, i.e. <a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#GtkPrintOperation-struct"><span class="type">GtkPrintOperation</span></a>.</p>
 <p>The margins specified in this object are the layout margins: they define the
 blank space bordering the printed area of the pages. They must not be
 confused with the "print margins", i.e. the parts of the page that the
-printer cannot print on, defined in the <a href="http://developer.gnome.org/gtk2/GtkPageSetup.html"><span class="type">GtkPageSetup</span></a> objects. If the
+printer cannot print on, defined in the <a href="http://developer.gnome.org/gtk4/GtkPageSetup.html#GtkPageSetup-struct"><span class="type">GtkPageSetup</span></a> objects. If the
 specified layout margins are smaller than the "print margins", the latter
 ones are used as a fallback by the <a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> object, so that
 the printed area is not clipped.</p>
@@ -464,8 +464,8 @@ gtk_source_print_compositor_new (<em class="parameter"><code><a class="link" hre
 <p>Creates a new print compositor that can be used to print <em class="parameter"><code>buffer</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -479,11 +479,10 @@ gtk_source_print_compositor_new (<em class="parameter"><code><a class="link" hre
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.2.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-new.returns"></a><h4>Returns</h4>
 <p> a new print compositor object.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -501,8 +500,8 @@ printed output match <em class="parameter"><code>view</code></em>
 <a class="link" href="GtkSourcePrintCompositor.html#GtkSourcePrintCompositor--wrap-mode" title="The “wrap-mode” property"><span class="type">“wrap-mode”</span></a>, <a class="link" href="GtkSourcePrintCompositor.html#GtkSourcePrintCompositor--body-font-name" title="The “body-font-name” property"><span class="type">“body-font-name”</span></a> and
 <a class="link" href="GtkSourcePrintCompositor.html#GtkSourcePrintCompositor--print-line-numbers" title="The “print-line-numbers” property"><span class="type">“print-line-numbers”</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-new-from-view.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -516,11 +515,10 @@ printed output match <em class="parameter"><code>view</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-new-from-view.returns"></a><h4>Returns</h4>
 <p> a new print compositor object.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -532,8 +530,8 @@ gtk_source_print_compositor_get_buffer
 object reference is owned by the compositor object and
 should not be unreferenced.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-buffer.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -547,11 +545,11 @@ should not be unreferenced.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.4.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-buffer.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> associated with the compositor. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -564,8 +562,8 @@ gtk_source_print_compositor_set_tab_width
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.5.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-tab-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -585,7 +583,7 @@ gtk_source_print_compositor_set_tab_width
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -595,8 +593,8 @@ gtk_source_print_compositor_get_tab_width
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>);</pre>
 <p>Returns the width of tabulation in characters for printed text.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-tab-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -610,11 +608,10 @@ gtk_source_print_compositor_get_tab_width
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.6.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-tab-width.returns"></a><h4>Returns</h4>
 <p> width of tab.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -622,13 +619,13 @@ gtk_source_print_compositor_get_tab_width
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_print_compositor_set_wrap_mode
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a> wrap_mode</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a> wrap_mode</code></em>);</pre>
 <p>Sets the line wrapping mode for the printed text.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.7.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-wrap-mode.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -642,24 +639,24 @@ gtk_source_print_compositor_set_wrap_mode
 </tr>
 <tr>
 <td class="parameter_name"><p>wrap_mode</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-print-compositor-get-wrap-mode"></a><h3>gtk_source_print_compositor_get_wrap_mode ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="returnvalue">GtkWrapMode</span></a>
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="returnvalue">GtkWrapMode</span></a>
 gtk_source_print_compositor_get_wrap_mode
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>);</pre>
 <p>Gets the line wrapping mode for the printed text.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-wrap-mode.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -673,11 +670,10 @@ gtk_source_print_compositor_get_wrap_mode
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.8.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-wrap-mode.returns"></a><h4>Returns</h4>
 <p> the line wrap mode.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -691,8 +687,8 @@ buffer rules.  Both color and font style are applied.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.9.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-highlight-syntax.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -712,7 +708,7 @@ buffer rules.  Both color and font style are applied.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -724,8 +720,8 @@ gtk_source_print_compositor_get_highlight_syntax
 buffer rules.  Note that highlighting will happen
 only if the buffer to print has highlighting activated.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-highlight-syntax.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -739,11 +735,10 @@ only if the buffer to print has highlighting activated.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.10.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-highlight-syntax.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the printed output will be highlighted.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -762,8 +757,8 @@ printed every <em class="parameter"><code>interval</code></em>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.11.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-print-line-numbers.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -783,7 +778,7 @@ printed every <em class="parameter"><code>interval</code></em>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -795,8 +790,8 @@ gtk_source_print_compositor_get_print_line_numbers
 value is 0, no line numbers will be printed.  The default value is
 1 (i.e. numbers printed in all lines).</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-print-line-numbers.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -810,11 +805,10 @@ value is 0, no line numbers will be printed.  The default value is
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.12.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-print-line-numbers.returns"></a><h4>Returns</h4>
 <p> the interval of printed line numbers.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -827,13 +821,13 @@ gtk_source_print_compositor_set_body_font_name
 <p><em class="parameter"><code>font_name</code></em>
  should be a
 string representation of a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.13.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-body-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -853,7 +847,7 @@ for a description of the format of the string representation.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -864,8 +858,8 @@ gtk_source_print_compositor_get_body_font_name
 <p>Returns the name of the font used to print the text body. The returned string
 must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.14.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-body-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -879,12 +873,11 @@ must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memor
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.14.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-body-font-name.returns"></a><h4>Returns</h4>
 <p> a new string containing the name of the font used to print the
 text body.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -899,13 +892,13 @@ text) will be used instead.</p>
 <p><em class="parameter"><code>font_name</code></em>
  should be a
 string representation of a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.15.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-line-numbers-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -920,12 +913,12 @@ for a description of the format of the string representation.</p>
 <tr>
 <td class="parameter_name"><p>font_name</p></td>
 <td class="parameter_description"><p> the name of the font for line numbers, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -936,8 +929,8 @@ gtk_source_print_compositor_get_line_numbers_font_name
 <p>Returns the name of the font used to print line numbers on the left margin.
 The returned string must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.16.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-line-numbers-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -951,12 +944,11 @@ The returned string must be freed with <a href="https://developer.gnome.org/glib
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.16.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-line-numbers-font-name.returns"></a><h4>Returns</h4>
 <p> a new string containing the name of the font used to print
 line numbers on the left margin.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -971,13 +963,13 @@ text) will be used instead.</p>
 <p><em class="parameter"><code>font_name</code></em>
  should be a
 string representation of a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.17.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-header-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -992,12 +984,12 @@ for a description of the format of the string representation.</p>
 <tr>
 <td class="parameter_name"><p>font_name</p></td>
 <td class="parameter_description"><p> the name of the font for header text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1008,8 +1000,8 @@ gtk_source_print_compositor_get_header_font_name
 <p>Returns the name of the font used to print the page header.
 The returned string must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.18.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-header-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1023,12 +1015,11 @@ The returned string must be freed with <a href="https://developer.gnome.org/glib
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.18.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-header-font-name.returns"></a><h4>Returns</h4>
 <p> a new string containing the name of the font used to print
 the page header.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1043,13 +1034,13 @@ text) will be used instead.</p>
 <p><em class="parameter"><code>font_name</code></em>
  should be a
 string representation of a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.19.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-footer-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1064,12 +1055,12 @@ for a description of the format of the string representation.</p>
 <tr>
 <td class="parameter_name"><p>font_name</p></td>
 <td class="parameter_description"><p> the name of the font for the footer text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1080,8 +1071,8 @@ gtk_source_print_compositor_get_footer_font_name
 <p>Returns the name of the font used to print the page footer.
 The returned string must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.20.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-footer-font-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1095,12 +1086,11 @@ The returned string must be freed with <a href="https://developer.gnome.org/glib
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.20.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-footer-font-name.returns"></a><h4>Returns</h4>
 <p> a new string containing the name of the font used to print
 the page footer.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1108,12 +1098,12 @@ the page footer.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
 gtk_source_print_compositor_get_top_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Gets the top margin in units of <em class="parameter"><code>unit</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.21.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-top-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1134,11 +1124,10 @@ gtk_source_print_compositor_get_top_margin
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.21.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-top-margin.returns"></a><h4>Returns</h4>
 <p> the top margin.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1147,12 +1136,12 @@ gtk_source_print_compositor_get_top_margin
 gtk_source_print_compositor_set_top_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> margin</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Sets the top margin used by <em class="parameter"><code>compositor</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.22.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-top-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1179,7 +1168,7 @@ gtk_source_print_compositor_set_top_margin
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1187,12 +1176,12 @@ gtk_source_print_compositor_set_top_margin
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
 gtk_source_print_compositor_get_bottom_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Gets the bottom margin in units of <em class="parameter"><code>unit</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.23.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-bottom-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1213,11 +1202,10 @@ gtk_source_print_compositor_get_bottom_margin
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.23.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-bottom-margin.returns"></a><h4>Returns</h4>
 <p> the bottom margin.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1226,12 +1214,12 @@ gtk_source_print_compositor_get_bottom_margin
 gtk_source_print_compositor_set_bottom_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> margin</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Sets the bottom margin used by <em class="parameter"><code>compositor</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.24.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-bottom-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1258,7 +1246,7 @@ gtk_source_print_compositor_set_bottom_margin
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1266,12 +1254,12 @@ gtk_source_print_compositor_set_bottom_margin
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
 gtk_source_print_compositor_get_left_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Gets the left margin in units of <em class="parameter"><code>unit</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.25.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-left-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1292,11 +1280,10 @@ gtk_source_print_compositor_get_left_margin
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.25.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-left-margin.returns"></a><h4>Returns</h4>
 <p> the left margin</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1305,12 +1292,12 @@ gtk_source_print_compositor_get_left_margin
 gtk_source_print_compositor_set_left_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> margin</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Sets the left margin used by <em class="parameter"><code>compositor</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.26.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-left-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1337,7 +1324,7 @@ gtk_source_print_compositor_set_left_margin
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1345,12 +1332,12 @@ gtk_source_print_compositor_set_left_margin
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
 gtk_source_print_compositor_get_right_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Gets the right margin in units of <em class="parameter"><code>unit</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.27.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-right-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1371,11 +1358,10 @@ gtk_source_print_compositor_get_right_margin
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.27.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-right-margin.returns"></a><h4>Returns</h4>
 <p> the right margin.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1384,12 +1370,12 @@ gtk_source_print_compositor_get_right_margin
 gtk_source_print_compositor_set_right_margin
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> margin</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPaperSize.html#GtkUnit"><span class="type">GtkUnit</span></a> unit</code></em>);</pre>
 <p>Sets the right margin used by <em class="parameter"><code>compositor</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.28.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-right-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1416,7 +1402,7 @@ gtk_source_print_compositor_set_right_margin
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1434,8 +1420,8 @@ empty it will not be printed, regardless of this setting.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.29.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-print-header.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1455,7 +1441,7 @@ empty it will not be printed, regardless of this setting.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1468,8 +1454,8 @@ header will be printed if this function returns <a href="https://developer.gnome
 <span class="emphasis"><em>and</em></span> some format strings have been specified
 with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-set-header-format" title="gtk_source_print_compositor_set_header_format ()"><code class="function">gtk_source_print_compositor_set_header_format()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.30.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-print-header.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1483,11 +1469,10 @@ with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compos
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.30.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-print-header.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the header is set to be printed.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1505,8 +1490,8 @@ empty it will not be printed, regardless of this setting.</p>
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.31.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-print-footer.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1526,7 +1511,7 @@ empty it will not be printed, regardless of this setting.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1539,8 +1524,8 @@ footer will be printed if this function returns <a href="https://developer.gnome
 <span class="emphasis"><em>and</em></span> some format strings have been specified
 with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-set-footer-format" title="gtk_source_print_compositor_set_footer_format ()"><code class="function">gtk_source_print_compositor_set_footer_format()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.32.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-print-footer.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1554,11 +1539,10 @@ with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compos
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.32.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-print-footer.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the footer is set to be printed.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1573,8 +1557,13 @@ gtk_source_print_compositor_set_header_format
 <p>Sets strftime like header format strings, to be printed on the
 left, center and right of the top of each page.  The strings may
 include strftime(3) codes which will be expanded at print time.
-All <code class="function">strftime()</code> codes are accepted, with the addition of #N for the
-page number and #Q for the page count.</p>
+A subset of <code class="function">strftime()</code> codes are accepted, see <a href="https://developer.gnome.org/glib/unstable/glib-GDateTime.html#g-date-time-format"><code class="function">g_date_time_format()</code></a>
+for more details on the accepted format specifiers.
+Additionally the following format specifiers are accepted:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>#N: the page number</p></li>
+<li class="listitem"><p>#Q: the page count.</p></li>
+</ul></div>
 <p><em class="parameter"><code>separator</code></em>
  specifies if a solid line should be drawn to separate
 the header from the document text.</p>
@@ -1586,8 +1575,8 @@ printing with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-pri
 <p>This function cannot be called anymore after the first call to the
 <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.33.9"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-header-format.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1607,22 +1596,22 @@ printing with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-pri
 <tr>
 <td class="parameter_name"><p>left</p></td>
 <td class="parameter_description"><p> a format string to print on the left of the header. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>center</p></td>
 <td class="parameter_description"><p> a format string to print on the center of the header. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>right</p></td>
 <td class="parameter_description"><p> a format string to print on the right of the header. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1634,24 +1623,11 @@ gtk_source_print_compositor_set_footer_format
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *left</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *center</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *right</code></em>);</pre>
-<p>Sets strftime like header format strings, to be printed on the
-left, center and right of the bottom of each page. The strings may
-include strftime(3) codes which will be expanded at print time.
-All <code class="function">strftime()</code> codes are accepted, with the addition of #N for the
-page number and #Q for the page count.</p>
-<p><em class="parameter"><code>separator</code></em>
- specifies if a solid line should be drawn to separate
-the footer from the document text.</p>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is given for any of the three arguments, that particular
-string will not be printed.</p>
-<p>For the footer to be printed, in
-addition to specifying format strings, you need to enable footer
-printing with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-set-print-footer" title="gtk_source_print_compositor_set_print_footer ()"><code class="function">gtk_source_print_compositor_set_print_footer()</code></a>.</p>
-<p>This function cannot be called anymore after the first call to the
-<a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
+<p>See <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-set-header-format" title="gtk_source_print_compositor_set_header_format ()"><code class="function">gtk_source_print_compositor_set_header_format()</code></a> for more information
+about the parameters.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.34.9"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-set-footer-format.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1671,22 +1647,22 @@ printing with <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-pri
 <tr>
 <td class="parameter_name"><p>left</p></td>
 <td class="parameter_description"><p> a format string to print on the left of the footer. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>center</p></td>
 <td class="parameter_description"><p> a format string to print on the center of the footer. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>right</p></td>
 <td class="parameter_description"><p> a format string to print on the right of the footer. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1697,8 +1673,8 @@ gtk_source_print_compositor_get_n_pages
 <p>Returns the number of pages in the document or <code class="code">-1</code> if the
 document has not been completely paginated.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.35.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-n-pages.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1712,19 +1688,18 @@ document has not been completely paginated.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.35.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-n-pages.returns"></a><h4>Returns</h4>
 <p> the number of pages in the document or <code class="code">-1</code> if the
 document has not been completely paginated.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-print-compositor-paginate"></a><h3>gtk_source_print_compositor_paginate ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_print_compositor_paginate (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPrintContext.html"><span class="type">GtkPrintContext</span></a> *context</code></em>);</pre>
+                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPrintContext.html#GtkPrintContext-struct"><span class="type">GtkPrintContext</span></a> *context</code></em>);</pre>
 <p>Paginate the document associated with the <em class="parameter"><code>compositor</code></em>
 .</p>
 <p>In order to support non-blocking pagination, document is paginated in small chunks.
@@ -1732,7 +1707,7 @@ Each time <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-c
 is paginated. To paginate the entire document, <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a>
 must be invoked multiple times.
 It returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the document has been completely paginated, otherwise it returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
-<p>This method has been designed to be invoked in the handler of the <a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#GtkPrintOperation-paginate"><span class="type">“paginate”</span></a> signal,
+<p>This method has been designed to be invoked in the handler of the <a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#GtkPrintOperation-paginate"><span class="type">“paginate”</span></a> signal,
 as shown in the following example:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -1777,7 +1752,7 @@ as shown in the following example:</p>
 <span class="normal">        </span><span class="usertype">gint</span><span class="normal"> n_pages</span><span class="symbol">;</span>
 
 <span class="normal">        n_pages </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-get-n-pages">gtk_source_print_compositor_get_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">compositor</span><span class="symbol">);</span>
-<span class="normal">        </span><span class="function"><a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#gtk-print-operation-set-n-pages">gtk_print_operation_set_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">operation</span><span class="symbol">,</span><span class="normal"> n_pages</span><span class="symbol">);</span>
+<span class="normal">        </span><span class="function"><a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#gtk-print-operation-set-n-pages">gtk_print_operation_set_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">operation</span><span class="symbol">,</span><span class="normal"> n_pages</span><span class="symbol">);</span>
 
 <span class="normal">        </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
 <span class="normal">    </span><span class="cbracket">}</span>
@@ -1790,7 +1765,7 @@ as shown in the following example:</p>
 </div>
 
 <p>If you don't need to do pagination in chunks, you can simply do it all in the
-<a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#GtkPrintOperation-begin-print"><span class="type">“begin-print”</span></a> handler, and set the number of pages from there, like
+<a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#GtkPrintOperation-begin-print"><span class="type">“begin-print”</span></a> handler, and set the number of pages from there, like
 in the following example:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -1828,7 +1803,7 @@ in the following example:</p>
 <span class="normal">    </span><span class="keyword">while</span><span class="normal"> </span><span class="symbol">(!</span><span class="function"><a href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate">gtk_source_print_compositor_paginate</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">compositor</span><span class="symbol">,</span><span class="normal"> context</span><span class="symbol">));</span>
 
 <span class="normal">    n_pages </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-get-n-pages">gtk_source_print_compositor_get_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">compositor</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="function"><a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#gtk-print-operation-set-n-pages">gtk_print_operation_set_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">operation</span><span class="symbol">,</span><span class="normal"> n_pages</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#gtk-print-operation-set-n-pages">gtk_print_operation_set_n_pages</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">operation</span><span class="symbol">,</span><span class="normal"> n_pages</span><span class="symbol">);</span>
 <span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
@@ -1836,8 +1811,8 @@ in the following example:</p>
 </div>
 
 <div class="refsect3">
-<a name="id-1.2.22.9.36.10"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-paginate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1851,7 +1826,7 @@ in the following example:</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>context</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gtk2/GtkPrintContext.html"><span class="type">GtkPrintContext</span></a> whose parameters (e.g. paper size, print margins, etc.)
+<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gtk4/GtkPrintContext.html#GtkPrintContext-struct"><span class="type">GtkPrintContext</span></a> whose parameters (e.g. paper size, print margins, etc.)
 are used by the the <em class="parameter"><code>compositor</code></em>
 to paginate the document.</p></td>
 <td class="parameter_annotations"> </td>
@@ -1860,11 +1835,10 @@ to paginate the document.</p></td>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.36.11"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-paginate.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the document has been completely paginated, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1874,8 +1848,8 @@ gtk_source_print_compositor_get_pagination_progress
                                (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>);</pre>
 <p>Returns the current fraction of the document pagination that has been completed.</p>
 <div class="refsect3">
-<a name="id-1.2.22.9.37.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-get-pagination-progress.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1889,23 +1863,22 @@ gtk_source_print_compositor_get_pagination_progress
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.22.9.37.6"></a><h4>Returns</h4>
+<a name="gtk-source-print-compositor-get-pagination-progress.returns"></a><h4>Returns</h4>
 <p> a fraction from 0.0 to 1.0 inclusive.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-print-compositor-draw-page"></a><h3>gtk_source_print_compositor_draw_page ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_print_compositor_draw_page (<em class="parameter"><code><a class="link" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor"><span class="type">GtkSourcePrintCompositor</span></a> *compositor</code></em>,
-                                       <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkPrintContext.html"><span class="type">GtkPrintContext</span></a> *context</code></em>,
+                                       <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkPrintContext.html#GtkPrintContext-struct"><span class="type">GtkPrintContext</span></a> *context</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> page_nr</code></em>);</pre>
 <p>Draw page <em class="parameter"><code>page_nr</code></em>
  for printing on the the Cairo context encapsuled in <em class="parameter"><code>context</code></em>
 .</p>
-<p>This method has been designed to be called in the handler of the <a href="http://developer.gnome.org/gtk2/gtk3-High-level-Printing-API.html#GtkPrintOperation-draw-page"><span class="type">“draw_page”</span></a> signal
+<p>This method has been designed to be called in the handler of the <a href="http://developer.gnome.org/gtk4/gtk4-High-level-Printing-API.html#GtkPrintOperation-draw-page"><span class="type">“draw_page”</span></a> signal
 as shown in the following example:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -1949,8 +1922,8 @@ as shown in the following example:</p>
 </div>
 
 <div class="refsect3">
-<a name="id-1.2.22.9.38.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-print-compositor-draw-page.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1964,7 +1937,7 @@ as shown in the following example:</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>context</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gtk2/GtkPrintContext.html"><span class="type">GtkPrintContext</span></a> encapsulating the context information that is required when
+<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gtk4/GtkPrintContext.html#GtkPrintContext-struct"><span class="type">GtkPrintContext</span></a> encapsulating the context information that is required when
 drawing the page for printing.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -1992,13 +1965,13 @@ drawing the page for printing.</p></td>
 <pre class="programlisting">  “body-font-name”           <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
 <p>Name of the font used for the text body.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2006,7 +1979,7 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <pre class="programlisting">  “buffer”                   <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *</pre>
 <p>The GtkSourceBuffer object to print.</p>
 <p>Flags: Read / Write / Construct Only</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2015,13 +1988,13 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <p>Name of the font used to print page footer.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2030,13 +2003,13 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <p>Name of the font used to print page header.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2047,7 +2020,7 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2056,13 +2029,13 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <p>Name of the font used to print line numbers on the left margin.
 If this property is unspecified, the text body font is used.</p>
 <p>Accepted values are strings representing a font description Pango can understand.
-(e.g. "Monospace 10"). See <a href="/opt/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
+(e.g. "Monospace 10"). See <a href="/home/seb/jhbuild/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>
 for a description of the format of the string representation.</p>
 <p>The value of this property cannot be changed anymore after the first
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2073,7 +2046,7 @@ document has not been completely paginated.</p>
 <p>Flags: Read</p>
 <p>Allowed values: &gt;= -1</p>
 <p>Default value: -1</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2087,7 +2060,7 @@ this property.</p>
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2101,7 +2074,7 @@ this property.</p>
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2115,7 +2088,7 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <p>Flags: Read / Write</p>
 <p>Allowed values: &lt;= 100</p>
 <p>Default value: 1</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2127,23 +2100,22 @@ call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print
 <p>Flags: Read / Write</p>
 <p>Allowed values: [1,32]</p>
 <p>Default value: 8</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourcePrintCompositor--wrap-mode"></a><h3>The <code class="literal">“wrap-mode”</code> property</h3>
-<pre class="programlisting">  “wrap-mode”                <a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a></pre>
+<pre class="programlisting">  “wrap-mode”                <a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkWrapMode"><span class="type">GtkWrapMode</span></a></pre>
 <p>Whether to wrap lines never, at word boundaries, or at character boundaries.</p>
 <p>The value of this property cannot be changed anymore after the first
 call to the <a class="link" href="GtkSourcePrintCompositor.html#gtk-source-print-compositor-paginate" title="gtk_source_print_compositor_paginate ()"><code class="function">gtk_source_print_compositor_paginate()</code></a> function.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_WRAP_NONE</p>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

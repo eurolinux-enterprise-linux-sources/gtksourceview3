@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceBuffer: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="ch01.html" title="API reference">
-<link rel="next" href="GtkSourceCompletion.html" title="GtkSourceCompletion">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="up" href="ch01.html" title="Main Classes">
+<link rel="prev" href="ch01.html" title="Main Classes">
+<link rel="next" href="GtkSourceView.html" title="GtkSourceView">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -23,20 +23,20 @@
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="ch01.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourceCompletion.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="GtkSourceView.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourceBuffer"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkSourceBuffer.top_of_page"></a>GtkSourceBuffer</span></h2>
-<p>GtkSourceBuffer — Buffer object for GtkSourceView</p>
+<p>GtkSourceBuffer — Stores the text for display in a GtkSourceView</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -60,18 +60,10 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">void</span>
+<a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="returnvalue">GtkTextTag</span></a> *
 </td>
 <td class="function_name">
-<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()">gtk_source_buffer_set_highlight_syntax</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-syntax" title="gtk_source_buffer_get_highlight_syntax ()">gtk_source_buffer_get_highlight_syntax</a> <span class="c_punctuation">()</span>
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-create-source-tag" title="gtk_source_buffer_create_source_tag ()">gtk_source_buffer_create_source_tag</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -95,22 +87,6 @@
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
-<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-matching-brackets" title="gtk_source_buffer_set_highlight_matching_brackets ()">gtk_source_buffer_set_highlight_matching_brackets</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-matching-brackets" title="gtk_source_buffer_get_highlight_matching_brackets ()">gtk_source_buffer_get_highlight_matching_brackets</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-style-scheme" title="gtk_source_buffer_set_style_scheme ()">gtk_source_buffer_set_style_scheme</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
@@ -120,6 +96,38 @@
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-style-scheme" title="gtk_source_buffer_get_style_scheme ()">gtk_source_buffer_get_style_scheme</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()">gtk_source_buffer_set_highlight_syntax</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-syntax" title="gtk_source_buffer_get_highlight_syntax ()">gtk_source_buffer_get_highlight_syntax</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-matching-brackets" title="gtk_source_buffer_set_highlight_matching_brackets ()">gtk_source_buffer_set_highlight_matching_brackets</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-matching-brackets" title="gtk_source_buffer_get_highlight_matching_brackets ()">gtk_source_buffer_get_highlight_matching_brackets</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -303,6 +311,22 @@
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-join-lines" title="gtk_source_buffer_join_lines ()">gtk_source_buffer_join_lines</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-sort-lines" title="gtk_source_buffer_sort_lines ()">gtk_source_buffer_sort_lines</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-implicit-trailing-newline" title="gtk_source_buffer_set_implicit_trailing_newline ()">gtk_source_buffer_set_implicit_trailing_newline</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
@@ -319,7 +343,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -379,7 +403,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.signals"></a><h2>Signals</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="signals_return">
 <col width="300px" class="signals_name">
@@ -416,7 +440,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -434,13 +458,22 @@
 <td class="datatype_keyword">enum</td>
 <td class="function_name"><a class="link" href="GtkSourceBuffer.html#GtkSourceChangeCaseType" title="enum GtkSourceChangeCaseType">GtkSourceChangeCaseType</a></td>
 </tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GtkSourceBuffer.html#GtkSourceSortFlags" title="enum GtkSourceSortFlags">GtkSourceSortFlags</a></td>
+</tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-    <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html">GtkTextBuffer</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">├──</span> GtkSourceBracketMatchType
+    <span class="lineart">╰──</span> GtkSourceChangeCaseType
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GFlags</a>
+    <span class="lineart">╰──</span> GtkSourceSortFlags
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct">GtkTextBuffer</a>
         <span class="lineart">╰──</span> GtkSourceBuffer
 </pre>
 </div>
@@ -451,46 +484,101 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.description"></a><h2>Description</h2>
-<p>The <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> object is the model for <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> widgets.
-It extends the <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a> object by adding features useful to display
+<p>A <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> object is the model for <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> widgets.
+It extends the <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> class by adding features useful to display
 and edit source code such as syntax highlighting and bracket matching. It
-also implements support for undo/redo operations, and for the search and
-replace.</p>
+also implements support for the undo/redo.</p>
 <p>To create a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> use <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-new" title="gtk_source_buffer_new ()"><code class="function">gtk_source_buffer_new()</code></a> or
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-new-with-language" title="gtk_source_buffer_new_with_language ()"><code class="function">gtk_source_buffer_new_with_language()</code></a>. The second form is just a convenience
-function which allows you to initially set a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>.</p>
-<p>By default highlighting is enabled, but you can disable it with
+function which allows you to initially set a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>. You can also
+directly create a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> and get its <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> with
+<a href="http://developer.gnome.org/gtk4/GtkTextView.html#gtk-text-view-get-buffer"><code class="function">gtk_text_view_get_buffer()</code></a>.</p>
+<p>The highlighting is enabled by default, but you can disable it with
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()"><code class="function">gtk_source_buffer_set_highlight_syntax()</code></a>.</p>
 <div class="refsect2">
-<a name="id-1.2.2.9.5"></a><h3>Undo and Redo</h3>
+<a name="id-1.2.2.2.9.5"></a><h3>Undo/Redo</h3>
 <p>A custom <a class="link" href="GtkSourceUndoManager.html" title="GtkSourceUndoManager"><span class="type">GtkSourceUndoManager</span></a> can be implemented and set with
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-undo-manager" title="gtk_source_buffer_set_undo_manager ()"><code class="function">gtk_source_buffer_set_undo_manager()</code></a>. However the default implementation
-should be suitable for most uses. By default, actions that can be undone or
-redone are defined as groups of operations between a call to
-<a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html#gtk-text-buffer-begin-user-action"><code class="function">gtk_text_buffer_begin_user_action()</code></a> and <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html#gtk-text-buffer-end-user-action"><code class="function">gtk_text_buffer_end_user_action()</code></a>. In
-general, this happens whenever the user presses any key which modifies the
-buffer. But the default undo manager will try to merge similar consecutive
-actions, such as multiple character insertions on the same line, into one
-action. But, inserting a newline starts a new action.</p>
+should be suitable for most uses, so you can use the API provided by
+<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> instead of using <a class="link" href="GtkSourceUndoManager.html" title="GtkSourceUndoManager"><span class="type">GtkSourceUndoManager</span></a>. By default, actions
+that can be undone or redone are defined as groups of operations between a
+call to <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-begin-user-action"><code class="function">gtk_text_buffer_begin_user_action()</code></a> and
+<a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-end-user-action"><code class="function">gtk_text_buffer_end_user_action()</code></a>. In general, this happens whenever the user
+presses any key which modifies the buffer. But the default undo manager will
+try to merge similar consecutive actions into one undo/redo level. The
+merging is done word by word, so after writing a new sentence (character by
+character), each undo will remove the previous word.</p>
 <p>The default undo manager remembers the "modified" state of the buffer, and
-restore it when an action is undone or redone. It can be useful in a text
-editor to know whether the file is saved. See <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html#gtk-text-buffer-get-modified"><code class="function">gtk_text_buffer_get_modified()</code></a>
-and <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html#gtk-text-buffer-set-modified"><code class="function">gtk_text_buffer_set_modified()</code></a>.</p>
+restores it when an action is undone or redone. It can be useful in a text
+editor to know whether the file is saved. See <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-get-modified"><code class="function">gtk_text_buffer_get_modified()</code></a>
+and <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-set-modified"><code class="function">gtk_text_buffer_set_modified()</code></a>.</p>
+<p>The default undo manager also restores the selected text (or cursor
+position), if the selection was related to the action. For example if the
+user selects some text and deletes it, an undo will restore the selection. On
+the other hand, if some text is selected but a deletion occurs elsewhere (the
+deletion was done programmatically), an undo will not restore the selection,
+it will only moves the cursor (the cursor is moved so that the user sees the
+undo's effect). Warning: the selection restoring behavior might change in the
+future.</p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="id-1.2.2.9.6"></a><h3>Context Classes</h3>
+<a name="context-classes"></a><h3>Context Classes</h3>
 <p>It is possible to retrieve some information from the syntax highlighting
-engine. There are currently three default context classes that are
-applied to regions of a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>:</p>
+engine. The default context classes that are applied to regions of a
+<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p><span class="emphasis"><em>comment</em></span>: the region delimits a comment;</p></li>
-<li class="listitem"><p><span class="emphasis"><em>string</em></span>: the region delimits a string;</p></li>
-<li class="listitem"><p><span class="emphasis"><em>no-spell-check</em></span>: the region should not be spell checked.</p></li>
+<li class="listitem"><p><span class="emphasis"><em>no-spell-check</em></span>: the region should not be spell checked;</p></li>
+<li class="listitem"><p><span class="emphasis"><em>path</em></span>: the region delimits a path to a file;</p></li>
+<li class="listitem"><p><span class="emphasis"><em>string</em></span>: the region delimits a string.</p></li>
 </ul></div>
 <p>Custom language definition files can create their own context classes,
 since the functions like <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-iter-has-context-class" title="gtk_source_buffer_iter_has_context_class ()"><code class="function">gtk_source_buffer_iter_has_context_class()</code></a> take
 a string parameter as the context class.</p>
+<p><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> provides an API to access the context classes:
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-iter-has-context-class" title="gtk_source_buffer_iter_has_context_class ()"><code class="function">gtk_source_buffer_iter_has_context_class()</code></a>,
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-get-context-classes-at-iter" title="gtk_source_buffer_get_context_classes_at_iter ()"><code class="function">gtk_source_buffer_get_context_classes_at_iter()</code></a>,
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-iter-forward-to-context-class-toggle" title="gtk_source_buffer_iter_forward_to_context_class_toggle ()"><code class="function">gtk_source_buffer_iter_forward_to_context_class_toggle()</code></a> and
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-iter-backward-to-context-class-toggle" title="gtk_source_buffer_iter_backward_to_context_class_toggle ()"><code class="function">gtk_source_buffer_iter_backward_to_context_class_toggle()</code></a>.</p>
+<p>And the <a class="link" href="GtkSourceBuffer.html#GtkSourceBuffer-highlight-updated" title="The “highlight-updated” signal"><span class="type">“highlight-updated”</span></a> signal permits to be notified
+when a context class region changes.</p>
+<p>Each context class has also an associated <a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a> with the name
+<span class="emphasis"><em>gtksourceview:context-classes:&lt;name&gt;</em></span>. For example to
+retrieve the <a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a> for the string context class, one can write:</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkTextTagTable</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tag_table</span><span class="symbol">;</span>
+<span class="usertype">GtkTextTag</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tag</span><span class="symbol">;</span>
+
+<span class="normal">tag_table </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-get-tag-table">gtk_text_buffer_get_tag_table</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">buffer</span><span class="symbol">);</span>
+<span class="normal">tag </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://developer.gnome.org/gtk4/GtkTextTagTable.html#gtk-text-tag-table-lookup">gtk_text_tag_table_lookup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tag_table</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"gtksourceview:context-classes:string"</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>The tag must be used for read-only purposes.</p>
+<p>Accessing a context class via the associated <a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a> is less
+convenient than the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> API, because:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>The tag doesn't always exist, you need to listen to the
+<a href="http://developer.gnome.org/gtk4/GtkTextTagTable.html#GtkTextTagTable-tag-added"><span class="type">“tag-added”</span></a> and <a href="http://developer.gnome.org/gtk4/GtkTextTagTable.html#GtkTextTagTable-tag-removed"><span class="type">“tag-removed”</span></a> signals.</p></li>
+<li class="listitem"><p>Instead of the <a class="link" href="GtkSourceBuffer.html#GtkSourceBuffer-highlight-updated" title="The “highlight-updated” signal"><span class="type">“highlight-updated”</span></a> signal, you can listen
+to the <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-apply-tag"><span class="type">“apply-tag”</span></a> and <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-remove-tag"><span class="type">“remove-tag”</span></a> signals.</p></li>
+</ul></div>
+<p>A possible use-case for accessing a context class via the associated
+<a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a> is to read the region but without adding a hard dependency on the
+GtkSourceView library (for example for a spell-checking library that wants to
+read the no-spell-check region).</p>
 </div>
 </div>
 <div class="refsect1">
@@ -498,11 +586,11 @@ a string parameter as the context class.</p>
 <div class="refsect2">
 <a name="gtk-source-buffer-new"></a><h3>gtk_source_buffer_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="returnvalue">GtkSourceBuffer</span></a> *
-gtk_source_buffer_new (<em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextTagTable.html"><span class="type">GtkTextTagTable</span></a> *table</code></em>);</pre>
+gtk_source_buffer_new (<em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextTagTable.html#GtkTextTagTable-struct"><span class="type">GtkTextTagTable</span></a> *table</code></em>);</pre>
 <p>Creates a new source buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -510,15 +598,14 @@ gtk_source_buffer_new (<em class="parameter"><code><a href="http://developer.gno
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>table</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk2/GtkTextTagTable.html"><span class="type">GtkTextTagTable</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to create a new one. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk4/GtkTextTagTable.html#GtkTextTagTable-struct"><span class="type">GtkTextTagTable</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to create a new one. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.2.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-new.returns"></a><h4>Returns</h4>
 <p> a new source buffer.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -531,8 +618,8 @@ gtk_source_buffer_new_with_language (<em class="parameter"><code><a class="link"
 .  This is equivalent to creating a new source buffer with
 a new tag table and then calling <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-new-with-language.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -546,11 +633,209 @@ a new tag table and then calling <a class="link" href="GtkSourceBuffer.html#gtk-
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-new-with-language.returns"></a><h4>Returns</h4>
 <p> a new source buffer which will highlight text
 according to the highlighting patterns in <em class="parameter"><code>language</code></em>
 .</p>
-<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-create-source-tag"></a><h3>gtk_source_buffer_create_source_tag ()</h3>
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="returnvalue">GtkTextTag</span></a> *
+gtk_source_buffer_create_source_tag (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
+                                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tag_name</code></em>,
+                                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                     <em class="parameter"><code>...</code></em>);</pre>
+<p>In short, this is the same function as <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-create-tag"><code class="function">gtk_text_buffer_create_tag()</code></a>, but
+instead of creating a <a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a>, this function creates a <a class="link" href="GtkSourceTag.html" title="GtkSourceTag"><span class="type">GtkSourceTag</span></a>.</p>
+<p>This function creates a <a class="link" href="GtkSourceTag.html" title="GtkSourceTag"><span class="type">GtkSourceTag</span></a> and adds it to the tag table for
+<em class="parameter"><code>buffer</code></em>
+.  Equivalent to calling <a href="http://developer.gnome.org/gtk4/GtkTextTag.html#gtk-text-tag-new"><code class="function">gtk_text_tag_new()</code></a> and then adding the tag to
+the buffer’s tag table. The returned tag is owned by the buffer’s tag table,
+so the ref count will be equal to one.</p>
+<p>If <em class="parameter"><code>tag_name</code></em>
+ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the tag is anonymous.</p>
+<p>If <em class="parameter"><code>tag_name</code></em>
+ is non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, a tag called <em class="parameter"><code>tag_name</code></em>
+ must not already
+exist in the tag table for this buffer.</p>
+<p>The <em class="parameter"><code>first_property_name</code></em>
+ argument and subsequent arguments are a list
+of properties to set on the tag, as with <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set"><code class="function">g_object_set()</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-create-source-tag.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>tag_name</p></td>
+<td class="parameter_description"><p> name of the new tag, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_property_name</p></td>
+<td class="parameter_description"><p> name of first property to set, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-buffer-create-source-tag.returns"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GtkSourceTag.html" title="GtkSourceTag"><span class="type">GtkSourceTag</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-set-language"></a><h3>gtk_source_buffer_set_language ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_buffer_set_language (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
+                                <em class="parameter"><code><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> *language</code></em>);</pre>
+<p>Associates a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> with the buffer.</p>
+<p>Note that a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> affects not only the syntax highlighting, but
+also the <a class="link" href="GtkSourceBuffer.html#context-classes" title="Context Classes">context classes</a>. If you want to disable just the
+syntax highlighting, see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()"><code class="function">gtk_source_buffer_set_highlight_syntax()</code></a>.</p>
+<p>The buffer holds a reference to <em class="parameter"><code>language</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-set-language.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>language</p></td>
+<td class="parameter_description"><p> a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> to set, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-get-language"></a><h3>gtk_source_buffer_get_language ()</h3>
+<pre class="programlisting"><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="returnvalue">GtkSourceLanguage</span></a> *
+gtk_source_buffer_get_language (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
+<p>Returns the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> associated with the buffer,
+see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a>.  The returned object should not be
+unreferenced by the user.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-get-language.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-buffer-get-language.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> associated
+with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-set-style-scheme"></a><h3>gtk_source_buffer_set_style_scheme ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_buffer_set_style_scheme (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
+<p>Sets a <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> to be used by the buffer and the view.</p>
+<p>Note that a <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> affects not only the syntax highlighting,
+but also other <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> features such as highlighting the current line,
+matching brackets, the line numbers, etc.</p>
+<p>Instead of setting a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <em class="parameter"><code>scheme</code></em>
+, it is better to disable syntax
+highlighting with <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()"><code class="function">gtk_source_buffer_set_highlight_syntax()</code></a>, and setting the
+<a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> with the "classic" or "tango" ID, because those two
+style schemes follow more closely the GTK+ theme (for example for the
+background color).</p>
+<p>The buffer holds a reference to <em class="parameter"><code>scheme</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-set-style-scheme.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>scheme</p></td>
+<td class="parameter_description"><p> a <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-get-style-scheme"></a><h3>gtk_source_buffer_get_style_scheme ()</h3>
+<pre class="programlisting"><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="returnvalue">GtkSourceStyleScheme</span></a> *
+gtk_source_buffer_get_style_scheme (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
+<p>Returns the <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> associated with the buffer,
+see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-style-scheme" title="gtk_source_buffer_set_style_scheme ()"><code class="function">gtk_source_buffer_set_style_scheme()</code></a>.
+The returned object should not be unreferenced by the user.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-get-style-scheme.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-buffer-get-style-scheme.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a>
+associated with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -560,17 +845,18 @@ according to the highlighting patterns in <em class="parameter"><code>language</
 gtk_source_buffer_set_highlight_syntax
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> highlight</code></em>);</pre>
-<p>Controls whether syntax is highlighted in the buffer. If <em class="parameter"><code>highlight</code></em>
-
-is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, the text will be highlighted according to the syntax
-patterns specified in the language set with
-<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a>. If <em class="parameter"><code>highlight</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, syntax highlighting
-is disabled and all the GtkTextTag objects that have been added by the
-syntax highlighting engine are removed from the buffer.</p>
+<p>Controls whether syntax is highlighted in the buffer.</p>
+<p>If <em class="parameter"><code>highlight</code></em>
+ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, the text will be highlighted according to the syntax
+patterns specified in the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> set with
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a>.</p>
+<p>If <em class="parameter"><code>highlight</code></em>
+ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, syntax highlighting is disabled and all the
+<a href="http://developer.gnome.org/gtk4/GtkTextTag.html#GtkTextTag-struct"><span class="type">GtkTextTag</span></a> objects that have been added by the syntax highlighting engine
+are removed from the buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-set-highlight-syntax.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -600,8 +886,8 @@ gtk_source_buffer_get_highlight_syntax
 <p>Determines whether syntax highlighting is activated in the source
 buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-highlight-syntax.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -615,77 +901,8 @@ buffer.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.5.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-highlight-syntax.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if syntax highlighting is enabled, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-buffer-set-language"></a><h3>gtk_source_buffer_set_language ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_buffer_set_language (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> *language</code></em>);</pre>
-<p>Associate a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> with the buffer. If <em class="parameter"><code>language</code></em>
- is
-not-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and syntax highlighting is enabled (see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax" title="gtk_source_buffer_set_highlight_syntax ()"><code class="function">gtk_source_buffer_set_highlight_syntax()</code></a>),
-the syntax patterns defined in <em class="parameter"><code>language</code></em>
- will be used to highlight the text
-contained in the buffer. If <em class="parameter"><code>language</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the text contained in the
-buffer is not highlighted.</p>
-<p>The buffer holds a reference to <em class="parameter"><code>language</code></em>
-.</p>
-<div class="refsect3">
-<a name="id-1.2.2.10.6.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>language</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> to set, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-buffer-get-language"></a><h3>gtk_source_buffer_get_language ()</h3>
-<pre class="programlisting"><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="returnvalue">GtkSourceLanguage</span></a> *
-gtk_source_buffer_get_language (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
-<p>Returns the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> associated with the buffer,
-see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a>.  The returned object should not be
-unreferenced by the user.</p>
-<div class="refsect3">
-<a name="id-1.2.2.10.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.2.10.7.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> associated with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -700,8 +917,8 @@ activated, when you position your cursor over a bracket character
 (a parenthesis, a square bracket, etc.) the matching opening or
 closing bracket character will be highlighted.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-set-highlight-matching-brackets.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -731,8 +948,8 @@ gtk_source_buffer_get_highlight_matching_brackets
 <p>Determines whether bracket match highlighting is activated for the
 source buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-highlight-matching-brackets.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -746,72 +963,9 @@ source buffer.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.9.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-highlight-matching-brackets.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the source buffer will highlight matching
 brackets.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-buffer-set-style-scheme"></a><h3>gtk_source_buffer_set_style_scheme ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_buffer_set_style_scheme (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                    <em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
-<p>Sets style scheme used by the buffer. If <em class="parameter"><code>scheme</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> no
-style scheme is used.</p>
-<div class="refsect3">
-<a name="id-1.2.2.10.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>scheme</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-buffer-get-style-scheme"></a><h3>gtk_source_buffer_get_style_scheme ()</h3>
-<pre class="programlisting"><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="returnvalue">GtkSourceStyleScheme</span></a> *
-gtk_source_buffer_get_style_scheme (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
-<p>Returns the <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> associated with the buffer,
-see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-style-scheme" title="gtk_source_buffer_set_style_scheme ()"><code class="function">gtk_source_buffer_set_style_scheme()</code></a>.
-The returned object should not be unreferenced by the user.</p>
-<div class="refsect3">
-<a name="id-1.2.2.10.11.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.2.10.11.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> associated
-with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -819,8 +973,8 @@ with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Stan
 <a name="gtk-source-buffer-ensure-highlight"></a><h3>gtk_source_buffer_ensure_highlight ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_buffer_ensure_highlight (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *start</code></em>,
-                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
+                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
 <p>Forces buffer to analyze and highlight the given area synchronously.</p>
 <div class="note"><p>
     This is a potentially slow operation and should be used only
@@ -828,8 +982,8 @@ gtk_source_buffer_ensure_highlight (<em class="parameter"><code><a class="link" 
     visible is highlighted, for instance before printing.
   </p></div>
 <div class="refsect3">
-<a name="id-1.2.2.10.12.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-ensure-highlight.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -865,8 +1019,8 @@ gtk_source_buffer_undo (<em class="parameter"><code><a class="link" href="GtkSou
 function will have any effect.</p>
 <p>This function emits the <a class="link" href="GtkSourceBuffer.html#GtkSourceBuffer-undo" title="The “undo” signal"><span class="type">“undo”</span></a> signal.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.13.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-undo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -889,8 +1043,8 @@ gtk_source_buffer_redo (<em class="parameter"><code><a class="link" href="GtkSou
 to check whether a call to this function will have any effect.</p>
 <p>This function emits the <a class="link" href="GtkSourceBuffer.html#GtkSourceBuffer-redo" title="The “redo” signal"><span class="type">“redo”</span></a> signal.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.14.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-redo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -911,8 +1065,8 @@ to check whether a call to this function will have any effect.</p>
 gtk_source_buffer_can_undo (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
 <p>Determines whether a source buffer can undo the last action.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.15.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-can-undo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -926,9 +1080,8 @@ gtk_source_buffer_can_undo (<em class="parameter"><code><a class="link" href="Gt
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.15.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-can-undo.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if it's possible to undo the last action.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -939,8 +1092,8 @@ gtk_source_buffer_can_redo (<em class="parameter"><code><a class="link" href="Gt
 <p>Determines whether a source buffer can redo the last action
 (i.e. if the last operation was an undo).</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.16.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-can-redo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -954,9 +1107,8 @@ gtk_source_buffer_can_redo (<em class="parameter"><code><a class="link" href="Gt
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.16.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-can-redo.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a redo is possible.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -972,8 +1124,8 @@ loading a file in a text editor).</p>
 <p>You may nest <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-begin-not-undoable-action" title="gtk_source_buffer_begin_not_undoable_action ()"><code class="function">gtk_source_buffer_begin_not_undoable_action()</code></a> /
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-end-not-undoable-action" title="gtk_source_buffer_end_not_undoable_action ()"><code class="function">gtk_source_buffer_end_not_undoable_action()</code></a> blocks.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.17.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-begin-not-undoable-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -998,8 +1150,8 @@ last not undoable block is closed through the call to this
 function, the list of undo actions is cleared and the undo manager
 is re-enabled.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.18.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-end-not-undoable-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1018,11 +1170,10 @@ is re-enabled.</p>
 <a name="gtk-source-buffer-get-max-undo-levels"></a><h3>gtk_source_buffer_get_max_undo_levels ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
 gtk_source_buffer_get_max_undo_levels (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
-<p>Determines the number of undo levels the buffer will track for
-buffer edits.</p>
+<p>Determines the number of undo levels the buffer will track for buffer edits.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.19.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-max-undo-levels.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1036,10 +1187,8 @@ buffer edits.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.19.6"></a><h4>Returns</h4>
-<p> the maximum number of possible undo levels or
--1 if no limit is set.</p>
-<p></p>
+<a name="gtk-source-buffer-get-max-undo-levels.returns"></a><h4>Returns</h4>
+<p> the maximum number of possible undo levels or -1 if no limit is set.</p>
 </div>
 </div>
 <hr>
@@ -1052,10 +1201,12 @@ gtk_source_buffer_set_max_undo_levels (<em class="parameter"><code><a class="lin
 track.  If the number of user actions exceeds the limit set by this
 function, older actions will be discarded.</p>
 <p>If <em class="parameter"><code>max_undo_levels</code></em>
- is -1, no limit is set.</p>
+ is -1, the undo/redo is unlimited.</p>
+<p>If <em class="parameter"><code>max_undo_levels</code></em>
+ is 0, the undo/redo is disabled.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.20.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-set-max-undo-levels.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1085,8 +1236,8 @@ gtk_source_buffer_get_undo_manager (<em class="parameter"><code><a class="link" 
 see <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-undo-manager" title="gtk_source_buffer_set_undo_manager ()"><code class="function">gtk_source_buffer_set_undo_manager()</code></a>.  The returned object should not be
 unreferenced by the user.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.21.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-undo-manager.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1100,7 +1251,7 @@ unreferenced by the user.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.21.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-undo-manager.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceUndoManager.html" title="GtkSourceUndoManager"><span class="type">GtkSourceUndoManager</span></a> associated
 with the buffer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1116,8 +1267,8 @@ gtk_source_buffer_set_undo_manager (<em class="parameter"><code><a class="link" 
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> the default undo manager
 will be set.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.22.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-set-undo-manager.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1132,7 +1283,7 @@ will be set.</p>
 <tr>
 <td class="parameter_name"><p>manager</p></td>
 <td class="parameter_description"><p> A <a class="link" href="GtkSourceUndoManager.html" title="GtkSourceUndoManager"><span class="type">GtkSourceUndoManager</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1144,15 +1295,15 @@ will be set.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_buffer_iter_has_context_class
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *context_class</code></em>);</pre>
 <p>Check if the class <em class="parameter"><code>context_class</code></em>
  is set on <em class="parameter"><code>iter</code></em>
 .</p>
 <p>See the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> description for the list of default context classes.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.23.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-iter-has-context-class.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1166,7 +1317,7 @@ gtk_source_buffer_iter_has_context_class
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1178,12 +1329,11 @@ gtk_source_buffer_iter_has_context_class
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.23.7"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-iter-has-context-class.returns"></a><h4>Returns</h4>
 <p> whether <em class="parameter"><code>iter</code></em>
 has the context class.</p>
-<p></p>
 </div>
-<p class="since">Since 2.10</p>
+<p class="since">Since: <a class="link" href="api-index-2-10.html#api-index-2.10">2.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1191,13 +1341,13 @@ has the context class.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
 gtk_source_buffer_get_context_classes_at_iter
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
+                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
 <p>Get all defined context classes at <em class="parameter"><code>iter</code></em>
 .</p>
 <p>See the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> description for the list of default context classes.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.24.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-context-classes-at-iter.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1211,20 +1361,20 @@ gtk_source_buffer_get_context_classes_at_iter
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.24.7"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-context-classes-at-iter.returns"></a><h4>Returns</h4>
 <p> a new <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 terminated array of context class names.
 Use <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> to free the array if it is no longer needed. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.10</p>
+<p class="since">Since: <a class="link" href="api-index-2-10.html#api-index-2.10">2.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1232,7 +1382,7 @@ Use <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Funct
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_buffer_iter_forward_to_context_class_toggle
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *context_class</code></em>);</pre>
 <p>Moves forward to the next toggle (on or off) of the context class. If no
 matching context class toggles are found, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
@@ -1244,8 +1394,8 @@ Does not return toggles located at <em class="parameter"><code>iter</code></em>
 toggle is found.</p>
 <p>See the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> description for the list of default context classes.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.25.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-iter-forward-to-context-class-toggle.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1259,8 +1409,8 @@ toggle is found.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>context_class</p></td>
@@ -1271,12 +1421,11 @@ toggle is found.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.25.7"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-iter-forward-to-context-class-toggle.returns"></a><h4>Returns</h4>
 <p> whether we found a context class toggle after <em class="parameter"><code>iter</code></em>
 </p>
-<p></p>
 </div>
-<p class="since">Since 2.10</p>
+<p class="since">Since: <a class="link" href="api-index-2-10.html#api-index-2.10">2.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1284,7 +1433,7 @@ toggle is found.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_buffer_iter_backward_to_context_class_toggle
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *context_class</code></em>);</pre>
 <p>Moves backward to the next toggle (on or off) of the context class. If no
 matching context class toggles are found, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
@@ -1296,8 +1445,8 @@ Does not return toggles located at <em class="parameter"><code>iter</code></em>
 toggle is found.</p>
 <p>See the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> description for the list of default context classes.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.26.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-iter-backward-to-context-class-toggle.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1311,8 +1460,8 @@ toggle is found.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>context_class</p></td>
@@ -1323,12 +1472,11 @@ toggle is found.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.26.7"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-iter-backward-to-context-class-toggle.returns"></a><h4>Returns</h4>
 <p> whether we found a context class toggle before <em class="parameter"><code>iter</code></em>
 </p>
-<p></p>
 </div>
-<p class="since">Since 2.10</p>
+<p class="since">Since: <a class="link" href="api-index-2-10.html#api-index-2.10">2.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1337,13 +1485,13 @@ toggle is found.</p>
 gtk_source_buffer_create_source_mark (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *category</code></em>,
-                                      <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *where</code></em>);</pre>
+                                      <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *where</code></em>);</pre>
 <p>Creates a source mark in the <em class="parameter"><code>buffer</code></em>
  of category <em class="parameter"><code>category</code></em>
 .  A source mark is
-a <a href="http://developer.gnome.org/gtk2/GtkTextMark.html"><span class="type">GtkTextMark</span></a> but organised into categories. Depending on the category
+a <a href="http://developer.gnome.org/gtk4/GtkTextMark.html#GtkTextMark-struct"><span class="type">GtkTextMark</span></a> but organised into categories. Depending on the category
 a pixbuf can be specified that will be displayed along the line of the mark.</p>
-<p>Like a <a href="http://developer.gnome.org/gtk2/GtkTextMark.html"><span class="type">GtkTextMark</span></a>, a <a class="link" href="GtkSourceMark.html" title="GtkSourceMark"><span class="type">GtkSourceMark</span></a> can be anonymous if the
+<p>Like a <a href="http://developer.gnome.org/gtk4/GtkTextMark.html#GtkTextMark-struct"><span class="type">GtkTextMark</span></a>, a <a class="link" href="GtkSourceMark.html" title="GtkSourceMark"><span class="type">GtkSourceMark</span></a> can be anonymous if the
 passed <em class="parameter"><code>name</code></em>
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  Also, the buffer owns the marks so you
 shouldn't unreference it.</p>
@@ -1352,8 +1500,8 @@ the line when the user deletes the line they were in.</p>
 <p>Typical uses for a source mark are bookmarks, breakpoints, current
 executing instruction indication in a source file, etc..</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.27.8"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-create-source-mark.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1368,7 +1516,7 @@ executing instruction indication in a source file, etc..</p>
 <tr>
 <td class="parameter_name"><p>name</p></td>
 <td class="parameter_description"><p> the name of the mark, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>category</p></td>
@@ -1384,11 +1532,11 @@ executing instruction indication in a source file, etc..</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.27.9"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-create-source-mark.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceMark.html" title="GtkSourceMark"><span class="type">GtkSourceMark</span></a>, owned by the buffer. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1396,7 +1544,7 @@ executing instruction indication in a source file, etc..</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_buffer_forward_iter_to_source_mark
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *category</code></em>);</pre>
 <p>Moves <em class="parameter"><code>iter</code></em>
  to the position of the next <a class="link" href="GtkSourceMark.html" title="GtkSourceMark"><span class="type">GtkSourceMark</span></a> of the given
@@ -1406,8 +1554,8 @@ gtk_source_buffer_forward_iter_to_source_mark
  is NULL, the
 next source mark can be of any category.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.28.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-forward-iter-to-source-mark.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1427,18 +1575,17 @@ next source mark can be of any category.</p>
 <tr>
 <td class="parameter_name"><p>category</p></td>
 <td class="parameter_description"><p> category to search for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.28.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-forward-iter-to-source-mark.returns"></a><h4>Returns</h4>
 <p> whether <em class="parameter"><code>iter</code></em>
 was moved.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1446,7 +1593,7 @@ was moved.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_buffer_backward_iter_to_source_mark
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *category</code></em>);</pre>
 <p>Moves <em class="parameter"><code>iter</code></em>
  to the position of the previous <a class="link" href="GtkSourceMark.html" title="GtkSourceMark"><span class="type">GtkSourceMark</span></a> of the given
@@ -1455,8 +1602,8 @@ category. Returns <a href="https://developer.gnome.org/glib/unstable/glib-Standa
  is NULL, the
 previous source mark can be of any category.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.29.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-backward-iter-to-source-mark.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1476,18 +1623,17 @@ previous source mark can be of any category.</p>
 <tr>
 <td class="parameter_name"><p>category</p></td>
 <td class="parameter_description"><p> category to search for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.29.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-backward-iter-to-source-mark.returns"></a><h4>Returns</h4>
 <p> whether <em class="parameter"><code>iter</code></em>
 was moved.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1503,8 +1649,8 @@ If <em class="parameter"><code>category</code></em>
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, all marks at <em class="parameter"><code>line</code></em>
  are returned.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.30.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-source-marks-at-line.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1524,17 +1670,17 @@ If <em class="parameter"><code>category</code></em>
 <tr>
 <td class="parameter_name"><p>category</p></td>
 <td class="parameter_description"><p> category to search for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.30.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-source-marks-at-line.returns"></a><h4>Returns</h4>
 <p>a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.Mark][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1542,7 +1688,7 @@ If <em class="parameter"><code>category</code></em>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
 gtk_source_buffer_get_source_marks_at_iter
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *category</code></em>);</pre>
 <p>Returns the list of marks of the given category at <em class="parameter"><code>iter</code></em>
 . If <em class="parameter"><code>category</code></em>
@@ -1550,8 +1696,8 @@ gtk_source_buffer_get_source_marks_at_iter
 is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> it returns all marks at <em class="parameter"><code>iter</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.31.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-source-marks-at-iter.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1571,25 +1717,25 @@ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <tr>
 <td class="parameter_name"><p>category</p></td>
 <td class="parameter_description"><p> category to search for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.31.6"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-source-marks-at-iter.returns"></a><h4>Returns</h4>
 <p>a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.Mark][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-buffer-remove-source-marks"></a><h3>gtk_source_buffer_remove_source_marks ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_buffer_remove_source_marks (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
-                                       <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *start</code></em>,
-                                       <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *end</code></em>,
+                                       <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                                       <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>,
                                        <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *category</code></em>);</pre>
 <p>Remove all marks of <em class="parameter"><code>category</code></em>
  between <em class="parameter"><code>start</code></em>
@@ -1598,8 +1744,8 @@ gtk_source_buffer_remove_source_marks (<em class="parameter"><code><a class="lin
 If <em class="parameter"><code>category</code></em>
  is NULL, all marks in the range will be removed.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.32.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-remove-source-marks.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1613,23 +1759,23 @@ If <em class="parameter"><code>category</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>start</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>end</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>category</p></td>
 <td class="parameter_description"><p> category to search for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1637,12 +1783,12 @@ If <em class="parameter"><code>category</code></em>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_buffer_change_case (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
                                <em class="parameter"><code><a class="link" href="GtkSourceBuffer.html#GtkSourceChangeCaseType" title="enum GtkSourceChangeCaseType"><span class="type">GtkSourceChangeCaseType</span></a> case_type</code></em>,
-                               <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *start</code></em>,
-                               <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
+                               <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                               <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
 <p>Changes the case of the text between the specified iterators.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.33.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-change-case.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1661,18 +1807,104 @@ gtk_source_buffer_change_case (<em class="parameter"><code><a class="link" href=
 </tr>
 <tr>
 <td class="parameter_name"><p>start</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>end</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.12</p>
+<p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-join-lines"></a><h3>gtk_source_buffer_join_lines ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_buffer_join_lines (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
+<p>Joins the lines of text between the specified iterators.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-join-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>start</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>end</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-buffer-sort-lines"></a><h3>gtk_source_buffer_sort_lines ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_buffer_sort_lines (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>,
+                              <em class="parameter"><code><a class="link" href="GtkSourceBuffer.html#GtkSourceSortFlags" title="enum GtkSourceSortFlags"><span class="type">GtkSourceSortFlags</span></a> flags</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> column</code></em>);</pre>
+<p>Sort the lines of text between the specified iterators.</p>
+<div class="refsect3">
+<a name="gtk-source-buffer-sort-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>buffer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>start</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>end</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>flags</p></td>
+<td class="parameter_description"><p><a class="link" href="GtkSourceBuffer.html#GtkSourceSortFlags" title="enum GtkSourceSortFlags"><span class="type">GtkSourceSortFlags</span></a> specifying how the sort should behave</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>column</p></td>
+<td class="parameter_description"><p>sort considering the text starting at the given column</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1683,7 +1915,7 @@ gtk_source_buffer_set_implicit_trailing_newline
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> implicit_trailing_newline</code></em>);</pre>
 <p>Sets whether the <em class="parameter"><code>buffer</code></em>
  has an implicit trailing newline.</p>
-<p>If an explicit trailing newline is present in a <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a>, <a href="http://developer.gnome.org/gtk2/GtkTextView.html"><span class="type">GtkTextView</span></a>
+<p>If an explicit trailing newline is present in a <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a>, <a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkTextView-struct"><span class="type">GtkTextView</span></a>
 shows it as an empty line. This is generally not what the user expects.</p>
 <p>If <em class="parameter"><code>implicit_trailing_newline</code></em>
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> (the default value):</p>
@@ -1704,8 +1936,8 @@ content is not modified when loaded into the <em class="parameter"><code>buffer<
 's
 content is not modified when saved into a file.</p>
 <div class="refsect3">
-<a name="id-1.2.2.10.34.9"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-set-implicit-trailing-newline.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1725,7 +1957,7 @@ content is not modified when saved into a file.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1734,8 +1966,8 @@ content is not modified when saved into a file.</p>
 gtk_source_buffer_get_implicit_trailing_newline
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.2.10.35.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-buffer-get-implicit-trailing-newline.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1749,12 +1981,11 @@ gtk_source_buffer_get_implicit_trailing_newline
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.10.35.5"></a><h4>Returns</h4>
+<a name="gtk-source-buffer-get-implicit-trailing-newline.returns"></a><h4>Returns</h4>
 <p> whether the <em class="parameter"><code>buffer</code></em>
 has an implicit trailing newline.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -1767,8 +1998,8 @@ has an implicit trailing newline.</p>
 <div class="refsect2">
 <a name="GtkSourceBracketMatchType"></a><h3>enum GtkSourceBracketMatchType</h3>
 <div class="refsect3">
-<a name="id-1.2.2.11.3.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBracketMatchType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1812,8 +2043,8 @@ has an implicit trailing newline.</p>
 <div class="refsect2">
 <a name="GtkSourceChangeCaseType"></a><h3>enum GtkSourceChangeCaseType</h3>
 <div class="refsect3">
-<a name="id-1.2.2.11.4.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceChangeCaseType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1851,7 +2082,52 @@ has an implicit trailing newline.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.12</p>
+<p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceSortFlags"></a><h3>enum GtkSourceSortFlags</h3>
+<div class="refsect3">
+<a name="GtkSourceSortFlags.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-SORT-FLAGS-NONE:CAPS"></a>GTK_SOURCE_SORT_FLAGS_NONE</p></td>
+<td class="enum_member_description">
+<p>no flags specified</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-SORT-FLAGS-CASE-SENSITIVE:CAPS"></a>GTK_SOURCE_SORT_FLAGS_CASE_SENSITIVE</p></td>
+<td class="enum_member_description">
+<p>case sensitive sort</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-SORT-FLAGS-REVERSE-ORDER:CAPS"></a>GTK_SOURCE_SORT_FLAGS_REVERSE_ORDER</p></td>
+<td class="enum_member_description">
+<p>sort in reverse order</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-SORT-FLAGS-REMOVE-DUPLICATES:CAPS"></a>GTK_SOURCE_SORT_FLAGS_REMOVE_DUPLICATES</p></td>
+<td class="enum_member_description">
+<p>remove duplicates</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -1895,7 +2171,7 @@ has an implicit trailing newline.</p>
 <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-implicit-trailing-newline" title="gtk_source_buffer_set_implicit_trailing_newline ()"><code class="function">gtk_source_buffer_set_implicit_trailing_newline()</code></a>.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: TRUE</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1937,18 +2213,22 @@ brackets style.</p>
 <a name="GtkSourceBuffer-bracket-matched"></a><h3>The <code class="literal">“bracket-matched”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>          *buffer,
-               <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>              *iter,
+               <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>              *iter,
                <a class="link" href="GtkSourceBuffer.html#GtkSourceBracketMatchType" title="enum GtkSourceBracketMatchType"><span class="type">GtkSourceBracketMatchType</span></a> state,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
-<p>Sets <em class="parameter"><code>iter</code></em>
- to a valid iterator pointing to the matching bracket
+<p><em class="parameter"><code>iter</code></em>
+ is set to a valid iterator pointing to the matching bracket
 if <em class="parameter"><code>state</code></em>
- is <a class="link" href="GtkSourceBuffer.html#GTK-SOURCE-BRACKET-MATCH-FOUND:CAPS"><span class="type">GTK_SOURCE_BRACKET_MATCH_FOUND</span></a>. Otherwise <em class="parameter"><code>iter</code></em>
+ is <a class="link" href="GtkSourceBuffer.html#GTK-SOURCE-BRACKET-MATCH-FOUND:CAPS"><code class="literal">GTK_SOURCE_BRACKET_MATCH_FOUND</code></a>. Otherwise <em class="parameter"><code>iter</code></em>
  is
 meaningless.</p>
+<p>The signal is emitted only when the <em class="parameter"><code>state</code></em>
+ changes, typically when
+the cursor moves.</p>
+<p>A use-case for this signal is to show messages in a <a href="http://developer.gnome.org/gtk4/GtkStatusbar.html#GtkStatusbar-struct"><span class="type">GtkStatusbar</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.2.13.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBuffer-bracket-matched.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1962,12 +2242,12 @@ meaningless.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>iterator to initialize.</p></td>
+<td class="parameter_description"><p>if found, the location of the matching bracket.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p>state of bracket matching</p></td>
+<td class="parameter_description"><p>state of bracket matching.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1979,15 +2259,15 @@ meaningless.</p>
 </table></div>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
-<p class="since">Since 2.12</p>
+<p class="since">Since: <a class="link" href="api-index-2-12.html#api-index-2.12">2.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceBuffer-highlight-updated"></a><h3>The <code class="literal">“highlight-updated”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer,
-               <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>     *start,
-               <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>     *end,
+               <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>     *start,
+               <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>     *end,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
 <p>The ::highlight-updated signal is emitted when the syntax
 highlighting is updated in a certain region of the <em class="parameter"><code>buffer</code></em>
@@ -1995,8 +2275,8 @@ highlighting is updated in a certain region of the <em class="parameter"><code>b
 signal is useful to be notified when a context class region is
 updated (e.g. the no-spell-check context class).</p>
 <div class="refsect3">
-<a name="id-1.2.2.13.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBuffer-highlight-updated.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -2036,8 +2316,8 @@ user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffe
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
 <p>The ::redo signal is emitted to redo the last undo operation.</p>
 <div class="refsect3">
-<a name="id-1.2.2.13.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBuffer-redo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -2064,14 +2344,14 @@ user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffe
 <a name="GtkSourceBuffer-source-mark-updated"></a><h3>The <code class="literal">“source-mark-updated”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer,
-               <a href="http://developer.gnome.org/gtk2/GtkTextMark.html"><span class="type">GtkTextMark</span></a>     *mark,
+               <a href="http://developer.gnome.org/gtk4/GtkTextMark.html#GtkTextMark-struct"><span class="type">GtkTextMark</span></a>     *mark,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
-<p>The ::source_mark_updated signal is emitted each time
+<p>The ::source-mark-updated signal is emitted each time
 a mark is added to, moved or removed from the <em class="parameter"><code>buffer</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.13.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBuffer-source-mark-updated.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -2107,8 +2387,8 @@ user_function (<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffe
 <p>The ::undo signal is emitted to undo the last user action which
 modified the buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.2.13.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceBuffer-undo.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -2133,11 +2413,10 @@ modified the buffer.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceBuffer.see-also"></a><h2>See Also</h2>
-<p><a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a>, <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p>
+<p><a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a>, <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

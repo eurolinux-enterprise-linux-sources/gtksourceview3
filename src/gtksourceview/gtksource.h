@@ -17,9 +17,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_H__
-#define __GTK_SOURCE_H__
+#ifndef GTK_SOURCE_H
+#define GTK_SOURCE_H
 
+#define GTK_SOURCE_H_INSIDE
+
+#include <gtksourceview/completion-providers/words/gtksourcecompletionwords.h>
 #include <gtksourceview/gtksourcetypes.h>
 #include <gtksourceview/gtksourcebuffer.h>
 #include <gtksourceview/gtksourcecompletioncontext.h>
@@ -38,17 +41,28 @@
 #include <gtksourceview/gtksourcegutterrendererpixbuf.h>
 #include <gtksourceview/gtksourcelanguage.h>
 #include <gtksourceview/gtksourcelanguagemanager.h>
+#include <gtksourceview/gtksourcemap.h>
 #include <gtksourceview/gtksourcemark.h>
 #include <gtksourceview/gtksourcemarkattributes.h>
 #include <gtksourceview/gtksourceprintcompositor.h>
+#include <gtksourceview/gtksourceregion.h>
 #include <gtksourceview/gtksourcesearchcontext.h>
 #include <gtksourceview/gtksourcesearchsettings.h>
 #include <gtksourceview/gtksourcestyle.h>
 #include <gtksourceview/gtksourcestylescheme.h>
+#include <gtksourceview/gtksourcestyleschemechooser.h>
+#include <gtksourceview/gtksourcestyleschemechooserbutton.h>
+#include <gtksourceview/gtksourcestyleschemechooserwidget.h>
 #include <gtksourceview/gtksourcestyleschememanager.h>
+#include <gtksourceview/gtksourcetag.h>
 #include <gtksourceview/gtksourceundomanager.h>
 #include <gtksourceview/gtksourceutils.h>
+#include <gtksourceview/gtksourceversion.h>
 #include <gtksourceview/gtksourceview.h>
+#include <gtksourceview/gtksourceview-enumtypes.h>
 #include <gtksourceview/gtksourceview-typebuiltins.h>
+#include <gtksourceview/gtksourceautocleanups.h>
 
-#endif /* __GTK_SOURCE_H__ */
+#undef GTK_SOURCE_H_INSIDE
+
+#endif /* GTK_SOURCE_H */

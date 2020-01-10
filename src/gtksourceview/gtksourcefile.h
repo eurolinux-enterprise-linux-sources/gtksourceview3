@@ -2,7 +2,7 @@
 /* gtksourcefile.h
  * This file is part of GtkSourceView
  *
- * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,8 +19,16 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_FILE_H__
-#define __GTK_SOURCE_FILE_H__
+#ifndef GTK_SOURCE_FILE_H
+#define GTK_SOURCE_FILE_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
@@ -36,6 +44,48 @@ G_BEGIN_DECLS
 
 typedef struct _GtkSourceFileClass    GtkSourceFileClass;
 typedef struct _GtkSourceFilePrivate  GtkSourceFilePrivate;
+
+/**
+ * GtkSourceNewlineType:
+ * @GTK_SOURCE_NEWLINE_TYPE_LF: line feed, used on UNIX.
+ * @GTK_SOURCE_NEWLINE_TYPE_CR: carriage return, used on Mac.
+ * @GTK_SOURCE_NEWLINE_TYPE_CR_LF: carriage return followed by a line feed, used
+ *   on Windows.
+ *
+ * Since: 3.14
+ */
+typedef enum _GtkSourceNewlineType
+{
+	GTK_SOURCE_NEWLINE_TYPE_LF,
+	GTK_SOURCE_NEWLINE_TYPE_CR,
+	GTK_SOURCE_NEWLINE_TYPE_CR_LF
+} GtkSourceNewlineType;
+
+/**
+ * GTK_SOURCE_NEWLINE_TYPE_DEFAULT:
+ *
+ * The default newline type on the current OS.
+ *
+ * Since: 3.14
+ */
+#ifdef G_OS_WIN32
+#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_CR_LF
+#else
+#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_LF
+#endif
+
+/**
+ * GtkSourceCompressionType:
+ * @GTK_SOURCE_COMPRESSION_TYPE_NONE: plain text.
+ * @GTK_SOURCE_COMPRESSION_TYPE_GZIP: gzip compression.
+ *
+ * Since: 3.14
+ */
+typedef enum _GtkSourceCompressionType
+{
+	GTK_SOURCE_COMPRESSION_TYPE_NONE,
+	GTK_SOURCE_COMPRESSION_TYPE_GZIP
+} GtkSourceCompressionType;
 
 /**
  * GtkSourceMountOperationFactory:
@@ -64,28 +114,51 @@ struct _GtkSourceFileClass
 	gpointer padding[10];
 };
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GType		 gtk_source_file_get_type			(void) G_GNUC_CONST;
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFile	*gtk_source_file_new				(void);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GFile		*gtk_source_file_get_location			(GtkSourceFile *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void		 gtk_source_file_set_location			(GtkSourceFile *file,
 								 GFile         *location);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding *
 		 gtk_source_file_get_encoding			(GtkSourceFile *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceNewlineType
 		 gtk_source_file_get_newline_type		(GtkSourceFile *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceCompressionType
 		 gtk_source_file_get_compression_type		(GtkSourceFile *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void		 gtk_source_file_set_mount_operation_factory	(GtkSourceFile                  *file,
 								 GtkSourceMountOperationFactory  callback,
 								 gpointer                        user_data,
 								 GDestroyNotify                  notify);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+void		 gtk_source_file_check_file_on_disk		(GtkSourceFile *file);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+gboolean	 gtk_source_file_is_local			(GtkSourceFile *file);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+gboolean	 gtk_source_file_is_externally_modified		(GtkSourceFile *file);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+gboolean	 gtk_source_file_is_deleted			(GtkSourceFile *file);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+gboolean	 gtk_source_file_is_readonly			(GtkSourceFile *file);
 
 G_GNUC_INTERNAL
 void		 _gtk_source_file_set_encoding			(GtkSourceFile           *file,
@@ -110,6 +183,18 @@ G_GNUC_INTERNAL
 void		 _gtk_source_file_set_modification_time		(GtkSourceFile *file,
 								 GTimeVal       modification_time);
 
+G_GNUC_INTERNAL
+void		 _gtk_source_file_set_externally_modified	(GtkSourceFile *file,
+								 gboolean       externally_modified);
+
+G_GNUC_INTERNAL
+void		 _gtk_source_file_set_deleted			(GtkSourceFile *file,
+								 gboolean       deleted);
+
+G_GNUC_INTERNAL
+void		 _gtk_source_file_set_readonly			(GtkSourceFile *file,
+								 gboolean       readonly);
+
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_FILE_H__ */
+#endif /* GTK_SOURCE_FILE_H */

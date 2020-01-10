@@ -52,9 +52,16 @@ struct _TestWidgetPrivate
 	GtkSourceView *view;
 	GtkSourceBuffer *buffer;
 	GtkSourceFile *file;
+	GtkSourceMap *map;
+	GtkCheckButton *show_top_border_window_checkbutton;
+	GtkCheckButton *show_map_checkbutton;
+	GtkCheckButton *draw_spaces_checkbutton;
+	GtkCheckButton *smart_backspace_checkbutton;
 	GtkCheckButton *indent_width_checkbutton;
 	GtkSpinButton *indent_width_spinbutton;
 	GtkLabel *cursor_position_info;
+	GtkSourceStyleSchemeChooserButton *chooser_button;
+	GtkComboBoxText *background_pattern;
 };
 
 GType test_widget_get_type (void);
@@ -220,7 +227,7 @@ load_cb (GtkSourceFileLoader *loader,
 	if (error != NULL)
 	{
 		g_warning ("Error while loading the file: %s", error->message);
-		g_error_free (error);
+		g_clear_error (&error);
 		g_clear_object (&self->priv->file);
 		goto end;
 	}
@@ -331,23 +338,6 @@ highlight_current_line_toggled_cb (TestWidget     *self,
 {
 	gboolean enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 	gtk_source_view_set_highlight_current_line (self->priv->view, enabled);
-}
-
-static void
-draw_spaces_toggled_cb (TestWidget     *self,
-			GtkCheckButton *button)
-{
-	gboolean draw_spaces = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-
-	if (draw_spaces)
-	{
-		gtk_source_view_set_draw_spaces (self->priv->view,
-						 GTK_SOURCE_DRAW_SPACES_ALL);
-	}
-	else
-	{
-		gtk_source_view_set_draw_spaces (self->priv->view, 0);
-	}
 }
 
 static void
@@ -832,22 +822,22 @@ bracket_matched_cb (GtkSourceBuffer           *buffer,
 	GEnumClass *eclass;
 	GEnumValue *evalue;
 
-	g_return_if_fail (iter != NULL);
-
 	eclass = G_ENUM_CLASS (g_type_class_ref (GTK_SOURCE_TYPE_BRACKET_MATCH_TYPE));
 	evalue = g_enum_get_value (eclass, state);
 
 	g_print ("Bracket match state: '%s'\n", evalue->value_nick);
 
+	g_type_class_unref (eclass);
+
 	if (state == GTK_SOURCE_BRACKET_MATCH_FOUND)
 	{
+		g_return_if_fail (iter != NULL);
+
 		g_print ("Matched bracket: '%c' at row: %"G_GINT32_FORMAT", col: %"G_GINT32_FORMAT"\n",
 		         gtk_text_iter_get_char (iter),
 		         gtk_text_iter_get_line (iter) + 1,
 		         gtk_text_iter_get_line_offset (iter) + 1);
 	}
-
-	g_type_class_unref (eclass);
 }
 
 static gchar *
@@ -916,6 +906,28 @@ add_source_mark_attributes (GtkSourceView *view)
 }
 
 static void
+on_background_pattern_changed (GtkComboBox *combobox,
+                               TestWidget  *self)
+{
+	gchar *text;
+
+	text = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT (combobox));
+
+	if (g_strcmp0 (text, "Grid") == 0)
+	{
+		gtk_source_view_set_background_pattern (self->priv->view,
+		                                        GTK_SOURCE_BACKGROUND_PATTERN_TYPE_GRID);
+	}
+	else
+	{
+		gtk_source_view_set_background_pattern (self->priv->view,
+		                                        GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE);
+	}
+
+	g_free (text);
+}
+
+static void
 test_widget_dispose (GObject *object)
 {
 	TestWidget *self = TEST_WIDGET (object);
@@ -946,7 +958,6 @@ test_widget_class_init (TestWidgetClass *klass)
 	gtk_widget_class_bind_template_callback (widget_class, show_right_margin_toggled_cb);
 	gtk_widget_class_bind_template_callback (widget_class, right_margin_position_value_changed_cb);
 	gtk_widget_class_bind_template_callback (widget_class, highlight_current_line_toggled_cb);
-	gtk_widget_class_bind_template_callback (widget_class, draw_spaces_toggled_cb);
 	gtk_widget_class_bind_template_callback (widget_class, wrap_lines_toggled_cb);
 	gtk_widget_class_bind_template_callback (widget_class, auto_indent_toggled_cb);
 	gtk_widget_class_bind_template_callback (widget_class, indent_spaces_toggled_cb);
@@ -956,16 +967,48 @@ test_widget_class_init (TestWidgetClass *klass)
 	gtk_widget_class_bind_template_callback (widget_class, smart_home_end_changed_cb);
 
 	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, view);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, map);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, show_top_border_window_checkbutton);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, show_map_checkbutton);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, draw_spaces_checkbutton);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, smart_backspace_checkbutton);
 	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, indent_width_checkbutton);
 	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, indent_width_spinbutton);
 	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, cursor_position_info);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, chooser_button);
+	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, background_pattern);
+}
+
+static gboolean
+tranform_boolean_to_draw_spaces_flags (GBinding *binding,
+                                       const GValue *from_value,
+                                       GValue *to_value,
+                                       gpointer user_data)
+{
+	gboolean active;
+
+	active = g_value_get_boolean (from_value);
+	g_value_set_flags (to_value, active ? GTK_SOURCE_DRAW_SPACES_ALL : 0);
+
+	return TRUE;
+}
+
+static void
+show_top_border_window_toggled_cb (GtkToggleButton *checkbutton,
+				   TestWidget      *self)
+{
+	gint size;
+
+	size = gtk_toggle_button_get_active (checkbutton) ? 20 : 0;
+
+	gtk_text_view_set_border_window_size (GTK_TEXT_VIEW (self->priv->view),
+					      GTK_TEXT_WINDOW_TOP,
+					      size);
 }
 
 static void
 test_widget_init (TestWidget *self)
 {
-	PangoFontDescription *font_desc;
-
 	self->priv = test_widget_get_instance_private (self);
 
 	gtk_widget_init_template (GTK_WIDGET (self));
@@ -974,6 +1017,11 @@ test_widget_init (TestWidget *self)
 		gtk_text_view_get_buffer (GTK_TEXT_VIEW (self->priv->view)));
 
 	g_object_ref (self->priv->buffer);
+
+	g_signal_connect (self->priv->show_top_border_window_checkbutton,
+			  "toggled",
+			  G_CALLBACK (show_top_border_window_toggled_cb),
+			  self);
 
 	g_signal_connect_swapped (self->priv->indent_width_checkbutton,
 				  "toggled",
@@ -1007,12 +1055,38 @@ test_widget_init (TestWidget *self)
 			  G_CALLBACK (line_mark_activated_cb),
 			  self);
 
-	font_desc = pango_font_description_from_string ("monospace");
-	if (font_desc != NULL)
-	{
-		gtk_widget_override_font (GTK_WIDGET (self->priv->view), font_desc);
-		pango_font_description_free (font_desc);
-	}
+	g_object_bind_property (self->priv->chooser_button,
+	                        "style-scheme",
+	                        self->priv->buffer,
+	                        "style-scheme",
+	                        G_BINDING_SYNC_CREATE);
+
+	g_object_bind_property (self->priv->show_map_checkbutton,
+	                        "active",
+	                        self->priv->map,
+	                        "visible",
+	                        G_BINDING_SYNC_CREATE);
+
+	g_object_bind_property_full (self->priv->draw_spaces_checkbutton,
+	                             "active",
+	                             self->priv->view,
+	                             "draw-spaces",
+	                             G_BINDING_SYNC_CREATE,
+	                             tranform_boolean_to_draw_spaces_flags,
+	                             NULL,
+	                             NULL,
+	                             NULL);
+
+	g_object_bind_property (self->priv->smart_backspace_checkbutton,
+	                        "active",
+	                        self->priv->view,
+	                        "smart-backspace",
+	                        G_BINDING_SYNC_CREATE);
+
+	g_signal_connect (self->priv->background_pattern,
+	                  "changed",
+	                  G_CALLBACK (on_background_pattern_changed),
+	                  self);
 
 	open_file (self, TOP_SRCDIR "/gtksourceview/gtksourcebuffer.c");
 }

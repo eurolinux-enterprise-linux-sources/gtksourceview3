@@ -28,7 +28,7 @@ enum
 {
 	LOCK,
 	UNLOCK,
-	NUM_SIGNALS
+	N_SIGNALS
 };
 
 struct _GtkSourceCompletionWordsLibraryPrivate
@@ -37,7 +37,7 @@ struct _GtkSourceCompletionWordsLibraryPrivate
 	gboolean locked;
 };
 
-static guint signals[NUM_SIGNALS] = {0,};
+static guint signals[N_SIGNALS];
 
 G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionWordsLibrary, gtk_source_completion_words_library, G_TYPE_OBJECT)
 
@@ -120,12 +120,17 @@ iter_match_prefix (GSequenceIter *iter,
                    gint           len)
 {
 	GtkSourceCompletionWordsProposal *item;
+	const gchar *proposal_word;
 
 	item = gtk_source_completion_words_library_get_proposal (iter);
+	proposal_word = gtk_source_completion_words_proposal_get_word (item);
 
-	return strncmp (gtk_source_completion_words_proposal_get_word (item),
-	                word,
-	                len != -1 ? len : strlen (word)) == 0;
+	if (len == -1)
+	{
+		len = strlen (word);
+	}
+
+	return strncmp (proposal_word, word, len) == 0;
 }
 
 GtkSourceCompletionWordsProposal *

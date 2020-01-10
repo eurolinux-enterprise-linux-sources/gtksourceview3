@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceCompletion: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="GtkSourceBuffer.html" title="GtkSourceBuffer">
+<link rel="up" href="ch04.html" title="Completion">
+<link rel="prev" href="ch04.html" title="Completion">
 <link rel="next" href="GtkSourceCompletionContext.html" title="GtkSourceCompletionContext">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -22,8 +22,8 @@
                   <a href="#GtkSourceCompletion.signals" class="shortcut">Signals</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="GtkSourceBuffer.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceCompletionContext.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -37,7 +37,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -136,7 +136,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -194,7 +194,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.signals"></a><h2>Signals</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="signals_return">
 <col width="300px" class="signals_name">
@@ -236,7 +236,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -259,7 +259,9 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">╰──</span> GtkSourceCompletionError
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceCompletion
 </pre>
 </div>
@@ -267,7 +269,7 @@
 <a name="GtkSourceCompletion.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
 <p>
 GtkSourceCompletion implements
- <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a>.</p>
+ <a href="http://developer.gnome.org/gtk4/GtkBuildable.html#GtkBuildable-struct">GtkBuildable</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletion.includes"></a><h2>Includes</h2>
@@ -315,8 +317,8 @@ instance. This instance can be obtained with
 <p>A same <a class="link" href="GtkSourceCompletionProvider.html" title="GtkSourceCompletionProvider"><span class="type">GtkSourceCompletionProvider</span></a> object can be used for several
 <a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a>.</p>
 <div class="refsect2">
-<a name="id-1.2.3.10.11"></a><h3>GtkSourceCompletion as GtkBuildable</h3>
-<p>The GtkSourceCompletion implementation of the <a href="http://developer.gnome.org/gtk2/GtkBuildable.html"><span class="type">GtkBuildable</span></a> interface exposes
+<a name="id-1.2.5.2.10.11"></a><h3>GtkSourceCompletion as GtkBuildable</h3>
+<p>The GtkSourceCompletion implementation of the <a href="http://developer.gnome.org/gtk4/GtkBuildable.html#GtkBuildable-struct"><span class="type">GtkBuildable</span></a> interface exposes
 the info window object (see <a class="link" href="GtkSourceCompletion.html#gtk-source-completion-get-info-window" title="gtk_source_completion_get_info_window ()"><code class="function">gtk_source_completion_get_info_window()</code></a>) with the
 internal-child "info_window".</p>
 <p>An example of a UI definition fragment with GtkSourceCompletion:</p>
@@ -361,8 +363,8 @@ add a reference <em class="parameter"><code>provider</code></em>
 , so make sure to unref your own copy when you
 no longer need it.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-add-provider.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -381,18 +383,17 @@ no longer need it.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.2.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-add-provider.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>provider</code></em>
 was successfully added, otherwise if <em class="parameter"><code>error</code></em>
 is provided, it will be set with the error and <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> is returned.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -405,8 +406,8 @@ gtk_source_completion_remove_provider (<em class="parameter"><code><a class="lin
 <p>Remove <em class="parameter"><code>provider</code></em>
  from the completion.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-remove-provider.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -425,18 +426,17 @@ gtk_source_completion_remove_provider (<em class="parameter"><code><a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-remove-provider.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>provider</code></em>
 was successfully removed, otherwise if <em class="parameter"><code>error</code></em>
 is provided, it will be set with the error and <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> is returned.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -448,8 +448,8 @@ gtk_source_completion_get_providers (<em class="parameter"><code><a class="link"
 . The returned list is owned
 by the completion and should not be freed.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-get-providers.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -463,7 +463,7 @@ by the completion and should not be freed.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.4.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-get-providers.returns"></a><h4>Returns</h4>
 <p>list of <a class="link" href="GtkSourceCompletionProvider.html" title="GtkSourceCompletionProvider"><span class="type">GtkSourceCompletionProvider</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.CompletionProvider][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -483,8 +483,8 @@ add or remove providers to the <a class="link" href="GtkSourceCompletion.html" t
 <a class="link" href="GtkSourceCompletion.html#gtk-source-completion-add-provider" title="gtk_source_completion_add_provider ()"><code class="function">gtk_source_completion_add_provider()</code></a>, and implement
 <a class="link" href="GtkSourceCompletionProvider.html#gtk-source-completion-provider-match" title="gtk_source_completion_provider_match ()"><code class="function">gtk_source_completion_provider_match()</code></a> for each provider.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.5.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-show.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -499,7 +499,7 @@ add or remove providers to the <a class="link" href="GtkSourceCompletion.html" t
 <tr>
 <td class="parameter_name"><p>providers</p></td>
 <td class="parameter_description"><p>a list of <a class="link" href="GtkSourceCompletionProvider.html" title="GtkSourceCompletionProvider"><span class="type">GtkSourceCompletionProvider</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.CompletionProvider][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.CompletionProvider][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>context</p></td>
@@ -511,9 +511,8 @@ with which to start the completion. </p></td>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.5.8"></a><h4>Returns</h4>
+<a name="gtk-source-completion-show.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if it was possible to the show completion window.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -523,8 +522,8 @@ with which to start the completion. </p></td>
 gtk_source_completion_hide (<em class="parameter"><code><a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> *completion</code></em>);</pre>
 <p>Hides the completion if it is active (visible).</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-hide.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -546,8 +545,8 @@ gtk_source_completion_get_info_window (<em class="parameter"><code><a class="lin
 <p>The info widget is the window where the completion displays optional extra
 information of the proposal.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-get-info-window.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -561,7 +560,7 @@ information of the proposal.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.7.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-get-info-window.returns"></a><h4>Returns</h4>
 <p> The <a class="link" href="GtkSourceCompletionInfo.html" title="GtkSourceCompletionInfo"><span class="type">GtkSourceCompletionInfo</span></a> window
 associated with <em class="parameter"><code>completion</code></em>
 . </p>
@@ -577,8 +576,8 @@ gtk_source_completion_get_view (<em class="parameter"><code><a class="link" href
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the view has been
 destroyed.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-get-view.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -592,10 +591,10 @@ destroyed.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.8.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-get-view.returns"></a><h4>Returns</h4>
 <p>The <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> associated with <em class="parameter"><code>completion</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
-<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GtkSource.View][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GtkSource.View][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -603,7 +602,7 @@ destroyed.</p>
 <a name="gtk-source-completion-create-context"></a><h3>gtk_source_completion_create_context ()</h3>
 <pre class="programlisting"><a class="link" href="GtkSourceCompletionContext.html" title="GtkSourceCompletionContext"><span class="returnvalue">GtkSourceCompletionContext</span></a> *
 gtk_source_completion_create_context (<em class="parameter"><code><a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> *completion</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *position</code></em>);</pre>
+                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *position</code></em>);</pre>
 <p>Create a new <a class="link" href="GtkSourceCompletionContext.html" title="GtkSourceCompletionContext"><span class="type">GtkSourceCompletionContext</span></a> for <em class="parameter"><code>completion</code></em>
 . The position where
 the completion occurs can be specified by <em class="parameter"><code>position</code></em>
@@ -611,8 +610,8 @@ the completion occurs can be specified by <em class="parameter"><code>position</
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,
 the current cursor position will be used.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-create-context.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -626,14 +625,14 @@ the current cursor position will be used.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>position</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.11.9.6"></a><h4>Returns</h4>
+<a name="gtk-source-completion-create-context.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceCompletionContext.html" title="GtkSourceCompletionContext"><span class="type">GtkSourceCompletionContext</span></a>.
 The reference being returned is a 'floating' reference,
 so if you invoke <a class="link" href="GtkSourceCompletion.html#gtk-source-completion-show" title="gtk_source_completion_show ()"><code class="function">gtk_source_completion_show()</code></a> with this context
@@ -646,15 +645,15 @@ you don't need to unref it. </p>
 <a name="gtk-source-completion-move-window"></a><h3>gtk_source_completion_move_window ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_completion_move_window (<em class="parameter"><code><a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> *completion</code></em>,
-                                   <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
+                                   <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_source_completion_move_window</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-start-iter" title="gtk_source_completion_provider_get_start_iter ()"><code class="function">gtk_source_completion_provider_get_start_iter()</code></a> instead.</p>
 </div>
 <p>Move the completion window to a specific iter.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.10.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-move-window.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -668,7 +667,7 @@ gtk_source_completion_move_window (<em class="parameter"><code><a class="link" h
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -689,8 +688,8 @@ interactive completion again.</p>
 interactive completion until <a class="link" href="GtkSourceCompletion.html#gtk-source-completion-unblock-interactive" title="gtk_source_completion_unblock_interactive ()"><code class="function">gtk_source_completion_unblock_interactive()</code></a>
 has been called the same number of times.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.11.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-block-interactive.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -714,8 +713,8 @@ gtk_source_completion_unblock_interactive
 <a class="link" href="GtkSourceCompletion.html#gtk-source-completion-block-interactive" title="gtk_source_completion_block_interactive ()"><code class="function">gtk_source_completion_block_interactive()</code></a> to enable interactive completion
 again.</p>
 <div class="refsect3">
-<a name="id-1.2.3.11.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-unblock-interactive.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -751,8 +750,8 @@ error domains.</p>
 <p>An error code used with <a class="link" href="GtkSourceCompletion.html#GTK-SOURCE-COMPLETION-ERROR:CAPS" title="GTK_SOURCE_COMPLETION_ERROR"><code class="literal">GTK_SOURCE_COMPLETION_ERROR</code></a> in a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> returned
 from a completion-related function.</p>
 <div class="refsect3">
-<a name="id-1.2.3.12.4.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletionError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -884,8 +883,8 @@ a proposal activation.</p>
 <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-emit-by-name"><code class="function">g_signal_emit_by_name()</code></a> if they need to control the proposal
 activation programmatically.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.2.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-activate-proposal.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -916,8 +915,8 @@ user_function (<a class="link" href="GtkSourceCompletion.html" title="GtkSourceC
 <p>Emitted when the completion window is hidden. The default handler
 will actually hide the window.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-hide.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -944,7 +943,7 @@ will actually hide the window.</p>
 <a name="GtkSourceCompletion-move-cursor"></a><h3>The <code class="literal">“move-cursor”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> *completion,
-               <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a>        step,
+               <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a>        step,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                 num,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>The <a class="link" href="GtkSourceCompletion.html#GtkSourceCompletion-move-cursor" title="The “move-cursor” signal"><span class="type">“move-cursor”</span></a> signal is a keybinding
@@ -955,15 +954,15 @@ movement.</p>
 <span class="keycap"><strong>Home</strong></span> and <span class="keycap"><strong>End</strong></span> keys are bound to the
 <p>normal behavior expected by those keys.</p>
 <p>When <em class="parameter"><code>step</code></em>
- is equal to <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GTK-SCROLL-PAGES:CAPS"><code class="literal">GTK_SCROLL_PAGES</code></a>, the page size is defined by
+ is equal to <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GTK-SCROLL-PAGES:CAPS"><code class="literal">GTK_SCROLL_PAGES</code></a>, the page size is defined by
 the <a class="link" href="GtkSourceCompletion.html#GtkSourceCompletion--proposal-page-size" title="The “proposal-page-size” property"><span class="type">“proposal-page-size”</span></a> property. It is used for
 the <span class="keycap"><strong>PageDown</strong></span> and <span class="keycap"><strong>PageUp</strong></span> keys.</p>
 <p>Applications should not connect to it, but may emit it with
 <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-emit-by-name"><code class="function">g_signal_emit_by_name()</code></a> if they need to control the cursor
 programmatically.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.4.13"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-move-cursor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -977,7 +976,7 @@ programmatically.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>step</p></td>
-<td class="parameter_description"><p>The <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a> by which to move the cursor</p></td>
+<td class="parameter_description"><p>The <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a> by which to move the cursor</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1000,7 +999,7 @@ programmatically.</p>
 <a name="GtkSourceCompletion-move-page"></a><h3>The <code class="literal">“move-page”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> *completion,
-               <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a>        step,
+               <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a>        step,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                 num,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>The <a class="link" href="GtkSourceCompletion.html#GtkSourceCompletion-move-page" title="The “move-page” signal"><span class="type">“move-page”</span></a> signal is a keybinding
@@ -1011,14 +1010,14 @@ movement (i.e. switches between provider pages).</p>
 <span class="keycap"><strong>Control</strong></span>+<span class="keycap"><strong>Home</strong></span><p>is for displaying all the providers.</p>
 <span class="keycap"><strong>Control</strong></span>+<span class="keycap"><strong>End</strong></span><p>is for going to the last provider.</p>
 <p>When <em class="parameter"><code>step</code></em>
- is equal to <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GTK-SCROLL-PAGES:CAPS"><span class="type">GTK_SCROLL_PAGES</span></a>, the page size is defined by
+ is equal to <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GTK-SCROLL-PAGES:CAPS"><span class="type">GTK_SCROLL_PAGES</span></a>, the page size is defined by
 the <a class="link" href="GtkSourceCompletion.html#GtkSourceCompletion--provider-page-size" title="The “provider-page-size” property"><span class="type">“provider-page-size”</span></a> property.</p>
 <p>Applications should not connect to it, but may emit it with
 <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-emit-by-name"><code class="function">g_signal_emit_by_name()</code></a> if they need to control the page selection
 programmatically.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.5.15"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-move-page.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1032,7 +1031,7 @@ programmatically.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>step</p></td>
-<td class="parameter_description"><p>The <a href="http://developer.gnome.org/gtk2/gtk3-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a> by which to move the page</p></td>
+<td class="parameter_description"><p>The <a href="http://developer.gnome.org/gtk4/gtk4-Standard-Enumerations.html#GtkScrollStep"><span class="type">GtkScrollStep</span></a> by which to move the page</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1060,8 +1059,8 @@ user_function (<a class="link" href="GtkSourceCompletion.html" title="GtkSourceC
 <p>Emitted just before starting to populate the completion with providers.
 You can use this signal to add additional attributes in the context.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-populate-context.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1097,8 +1096,8 @@ user_function (<a class="link" href="GtkSourceCompletion.html" title="GtkSourceC
 <p>Emitted when the completion window is shown. The default handler
 will actually show the window.</p>
 <div class="refsect3">
-<a name="id-1.2.3.14.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompletion-show.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1123,7 +1122,6 @@ will actually show the window.</p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

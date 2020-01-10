@@ -22,11 +22,20 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_FILE_LOADER_H__
-#define __GTK_SOURCE_FILE_LOADER_H__
+#ifndef GTK_SOURCE_FILE_LOADER_H
+#define GTK_SOURCE_FILE_LOADER_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
+#include <gtksourceview/gtksourcefile.h>
 
 G_BEGIN_DECLS
 
@@ -52,7 +61,7 @@ typedef struct _GtkSourceFileLoaderPrivate GtkSourceFileLoaderPrivate;
  *
  * An error code used with the %GTK_SOURCE_FILE_LOADER_ERROR domain.
  */
-typedef enum
+typedef enum _GtkSourceFileLoaderError
 {
 	GTK_SOURCE_FILE_LOADER_ERROR_TOO_BIG,
 	GTK_SOURCE_FILE_LOADER_ERROR_ENCODING_AUTO_DETECTION_FAILED,
@@ -73,30 +82,40 @@ struct _GtkSourceFileLoaderClass
 	gpointer padding[10];
 };
 
-GType 		 	 gtk_source_file_loader_get_type	(void) G_GNUC_CONST;
+GTK_SOURCE_AVAILABLE_IN_3_14
+GType		 	 gtk_source_file_loader_get_type	(void) G_GNUC_CONST;
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GQuark			 gtk_source_file_loader_error_quark	(void);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFileLoader	*gtk_source_file_loader_new		(GtkSourceBuffer         *buffer,
 								 GtkSourceFile           *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFileLoader	*gtk_source_file_loader_new_from_stream	(GtkSourceBuffer         *buffer,
 								 GtkSourceFile           *file,
 								 GInputStream            *stream);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_loader_set_candidate_encodings
 								(GtkSourceFileLoader     *loader,
 								 GSList                  *candidate_encodings);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceBuffer		*gtk_source_file_loader_get_buffer	(GtkSourceFileLoader     *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFile		*gtk_source_file_loader_get_file	(GtkSourceFileLoader     *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GFile			*gtk_source_file_loader_get_location	(GtkSourceFileLoader     *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GInputStream		*gtk_source_file_loader_get_input_stream
 								(GtkSourceFileLoader     *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_loader_load_async	(GtkSourceFileLoader     *loader,
 								 gint                     io_priority,
 								 GCancellable            *cancellable,
@@ -106,17 +125,21 @@ void			 gtk_source_file_loader_load_async	(GtkSourceFileLoader     *loader,
 								 GAsyncReadyCallback      callback,
 								 gpointer                 user_data);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 gboolean		 gtk_source_file_loader_load_finish	(GtkSourceFileLoader     *loader,
 								 GAsyncResult            *result,
 								 GError                 **error);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding	*gtk_source_file_loader_get_encoding	(GtkSourceFileLoader     *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceNewlineType	 gtk_source_file_loader_get_newline_type (GtkSourceFileLoader    *loader);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceCompressionType gtk_source_file_loader_get_compression_type
 								(GtkSourceFileLoader     *loader);
 
 G_END_DECLS
 
-#endif  /* __GTK_SOURCE_FILE_LOADER_H__  */
+#endif  /* GTK_SOURCE_FILE_LOADER_H  */

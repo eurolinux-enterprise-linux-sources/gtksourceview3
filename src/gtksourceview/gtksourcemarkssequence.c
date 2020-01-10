@@ -228,7 +228,9 @@ _gtk_source_marks_sequence_class_init (GtkSourceMarksSequenceClass *klass)
 							      "Buffer",
 							      "The text buffer",
 							      GTK_TYPE_TEXT_BUFFER,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+							      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT_ONLY |
+							      G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -260,7 +262,7 @@ _gtk_source_marks_sequence_is_empty (GtkSourceMarksSequence *seq)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), TRUE);
 
-	return g_sequence_get_length (seq->priv->seq) == 0;
+	return g_sequence_is_empty (seq->priv->seq);
 }
 
 void

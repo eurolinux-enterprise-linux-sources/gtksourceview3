@@ -19,9 +19,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcegutterrenderer.h"
 #include "gtksourcegutterrenderer-private.h"
-#include "gtksourceview-typebuiltins.h"
+#include "gtksourcestylescheme.h"
+#include "gtksourceview-enumtypes.h"
 #include "gtksourceview-i18n.h"
 
 /**
@@ -75,7 +80,7 @@ enum
 	QUERY_TOOLTIP,
 	QUERY_DATA,
 	QUERY_ACTIVATABLE,
-	NUM_SIGNALS
+	N_SIGNALS
 };
 
 struct _GtkSourceGutterRendererPrivate
@@ -100,7 +105,7 @@ struct _GtkSourceGutterRendererPrivate
 	guint visible : 1;
 };
 
-static guint signals[NUM_SIGNALS] = {0,};
+static guint signals[N_SIGNALS];
 
 G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (GtkSourceGutterRenderer, gtk_source_gutter_renderer, G_TYPE_INITIALLY_UNOWNED)
 
@@ -477,12 +482,30 @@ renderer_draw_impl (GtkSourceGutterRenderer      *renderer,
 	if (renderer->priv->background_set)
 	{
 		cairo_save (cr);
-
 		gdk_cairo_rectangle (cr, background_area);
 		gdk_cairo_set_source_rgba (cr, &renderer->priv->background_color);
-
 		cairo_fill (cr);
 		cairo_restore (cr);
+	}
+	else if ((state & GTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR) != 0 &&
+		 GTK_SOURCE_IS_VIEW (renderer->priv->view) &&
+		 gtk_source_view_get_highlight_current_line (GTK_SOURCE_VIEW (renderer->priv->view)))
+	{
+		GtkStyleContext *context;
+
+		context = gtk_widget_get_style_context (GTK_WIDGET (renderer->priv->view));
+
+		gtk_style_context_save (context);
+		gtk_style_context_add_class (context, "current-line-number");
+
+		gtk_render_background (context,
+				       cr,
+				       background_area->x,
+				       background_area->y,
+				       background_area->width,
+				       background_area->height);
+
+		gtk_style_context_restore (context);
 	}
 }
 
@@ -508,8 +531,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_VISIBLE,
 	                                 g_param_spec_boolean ("visible",
-	                                                       _("Visible"),
-	                                                       _("Visible"),
+	                                                       "Visible",
+	                                                       "Visible",
 	                                                       TRUE,
 	                                                       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
@@ -521,8 +544,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_XPAD,
 	                                 g_param_spec_int ("xpad",
-	                                                   _("X Padding"),
-	                                                   _("The x-padding"),
+	                                                   "X Padding",
+	                                                   "The x-padding",
 	                                                   -1,
 	                                                   G_MAXINT,
 	                                                   0,
@@ -536,8 +559,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_YPAD,
 	                                 g_param_spec_int ("ypad",
-	                                                   _("Y Padding"),
-	                                                   _("The y-padding"),
+	                                                   "Y Padding",
+	                                                   "The y-padding",
 	                                                   -1,
 	                                                   G_MAXINT,
 	                                                   0,
@@ -553,8 +576,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_XALIGN,
 	                                 g_param_spec_float ("xalign",
-	                                                     _("X Alignment"),
-	                                                     _("The x-alignment"),
+	                                                     "X Alignment",
+	                                                     "The x-alignment",
 	                                                     -1,
 	                                                     1,
 	                                                     0,
@@ -570,8 +593,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_YALIGN,
 	                                 g_param_spec_float ("yalign",
-	                                                     _("Y Alignment"),
-	                                                     _("The y-alignment"),
+	                                                     "Y Alignment",
+	                                                     "The y-alignment",
 	                                                     -1,
 	                                                     1,
 	                                                     0,
@@ -705,8 +728,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_VIEW,
 	                                 g_param_spec_object ("view",
-	                                                      _("The View"),
-	                                                      _("The view"),
+	                                                      "The View",
+	                                                      "The view",
 	                                                      GTK_TYPE_TEXT_VIEW,
 	                                                      G_PARAM_READABLE));
 
@@ -722,8 +745,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_ALIGNMENT_MODE,
 	                                 g_param_spec_enum ("alignment-mode",
-	                                                    _("Alignment Mode"),
-	                                                    _("The alignment mode"),
+	                                                    "Alignment Mode",
+	                                                    "The alignment mode",
 	                                                    GTK_SOURCE_TYPE_GUTTER_RENDERER_ALIGNMENT_MODE,
 	                                                    GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL,
 	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
@@ -738,8 +761,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_WINDOW_TYPE,
 	                                 g_param_spec_enum ("window-type",
-	                                                    _("Window Type"),
-	                                                    _("The window type"),
+	                                                    "Window Type",
+	                                                    "The window type",
 	                                                    GTK_TYPE_TEXT_WINDOW_TYPE,
 	                                                    GTK_TEXT_WINDOW_PRIVATE,
 	                                                    G_PARAM_READABLE));
@@ -747,8 +770,8 @@ gtk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_SIZE,
 	                                 g_param_spec_int ("size",
-	                                                   _("Size"),
-	                                                   _("The size"),
+	                                                   "Size",
+	                                                   "The size",
 	                                                   0,
 	                                                   G_MAXINT,
 	                                                   0,
@@ -827,16 +850,20 @@ gtk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
  * @end: a #GtkTextIter
  * @state: a #GtkSourceGutterRendererState
  *
- * Main renderering method. Implementations should implement this method to
- * draw onto the cairo context. The @background_area indicates total area of
- * the cell (without padding or margin) to be drawn. The @cell_area indicates
- * the area where content can be drawn (text, images, etc).
+ * Main renderering method. Implementations should implement this method to draw
+ * onto the cairo context. The @background_area indicates the total area of the
+ * cell to be drawn. The @cell_area indicates the area where content can be
+ * drawn (text, images, etc).
+ *
+ * The @background_area is the @cell_area plus the padding on each side (two
+ * times the #GtkSourceGutterRenderer:xpad horizontally and two times the
+ * #GtkSourceGutterRenderer:ypad vertically, so that the @cell_area is centered
+ * inside @background_area).
  *
  * The @state argument indicates the current state of the renderer and should
  * be taken into account to properly draw the different possible states
  * (cursor, prelit, selected) if appropriate.
- *
- **/
+ */
 void
 gtk_source_gutter_renderer_draw (GtkSourceGutterRenderer      *renderer,
                                  cairo_t                      *cr,
@@ -1032,7 +1059,21 @@ gtk_source_gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 	g_return_if_fail (start != NULL);
 	g_return_if_fail (end != NULL);
 
-	g_signal_emit (renderer, signals[QUERY_DATA], 0, start, end, state);
+
+	/* Signal emission is relatively expensive and this code path is
+	 * frequent enough to optimize the common case where we only have the
+	 * override and no connected handlers.
+	 *
+	 * This is the same trick used by gtk_widget_draw().
+	 */
+	if (G_UNLIKELY (g_signal_has_handler_pending (renderer, signals[QUERY_DATA], 0, FALSE)))
+	{
+		g_signal_emit (renderer, signals[QUERY_DATA], 0, start, end, state);
+	}
+	else if (GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data)
+	{
+		GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data (renderer, start, end, state);
+	}
 }
 
 /**
@@ -1095,12 +1136,13 @@ gtk_source_gutter_renderer_set_padding (GtkSourceGutterRenderer *renderer,
 /**
  * gtk_source_gutter_renderer_get_padding:
  * @renderer: a #GtkSourceGutterRenderer
- * @xpad: (out caller-allocates) (allow-none): return location for the x-padding (can be %NULL)
- * @ypad: (out caller-allocates) (allow-none): return location for the y-padding (can be %NULL)
+ * @xpad: (out caller-allocates) (optional): return location for the x-padding,
+ *   or %NULL to ignore.
+ * @ypad: (out caller-allocates) (optional): return location for the y-padding,
+ *   or %NULL to ignore.
  *
  * Get the x-padding and y-padding of the gutter renderer.
- *
- **/
+ */
 void
 gtk_source_gutter_renderer_get_padding (GtkSourceGutterRenderer *renderer,
                                         gint                    *xpad,
@@ -1155,12 +1197,13 @@ gtk_source_gutter_renderer_set_alignment (GtkSourceGutterRenderer *renderer,
 /**
  * gtk_source_gutter_renderer_get_alignment:
  * @renderer: a #GtkSourceGutterRenderer
- * @xalign: (out caller-allocates) (allow-none): return location for the x-alignment (can be %NULL)
- * @yalign: (out caller-allocates) (allow-none): return location for the y-alignment (can be %NULL)
+ * @xalign: (out caller-allocates) (optional): return location for the x-alignment,
+ *   or %NULL to ignore.
+ * @yalign: (out caller-allocates) (optional): return location for the y-alignment,
+ *   or %NULL to ignore.
  *
  * Get the x-alignment and y-alignment of the gutter renderer.
- *
- **/
+ */
 void
 gtk_source_gutter_renderer_get_alignment (GtkSourceGutterRenderer *renderer,
                                           gfloat                  *xalign,
@@ -1287,7 +1330,7 @@ gtk_source_gutter_renderer_set_size (GtkSourceGutterRenderer *renderer,
 /**
  * gtk_source_gutter_renderer_get_background:
  * @renderer: a #GtkSourceGutterRenderer
- * @color: (out caller-allocates) (allow-none): return value for a #GdkRGBA
+ * @color: (out caller-allocates) (optional): return value for a #GdkRGBA
  *
  * Get the background color of the renderer.
  *
@@ -1311,7 +1354,7 @@ gtk_source_gutter_renderer_get_background (GtkSourceGutterRenderer *renderer,
 /**
  * gtk_source_gutter_renderer_set_background:
  * @renderer: a #GtkSourceGutterRenderer
- * @color: (allow-none): a #GdkRGBA or %NULL
+ * @color: (nullable): a #GdkRGBA or %NULL
  *
  * Set the background color of the renderer. If @color is set to %NULL, the
  * renderer will not have a background color.

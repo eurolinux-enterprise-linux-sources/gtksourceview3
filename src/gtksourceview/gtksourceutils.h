@@ -19,16 +19,28 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_UTILS_H__
-#define __GTK_SOURCE_UTILS_H__
+#ifndef GTK_SOURCE_UTILS_H
+#define GTK_SOURCE_UTILS_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <glib-object.h>
+#include <gtksourceview/gtksourceversion.h>
 
 G_BEGIN_DECLS
 
+GTK_SOURCE_AVAILABLE_IN_3_10
 gchar		*gtk_source_utils_unescape_search_text		(const gchar	*text);
+
+GTK_SOURCE_AVAILABLE_IN_3_10
 gchar		*gtk_source_utils_escape_search_text		(const gchar	*text);
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_UTILS_H__ */
+#endif /* GTK_SOURCE_UTILS_H */

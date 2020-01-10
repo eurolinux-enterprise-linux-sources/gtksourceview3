@@ -20,8 +20,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_CONTEXT_ENGINE_H__
-#define __GTK_SOURCE_CONTEXT_ENGINE_H__
+#ifndef GTK_SOURCE_CONTEXT_ENGINE_H
+#define GTK_SOURCE_CONTEXT_ENGINE_H
 
 #include "gtksourceengine.h"
 #include "gtksourcetypes.h"
@@ -55,7 +55,7 @@ struct _GtkSourceContextEngineClass
 	GObjectClass parent_class;
 };
 
-typedef enum {
+typedef enum _GtkSourceContextFlags {
 	GTK_SOURCE_CONTEXT_EXTEND_PARENT	= 1 << 0,
 	GTK_SOURCE_CONTEXT_END_PARENT		= 1 << 1,
 	GTK_SOURCE_CONTEXT_END_AT_LINE_END	= 1 << 2,
@@ -64,7 +64,7 @@ typedef enum {
 	GTK_SOURCE_CONTEXT_STYLE_INSIDE		= 1 << 5
 } GtkSourceContextFlags;
 
-typedef enum {
+typedef enum _GtkSourceContextRefOptions {
 	GTK_SOURCE_CONTEXT_IGNORE_STYLE		= 1 << 0,
 	GTK_SOURCE_CONTEXT_OVERRIDE_STYLE	= 1 << 1,
 	GTK_SOURCE_CONTEXT_REF_ORIGINAL		= 1 << 2
@@ -142,4 +142,4 @@ void			 _gtk_source_context_data_set_escape_char	(GtkSourceContextData	 *data,
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_CONTEXT_ENGINE_H__ */
+#endif /* GTK_SOURCE_CONTEXT_ENGINE_H */

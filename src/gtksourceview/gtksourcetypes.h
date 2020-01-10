@@ -2,7 +2,7 @@
  * gtksourcetypes.h
  * This file is part of GtkSourceView
  *
- * Copyright (C) 2012-2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2012-2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,19 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_TYPES_H__
-#define __GTK_SOURCE_TYPES_H__
+#ifndef GTK_SOURCE_TYPES_H
+#define GTK_SOURCE_TYPES_H
 
-#include <gio/gio.h>
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
+
+#include <glib.h>
+#include <gtksourceview/gtksourceversion.h>
 
 G_BEGIN_DECLS
 
@@ -51,51 +60,10 @@ typedef struct _GtkSourceSearchSettings		GtkSourceSearchSettings;
 typedef struct _GtkSourceStyle			GtkSourceStyle;
 typedef struct _GtkSourceStyleScheme		GtkSourceStyleScheme;
 typedef struct _GtkSourceStyleSchemeManager	GtkSourceStyleSchemeManager;
+typedef struct _GtkSourceTag			GtkSourceTag;
 typedef struct _GtkSourceUndoManager		GtkSourceUndoManager;
 typedef struct _GtkSourceView			GtkSourceView;
 
-/**
- * GtkSourceNewlineType:
- * @GTK_SOURCE_NEWLINE_TYPE_LF: line feed, used on UNIX.
- * @GTK_SOURCE_NEWLINE_TYPE_CR: carriage return, used on Mac.
- * @GTK_SOURCE_NEWLINE_TYPE_CR_LF: carriage return followed by a line feed, used
- *   on Windows.
- *
- * Since: 3.14
- */
-typedef enum
-{
-	GTK_SOURCE_NEWLINE_TYPE_LF,
-	GTK_SOURCE_NEWLINE_TYPE_CR,
-	GTK_SOURCE_NEWLINE_TYPE_CR_LF
-} GtkSourceNewlineType;
-
-/**
- * GTK_SOURCE_NEWLINE_TYPE_DEFAULT:
- *
- * The default newline type on the current OS.
- *
- * Since: 3.14
- */
-#ifdef G_OS_WIN32
-#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_CR_LF
-#else
-#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_LF
-#endif
-
-/**
- * GtkSourceCompressionType:
- * @GTK_SOURCE_COMPRESSION_TYPE_NONE: plain text.
- * @GTK_SOURCE_COMPRESSION_TYPE_GZIP: gzip compression.
- *
- * Since: 3.14
- */
-typedef enum
-{
-	GTK_SOURCE_COMPRESSION_TYPE_NONE,
-	GTK_SOURCE_COMPRESSION_TYPE_GZIP
-} GtkSourceCompressionType;
-
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_TYPES_H__ */
+#endif /* GTK_SOURCE_TYPES_H */

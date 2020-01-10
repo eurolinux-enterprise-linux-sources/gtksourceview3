@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceEncoding: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords">
+<link rel="up" href="ch05.html" title="File Loading and Saving">
+<link rel="prev" href="ch05.html" title="File Loading and Saving">
 <link rel="next" href="GtkSourceFile.html" title="GtkSourceFile">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -19,8 +19,8 @@
                   <a href="#GtkSourceEncoding.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="GtkSourceCompletionWords.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch05.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceFile.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -34,7 +34,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceEncoding.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -93,6 +93,14 @@
 </tr>
 <tr>
 <td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceEncoding.html#gtk-source-encoding-get-default-candidates" title="gtk_source_encoding_get_default_candidates ()">gtk_source_encoding_get_default_candidates</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
 <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="returnvalue">GtkSourceEncoding</span></a> *
 </td>
 <td class="function_name">
@@ -112,7 +120,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceEncoding.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -147,11 +155,10 @@ encoded in UTF-8.</p>
 <pre class="programlisting">const <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="returnvalue">GtkSourceEncoding</span></a> *
 gtk_source_encoding_get_utf8 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.10.8.2.4"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-utf8.returns"></a><h4>Returns</h4>
 <p> the UTF-8 encoding.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -160,11 +167,10 @@ gtk_source_encoding_get_utf8 (<em class="parameter"><code><span class="type">voi
 gtk_source_encoding_get_current (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Gets the <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> for the current locale. See also <a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-get-charset"><code class="function">g_get_charset()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.3.5"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-current.returns"></a><h4>Returns</h4>
 <p> the current locale encoding.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -174,8 +180,8 @@ gtk_source_encoding_get_from_charset (<em class="parameter"><code>const <a href=
 <p>Gets a <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> from a character set such as "UTF-8" or
 "ISO-8859-1".</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-get-from-charset.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -189,12 +195,12 @@ gtk_source_encoding_get_from_charset (<em class="parameter"><code>const <a href=
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.10.8.4.6"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-from-charset.returns"></a><h4>Returns</h4>
 <p> the corresponding <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if not found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -202,8 +208,8 @@ if not found. </p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
 gtk_source_encoding_to_string (<em class="parameter"><code>const <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> *enc</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.10.8.5.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -217,11 +223,10 @@ gtk_source_encoding_to_string (<em class="parameter"><code>const <a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.10.8.5.5"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-to-string.returns"></a><h4>Returns</h4>
 <p> a string representation. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no longer needed.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -230,8 +235,8 @@ gtk_source_encoding_to_string (<em class="parameter"><code>const <a class="link"
 gtk_source_encoding_get_name (<em class="parameter"><code>const <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> *enc</code></em>);</pre>
 <p>Gets the name of the <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> such as "Unicode" or "Western".</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -245,11 +250,10 @@ gtk_source_encoding_get_name (<em class="parameter"><code>const <a class="link" 
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.10.8.6.6"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-name.returns"></a><h4>Returns</h4>
 <p> the name of the <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a>.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -259,8 +263,8 @@ gtk_source_encoding_get_charset (<em class="parameter"><code>const <a class="lin
 <p>Gets the character set of the <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a>, such as "UTF-8" or
 "ISO-8859-1".</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-get-charset.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -274,11 +278,10 @@ gtk_source_encoding_get_charset (<em class="parameter"><code>const <a class="lin
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.10.8.7.6"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-charset.returns"></a><h4>Returns</h4>
 <p> the character set of the <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a>.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -287,12 +290,31 @@ gtk_source_encoding_get_charset (<em class="parameter"><code>const <a class="lin
 gtk_source_encoding_get_all (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Gets all encodings.</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.8.5"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-get-all.returns"></a><h4>Returns</h4>
 <p> a list of
 all <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a>'s. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.Encoding]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-encoding-get-default-candidates"></a><h3>gtk_source_encoding_get_default_candidates ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+gtk_source_encoding_get_default_candidates
+                               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Gets the list of default candidate encodings to try when loading a file. See
+<a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-set-candidate-encodings" title="gtk_source_file_loader_set_candidate_encodings ()"><code class="function">gtk_source_file_loader_set_candidate_encodings()</code></a>.</p>
+<p>This function returns a different list depending on the current locale (i.e.
+language, country and default encoding). The UTF-8 encoding and the current
+locale encoding are guaranteed to be present in the returned list.</p>
+<div class="refsect3">
+<a name="gtk-source-encoding-get-default-candidates.returns"></a><h4>Returns</h4>
+<p> the list of
+default candidate encodings. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>. </p>
+<p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkSource.Encoding]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -301,8 +323,8 @@ all <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><spa
 gtk_source_encoding_copy (<em class="parameter"><code>const <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> *enc</code></em>);</pre>
 <p>Used by language bindings.</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-copy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -316,12 +338,11 @@ gtk_source_encoding_copy (<em class="parameter"><code>const <a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.10.8.9.6"></a><h4>Returns</h4>
+<a name="gtk-source-encoding-copy.returns"></a><h4>Returns</h4>
 <p> a copy of <em class="parameter"><code>enc</code></em>
 .</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -330,8 +351,8 @@ gtk_source_encoding_copy (<em class="parameter"><code>const <a class="link" href
 gtk_source_encoding_free (<em class="parameter"><code><a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="type">GtkSourceEncoding</span></a> *enc</code></em>);</pre>
 <p>Used by language bindings.</p>
 <div class="refsect3">
-<a name="id-1.2.10.8.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-encoding-free.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -344,7 +365,7 @@ gtk_source_encoding_free (<em class="parameter"><code><a class="link" href="GtkS
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -360,7 +381,6 @@ gtk_source_encoding_free (<em class="parameter"><code><a class="link" href="GtkS
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

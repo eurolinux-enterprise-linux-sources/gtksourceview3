@@ -2,7 +2,7 @@
 /* gtksourcecompletioncontainer.c
  * This file is part of GtkSourceView
  *
- * Copyright (C) 2013, 2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2013, 2014, 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,7 +24,7 @@
  * the completion proposals. If the GtkTreeView is small enough, the scrolled
  * window returns the natural size of the GtkTreeView. If it exceeds a certain
  * size, the scrolled window returns a smaller size, with the height at a row
- * boundary of the GtkTreeView (plus the size of the scrollbar(s) if needed).
+ * boundary of the GtkTreeView.
  *
  * The purpose is to have a compact completion window, with a certain size
  * limit.
@@ -63,86 +63,31 @@ get_max_width (GtkSourceCompletionContainer *container)
 	return UNREALIZED_WIDTH;
 }
 
-static gint
-get_vertical_scrollbar_width (void)
-{
-	gint width;
-	GtkWidget *scrollbar = gtk_scrollbar_new (GTK_ORIENTATION_VERTICAL, NULL);
-	g_object_ref_sink (scrollbar);
-	gtk_widget_show (scrollbar);
-
-	gtk_widget_get_preferred_width (scrollbar, NULL, &width);
-
-	g_object_unref (scrollbar);
-	return width;
-}
-
-static gint
-get_horizontal_scrollbar_height (void)
-{
-	gint height;
-	GtkWidget *scrollbar = gtk_scrollbar_new (GTK_ORIENTATION_HORIZONTAL, NULL);
-	g_object_ref_sink (scrollbar);
-	gtk_widget_show (scrollbar);
-
-	gtk_widget_get_preferred_height (scrollbar, NULL, &height);
-
-	g_object_unref (scrollbar);
-	return height;
-}
-
-/* This condition is used at several places, and it is important that it is the
- * same condition. So a function is better.
- */
-static gboolean
-needs_vertical_scrollbar (gint child_natural_height)
-{
-	return MAX_HEIGHT < child_natural_height;
-}
-
-static void
-get_width (GtkSourceCompletionContainer *container,
-	   gint                         *container_width,
-	   gint                         *child_available_width)
-{
-	GtkWidget *child;
-	GtkRequisition nat_size;
-	gint width;
-	gint scrollbar_width = 0;
-
-	child = gtk_bin_get_child (GTK_BIN (container));
-	gtk_widget_get_preferred_size (child, NULL, &nat_size);
-
-	width = nat_size.width;
-
-	if (needs_vertical_scrollbar (nat_size.height))
-	{
-		scrollbar_width = get_vertical_scrollbar_width ();
-		width += scrollbar_width;
-	}
-
-	width = MIN (width, get_max_width (container));
-
-	if (container_width != NULL)
-	{
-		*container_width = width;
-	}
-
-	if (child_available_width != NULL)
-	{
-		*child_available_width = width - scrollbar_width;
-	}
-}
-
 static void
 _gtk_source_completion_container_get_preferred_width (GtkWidget *widget,
 						      gint      *min_width,
 						      gint      *nat_width)
 {
 	GtkSourceCompletionContainer *container = GTK_SOURCE_COMPLETION_CONTAINER (widget);
+	GtkWidget *child;
+	GtkRequisition nat_size;
 	gint width;
 
-	get_width (container, &width, NULL);
+	child = gtk_bin_get_child (GTK_BIN (container));
+	gtk_widget_get_preferred_size (child, NULL, &nat_size);
+
+	width = MIN (nat_size.width, get_max_width (container));
+
+	if (GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_width != NULL)
+	{
+		gint min_width_parent = 0;
+
+		GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_width (widget,
+												       &min_width_parent,
+												       NULL);
+
+		width = MAX (width, min_width_parent);
+	}
 
 	if (min_width != NULL)
 	{
@@ -153,6 +98,8 @@ _gtk_source_completion_container_get_preferred_width (GtkWidget *widget,
 	{
 		*nat_width = width;
 	}
+
+	g_return_if_fail (width >= 0);
 }
 
 static gint
@@ -188,6 +135,11 @@ get_row_height (GtkSourceCompletionContainer *container,
 
 	nb_rows = gtk_tree_model_iter_n_children (model, NULL);
 
+	if (nb_rows == 0)
+	{
+		return 0;
+	}
+
 	return tree_view_height / nb_rows;
 }
 
@@ -200,46 +152,45 @@ _gtk_source_completion_container_get_preferred_height (GtkWidget *widget,
 	GtkSourceCompletionContainer *container = GTK_SOURCE_COMPLETION_CONTAINER (widget);
 	GtkWidget *child;
 	GtkRequisition nat_size;
-	gint total_height;
-	gint scrollbar_height = 0;
-	gint child_available_width;
-	gint ret_height;
+	gint height;
 
 	child = gtk_bin_get_child (GTK_BIN (container));
 	gtk_widget_get_preferred_size (child, NULL, &nat_size);
 
-	total_height = nat_size.height;
-
-	get_width (container, NULL, &child_available_width);
-
-	/* Needs horizontal scrollbar */
-	if (child_available_width < nat_size.width)
+	if (nat_size.height <= MAX_HEIGHT)
 	{
-		scrollbar_height = get_horizontal_scrollbar_height ();
-		total_height += scrollbar_height;
-	}
-
-	if (needs_vertical_scrollbar (nat_size.height))
-	{
-		gint row_height = get_row_height (container, nat_size.height);
-		gint nb_rows_allowed = MAX_HEIGHT / row_height;
-
-		ret_height = nb_rows_allowed * row_height + scrollbar_height;
+		height = nat_size.height;
 	}
 	else
 	{
-		ret_height = total_height;
+		gint row_height = get_row_height (container, nat_size.height);
+		gint n_rows_allowed = row_height != 0 ? MAX_HEIGHT / row_height : 0;
+
+		height = n_rows_allowed * row_height;
+	}
+
+	if (GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_height != NULL)
+	{
+		gint min_height_parent = 0;
+
+		GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_height (widget,
+													&min_height_parent,
+													NULL);
+
+		height = MAX (height, min_height_parent);
 	}
 
 	if (min_height != NULL)
 	{
-		*min_height = ret_height;
+		*min_height = height;
 	}
 
 	if (nat_height != NULL)
 	{
-		*nat_height = ret_height;
+		*nat_height = height;
 	}
+
+	g_return_if_fail (height >= 0);
 }
 
 static void

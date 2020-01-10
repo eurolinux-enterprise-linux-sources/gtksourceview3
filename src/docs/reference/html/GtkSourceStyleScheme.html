@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceStyleScheme: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch03.html" title="Styling">
 <link rel="prev" href="GtkSourceStyle.html" title="GtkSourceStyle">
 <link rel="next" href="GtkSourceStyleSchemeManager.html" title="GtkSourceStyleSchemeManager">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,7 +20,7 @@
                   <a href="#GtkSourceStyleScheme.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceStyle.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceStyleSchemeManager.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
@@ -29,13 +29,13 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkSourceStyleScheme.top_of_page"></a>GtkSourceStyleScheme</span></h2>
-<p>GtkSourceStyleScheme — Object controlling the appearance of GtkSourceView</p>
+<p>GtkSourceStyleScheme — Controls the appearance of GtkSourceView</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceStyleScheme.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -89,7 +89,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceStyleScheme.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -125,7 +125,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceStyleScheme.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -138,7 +138,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceStyleScheme.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceStyleScheme
 </pre>
 </div>
@@ -152,11 +152,12 @@
 <p><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> contains all the text styles to be used in
 <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> and <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>. For instance, it contains text styles
 for syntax highlighting, it may contain foreground and background color for
-non-highlighted text, color for the line numbers, etc.</p>
+non-highlighted text, color for the line numbers, current line highlighting,
+bracket matching, etc.</p>
 <p>Style schemes are stored in XML files. The format of a scheme file is
-documented in the</p>
-<a class="link" href="style-reference.html" title="Style Scheme Definition Reference">style scheme reference</a>.
-
+documented in the <a class="link" href="style-reference.html" title="Style Scheme Definition Reference">style scheme reference</a>.</p>
+<p>The two style schemes with IDs "classic" and "tango" follow more closely the
+GTK+ theme (for example for the background color).</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceStyleScheme.functions_details"></a><h2>Functions</h2>
@@ -165,8 +166,8 @@ documented in the</p>
 <pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
 gtk_source_style_scheme_get_id (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.2.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -180,12 +181,11 @@ gtk_source_style_scheme_get_id (<em class="parameter"><code><a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-id.returns"></a><h4>Returns</h4>
 <p> <em class="parameter"><code>scheme</code></em>
 id.</p>
-<p></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -193,8 +193,8 @@ id.</p>
 <pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
 gtk_source_style_scheme_get_name (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.3.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -208,12 +208,11 @@ gtk_source_style_scheme_get_name (<em class="parameter"><code><a class="link" hr
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.3.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-name.returns"></a><h4>Returns</h4>
 <p> <em class="parameter"><code>scheme</code></em>
 name.</p>
-<p></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -222,8 +221,8 @@ name.</p>
 gtk_source_style_scheme_get_description
                                (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.4.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-description.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -237,12 +236,12 @@ gtk_source_style_scheme_get_description
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.4.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-description.returns"></a><h4>Returns</h4>
 <p> <em class="parameter"><code>scheme</code></em>
 description (if defined), or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -250,8 +249,8 @@ description (if defined), or <a href="https://developer.gnome.org/glib/unstable/
 <pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
 gtk_source_style_scheme_get_authors (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.5.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-authors.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -265,14 +264,14 @@ gtk_source_style_scheme_get_authors (<em class="parameter"><code><a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.5.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-authors.returns"></a><h4>Returns</h4>
 <p> a
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array containing the <em class="parameter"><code>scheme</code></em>
 authors or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 no author is specified by the style scheme. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -280,8 +279,8 @@ no author is specified by the style scheme. </p>
 <pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
 gtk_source_style_scheme_get_filename (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.6.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-filename.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -295,13 +294,13 @@ gtk_source_style_scheme_get_filename (<em class="parameter"><code><a class="link
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.6.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-filename.returns"></a><h4>Returns</h4>
 <p> <em class="parameter"><code>scheme</code></em>
 file name if the scheme was created
 parsing a style scheme file or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in the other cases. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -310,8 +309,8 @@ parsing a style scheme file or <a href="https://developer.gnome.org/glib/unstabl
 gtk_source_style_scheme_get_style (<em class="parameter"><code><a class="link" href="GtkSourceStyleScheme.html" title="GtkSourceStyleScheme"><span class="type">GtkSourceStyleScheme</span></a> *scheme</code></em>,
                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *style_id</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.26.9.7.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-style-scheme-get-style.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -332,7 +331,7 @@ gtk_source_style_scheme_get_style (<em class="parameter"><code><a class="link" h
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.26.9.7.5"></a><h4>Returns</h4>
+<a name="gtk-source-style-scheme-get-style.returns"></a><h4>Returns</h4>
 <p> style which corresponds to <em class="parameter"><code>style_id</code></em>
 in
 the <em class="parameter"><code>scheme</code></em>
@@ -341,7 +340,7 @@ the <em class="parameter"><code>scheme</code></em>
 and may not be unref'ed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -392,7 +391,6 @@ in <a class="link" href="GtkSourceStyleSchemeManager.html" title="GtkSourceStyle
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

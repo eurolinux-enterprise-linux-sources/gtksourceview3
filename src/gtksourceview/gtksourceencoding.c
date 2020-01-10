@@ -3,7 +3,7 @@
  * This file is part of GtkSourceView
  *
  * Copyright (C) 2002-2005 - Paolo Maggi
- * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,6 +19,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include "gtksourceencoding.h"
 #include "gtksourceencoding-private.h"
@@ -52,7 +56,7 @@ G_DEFINE_BOXED_TYPE (GtkSourceEncoding, gtk_source_encoding,
  * Copyright (C) 2002 Red Hat, Inc.
  */
 
-typedef enum
+typedef enum _GtkSourceEncodingIndex
 {
 	GTK_SOURCE_ENCODING_ISO_8859_1,
 	GTK_SOURCE_ENCODING_ISO_8859_2,
@@ -491,21 +495,6 @@ gtk_source_encoding_get_name (const GtkSourceEncoding* enc)
 	return (enc->name == NULL) ? _("Unknown") : _(enc->name);
 }
 
-static gboolean
-data_exists (GSList         *list,
-	     const gpointer  data)
-{
-	for (; list != NULL; list = g_slist_next (list))
-	{
-		if (list->data == data)
-		{
-			return TRUE;
-		}
-	}
-
-	return FALSE;
-}
-
 static GSList *
 strv_to_list (const gchar * const *enc_str)
 {
@@ -526,7 +515,7 @@ strv_to_list (const gchar * const *enc_str)
 		enc = gtk_source_encoding_get_from_charset (charset);
 
 		if (enc != NULL &&
-		    !data_exists (res, (gpointer)enc))
+		    g_slist_find (res, enc) == NULL)
 		{
 			res = g_slist_prepend (res, (gpointer)enc);
 		}
@@ -536,52 +525,52 @@ strv_to_list (const gchar * const *enc_str)
 }
 
 static GSList *
-remove_duplicates_keep_first (GSList *encodings)
+remove_duplicates_keep_first (GSList *list)
 {
-	GSList *new_encodings = NULL;
+	GSList *new_list = NULL;
 	GSList *l;
 
-	for (l = encodings; l != NULL; l = l->next)
+	for (l = list; l != NULL; l = l->next)
 	{
 		gpointer cur_encoding = l->data;
 
-		if (!data_exists (new_encodings, cur_encoding))
+		if (g_slist_find (new_list, cur_encoding) == NULL)
 		{
-			new_encodings = g_slist_prepend (new_encodings, cur_encoding);
+			new_list = g_slist_prepend (new_list, cur_encoding);
 		}
 	}
 
-	new_encodings = g_slist_reverse (new_encodings);
+	new_list = g_slist_reverse (new_list);
 
-	g_slist_free (encodings);
-	return new_encodings;
+	g_slist_free (list);
+	return new_list;
 }
 
 static GSList *
-remove_duplicates_keep_last (GSList *encodings)
+remove_duplicates_keep_last (GSList *list)
 {
-	GSList *new_encodings = NULL;
+	GSList *new_list = NULL;
 	GSList *l;
 
-	encodings = g_slist_reverse (encodings);
+	list = g_slist_reverse (list);
 
-	for (l = encodings; l != NULL; l = l->next)
+	for (l = list; l != NULL; l = l->next)
 	{
 		gpointer cur_encoding = l->data;
 
-		if (!data_exists (new_encodings, cur_encoding))
+		if (g_slist_find (new_list, cur_encoding) == NULL)
 		{
-			new_encodings = g_slist_prepend (new_encodings, cur_encoding);
+			new_list = g_slist_prepend (new_list, cur_encoding);
 		}
 	}
 
-	g_slist_free (encodings);
-	return new_encodings;
+	g_slist_free (list);
+	return new_list;
 }
 
 /*
  * _gtk_source_encoding_remove_duplicates:
- * @encodings: (element-type GtkSource.Encoding): a list of #GtkSourceEncoding's.
+ * @list: (element-type GtkSource.Encoding): a list of #GtkSourceEncoding's.
  * @removal_type: the #GtkSourceEncodingDuplicates.
  *
  * A convenience function to remove duplicated encodings in a list.
@@ -591,26 +580,26 @@ remove_duplicates_keep_last (GSList *encodings)
  * Since: 3.14
  */
 GSList *
-_gtk_source_encoding_remove_duplicates (GSList                      *encodings,
+_gtk_source_encoding_remove_duplicates (GSList                      *list,
 					GtkSourceEncodingDuplicates  removal_type)
 {
 	switch (removal_type)
 	{
 		case GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST:
-			return remove_duplicates_keep_first (encodings);
+			return remove_duplicates_keep_first (list);
 
 		case GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST:
-			return remove_duplicates_keep_last (encodings);
+			return remove_duplicates_keep_last (list);
 
 		default:
 			break;
 	}
 
-	g_return_val_if_reached (encodings);
+	g_return_val_if_reached (list);
 }
 
-/*
- * _gtk_source_encoding_get_default_candidates:
+/**
+ * gtk_source_encoding_get_default_candidates:
  *
  * Gets the list of default candidate encodings to try when loading a file. See
  * gtk_source_file_loader_set_candidate_encodings().
@@ -621,10 +610,10 @@ _gtk_source_encoding_remove_duplicates (GSList                      *encodings,
  *
  * Returns: (transfer container) (element-type GtkSource.Encoding): the list of
  * default candidate encodings. Free with g_slist_free().
- * Since: 3.14
+ * Since: 3.18
  */
 GSList *
-_gtk_source_encoding_get_default_candidates (void)
+gtk_source_encoding_get_default_candidates (void)
 {
 	const gchar *encodings_str;
 	const gchar *encodings_str_translated;
@@ -668,8 +657,7 @@ _gtk_source_encoding_get_default_candidates (void)
 			   encodings_str_translated,
 			   error->message);
 
-		g_error_free (error);
-		error = NULL;
+		g_clear_error (&error);
 
 		encodings_variant = g_variant_parse (G_VARIANT_TYPE_STRING_ARRAY,
 						     encodings_str,
@@ -683,8 +671,8 @@ _gtk_source_encoding_get_default_candidates (void)
 	g_variant_ref_sink (encodings_variant);
 
 	encodings_strv = g_variant_get_strv (encodings_variant, NULL);
-
 	encodings_list = strv_to_list (encodings_strv);
+	g_free ((gpointer) encodings_strv);
 
 	/* Ensure that UTF-8 and CURRENT are present. */
 	encodings_list = g_slist_prepend (encodings_list,

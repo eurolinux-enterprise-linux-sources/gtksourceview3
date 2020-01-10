@@ -1,8 +1,9 @@
-@GNOME_CODE_COVERAGE_RULES@
+@CODE_COVERAGE_RULES@
 
 AM_CPPFLAGS = 				\
 	-DDATADIR=\""$(datadir)"\" 	\
 	-DG_LOG_DOMAIN=\"GtkSourceView\"\
+	-DGTK_SOURCE_COMPILATION	\
 	-I$(top_srcdir) -I$(srcdir) 	\
 	$(DISABLE_DEPRECATED_CFLAGS)	\
 	$(WARN_CFLAGS) 			\
@@ -32,6 +33,7 @@ libgtksourcecompletionwords_la_CFLAGS =		\
 	$(CODE_COVERAGE_CFLAGS)
 
 libgtksourcecompletionwords_la_LDFLAGS =	\
+	$(WARN_LDFLAGS)				\
 	$(CODE_COVERAGE_LDFLAGS)
 
 libgtksourcecompletionwords_includedir = \

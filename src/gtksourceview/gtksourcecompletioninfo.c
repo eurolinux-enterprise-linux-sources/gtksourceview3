@@ -56,6 +56,10 @@
  * #GtkSourceCompletion machinery, you don't need to worry about this.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <gtksourceview/gtksourcecompletioninfo.h>
 #include "gtksourceview-i18n.h"
 
@@ -67,16 +71,17 @@ struct _GtkSourceCompletionInfoPrivate
 	gulong focus_out_event_handler;
 
 	gint xoffset;
+
+	guint transient_set : 1;
 };
 
-/* Signals */
 enum
 {
 	BEFORE_SHOW,
-	LAST_SIGNAL
+	N_SIGNALS
 };
 
-static guint signals[LAST_SIGNAL] = { 0 };
+static guint signals[N_SIGNALS];
 
 G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionInfo, gtk_source_completion_info, GTK_TYPE_WINDOW);
 
@@ -240,6 +245,8 @@ set_attached_to (GtkSourceCompletionInfo *info,
 					  "focus-out-event",
 					  G_CALLBACK (focus_out_event_cb),
 					  info);
+
+	info->priv->transient_set = FALSE;
 }
 
 static void
@@ -289,8 +296,23 @@ gtk_source_completion_info_dispose (GObject *object)
 static void
 gtk_source_completion_info_show (GtkWidget *widget)
 {
+	GtkSourceCompletionInfo *info = GTK_SOURCE_COMPLETION_INFO (widget);
+
 	/* First emit BEFORE_SHOW and then chain up */
-	g_signal_emit (widget, signals[BEFORE_SHOW], 0);
+	g_signal_emit (info, signals[BEFORE_SHOW], 0);
+
+	if (info->priv->attached_to != NULL && !info->priv->transient_set)
+	{
+		GtkWidget *toplevel;
+
+		toplevel = gtk_widget_get_toplevel (GTK_WIDGET (info->priv->attached_to));
+		if (gtk_widget_is_toplevel (toplevel))
+		{
+			gtk_window_set_transient_for (GTK_WINDOW (info),
+						      GTK_WINDOW (toplevel));
+			info->priv->transient_set = TRUE;
+		}
+	}
 
 	GTK_WIDGET_CLASS (gtk_source_completion_info_parent_class)->show (widget);
 }
@@ -410,6 +432,10 @@ compensate_for_gravity (GtkSourceCompletionInfo *window,
 		case GDK_GRAVITY_EAST:
 			*x = w;
 			break;
+		case GDK_GRAVITY_NORTH_WEST:
+		case GDK_GRAVITY_WEST:
+		case GDK_GRAVITY_SOUTH_WEST:
+		case GDK_GRAVITY_STATIC:
 		default:
 			*x = 0;
 			break;
@@ -428,6 +454,10 @@ compensate_for_gravity (GtkSourceCompletionInfo *window,
 		case GDK_GRAVITY_SOUTH_WEST:
 			*y = w;
 			break;
+		case GDK_GRAVITY_NORTH:
+		case GDK_GRAVITY_NORTH_EAST:
+		case GDK_GRAVITY_NORTH_WEST:
+		case GDK_GRAVITY_STATIC:
 		default:
 			*y = 0;
 			break;
@@ -547,7 +577,7 @@ gtk_source_completion_info_new (void)
  * gtk_source_completion_info_move_to_iter:
  * @info: a #GtkSourceCompletionInfo.
  * @view: a #GtkTextView on which the info window should be positioned.
- * @iter: (allow-none): a #GtkTextIter.
+ * @iter: (nullable): a #GtkTextIter.
  *
  * Moves the #GtkSourceCompletionInfo to @iter. If @iter is %NULL @info is
  * moved to the cursor position. Moving will respect the #GdkGravity setting
@@ -575,7 +605,7 @@ gtk_source_completion_info_move_to_iter (GtkSourceCompletionInfo *info,
 /**
  * gtk_source_completion_info_set_widget:
  * @info: a #GtkSourceCompletionInfo.
- * @widget: (allow-none): a #GtkWidget.
+ * @widget: (nullable): a #GtkWidget.
  *
  * Sets the content widget of the info window. See that the previous widget will
  * lose a reference and it can be destroyed, so if you do not want this to

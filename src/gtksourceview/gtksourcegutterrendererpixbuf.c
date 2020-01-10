@@ -19,6 +19,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcegutterrendererpixbuf.h"
 #include "gtksourceview-i18n.h"
 #include "gtksourcepixbufhelper.h"
@@ -87,9 +91,11 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 	gfloat yalign;
 	GtkSourceGutterRendererAlignmentMode mode;
 	GtkTextView *view;
+	gint scale;
 	gint x = 0;
 	gint y = 0;
 	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 
 	/* Chain up to draw background */
 	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (gtk_source_gutter_renderer_pixbuf_parent_class)->draw != NULL)
@@ -115,7 +121,23 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 	}
 
 	width = gdk_pixbuf_get_width (pixbuf);
-	height = gdk_pixbuf_get_width (pixbuf);
+	height = gdk_pixbuf_get_height (pixbuf);
+
+	/*
+	 * We might have gotten a pixbuf back from the helper that will allow
+	 * us to render for HiDPI. If we detect this, we pretend that we got a
+	 * different size back and then gdk_cairo_surface_create_from_pixbuf()
+	 * will take care of the rest.
+	 */
+	scale = gtk_widget_get_scale_factor (GTK_WIDGET (view));
+	if ((scale > 1) &&
+	    ((width > cell_area->width) || (height > cell_area->height)) &&
+	    (width <= (cell_area->width * scale)) &&
+	    (height <= (cell_area->height * scale)))
+	{
+		width = width / scale;
+		height = height / scale;
+	}
 
 	gtk_source_gutter_renderer_get_alignment (renderer,
 	                                          &xalign,
@@ -151,10 +173,16 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 			           &x,
 			           &y);
 			break;
+		default:
+			g_assert_not_reached ();
 	}
 
-	gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);
+	surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale, NULL);
+	cairo_set_source_surface (cr, surface, x, y);
+
 	cairo_paint (cr);
+
+	cairo_surface_destroy (surface);
 }
 
 static void
@@ -296,8 +324,8 @@ gtk_source_gutter_renderer_pixbuf_class_init (GtkSourceGutterRendererPixbufClass
 	g_object_class_install_property (object_class,
 	                                 PROP_PIXBUF,
 	                                 g_param_spec_object ("pixbuf",
-	                                                      _("Pixbuf"),
-	                                                      _("The pixbuf"),
+	                                                      "Pixbuf",
+	                                                      "The pixbuf",
 	                                                      GDK_TYPE_PIXBUF,
 	                                                      G_PARAM_READWRITE));
 
@@ -311,24 +339,24 @@ gtk_source_gutter_renderer_pixbuf_class_init (GtkSourceGutterRendererPixbufClass
 	g_object_class_install_property (object_class,
 	                                 PROP_STOCK_ID,
 	                                 g_param_spec_string ("stock-id",
-	                                                      _("Stock Id"),
-	                                                      _("The stock id"),
+	                                                      "Stock Id",
+	                                                      "The stock id",
 	                                                      NULL,
 	                                                      G_PARAM_READWRITE | G_PARAM_DEPRECATED));
 
 	g_object_class_install_property (object_class,
 	                                 PROP_ICON_NAME,
 	                                 g_param_spec_string ("icon-name",
-	                                                      _("Icon Name"),
-	                                                      _("The icon name"),
+	                                                      "Icon Name",
+	                                                      "The icon name",
 	                                                      NULL,
 	                                                      G_PARAM_READWRITE));
 
 	g_object_class_install_property (object_class,
 	                                 PROP_GICON,
 	                                 g_param_spec_object ("gicon",
-	                                                      _("GIcon"),
-	                                                      _("The gicon"),
+	                                                      "GIcon",
+	                                                      "The gicon",
 	                                                      G_TYPE_ICON,
 	                                                      G_PARAM_READWRITE));
 }
@@ -350,7 +378,7 @@ gtk_source_gutter_renderer_pixbuf_init (GtkSourceGutterRendererPixbuf *self)
  *
  **/
 GtkSourceGutterRenderer *
-gtk_source_gutter_renderer_pixbuf_new ()
+gtk_source_gutter_renderer_pixbuf_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF, NULL);
 }
@@ -358,7 +386,7 @@ gtk_source_gutter_renderer_pixbuf_new ()
 /**
  * gtk_source_gutter_renderer_pixbuf_set_pixbuf:
  * @renderer: a #GtkSourceGutterRendererPixbuf
- * @pixbuf: (allow-none): the pixbuf
+ * @pixbuf: (nullable): the pixbuf, or %NULL.
  */
 void
 gtk_source_gutter_renderer_pixbuf_set_pixbuf (GtkSourceGutterRendererPixbuf *renderer,
@@ -391,7 +419,7 @@ gtk_source_gutter_renderer_pixbuf_get_pixbuf (GtkSourceGutterRendererPixbuf *ren
 /**
  * gtk_source_gutter_renderer_pixbuf_set_stock_id:
  * @renderer: a #GtkSourceGutterRendererPixbuf
- * @stock_id: (allow-none): the stock id
+ * @stock_id: (nullable): the stock id
  *
  * Deprecated: 3.10: Don't use this function.
  */
@@ -422,7 +450,7 @@ gtk_source_gutter_renderer_pixbuf_get_stock_id (GtkSourceGutterRendererPixbuf *r
 /**
  * gtk_source_gutter_renderer_pixbuf_set_gicon:
  * @renderer: a #GtkSourceGutterRendererPixbuf
- * @icon: (allow-none): the icon
+ * @icon: (nullable): the icon, or %NULL.
  */
 void
 gtk_source_gutter_renderer_pixbuf_set_gicon (GtkSourceGutterRendererPixbuf *renderer,
@@ -454,7 +482,7 @@ gtk_source_gutter_renderer_pixbuf_get_gicon (GtkSourceGutterRendererPixbuf *rend
 /**
  * gtk_source_gutter_renderer_pixbuf_set_icon_name:
  * @renderer: a #GtkSourceGutterRendererPixbuf
- * @icon_name: (allow-none): the icon name
+ * @icon_name: (nullable): the icon name, or %NULL.
  */
 void
 gtk_source_gutter_renderer_pixbuf_set_icon_name (GtkSourceGutterRendererPixbuf *renderer,

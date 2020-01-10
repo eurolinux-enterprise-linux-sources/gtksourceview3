@@ -22,11 +22,20 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_FILE_SAVER_H__
-#define __GTK_SOURCE_FILE_SAVER_H__
+#ifndef GTK_SOURCE_FILE_SAVER_H
+#define GTK_SOURCE_FILE_SAVER_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
+#include <gtksourceview/gtksourcefile.h>
 
 G_BEGIN_DECLS
 
@@ -52,7 +61,7 @@ typedef struct _GtkSourceFileSaverPrivate GtkSourceFileSaverPrivate;
  * An error code used with the %GTK_SOURCE_FILE_SAVER_ERROR domain.
  * Since: 3.14
  */
-typedef enum
+typedef enum _GtkSourceFileSaverError
 {
 	GTK_SOURCE_FILE_SAVER_ERROR_INVALID_CHARS,
 	GTK_SOURCE_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED
@@ -68,7 +77,7 @@ typedef enum
  * Flags to define the behavior of a #GtkSourceFileSaver.
  * Since: 3.14
  */
-typedef enum
+typedef enum _GtkSourceFileSaverFlags
 {
 	GTK_SOURCE_FILE_SAVER_FLAGS_NONE			= 0,
 	GTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS	= 1 << 0,
@@ -90,45 +99,61 @@ struct _GtkSourceFileSaverClass
 	gpointer padding[10];
 };
 
-GType 		 	 gtk_source_file_saver_get_type		(void) G_GNUC_CONST;
+GTK_SOURCE_AVAILABLE_IN_3_14
+GType			 gtk_source_file_saver_get_type		(void) G_GNUC_CONST;
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GQuark			 gtk_source_file_saver_error_quark	(void);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFileSaver	*gtk_source_file_saver_new		(GtkSourceBuffer          *buffer,
 								 GtkSourceFile            *file);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFileSaver	*gtk_source_file_saver_new_with_target	(GtkSourceBuffer          *buffer,
 								 GtkSourceFile            *file,
 								 GFile                    *target_location);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceBuffer		*gtk_source_file_saver_get_buffer	(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFile		*gtk_source_file_saver_get_file		(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GFile			*gtk_source_file_saver_get_location	(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_saver_set_encoding	(GtkSourceFileSaver       *saver,
 								 const GtkSourceEncoding  *encoding);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding *gtk_source_file_saver_get_encoding	(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_saver_set_newline_type	(GtkSourceFileSaver       *saver,
 								 GtkSourceNewlineType      newline_type);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceNewlineType	 gtk_source_file_saver_get_newline_type	(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_saver_set_compression_type
 								(GtkSourceFileSaver       *saver,
 								 GtkSourceCompressionType  compression_type);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceCompressionType gtk_source_file_saver_get_compression_type
 								(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_saver_set_flags	(GtkSourceFileSaver       *saver,
 								 GtkSourceFileSaverFlags   flags);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFileSaverFlags	 gtk_source_file_saver_get_flags	(GtkSourceFileSaver       *saver);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 void			 gtk_source_file_saver_save_async	(GtkSourceFileSaver       *saver,
 								 gint                      io_priority,
 								 GCancellable             *cancellable,
@@ -138,10 +163,11 @@ void			 gtk_source_file_saver_save_async	(GtkSourceFileSaver       *saver,
 								 GAsyncReadyCallback       callback,
 								 gpointer                  user_data);
 
+GTK_SOURCE_AVAILABLE_IN_3_14
 gboolean		 gtk_source_file_saver_save_finish	(GtkSourceFileSaver       *saver,
 								 GAsyncResult             *result,
 								 GError                  **error);
 
 G_END_DECLS
 
-#endif  /* __GTK_SOURCE_FILE_SAVER_H__  */
+#endif  /* GTK_SOURCE_FILE_SAVER_H  */

@@ -19,6 +19,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcemark.h"
 #include "gtksourcebuffer.h"
 #include "gtksourcebuffer-private.h"
@@ -137,10 +141,12 @@ gtk_source_mark_class_init (GtkSourceMarkClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_CATEGORY,
 					 g_param_spec_string ("category",
-							      _("category"),
-							      _("The mark category"),
+							      "Category",
+							      "The mark category",
 							      NULL,
-							      G_PARAM_READABLE | G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
+							      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT_ONLY |
+							      G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -201,7 +207,7 @@ gtk_source_mark_get_category (GtkSourceMark *mark)
 /**
  * gtk_source_mark_next:
  * @mark: a #GtkSourceMark.
- * @category: (allow-none): a string specifying the mark category, or %NULL.
+ * @category: (nullable): a string specifying the mark category, or %NULL.
  *
  * Returns the next #GtkSourceMark in the buffer or %NULL if the mark
  * was not added to a buffer. If there is no next mark, %NULL will be returned.

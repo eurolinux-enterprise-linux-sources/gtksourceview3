@@ -19,8 +19,16 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_COMPLETION_ITEM_H__
-#define __GTK_SOURCE_COMPLETION_ITEM_H__
+#ifndef GTK_SOURCE_COMPLETION_ITEM_H
+#define GTK_SOURCE_COMPLETION_ITEM_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <gtk/gtk.h>
 #include <gtksourceview/gtksourcetypes.h>
@@ -47,19 +55,22 @@ struct _GtkSourceCompletionItemClass {
 	GObjectClass parent_class;
 };
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 GType 			 gtk_source_completion_item_get_type 		(void) G_GNUC_CONST;
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionItem *gtk_source_completion_item_new 		(const gchar *label,
 									 const gchar *text,
 									 GdkPixbuf   *icon,
 									 const gchar *info);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionItem *gtk_source_completion_item_new_with_markup	(const gchar *markup,
 									 const gchar *text,
 									 GdkPixbuf   *icon,
 									 const gchar *info);
 
-G_DEPRECATED_FOR (gtk_source_completion_item_new)
+GTK_SOURCE_DEPRECATED_IN_3_10_FOR (gtk_source_completion_item_new)
 GtkSourceCompletionItem *gtk_source_completion_item_new_from_stock	(const gchar *label,
 								 	 const gchar *text,
 								 	 const gchar *stock,
@@ -67,4 +78,4 @@ GtkSourceCompletionItem *gtk_source_completion_item_new_from_stock	(const gchar 
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_COMPLETION_ITEM_H__ */
+#endif /* GTK_SOURCE_COMPLETION_ITEM_H */

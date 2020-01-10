@@ -1,66 +1,101 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
 <book xmlns="http://www.devhelp.net/book" title="GtkSourceView 3 Reference Manual" link="index.html" author="" name="gtksourceview-3.0" version="2" language="c">
   <chapters>
-    <sub name="API reference" link="ch01.html">
-      <sub name="GtkSourceBuffer" link="GtkSourceBuffer.html"/>
-      <sub name="GtkSourceCompletion" link="GtkSourceCompletion.html"/>
-      <sub name="GtkSourceCompletionContext" link="GtkSourceCompletionContext.html"/>
-      <sub name="GtkSourceCompletionInfo" link="GtkSourceCompletionInfo.html"/>
-      <sub name="GtkSourceCompletionItem" link="GtkSourceCompletionItem.html"/>
-      <sub name="GtkSourceCompletionProposal" link="GtkSourceCompletionProposal.html"/>
-      <sub name="GtkSourceCompletionProvider" link="GtkSourceCompletionProvider.html"/>
-      <sub name="GtkSourceCompletionWords" link="GtkSourceCompletionWords.html"/>
-      <sub name="GtkSourceEncoding" link="GtkSourceEncoding.html"/>
-      <sub name="GtkSourceFile" link="GtkSourceFile.html"/>
-      <sub name="GtkSourceFileLoader" link="GtkSourceFileLoader.html"/>
-      <sub name="GtkSourceFileSaver" link="GtkSourceFileSaver.html"/>
-      <sub name="GtkSourceGutter" link="GtkSourceGutter.html"/>
-      <sub name="GtkSourceGutterRenderer" link="GtkSourceGutterRenderer.html"/>
-      <sub name="GtkSourceGutterRendererPixbuf" link="GtkSourceGutterRendererPixbuf.html"/>
-      <sub name="GtkSourceGutterRendererText" link="GtkSourceGutterRendererText.html"/>
-      <sub name="GtkSourceLanguage" link="GtkSourceLanguage.html"/>
-      <sub name="GtkSourceLanguageManager" link="GtkSourceLanguageManager.html"/>
-      <sub name="GtkSourceMark" link="GtkSourceMark.html"/>
-      <sub name="GtkSourceMarkAttributes" link="GtkSourceMarkAttributes.html"/>
-      <sub name="GtkSourcePrintCompositor" link="GtkSourcePrintCompositor.html"/>
-      <sub name="GtkSourceSearchContext" link="GtkSourceSearchContext.html"/>
-      <sub name="GtkSourceSearchSettings" link="GtkSourceSearchSettings.html"/>
-      <sub name="GtkSourceStyle" link="GtkSourceStyle.html"/>
-      <sub name="GtkSourceStyleScheme" link="GtkSourceStyleScheme.html"/>
-      <sub name="GtkSourceStyleSchemeManager" link="GtkSourceStyleSchemeManager.html"/>
-      <sub name="GtkSourceUndoManager" link="GtkSourceUndoManager.html"/>
-      <sub name="GtkSourceUtils" link="gtksourceview-3.0-GtkSourceUtils.html"/>
-      <sub name="GtkSourceView" link="GtkSourceView.html"/>
+    <sub name="API reference" link="pt01.html">
+      <sub name="Main Classes" link="ch01.html">
+        <sub name="GtkSourceBuffer" link="GtkSourceBuffer.html"/>
+        <sub name="GtkSourceView" link="GtkSourceView.html"/>
+      </sub>
+      <sub name="Syntax Highlighting" link="ch02.html">
+        <sub name="GtkSourceLanguage" link="GtkSourceLanguage.html"/>
+        <sub name="GtkSourceLanguageManager" link="GtkSourceLanguageManager.html"/>
+      </sub>
+      <sub name="Styling" link="ch03.html">
+        <sub name="GtkSourceStyle" link="GtkSourceStyle.html"/>
+        <sub name="GtkSourceStyleScheme" link="GtkSourceStyleScheme.html"/>
+        <sub name="GtkSourceStyleSchemeManager" link="GtkSourceStyleSchemeManager.html"/>
+        <sub name="GtkSourceStyleSchemeChooser" link="GtkSourceStyleSchemeChooser.html"/>
+        <sub name="GtkSourceStyleSchemeChooserButton" link="GtkSourceStyleSchemeChooserButton.html"/>
+        <sub name="GtkSourceStyleSchemeChooserWidget" link="GtkSourceStyleSchemeChooserWidget.html"/>
+      </sub>
+      <sub name="Completion" link="ch04.html">
+        <sub name="GtkSourceCompletion" link="GtkSourceCompletion.html"/>
+        <sub name="GtkSourceCompletionContext" link="GtkSourceCompletionContext.html"/>
+        <sub name="GtkSourceCompletionInfo" link="GtkSourceCompletionInfo.html"/>
+        <sub name="GtkSourceCompletionItem" link="GtkSourceCompletionItem.html"/>
+        <sub name="GtkSourceCompletionProposal" link="GtkSourceCompletionProposal.html"/>
+        <sub name="GtkSourceCompletionProvider" link="GtkSourceCompletionProvider.html"/>
+        <sub name="GtkSourceCompletionWords" link="GtkSourceCompletionWords.html"/>
+      </sub>
+      <sub name="File Loading and Saving" link="ch05.html">
+        <sub name="GtkSourceEncoding" link="GtkSourceEncoding.html"/>
+        <sub name="GtkSourceFile" link="GtkSourceFile.html"/>
+        <sub name="GtkSourceFileLoader" link="GtkSourceFileLoader.html"/>
+        <sub name="GtkSourceFileSaver" link="GtkSourceFileSaver.html"/>
+      </sub>
+      <sub name="Gutter and Marks" link="ch06.html">
+        <sub name="GtkSourceGutter" link="GtkSourceGutter.html"/>
+        <sub name="GtkSourceGutterRenderer" link="GtkSourceGutterRenderer.html"/>
+        <sub name="GtkSourceGutterRendererPixbuf" link="GtkSourceGutterRendererPixbuf.html"/>
+        <sub name="GtkSourceGutterRendererText" link="GtkSourceGutterRendererText.html"/>
+        <sub name="GtkSourceMark" link="GtkSourceMark.html"/>
+        <sub name="GtkSourceMarkAttributes" link="GtkSourceMarkAttributes.html"/>
+      </sub>
+      <sub name="Printing" link="ch07.html">
+        <sub name="GtkSourcePrintCompositor" link="GtkSourcePrintCompositor.html"/>
+      </sub>
+      <sub name="Search and Replace" link="ch08.html">
+        <sub name="GtkSourceSearchContext" link="GtkSourceSearchContext.html"/>
+        <sub name="GtkSourceSearchSettings" link="GtkSourceSearchSettings.html"/>
+      </sub>
+      <sub name="Other" link="ch09.html">
+        <sub name="GtkSourceMap" link="GtkSourceMap.html"/>
+        <sub name="GtkSourceRegion" link="GtkSourceRegion.html"/>
+        <sub name="GtkSourceTag" link="GtkSourceTag.html"/>
+        <sub name="GtkSourceUndoManager" link="GtkSourceUndoManager.html"/>
+        <sub name="GtkSourceUtils" link="gtksourceview-3.0-GtkSourceUtils.html"/>
+        <sub name="Version Information" link="gtksourceview-3.0-Version-Information.html"/>
+      </sub>
     </sub>
-    <sub name="Syntax highlighting reference" link="ch02.html">
+    <sub name="Syntax highlighting reference" link="pt02.html">
       <sub name="Language Definition v2.0 Tutorial" link="lang-tutorial.html"/>
       <sub name="Language Definition v2.0 Reference" link="lang-reference.html"/>
       <sub name="Style Scheme Definition Reference" link="style-reference.html"/>
     </sub>
-    <sub name="Object Hierarchy" link="object-tree.html"/>
-    <sub name="Index of all symbols" link="api-index-full.html"/>
-    <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
-    <sub name="Index of new symbols in 3.0" link="api-index-3-0.html"/>
-    <sub name="Index of new symbols in 3.4" link="api-index-3-4.html"/>
-    <sub name="Index of new symbols in 3.10" link="api-index-3-10.html"/>
-    <sub name="Index of new symbols in 3.12" link="api-index-3-12.html"/>
-    <sub name="Index of new symbols in 3.14" link="api-index-3-14.html"/>
-    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+    <sub name="Annexes" link="pt03.html">
+      <sub name="Object Hierarchy" link="object-tree.html"/>
+      <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+      <sub name="Index of all symbols" link="api-index-full.html"/>
+      <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
+      <sub name="Index of new symbols in 2.0" link="api-index-2-0.html"/>
+      <sub name="Index of new symbols in 2.2" link="api-index-2-2.html"/>
+      <sub name="Index of new symbols in 2.4" link="api-index-2-4.html"/>
+      <sub name="Index of new symbols in 2.8" link="api-index-2-8.html"/>
+      <sub name="Index of new symbols in 2.10" link="api-index-2-10.html"/>
+      <sub name="Index of new symbols in 2.12" link="api-index-2-12.html"/>
+      <sub name="Index of new symbols in 3.0" link="api-index-3-0.html"/>
+      <sub name="Index of new symbols in 3.4" link="api-index-3-4.html"/>
+      <sub name="Index of new symbols in 3.10" link="api-index-3-10.html"/>
+      <sub name="Index of new symbols in 3.12" link="api-index-3-12.html"/>
+      <sub name="Index of new symbols in 3.14" link="api-index-3-14.html"/>
+      <sub name="Index of new symbols in 3.16" link="api-index-3-16.html"/>
+      <sub name="Index of new symbols in 3.18" link="api-index-3-18.html"/>
+      <sub name="Index of new symbols in 3.20" link="api-index-3-20.html"/>
+      <sub name="Index of new symbols in 3.22" link="api-index-3-22.html"/>
+    </sub>
   </chapters>
   <functions>
-    <keyword type="" name="Undo and Redo" link="GtkSourceBuffer.html#id-1.2.2.9.5"/>
-    <keyword type="" name="Context Classes" link="GtkSourceBuffer.html#id-1.2.2.9.6"/>
     <keyword type="function" name="gtk_source_buffer_new ()" link="GtkSourceBuffer.html#gtk-source-buffer-new"/>
     <keyword type="function" name="gtk_source_buffer_new_with_language ()" link="GtkSourceBuffer.html#gtk-source-buffer-new-with-language"/>
-    <keyword type="function" name="gtk_source_buffer_set_highlight_syntax ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax"/>
-    <keyword type="function" name="gtk_source_buffer_get_highlight_syntax ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-syntax"/>
+    <keyword type="function" name="gtk_source_buffer_create_source_tag ()" link="GtkSourceBuffer.html#gtk-source-buffer-create-source-tag" since="3.20"/>
     <keyword type="function" name="gtk_source_buffer_set_language ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-language"/>
     <keyword type="function" name="gtk_source_buffer_get_language ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-language"/>
-    <keyword type="function" name="gtk_source_buffer_set_highlight_matching_brackets ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-matching-brackets"/>
-    <keyword type="function" name="gtk_source_buffer_get_highlight_matching_brackets ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-matching-brackets"/>
     <keyword type="function" name="gtk_source_buffer_set_style_scheme ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-style-scheme"/>
     <keyword type="function" name="gtk_source_buffer_get_style_scheme ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-style-scheme"/>
+    <keyword type="function" name="gtk_source_buffer_set_highlight_syntax ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-syntax"/>
+    <keyword type="function" name="gtk_source_buffer_get_highlight_syntax ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-syntax"/>
+    <keyword type="function" name="gtk_source_buffer_set_highlight_matching_brackets ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-highlight-matching-brackets"/>
+    <keyword type="function" name="gtk_source_buffer_get_highlight_matching_brackets ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-highlight-matching-brackets"/>
     <keyword type="function" name="gtk_source_buffer_ensure_highlight ()" link="GtkSourceBuffer.html#gtk-source-buffer-ensure-highlight"/>
     <keyword type="function" name="gtk_source_buffer_undo ()" link="GtkSourceBuffer.html#gtk-source-buffer-undo"/>
     <keyword type="function" name="gtk_source_buffer_redo ()" link="GtkSourceBuffer.html#gtk-source-buffer-redo"/>
@@ -83,11 +118,14 @@
     <keyword type="function" name="gtk_source_buffer_get_source_marks_at_iter ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-source-marks-at-iter" since="2.2"/>
     <keyword type="function" name="gtk_source_buffer_remove_source_marks ()" link="GtkSourceBuffer.html#gtk-source-buffer-remove-source-marks" since="2.2"/>
     <keyword type="function" name="gtk_source_buffer_change_case ()" link="GtkSourceBuffer.html#gtk-source-buffer-change-case" since="3.12"/>
+    <keyword type="function" name="gtk_source_buffer_join_lines ()" link="GtkSourceBuffer.html#gtk-source-buffer-join-lines" since="3.16"/>
+    <keyword type="function" name="gtk_source_buffer_sort_lines ()" link="GtkSourceBuffer.html#gtk-source-buffer-sort-lines" since="3.18"/>
     <keyword type="function" name="gtk_source_buffer_set_implicit_trailing_newline ()" link="GtkSourceBuffer.html#gtk-source-buffer-set-implicit-trailing-newline" since="3.14"/>
     <keyword type="function" name="gtk_source_buffer_get_implicit_trailing_newline ()" link="GtkSourceBuffer.html#gtk-source-buffer-get-implicit-trailing-newline" since="3.14"/>
     <keyword type="struct" name="GtkSourceBuffer" link="GtkSourceBuffer.html#GtkSourceBuffer-struct"/>
     <keyword type="enum" name="enum GtkSourceBracketMatchType" link="GtkSourceBuffer.html#GtkSourceBracketMatchType"/>
     <keyword type="enum" name="enum GtkSourceChangeCaseType" link="GtkSourceBuffer.html#GtkSourceChangeCaseType" since="3.12"/>
+    <keyword type="enum" name="enum GtkSourceSortFlags" link="GtkSourceBuffer.html#GtkSourceSortFlags" since="3.18"/>
     <keyword type="property" name="The “can-redo” property" link="GtkSourceBuffer.html#GtkSourceBuffer--can-redo"/>
     <keyword type="property" name="The “can-undo” property" link="GtkSourceBuffer.html#GtkSourceBuffer--can-undo"/>
     <keyword type="property" name="The “highlight-matching-brackets” property" link="GtkSourceBuffer.html#GtkSourceBuffer--highlight-matching-brackets"/>
@@ -102,7 +140,152 @@
     <keyword type="signal" name="The “redo” signal" link="GtkSourceBuffer.html#GtkSourceBuffer-redo"/>
     <keyword type="signal" name="The “source-mark-updated” signal" link="GtkSourceBuffer.html#GtkSourceBuffer-source-mark-updated"/>
     <keyword type="signal" name="The “undo” signal" link="GtkSourceBuffer.html#GtkSourceBuffer-undo"/>
-    <keyword type="" name="GtkSourceCompletion as GtkBuildable" link="GtkSourceCompletion.html#id-1.2.3.10.11"/>
+    <keyword type="function" name="gtk_source_view_new ()" link="GtkSourceView.html#gtk-source-view-new"/>
+    <keyword type="function" name="gtk_source_view_new_with_buffer ()" link="GtkSourceView.html#gtk-source-view-new-with-buffer"/>
+    <keyword type="function" name="gtk_source_view_set_show_line_numbers ()" link="GtkSourceView.html#gtk-source-view-set-show-line-numbers"/>
+    <keyword type="function" name="gtk_source_view_get_show_line_numbers ()" link="GtkSourceView.html#gtk-source-view-get-show-line-numbers"/>
+    <keyword type="function" name="gtk_source_view_set_show_right_margin ()" link="GtkSourceView.html#gtk-source-view-set-show-right-margin"/>
+    <keyword type="function" name="gtk_source_view_get_show_right_margin ()" link="GtkSourceView.html#gtk-source-view-get-show-right-margin"/>
+    <keyword type="function" name="gtk_source_view_set_right_margin_position ()" link="GtkSourceView.html#gtk-source-view-set-right-margin-position"/>
+    <keyword type="function" name="gtk_source_view_get_right_margin_position ()" link="GtkSourceView.html#gtk-source-view-get-right-margin-position"/>
+    <keyword type="function" name="gtk_source_view_set_highlight_current_line ()" link="GtkSourceView.html#gtk-source-view-set-highlight-current-line"/>
+    <keyword type="function" name="gtk_source_view_get_highlight_current_line ()" link="GtkSourceView.html#gtk-source-view-get-highlight-current-line"/>
+    <keyword type="function" name="gtk_source_view_set_auto_indent ()" link="GtkSourceView.html#gtk-source-view-set-auto-indent"/>
+    <keyword type="function" name="gtk_source_view_get_auto_indent ()" link="GtkSourceView.html#gtk-source-view-get-auto-indent"/>
+    <keyword type="function" name="gtk_source_view_set_indent_on_tab ()" link="GtkSourceView.html#gtk-source-view-set-indent-on-tab"/>
+    <keyword type="function" name="gtk_source_view_get_indent_on_tab ()" link="GtkSourceView.html#gtk-source-view-get-indent-on-tab"/>
+    <keyword type="function" name="gtk_source_view_set_tab_width ()" link="GtkSourceView.html#gtk-source-view-set-tab-width"/>
+    <keyword type="function" name="gtk_source_view_get_tab_width ()" link="GtkSourceView.html#gtk-source-view-get-tab-width"/>
+    <keyword type="function" name="gtk_source_view_set_indent_width ()" link="GtkSourceView.html#gtk-source-view-set-indent-width"/>
+    <keyword type="function" name="gtk_source_view_get_indent_width ()" link="GtkSourceView.html#gtk-source-view-get-indent-width"/>
+    <keyword type="function" name="gtk_source_view_set_insert_spaces_instead_of_tabs ()" link="GtkSourceView.html#gtk-source-view-set-insert-spaces-instead-of-tabs"/>
+    <keyword type="function" name="gtk_source_view_get_insert_spaces_instead_of_tabs ()" link="GtkSourceView.html#gtk-source-view-get-insert-spaces-instead-of-tabs"/>
+    <keyword type="function" name="gtk_source_view_indent_lines ()" link="GtkSourceView.html#gtk-source-view-indent-lines" since="3.16"/>
+    <keyword type="function" name="gtk_source_view_unindent_lines ()" link="GtkSourceView.html#gtk-source-view-unindent-lines" since="3.16"/>
+    <keyword type="function" name="gtk_source_view_get_visual_column ()" link="GtkSourceView.html#gtk-source-view-get-visual-column"/>
+    <keyword type="function" name="gtk_source_view_set_smart_backspace ()" link="GtkSourceView.html#gtk-source-view-set-smart-backspace" since="3.18"/>
+    <keyword type="function" name="gtk_source_view_get_smart_backspace ()" link="GtkSourceView.html#gtk-source-view-get-smart-backspace" since="3.18"/>
+    <keyword type="function" name="gtk_source_view_set_smart_home_end ()" link="GtkSourceView.html#gtk-source-view-set-smart-home-end"/>
+    <keyword type="function" name="gtk_source_view_get_smart_home_end ()" link="GtkSourceView.html#gtk-source-view-get-smart-home-end"/>
+    <keyword type="function" name="gtk_source_view_set_mark_attributes ()" link="GtkSourceView.html#gtk-source-view-set-mark-attributes"/>
+    <keyword type="function" name="gtk_source_view_get_mark_attributes ()" link="GtkSourceView.html#gtk-source-view-get-mark-attributes"/>
+    <keyword type="function" name="gtk_source_view_set_show_line_marks ()" link="GtkSourceView.html#gtk-source-view-set-show-line-marks" since="2.2"/>
+    <keyword type="function" name="gtk_source_view_get_show_line_marks ()" link="GtkSourceView.html#gtk-source-view-get-show-line-marks" since="2.2"/>
+    <keyword type="function" name="gtk_source_view_set_draw_spaces ()" link="GtkSourceView.html#gtk-source-view-set-draw-spaces"/>
+    <keyword type="function" name="gtk_source_view_get_draw_spaces ()" link="GtkSourceView.html#gtk-source-view-get-draw-spaces"/>
+    <keyword type="function" name="gtk_source_view_get_completion ()" link="GtkSourceView.html#gtk-source-view-get-completion"/>
+    <keyword type="function" name="gtk_source_view_get_gutter ()" link="GtkSourceView.html#gtk-source-view-get-gutter" since="2.8"/>
+    <keyword type="function" name="gtk_source_view_set_background_pattern ()" link="GtkSourceView.html#gtk-source-view-set-background-pattern" since="3.16"/>
+    <keyword type="function" name="gtk_source_view_get_background_pattern ()" link="GtkSourceView.html#gtk-source-view-get-background-pattern" since="3.16"/>
+    <keyword type="struct" name="GtkSourceView" link="GtkSourceView.html#GtkSourceView-struct"/>
+    <keyword type="enum" name="enum GtkSourceSmartHomeEndType" link="GtkSourceView.html#GtkSourceSmartHomeEndType"/>
+    <keyword type="enum" name="enum GtkSourceDrawSpacesFlags" link="GtkSourceView.html#GtkSourceDrawSpacesFlags"/>
+    <keyword type="enum" name="enum GtkSourceViewGutterPosition" link="GtkSourceView.html#GtkSourceViewGutterPosition"/>
+    <keyword type="enum" name="enum GtkSourceBackgroundPatternType" link="GtkSourceView.html#GtkSourceBackgroundPatternType" since="3.16"/>
+    <keyword type="property" name="The “auto-indent” property" link="GtkSourceView.html#GtkSourceView--auto-indent"/>
+    <keyword type="property" name="The “background-pattern” property" link="GtkSourceView.html#GtkSourceView--background-pattern"/>
+    <keyword type="property" name="The “completion” property" link="GtkSourceView.html#GtkSourceView--completion"/>
+    <keyword type="property" name="The “draw-spaces” property" link="GtkSourceView.html#GtkSourceView--draw-spaces"/>
+    <keyword type="property" name="The “highlight-current-line” property" link="GtkSourceView.html#GtkSourceView--highlight-current-line"/>
+    <keyword type="property" name="The “indent-on-tab” property" link="GtkSourceView.html#GtkSourceView--indent-on-tab"/>
+    <keyword type="property" name="The “indent-width” property" link="GtkSourceView.html#GtkSourceView--indent-width"/>
+    <keyword type="property" name="The “insert-spaces-instead-of-tabs” property" link="GtkSourceView.html#GtkSourceView--insert-spaces-instead-of-tabs"/>
+    <keyword type="property" name="The “right-margin-position” property" link="GtkSourceView.html#GtkSourceView--right-margin-position"/>
+    <keyword type="property" name="The “show-line-marks” property" link="GtkSourceView.html#GtkSourceView--show-line-marks"/>
+    <keyword type="property" name="The “show-line-numbers” property" link="GtkSourceView.html#GtkSourceView--show-line-numbers"/>
+    <keyword type="property" name="The “show-right-margin” property" link="GtkSourceView.html#GtkSourceView--show-right-margin"/>
+    <keyword type="property" name="The “smart-backspace” property" link="GtkSourceView.html#GtkSourceView--smart-backspace"/>
+    <keyword type="property" name="The “smart-home-end” property" link="GtkSourceView.html#GtkSourceView--smart-home-end"/>
+    <keyword type="property" name="The “tab-width” property" link="GtkSourceView.html#GtkSourceView--tab-width"/>
+    <keyword type="signal" name="The “change-case” signal" link="GtkSourceView.html#GtkSourceView-change-case"/>
+    <keyword type="signal" name="The “change-number” signal" link="GtkSourceView.html#GtkSourceView-change-number"/>
+    <keyword type="signal" name="The “join-lines” signal" link="GtkSourceView.html#GtkSourceView-join-lines"/>
+    <keyword type="signal" name="The “line-mark-activated” signal" link="GtkSourceView.html#GtkSourceView-line-mark-activated"/>
+    <keyword type="signal" name="The “move-lines” signal" link="GtkSourceView.html#GtkSourceView-move-lines"/>
+    <keyword type="signal" name="The “move-to-matching-bracket” signal" link="GtkSourceView.html#GtkSourceView-move-to-matching-bracket"/>
+    <keyword type="signal" name="The “move-words” signal" link="GtkSourceView.html#GtkSourceView-move-words"/>
+    <keyword type="signal" name="The “redo” signal" link="GtkSourceView.html#GtkSourceView-redo"/>
+    <keyword type="signal" name="The “show-completion” signal" link="GtkSourceView.html#GtkSourceView-show-completion"/>
+    <keyword type="signal" name="The “smart-home-end” signal" link="GtkSourceView.html#GtkSourceView-smart-home-end"/>
+    <keyword type="signal" name="The “undo” signal" link="GtkSourceView.html#GtkSourceView-undo"/>
+    <keyword type="function" name="gtk_source_language_get_id ()" link="GtkSourceLanguage.html#gtk-source-language-get-id"/>
+    <keyword type="function" name="gtk_source_language_get_name ()" link="GtkSourceLanguage.html#gtk-source-language-get-name"/>
+    <keyword type="function" name="gtk_source_language_get_section ()" link="GtkSourceLanguage.html#gtk-source-language-get-section"/>
+    <keyword type="function" name="gtk_source_language_get_hidden ()" link="GtkSourceLanguage.html#gtk-source-language-get-hidden"/>
+    <keyword type="function" name="gtk_source_language_get_metadata ()" link="GtkSourceLanguage.html#gtk-source-language-get-metadata"/>
+    <keyword type="function" name="gtk_source_language_get_mime_types ()" link="GtkSourceLanguage.html#gtk-source-language-get-mime-types"/>
+    <keyword type="function" name="gtk_source_language_get_globs ()" link="GtkSourceLanguage.html#gtk-source-language-get-globs"/>
+    <keyword type="function" name="gtk_source_language_get_style_name ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-name"/>
+    <keyword type="function" name="gtk_source_language_get_style_ids ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-ids"/>
+    <keyword type="function" name="gtk_source_language_get_style_fallback ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-fallback" since="3.4"/>
+    <keyword type="struct" name="GtkSourceLanguage" link="GtkSourceLanguage.html#GtkSourceLanguage-struct"/>
+    <keyword type="property" name="The “hidden” property" link="GtkSourceLanguage.html#GtkSourceLanguage--hidden"/>
+    <keyword type="property" name="The “id” property" link="GtkSourceLanguage.html#GtkSourceLanguage--id"/>
+    <keyword type="property" name="The “name” property" link="GtkSourceLanguage.html#GtkSourceLanguage--name"/>
+    <keyword type="property" name="The “section” property" link="GtkSourceLanguage.html#GtkSourceLanguage--section"/>
+    <keyword type="function" name="gtk_source_language_manager_new ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-new"/>
+    <keyword type="function" name="gtk_source_language_manager_get_default ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-default"/>
+    <keyword type="function" name="gtk_source_language_manager_set_search_path ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-set-search-path"/>
+    <keyword type="function" name="gtk_source_language_manager_get_search_path ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-search-path"/>
+    <keyword type="function" name="gtk_source_language_manager_get_language_ids ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-language-ids"/>
+    <keyword type="function" name="gtk_source_language_manager_get_language ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-language"/>
+    <keyword type="function" name="gtk_source_language_manager_guess_language ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-guess-language" since="2.4"/>
+    <keyword type="struct" name="GtkSourceLanguageManager" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager-struct"/>
+    <keyword type="property" name="The “language-ids” property" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager--language-ids"/>
+    <keyword type="property" name="The “search-path” property" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager--search-path"/>
+    <keyword type="function" name="gtk_source_style_copy ()" link="GtkSourceStyle.html#gtk-source-style-copy" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_apply ()" link="GtkSourceStyle.html#gtk-source-style-apply" since="3.22"/>
+    <keyword type="struct" name="GtkSourceStyle" link="GtkSourceStyle.html#GtkSourceStyle-struct"/>
+    <keyword type="property" name="The “background” property" link="GtkSourceStyle.html#GtkSourceStyle--background"/>
+    <keyword type="property" name="The “background-set” property" link="GtkSourceStyle.html#GtkSourceStyle--background-set"/>
+    <keyword type="property" name="The “bold” property" link="GtkSourceStyle.html#GtkSourceStyle--bold"/>
+    <keyword type="property" name="The “bold-set” property" link="GtkSourceStyle.html#GtkSourceStyle--bold-set"/>
+    <keyword type="property" name="The “foreground” property" link="GtkSourceStyle.html#GtkSourceStyle--foreground"/>
+    <keyword type="property" name="The “foreground-set” property" link="GtkSourceStyle.html#GtkSourceStyle--foreground-set"/>
+    <keyword type="property" name="The “italic” property" link="GtkSourceStyle.html#GtkSourceStyle--italic"/>
+    <keyword type="property" name="The “italic-set” property" link="GtkSourceStyle.html#GtkSourceStyle--italic-set"/>
+    <keyword type="property" name="The “line-background” property" link="GtkSourceStyle.html#GtkSourceStyle--line-background"/>
+    <keyword type="property" name="The “line-background-set” property" link="GtkSourceStyle.html#GtkSourceStyle--line-background-set"/>
+    <keyword type="property" name="The “pango-underline” property" link="GtkSourceStyle.html#GtkSourceStyle--pango-underline"/>
+    <keyword type="property" name="The “scale” property" link="GtkSourceStyle.html#GtkSourceStyle--scale"/>
+    <keyword type="property" name="The “scale-set” property" link="GtkSourceStyle.html#GtkSourceStyle--scale-set"/>
+    <keyword type="property" name="The “strikethrough” property" link="GtkSourceStyle.html#GtkSourceStyle--strikethrough"/>
+    <keyword type="property" name="The “strikethrough-set” property" link="GtkSourceStyle.html#GtkSourceStyle--strikethrough-set"/>
+    <keyword type="property" name="The “underline” property" link="GtkSourceStyle.html#GtkSourceStyle--underline"/>
+    <keyword type="property" name="The “underline-color” property" link="GtkSourceStyle.html#GtkSourceStyle--underline-color"/>
+    <keyword type="property" name="The “underline-color-set” property" link="GtkSourceStyle.html#GtkSourceStyle--underline-color-set"/>
+    <keyword type="property" name="The “underline-set” property" link="GtkSourceStyle.html#GtkSourceStyle--underline-set"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_id ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-id" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_name ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-name" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_description ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-description" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_authors ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-authors" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_filename ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-filename" since="2.0"/>
+    <keyword type="function" name="gtk_source_style_scheme_get_style ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-style" since="2.0"/>
+    <keyword type="struct" name="GtkSourceStyleScheme" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme-struct"/>
+    <keyword type="property" name="The “description” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--description"/>
+    <keyword type="property" name="The “filename” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--filename"/>
+    <keyword type="property" name="The “id” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--id"/>
+    <keyword type="property" name="The “name” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--name"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_new ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-new"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_get_default ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-default"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_set_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-set-search-path"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_append_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-append-search-path"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_prepend_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-prepend-search-path"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_get_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-search-path"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_get_scheme_ids ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-scheme-ids"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_get_scheme ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-scheme"/>
+    <keyword type="function" name="gtk_source_style_scheme_manager_force_rescan ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-force-rescan"/>
+    <keyword type="struct" name="GtkSourceStyleSchemeManager" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager-struct"/>
+    <keyword type="property" name="The “scheme-ids” property" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager--scheme-ids"/>
+    <keyword type="property" name="The “search-path” property" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager--search-path"/>
+    <keyword type="function" name="gtk_source_style_scheme_chooser_get_style_scheme ()" link="GtkSourceStyleSchemeChooser.html#gtk-source-style-scheme-chooser-get-style-scheme" since="3.16"/>
+    <keyword type="function" name="gtk_source_style_scheme_chooser_set_style_scheme ()" link="GtkSourceStyleSchemeChooser.html#gtk-source-style-scheme-chooser-set-style-scheme" since="3.16"/>
+    <keyword type="struct" name="GtkSourceStyleSchemeChooser" link="GtkSourceStyleSchemeChooser.html#GtkSourceStyleSchemeChooser-struct"/>
+    <keyword type="property" name="The “style-scheme” property" link="GtkSourceStyleSchemeChooser.html#GtkSourceStyleSchemeChooser--style-scheme"/>
+    <keyword type="function" name="gtk_source_style_scheme_chooser_button_new ()" link="GtkSourceStyleSchemeChooserButton.html#gtk-source-style-scheme-chooser-button-new" since="3.16"/>
+    <keyword type="struct" name="struct GtkSourceStyleSchemeChooserButton" link="GtkSourceStyleSchemeChooserButton.html#GtkSourceStyleSchemeChooserButton-struct"/>
+    <keyword type="function" name="gtk_source_style_scheme_chooser_widget_new ()" link="GtkSourceStyleSchemeChooserWidget.html#gtk-source-style-scheme-chooser-widget-new" since="3.16"/>
+    <keyword type="struct" name="struct GtkSourceStyleSchemeChooserWidget" link="GtkSourceStyleSchemeChooserWidget.html#GtkSourceStyleSchemeChooserWidget-struct"/>
     <keyword type="function" name="gtk_source_completion_add_provider ()" link="GtkSourceCompletion.html#gtk-source-completion-add-provider"/>
     <keyword type="function" name="gtk_source_completion_remove_provider ()" link="GtkSourceCompletion.html#gtk-source-completion-remove-provider"/>
     <keyword type="function" name="gtk_source_completion_get_providers ()" link="GtkSourceCompletion.html#gtk-source-completion-get-providers"/>
@@ -151,7 +334,9 @@
     <keyword type="function" name="gtk_source_completion_item_new_with_markup ()" link="GtkSourceCompletionItem.html#gtk-source-completion-item-new-with-markup"/>
     <keyword type="function" name="gtk_source_completion_item_new_from_stock ()" link="GtkSourceCompletionItem.html#gtk-source-completion-item-new-from-stock" deprecated="3.10: Use gtk_source_completion_item_new() instead."/>
     <keyword type="struct" name="GtkSourceCompletionItem" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem-struct"/>
+    <keyword type="property" name="The “gicon” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--gicon"/>
     <keyword type="property" name="The “icon” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--icon"/>
+    <keyword type="property" name="The “icon-name” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--icon-name"/>
     <keyword type="property" name="The “info” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--info"/>
     <keyword type="property" name="The “label” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--label"/>
     <keyword type="property" name="The “markup” property" link="GtkSourceCompletionItem.html#GtkSourceCompletionItem--markup"/>
@@ -160,6 +345,8 @@
     <keyword type="function" name="gtk_source_completion_proposal_get_markup ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-markup"/>
     <keyword type="function" name="gtk_source_completion_proposal_get_text ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-text"/>
     <keyword type="function" name="gtk_source_completion_proposal_get_icon ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-icon"/>
+    <keyword type="function" name="gtk_source_completion_proposal_get_icon_name ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-icon-name" since="3.18"/>
+    <keyword type="function" name="gtk_source_completion_proposal_get_gicon ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-gicon" since="3.18"/>
     <keyword type="function" name="gtk_source_completion_proposal_get_info ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-get-info"/>
     <keyword type="function" name="gtk_source_completion_proposal_changed ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-changed"/>
     <keyword type="function" name="gtk_source_completion_proposal_hash ()" link="GtkSourceCompletionProposal.html#gtk-source-completion-proposal-hash"/>
@@ -169,6 +356,8 @@
     <keyword type="signal" name="The “changed” signal" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposal-changed"/>
     <keyword type="function" name="gtk_source_completion_provider_get_name ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-name"/>
     <keyword type="function" name="gtk_source_completion_provider_get_icon ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-icon"/>
+    <keyword type="function" name="gtk_source_completion_provider_get_icon_name ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-icon-name" since="3.18"/>
+    <keyword type="function" name="gtk_source_completion_provider_get_gicon ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-gicon" since="3.18"/>
     <keyword type="function" name="gtk_source_completion_provider_populate ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-populate"/>
     <keyword type="function" name="gtk_source_completion_provider_get_activation ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-get-activation"/>
     <keyword type="function" name="gtk_source_completion_provider_match ()" link="GtkSourceCompletionProvider.html#gtk-source-completion-provider-match"/>
@@ -199,6 +388,7 @@
     <keyword type="function" name="gtk_source_encoding_get_name ()" link="GtkSourceEncoding.html#gtk-source-encoding-get-name" since="3.14"/>
     <keyword type="function" name="gtk_source_encoding_get_charset ()" link="GtkSourceEncoding.html#gtk-source-encoding-get-charset" since="3.14"/>
     <keyword type="function" name="gtk_source_encoding_get_all ()" link="GtkSourceEncoding.html#gtk-source-encoding-get-all" since="3.14"/>
+    <keyword type="function" name="gtk_source_encoding_get_default_candidates ()" link="GtkSourceEncoding.html#gtk-source-encoding-get-default-candidates" since="3.18"/>
     <keyword type="function" name="gtk_source_encoding_copy ()" link="GtkSourceEncoding.html#gtk-source-encoding-copy" since="3.14"/>
     <keyword type="function" name="gtk_source_encoding_free ()" link="GtkSourceEncoding.html#gtk-source-encoding-free" since="3.14"/>
     <keyword type="struct" name="GtkSourceEncoding" link="GtkSourceEncoding.html#GtkSourceEncoding-struct"/>
@@ -209,6 +399,11 @@
     <keyword type="function" name="gtk_source_file_get_encoding ()" link="GtkSourceFile.html#gtk-source-file-get-encoding" since="3.14"/>
     <keyword type="function" name="gtk_source_file_get_newline_type ()" link="GtkSourceFile.html#gtk-source-file-get-newline-type" since="3.14"/>
     <keyword type="function" name="gtk_source_file_get_compression_type ()" link="GtkSourceFile.html#gtk-source-file-get-compression-type" since="3.14"/>
+    <keyword type="function" name="gtk_source_file_check_file_on_disk ()" link="GtkSourceFile.html#gtk-source-file-check-file-on-disk" since="3.18"/>
+    <keyword type="function" name="gtk_source_file_is_local ()" link="GtkSourceFile.html#gtk-source-file-is-local" since="3.18"/>
+    <keyword type="function" name="gtk_source_file_is_externally_modified ()" link="GtkSourceFile.html#gtk-source-file-is-externally-modified" since="3.18"/>
+    <keyword type="function" name="gtk_source_file_is_deleted ()" link="GtkSourceFile.html#gtk-source-file-is-deleted" since="3.18"/>
+    <keyword type="function" name="gtk_source_file_is_readonly ()" link="GtkSourceFile.html#gtk-source-file-is-readonly" since="3.18"/>
     <keyword type="function" name="gtk_source_file_set_mount_operation_factory ()" link="GtkSourceFile.html#gtk-source-file-set-mount-operation-factory" since="3.14"/>
     <keyword type="struct" name="GtkSourceFile" link="GtkSourceFile.html#GtkSourceFile-struct"/>
     <keyword type="enum" name="enum GtkSourceNewlineType" link="GtkSourceFile.html#GtkSourceNewlineType" since="3.14"/>
@@ -218,6 +413,7 @@
     <keyword type="property" name="The “encoding” property" link="GtkSourceFile.html#GtkSourceFile--encoding"/>
     <keyword type="property" name="The “location” property" link="GtkSourceFile.html#GtkSourceFile--location"/>
     <keyword type="property" name="The “newline-type” property" link="GtkSourceFile.html#GtkSourceFile--newline-type"/>
+    <keyword type="property" name="The “read-only” property" link="GtkSourceFile.html#GtkSourceFile--read-only"/>
     <keyword type="function" name="gtk_source_file_loader_new ()" link="GtkSourceFileLoader.html#gtk-source-file-loader-new" since="3.14"/>
     <keyword type="function" name="gtk_source_file_loader_new_from_stream ()" link="GtkSourceFileLoader.html#gtk-source-file-loader-new-from-stream" since="3.14"/>
     <keyword type="function" name="gtk_source_file_loader_set_candidate_encodings ()" link="GtkSourceFileLoader.html#gtk-source-file-loader-set-candidate-encodings" since="3.14"/>
@@ -339,31 +535,6 @@
     <keyword type="struct" name="GtkSourceGutterRendererText" link="GtkSourceGutterRendererText.html#GtkSourceGutterRendererText-struct"/>
     <keyword type="property" name="The “markup” property" link="GtkSourceGutterRendererText.html#GtkSourceGutterRendererText--markup"/>
     <keyword type="property" name="The “text” property" link="GtkSourceGutterRendererText.html#GtkSourceGutterRendererText--text"/>
-    <keyword type="function" name="gtk_source_language_get_id ()" link="GtkSourceLanguage.html#gtk-source-language-get-id"/>
-    <keyword type="function" name="gtk_source_language_get_name ()" link="GtkSourceLanguage.html#gtk-source-language-get-name"/>
-    <keyword type="function" name="gtk_source_language_get_section ()" link="GtkSourceLanguage.html#gtk-source-language-get-section"/>
-    <keyword type="function" name="gtk_source_language_get_hidden ()" link="GtkSourceLanguage.html#gtk-source-language-get-hidden"/>
-    <keyword type="function" name="gtk_source_language_get_metadata ()" link="GtkSourceLanguage.html#gtk-source-language-get-metadata"/>
-    <keyword type="function" name="gtk_source_language_get_mime_types ()" link="GtkSourceLanguage.html#gtk-source-language-get-mime-types"/>
-    <keyword type="function" name="gtk_source_language_get_globs ()" link="GtkSourceLanguage.html#gtk-source-language-get-globs"/>
-    <keyword type="function" name="gtk_source_language_get_style_name ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-name"/>
-    <keyword type="function" name="gtk_source_language_get_style_ids ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-ids"/>
-    <keyword type="function" name="gtk_source_language_get_style_fallback ()" link="GtkSourceLanguage.html#gtk-source-language-get-style-fallback" since="3.4"/>
-    <keyword type="struct" name="GtkSourceLanguage" link="GtkSourceLanguage.html#GtkSourceLanguage-struct"/>
-    <keyword type="property" name="The “hidden” property" link="GtkSourceLanguage.html#GtkSourceLanguage--hidden"/>
-    <keyword type="property" name="The “id” property" link="GtkSourceLanguage.html#GtkSourceLanguage--id"/>
-    <keyword type="property" name="The “name” property" link="GtkSourceLanguage.html#GtkSourceLanguage--name"/>
-    <keyword type="property" name="The “section” property" link="GtkSourceLanguage.html#GtkSourceLanguage--section"/>
-    <keyword type="function" name="gtk_source_language_manager_new ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-new"/>
-    <keyword type="function" name="gtk_source_language_manager_get_default ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-default"/>
-    <keyword type="function" name="gtk_source_language_manager_set_search_path ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-set-search-path"/>
-    <keyword type="function" name="gtk_source_language_manager_get_search_path ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-search-path"/>
-    <keyword type="function" name="gtk_source_language_manager_get_language_ids ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-language-ids"/>
-    <keyword type="function" name="gtk_source_language_manager_get_language ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-get-language"/>
-    <keyword type="function" name="gtk_source_language_manager_guess_language ()" link="GtkSourceLanguageManager.html#gtk-source-language-manager-guess-language" since="2.4"/>
-    <keyword type="struct" name="GtkSourceLanguageManager" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager-struct"/>
-    <keyword type="property" name="The “language-ids” property" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager--language-ids"/>
-    <keyword type="property" name="The “search-path” property" link="GtkSourceLanguageManager.html#GtkSourceLanguageManager--search-path"/>
     <keyword type="function" name="gtk_source_mark_new ()" link="GtkSourceMark.html#gtk-source-mark-new" since="2.2"/>
     <keyword type="function" name="gtk_source_mark_get_category ()" link="GtkSourceMark.html#gtk-source-mark-get-category" since="2.2"/>
     <keyword type="function" name="gtk_source_mark_next ()" link="GtkSourceMark.html#gtk-source-mark-next" since="2.2"/>
@@ -448,20 +619,28 @@
     <keyword type="function" name="gtk_source_search_context_set_settings ()" link="GtkSourceSearchContext.html#gtk-source-search-context-set-settings" since="3.10"/>
     <keyword type="function" name="gtk_source_search_context_get_highlight ()" link="GtkSourceSearchContext.html#gtk-source-search-context-get-highlight" since="3.10"/>
     <keyword type="function" name="gtk_source_search_context_set_highlight ()" link="GtkSourceSearchContext.html#gtk-source-search-context-set-highlight" since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_get_match_style ()" link="GtkSourceSearchContext.html#gtk-source-search-context-get-match-style" since="3.16"/>
+    <keyword type="function" name="gtk_source_search_context_set_match_style ()" link="GtkSourceSearchContext.html#gtk-source-search-context-set-match-style" since="3.16"/>
     <keyword type="function" name="gtk_source_search_context_get_occurrences_count ()" link="GtkSourceSearchContext.html#gtk-source-search-context-get-occurrences-count" since="3.10"/>
     <keyword type="function" name="gtk_source_search_context_get_occurrence_position ()" link="GtkSourceSearchContext.html#gtk-source-search-context-get-occurrence-position" since="3.10"/>
-    <keyword type="function" name="gtk_source_search_context_forward ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward" since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_forward ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward" deprecated="3.22: Use gtk_source_search_context_forward2() instead." since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_forward2 ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward2" since="3.22"/>
     <keyword type="function" name="gtk_source_search_context_forward_async ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward-async" since="3.10"/>
-    <keyword type="function" name="gtk_source_search_context_forward_finish ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward-finish" since="3.10"/>
-    <keyword type="function" name="gtk_source_search_context_backward ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward" since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_forward_finish ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward-finish" deprecated="3.22: Use gtk_source_search_context_forward_finish2() instead." since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_forward_finish2 ()" link="GtkSourceSearchContext.html#gtk-source-search-context-forward-finish2" since="3.22"/>
+    <keyword type="function" name="gtk_source_search_context_backward ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward" deprecated="3.22: Use gtk_source_search_context_backward2() instead." since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_backward2 ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward2" since="3.22"/>
     <keyword type="function" name="gtk_source_search_context_backward_async ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward-async" since="3.10"/>
-    <keyword type="function" name="gtk_source_search_context_backward_finish ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward-finish" since="3.10"/>
-    <keyword type="function" name="gtk_source_search_context_replace ()" link="GtkSourceSearchContext.html#gtk-source-search-context-replace" since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_backward_finish ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward-finish" deprecated="3.22: Use gtk_source_search_context_backward_finish2() instead." since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_backward_finish2 ()" link="GtkSourceSearchContext.html#gtk-source-search-context-backward-finish2" since="3.22"/>
+    <keyword type="function" name="gtk_source_search_context_replace ()" link="GtkSourceSearchContext.html#gtk-source-search-context-replace" deprecated="3.22: Use gtk_source_search_context_replace2() instead." since="3.10"/>
+    <keyword type="function" name="gtk_source_search_context_replace2 ()" link="GtkSourceSearchContext.html#gtk-source-search-context-replace2" since="3.22"/>
     <keyword type="function" name="gtk_source_search_context_replace_all ()" link="GtkSourceSearchContext.html#gtk-source-search-context-replace-all" since="3.10"/>
     <keyword type="function" name="gtk_source_search_context_get_regex_error ()" link="GtkSourceSearchContext.html#gtk-source-search-context-get-regex-error" since="3.10"/>
     <keyword type="struct" name="GtkSourceSearchContext" link="GtkSourceSearchContext.html#GtkSourceSearchContext-struct"/>
     <keyword type="property" name="The “buffer” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--buffer"/>
     <keyword type="property" name="The “highlight” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--highlight"/>
+    <keyword type="property" name="The “match-style” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--match-style"/>
     <keyword type="property" name="The “occurrences-count” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--occurrences-count"/>
     <keyword type="property" name="The “regex-error” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--regex-error"/>
     <keyword type="property" name="The “settings” property" link="GtkSourceSearchContext.html#GtkSourceSearchContext--settings"/>
@@ -482,47 +661,34 @@
     <keyword type="property" name="The “regex-enabled” property" link="GtkSourceSearchSettings.html#GtkSourceSearchSettings--regex-enabled"/>
     <keyword type="property" name="The “search-text” property" link="GtkSourceSearchSettings.html#GtkSourceSearchSettings--search-text"/>
     <keyword type="property" name="The “wrap-around” property" link="GtkSourceSearchSettings.html#GtkSourceSearchSettings--wrap-around"/>
-    <keyword type="function" name="gtk_source_style_copy ()" link="GtkSourceStyle.html#gtk-source-style-copy" since="2.0"/>
-    <keyword type="struct" name="GtkSourceStyle" link="GtkSourceStyle.html#GtkSourceStyle-struct"/>
-    <keyword type="property" name="The “background” property" link="GtkSourceStyle.html#GtkSourceStyle--background"/>
-    <keyword type="property" name="The “background-set” property" link="GtkSourceStyle.html#GtkSourceStyle--background-set"/>
-    <keyword type="property" name="The “bold” property" link="GtkSourceStyle.html#GtkSourceStyle--bold"/>
-    <keyword type="property" name="The “bold-set” property" link="GtkSourceStyle.html#GtkSourceStyle--bold-set"/>
-    <keyword type="property" name="The “foreground” property" link="GtkSourceStyle.html#GtkSourceStyle--foreground"/>
-    <keyword type="property" name="The “foreground-set” property" link="GtkSourceStyle.html#GtkSourceStyle--foreground-set"/>
-    <keyword type="property" name="The “italic” property" link="GtkSourceStyle.html#GtkSourceStyle--italic"/>
-    <keyword type="property" name="The “italic-set” property" link="GtkSourceStyle.html#GtkSourceStyle--italic-set"/>
-    <keyword type="property" name="The “line-background” property" link="GtkSourceStyle.html#GtkSourceStyle--line-background"/>
-    <keyword type="property" name="The “line-background-set” property" link="GtkSourceStyle.html#GtkSourceStyle--line-background-set"/>
-    <keyword type="property" name="The “scale” property" link="GtkSourceStyle.html#GtkSourceStyle--scale"/>
-    <keyword type="property" name="The “scale-set” property" link="GtkSourceStyle.html#GtkSourceStyle--scale-set"/>
-    <keyword type="property" name="The “strikethrough” property" link="GtkSourceStyle.html#GtkSourceStyle--strikethrough"/>
-    <keyword type="property" name="The “strikethrough-set” property" link="GtkSourceStyle.html#GtkSourceStyle--strikethrough-set"/>
-    <keyword type="property" name="The “underline” property" link="GtkSourceStyle.html#GtkSourceStyle--underline"/>
-    <keyword type="property" name="The “underline-set” property" link="GtkSourceStyle.html#GtkSourceStyle--underline-set"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_id ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-id" since="2.0"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_name ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-name" since="2.0"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_description ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-description" since="2.0"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_authors ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-authors" since="2.0"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_filename ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-filename" since="2.0"/>
-    <keyword type="function" name="gtk_source_style_scheme_get_style ()" link="GtkSourceStyleScheme.html#gtk-source-style-scheme-get-style" since="2.0"/>
-    <keyword type="struct" name="GtkSourceStyleScheme" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme-struct"/>
-    <keyword type="property" name="The “description” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--description"/>
-    <keyword type="property" name="The “filename” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--filename"/>
-    <keyword type="property" name="The “id” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--id"/>
-    <keyword type="property" name="The “name” property" link="GtkSourceStyleScheme.html#GtkSourceStyleScheme--name"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_new ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-new"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_get_default ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-default"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_set_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-set-search-path"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_append_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-append-search-path"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_prepend_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-prepend-search-path"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_get_search_path ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-search-path"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_get_scheme_ids ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-scheme-ids"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_get_scheme ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-get-scheme"/>
-    <keyword type="function" name="gtk_source_style_scheme_manager_force_rescan ()" link="GtkSourceStyleSchemeManager.html#gtk-source-style-scheme-manager-force-rescan"/>
-    <keyword type="struct" name="GtkSourceStyleSchemeManager" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager-struct"/>
-    <keyword type="property" name="The “scheme-ids” property" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager--scheme-ids"/>
-    <keyword type="property" name="The “search-path” property" link="GtkSourceStyleSchemeManager.html#GtkSourceStyleSchemeManager--search-path"/>
+    <keyword type="function" name="gtk_source_map_new ()" link="GtkSourceMap.html#gtk-source-map-new" since="3.18"/>
+    <keyword type="function" name="gtk_source_map_set_view ()" link="GtkSourceMap.html#gtk-source-map-set-view" since="3.18"/>
+    <keyword type="function" name="gtk_source_map_get_view ()" link="GtkSourceMap.html#gtk-source-map-get-view" since="3.18"/>
+    <keyword type="struct" name="struct GtkSourceMap" link="GtkSourceMap.html#GtkSourceMap-struct"/>
+    <keyword type="property" name="The “font-desc” property" link="GtkSourceMap.html#GtkSourceMap--font-desc"/>
+    <keyword type="property" name="The “view” property" link="GtkSourceMap.html#GtkSourceMap--view"/>
+    <keyword type="function" name="gtk_source_region_new ()" link="GtkSourceRegion.html#gtk-source-region-new" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_get_buffer ()" link="GtkSourceRegion.html#gtk-source-region-get-buffer" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_add_subregion ()" link="GtkSourceRegion.html#gtk-source-region-add-subregion" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_add_region ()" link="GtkSourceRegion.html#gtk-source-region-add-region" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_subtract_subregion ()" link="GtkSourceRegion.html#gtk-source-region-subtract-subregion" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_subtract_region ()" link="GtkSourceRegion.html#gtk-source-region-subtract-region" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_intersect_subregion ()" link="GtkSourceRegion.html#gtk-source-region-intersect-subregion" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_intersect_region ()" link="GtkSourceRegion.html#gtk-source-region-intersect-region" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_is_empty ()" link="GtkSourceRegion.html#gtk-source-region-is-empty" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_get_bounds ()" link="GtkSourceRegion.html#gtk-source-region-get-bounds" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_get_start_region_iter ()" link="GtkSourceRegion.html#gtk-source-region-get-start-region-iter" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_iter_is_end ()" link="GtkSourceRegion.html#gtk-source-region-iter-is-end" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_iter_next ()" link="GtkSourceRegion.html#gtk-source-region-iter-next" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_iter_get_subregion ()" link="GtkSourceRegion.html#gtk-source-region-iter-get-subregion" since="3.22"/>
+    <keyword type="function" name="gtk_source_region_to_string ()" link="GtkSourceRegion.html#gtk-source-region-to-string" since="3.22"/>
+    <keyword type="struct" name="GtkSourceRegion" link="GtkSourceRegion.html#GtkSourceRegion-struct"/>
+    <keyword type="struct" name="struct GtkSourceRegionIter" link="GtkSourceRegion.html#GtkSourceRegionIter" since="3.22"/>
+    <keyword type="property" name="The “buffer” property" link="GtkSourceRegion.html#GtkSourceRegion--buffer"/>
+    <keyword type="function" name="gtk_source_tag_new ()" link="GtkSourceTag.html#gtk-source-tag-new" since="3.20"/>
+    <keyword type="struct" name="GtkSourceTag" link="GtkSourceTag.html#GtkSourceTag-struct"/>
+    <keyword type="property" name="The “draw-spaces” property" link="GtkSourceTag.html#GtkSourceTag--draw-spaces"/>
+    <keyword type="property" name="The “draw-spaces-set” property" link="GtkSourceTag.html#GtkSourceTag--draw-spaces-set"/>
     <keyword type="function" name="gtk_source_undo_manager_can_undo ()" link="GtkSourceUndoManager.html#gtk-source-undo-manager-can-undo" since="2.10"/>
     <keyword type="function" name="gtk_source_undo_manager_can_redo ()" link="GtkSourceUndoManager.html#gtk-source-undo-manager-can-redo" since="2.10"/>
     <keyword type="function" name="gtk_source_undo_manager_undo ()" link="GtkSourceUndoManager.html#gtk-source-undo-manager-undo" since="2.10"/>
@@ -536,67 +702,28 @@
     <keyword type="signal" name="The “can-undo-changed” signal" link="GtkSourceUndoManager.html#GtkSourceUndoManager-can-undo-changed"/>
     <keyword type="function" name="gtk_source_utils_unescape_search_text ()" link="gtksourceview-3.0-GtkSourceUtils.html#gtk-source-utils-unescape-search-text" since="3.10"/>
     <keyword type="function" name="gtk_source_utils_escape_search_text ()" link="gtksourceview-3.0-GtkSourceUtils.html#gtk-source-utils-escape-search-text" since="3.10"/>
-    <keyword type="" name="GtkSourceView as GtkBuildable" link="GtkSourceView.html#id-1.2.30.10.3"/>
-    <keyword type="function" name="gtk_source_view_new ()" link="GtkSourceView.html#gtk-source-view-new"/>
-    <keyword type="function" name="gtk_source_view_new_with_buffer ()" link="GtkSourceView.html#gtk-source-view-new-with-buffer"/>
-    <keyword type="function" name="gtk_source_view_set_auto_indent ()" link="GtkSourceView.html#gtk-source-view-set-auto-indent"/>
-    <keyword type="function" name="gtk_source_view_get_auto_indent ()" link="GtkSourceView.html#gtk-source-view-get-auto-indent"/>
-    <keyword type="function" name="gtk_source_view_set_indent_on_tab ()" link="GtkSourceView.html#gtk-source-view-set-indent-on-tab" since="1.8"/>
-    <keyword type="function" name="gtk_source_view_get_indent_on_tab ()" link="GtkSourceView.html#gtk-source-view-get-indent-on-tab" since="1.8"/>
-    <keyword type="function" name="gtk_source_view_set_indent_width ()" link="GtkSourceView.html#gtk-source-view-set-indent-width"/>
-    <keyword type="function" name="gtk_source_view_get_indent_width ()" link="GtkSourceView.html#gtk-source-view-get-indent-width"/>
-    <keyword type="function" name="gtk_source_view_set_insert_spaces_instead_of_tabs ()" link="GtkSourceView.html#gtk-source-view-set-insert-spaces-instead-of-tabs"/>
-    <keyword type="function" name="gtk_source_view_get_insert_spaces_instead_of_tabs ()" link="GtkSourceView.html#gtk-source-view-get-insert-spaces-instead-of-tabs"/>
-    <keyword type="function" name="gtk_source_view_set_smart_home_end ()" link="GtkSourceView.html#gtk-source-view-set-smart-home-end"/>
-    <keyword type="function" name="gtk_source_view_get_smart_home_end ()" link="GtkSourceView.html#gtk-source-view-get-smart-home-end"/>
-    <keyword type="function" name="gtk_source_view_set_mark_attributes ()" link="GtkSourceView.html#gtk-source-view-set-mark-attributes"/>
-    <keyword type="function" name="gtk_source_view_get_mark_attributes ()" link="GtkSourceView.html#gtk-source-view-get-mark-attributes"/>
-    <keyword type="function" name="gtk_source_view_set_highlight_current_line ()" link="GtkSourceView.html#gtk-source-view-set-highlight-current-line"/>
-    <keyword type="function" name="gtk_source_view_get_highlight_current_line ()" link="GtkSourceView.html#gtk-source-view-get-highlight-current-line"/>
-    <keyword type="function" name="gtk_source_view_set_show_line_marks ()" link="GtkSourceView.html#gtk-source-view-set-show-line-marks" since="2.2"/>
-    <keyword type="function" name="gtk_source_view_get_show_line_marks ()" link="GtkSourceView.html#gtk-source-view-get-show-line-marks" since="2.2"/>
-    <keyword type="function" name="gtk_source_view_set_show_line_numbers ()" link="GtkSourceView.html#gtk-source-view-set-show-line-numbers"/>
-    <keyword type="function" name="gtk_source_view_get_show_line_numbers ()" link="GtkSourceView.html#gtk-source-view-get-show-line-numbers"/>
-    <keyword type="function" name="gtk_source_view_set_show_right_margin ()" link="GtkSourceView.html#gtk-source-view-set-show-right-margin"/>
-    <keyword type="function" name="gtk_source_view_get_show_right_margin ()" link="GtkSourceView.html#gtk-source-view-get-show-right-margin"/>
-    <keyword type="function" name="gtk_source_view_set_right_margin_position ()" link="GtkSourceView.html#gtk-source-view-set-right-margin-position"/>
-    <keyword type="function" name="gtk_source_view_get_right_margin_position ()" link="GtkSourceView.html#gtk-source-view-get-right-margin-position"/>
-    <keyword type="function" name="gtk_source_view_set_tab_width ()" link="GtkSourceView.html#gtk-source-view-set-tab-width"/>
-    <keyword type="function" name="gtk_source_view_get_tab_width ()" link="GtkSourceView.html#gtk-source-view-get-tab-width"/>
-    <keyword type="function" name="gtk_source_view_set_draw_spaces ()" link="GtkSourceView.html#gtk-source-view-set-draw-spaces"/>
-    <keyword type="function" name="gtk_source_view_get_draw_spaces ()" link="GtkSourceView.html#gtk-source-view-get-draw-spaces"/>
-    <keyword type="function" name="gtk_source_view_get_completion ()" link="GtkSourceView.html#gtk-source-view-get-completion"/>
-    <keyword type="function" name="gtk_source_view_get_gutter ()" link="GtkSourceView.html#gtk-source-view-get-gutter" since="2.8"/>
-    <keyword type="function" name="gtk_source_view_get_visual_column ()" link="GtkSourceView.html#gtk-source-view-get-visual-column"/>
-    <keyword type="struct" name="GtkSourceView" link="GtkSourceView.html#GtkSourceView-struct"/>
-    <keyword type="enum" name="enum GtkSourceSmartHomeEndType" link="GtkSourceView.html#GtkSourceSmartHomeEndType"/>
-    <keyword type="enum" name="enum GtkSourceDrawSpacesFlags" link="GtkSourceView.html#GtkSourceDrawSpacesFlags"/>
-    <keyword type="enum" name="enum GtkSourceViewGutterPosition" link="GtkSourceView.html#GtkSourceViewGutterPosition"/>
-    <keyword type="property" name="The “auto-indent” property" link="GtkSourceView.html#GtkSourceView--auto-indent"/>
-    <keyword type="property" name="The “completion” property" link="GtkSourceView.html#GtkSourceView--completion"/>
-    <keyword type="property" name="The “draw-spaces” property" link="GtkSourceView.html#GtkSourceView--draw-spaces"/>
-    <keyword type="property" name="The “highlight-current-line” property" link="GtkSourceView.html#GtkSourceView--highlight-current-line"/>
-    <keyword type="property" name="The “indent-on-tab” property" link="GtkSourceView.html#GtkSourceView--indent-on-tab"/>
-    <keyword type="property" name="The “indent-width” property" link="GtkSourceView.html#GtkSourceView--indent-width"/>
-    <keyword type="property" name="The “insert-spaces-instead-of-tabs” property" link="GtkSourceView.html#GtkSourceView--insert-spaces-instead-of-tabs"/>
-    <keyword type="property" name="The “right-margin-position” property" link="GtkSourceView.html#GtkSourceView--right-margin-position"/>
-    <keyword type="property" name="The “show-line-marks” property" link="GtkSourceView.html#GtkSourceView--show-line-marks"/>
-    <keyword type="property" name="The “show-line-numbers” property" link="GtkSourceView.html#GtkSourceView--show-line-numbers"/>
-    <keyword type="property" name="The “show-right-margin” property" link="GtkSourceView.html#GtkSourceView--show-right-margin"/>
-    <keyword type="property" name="The “smart-home-end” property" link="GtkSourceView.html#GtkSourceView--smart-home-end"/>
-    <keyword type="property" name="The “tab-width” property" link="GtkSourceView.html#GtkSourceView--tab-width"/>
-    <keyword type="signal" name="The “line-mark-activated” signal" link="GtkSourceView.html#GtkSourceView-line-mark-activated"/>
-    <keyword type="signal" name="The “move-lines” signal" link="GtkSourceView.html#GtkSourceView-move-lines"/>
-    <keyword type="signal" name="The “move-words” signal" link="GtkSourceView.html#GtkSourceView-move-words"/>
-    <keyword type="signal" name="The “redo” signal" link="GtkSourceView.html#GtkSourceView-redo"/>
-    <keyword type="signal" name="The “show-completion” signal" link="GtkSourceView.html#GtkSourceView-show-completion"/>
-    <keyword type="signal" name="The “smart-home-end” signal" link="GtkSourceView.html#GtkSourceView-smart-home-end"/>
-    <keyword type="signal" name="The “undo” signal" link="GtkSourceView.html#GtkSourceView-undo"/>
-    <keyword type="" name="Simple contexts" link="lang-reference.html#id-1.3.3.13.5"/>
-    <keyword type="" name="Container contexts" link="lang-reference.html#id-1.3.3.13.6"/>
-    <keyword type="" name="Sub-pattern contexts" link="lang-reference.html#id-1.3.3.13.7"/>
-    <keyword type="" name="Reference contexts" link="lang-reference.html#id-1.3.3.13.8"/>
-    <keyword type="" name="Keyword contexts" link="lang-reference.html#id-1.3.3.13.9"/>
+    <keyword type="function" name="gtk_source_get_major_version ()" link="gtksourceview-3.0-Version-Information.html#gtk-source-get-major-version" since="3.20"/>
+    <keyword type="function" name="gtk_source_get_minor_version ()" link="gtksourceview-3.0-Version-Information.html#gtk-source-get-minor-version" since="3.20"/>
+    <keyword type="function" name="gtk_source_get_micro_version ()" link="gtksourceview-3.0-Version-Information.html#gtk-source-get-micro-version" since="3.20"/>
+    <keyword type="function" name="gtk_source_check_version ()" link="gtksourceview-3.0-Version-Information.html#gtk-source-check-version" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_CHECK_VERSION()" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-CHECK-VERSION:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_MAJOR_VERSION" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-MAJOR-VERSION:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_MINOR_VERSION" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-MINOR-VERSION:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_MICRO_VERSION" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-MICRO-VERSION:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_0" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-0:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_2" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-2:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_4" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-4:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_6" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-6:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_8" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-8:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_10" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-10:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_12" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-12:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_14" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-14:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_16" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-16:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_18" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-18:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_20" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-20:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_3_22" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-3-22:CAPS" since="3.22"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_MIN_REQUIRED" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-MIN-REQUIRED:CAPS" since="3.20"/>
+    <keyword type="macro" name="GTK_SOURCE_VERSION_MAX_ALLOWED" link="gtksourceview-3.0-Version-Information.html#GTK-SOURCE-VERSION-MAX-ALLOWED:CAPS" since="3.20"/>
     <keyword type="constant" name="GTK_SOURCE_BRACKET_MATCH_NONE" link="GtkSourceBuffer.html#GTK-SOURCE-BRACKET-MATCH-NONE:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_BRACKET_MATCH_OUT_OF_RANGE" link="GtkSourceBuffer.html#GTK-SOURCE-BRACKET-MATCH-OUT-OF-RANGE:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_BRACKET_MATCH_NOT_FOUND" link="GtkSourceBuffer.html#GTK-SOURCE-BRACKET-MATCH-NOT-FOUND:CAPS"/>
@@ -605,6 +732,26 @@
     <keyword type="constant" name="GTK_SOURCE_CHANGE_CASE_UPPER" link="GtkSourceBuffer.html#GTK-SOURCE-CHANGE-CASE-UPPER:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_CHANGE_CASE_TOGGLE" link="GtkSourceBuffer.html#GTK-SOURCE-CHANGE-CASE-TOGGLE:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_CHANGE_CASE_TITLE" link="GtkSourceBuffer.html#GTK-SOURCE-CHANGE-CASE-TITLE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SORT_FLAGS_NONE" link="GtkSourceBuffer.html#GTK-SOURCE-SORT-FLAGS-NONE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SORT_FLAGS_CASE_SENSITIVE" link="GtkSourceBuffer.html#GTK-SOURCE-SORT-FLAGS-CASE-SENSITIVE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SORT_FLAGS_REVERSE_ORDER" link="GtkSourceBuffer.html#GTK-SOURCE-SORT-FLAGS-REVERSE-ORDER:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SORT_FLAGS_REMOVE_DUPLICATES" link="GtkSourceBuffer.html#GTK-SOURCE-SORT-FLAGS-REMOVE-DUPLICATES:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_DISABLED" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-DISABLED:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_BEFORE" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-BEFORE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_AFTER" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-AFTER:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_ALWAYS" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-ALWAYS:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_SPACE" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-SPACE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TAB" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TAB:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_NEWLINE" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-NEWLINE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_NBSP" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-NBSP:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_LEADING" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-LEADING:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TEXT" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TEXT:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TRAILING" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TRAILING:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_ALL" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-ALL:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_VIEW_GUTTER_POSITION_LINES" link="GtkSourceView.html#GTK-SOURCE-VIEW-GUTTER-POSITION-LINES:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_VIEW_GUTTER_POSITION_MARKS" link="GtkSourceView.html#GTK-SOURCE-VIEW-GUTTER-POSITION-MARKS:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE" link="GtkSourceView.html#GTK-SOURCE-BACKGROUND-PATTERN-TYPE-NONE:CAPS"/>
+    <keyword type="constant" name="GTK_SOURCE_BACKGROUND_PATTERN_TYPE_GRID" link="GtkSourceView.html#GTK-SOURCE-BACKGROUND-PATTERN-TYPE-GRID:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND" link="GtkSourceCompletion.html#GTK-SOURCE-COMPLETION-ERROR-ALREADY-BOUND:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_COMPLETION_ERROR_NOT_BOUND" link="GtkSourceCompletion.html#GTK-SOURCE-COMPLETION-ERROR-NOT-BOUND:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_COMPLETION_ACTIVATION_NONE" link="GtkSourceCompletionContext.html#GTK-SOURCE-COMPLETION-ACTIVATION-NONE:CAPS"/>
@@ -631,19 +778,29 @@
     <keyword type="constant" name="GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL" link="GtkSourceGutterRenderer.html#GTK-SOURCE-GUTTER-RENDERER-ALIGNMENT-MODE-CELL:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST" link="GtkSourceGutterRenderer.html#GTK-SOURCE-GUTTER-RENDERER-ALIGNMENT-MODE-FIRST:CAPS"/>
     <keyword type="constant" name="GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST" link="GtkSourceGutterRenderer.html#GTK-SOURCE-GUTTER-RENDERER-ALIGNMENT-MODE-LAST:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_DISABLED" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-DISABLED:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_BEFORE" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-BEFORE:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_AFTER" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-AFTER:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_SMART_HOME_END_ALWAYS" link="GtkSourceView.html#GTK-SOURCE-SMART-HOME-END-ALWAYS:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_SPACE" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-SPACE:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TAB" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TAB:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_NEWLINE" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-NEWLINE:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_NBSP" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-NBSP:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_LEADING" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-LEADING:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TEXT" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TEXT:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_TRAILING" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-TRAILING:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_DRAW_SPACES_ALL" link="GtkSourceView.html#GTK-SOURCE-DRAW-SPACES-ALL:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_VIEW_GUTTER_POSITION_LINES" link="GtkSourceView.html#GTK-SOURCE-VIEW-GUTTER-POSITION-LINES:CAPS"/>
-    <keyword type="constant" name="GTK_SOURCE_VIEW_GUTTER_POSITION_MARKS" link="GtkSourceView.html#GTK-SOURCE-VIEW-GUTTER-POSITION-MARKS:CAPS"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.parent" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.parent"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-label" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-label"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-markup" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-markup"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-text" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-text"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-icon" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-icon"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-icon-name" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-icon-name"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-gicon" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-gicon"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.get-info" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.get-info"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.hash" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.hash"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.equal" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.equal"/>
+    <keyword type="member" name="GtkSourceCompletionProposalIface.changed" link="GtkSourceCompletionProposal.html#GtkSourceCompletionProposalIface.changed"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-name" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-name"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-icon" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-icon"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-icon-name" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-icon-name"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-gicon" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-gicon"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.populate" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.populate"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.match" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.match"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-activation" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-activation"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-info-widget" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-info-widget"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.update-info" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.update-info"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-start-iter" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-start-iter"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.activate-proposal" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.activate-proposal"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-interactive-delay" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-interactive-delay"/>
+    <keyword type="member" name="GtkSourceCompletionProviderIface.get-priority" link="GtkSourceCompletionProvider.html#GtkSourceCompletionProviderIface.get-priority"/>
   </functions>
 </book>

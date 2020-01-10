@@ -18,8 +18,10 @@ LANGUAGES =			\
 	cmake.lang		\
 	cobol.lang		\
 	cpp.lang		\
+	cpphdr.lang		\
 	csharp.lang		\
 	css.lang		\
+	csv.lang		\
 	cuda.lang		\
 	def.lang		\
 	desktop.lang		\
@@ -38,6 +40,7 @@ LANGUAGES =			\
 	fsharp.lang		\
 	gap.lang		\
 	gdb-log.lang		\
+	genie.lang		\
 	glsl.lang		\
 	go.lang			\
 	gtk-doc.lang		\
@@ -51,6 +54,7 @@ LANGUAGES =			\
 	imagej.lang		\
 	ini.lang		\
 	j.lang			\
+	jade.lang		\
 	java.lang		\
 	javascript.lang		\
 	json.lang		\
@@ -66,6 +70,7 @@ LANGUAGES =			\
 	markdown.lang		\
 	matlab.lang		\
 	mediawiki.lang		\
+	meson.lang		\
 	modelica.lang		\
 	mxml.lang		\
 	nemerle.lang		\
@@ -82,6 +87,7 @@ LANGUAGES =			\
 	pascal.lang		\
 	perl.lang		\
 	php.lang		\
+	pig.lang		\
 	pkgconfig.lang		\
 	po.lang			\
 	python.lang		\
@@ -93,6 +99,7 @@ LANGUAGES =			\
 	rpmspec.lang		\
 	rst.lang		\
 	ruby.lang		\
+	rust.lang		\
 	scala.lang		\
 	scheme.lang		\
 	scilab.lang		\
@@ -105,6 +112,7 @@ LANGUAGES =			\
 	t2t.lang		\
 	tcl.lang		\
 	texinfo.lang		\
+	thrift.lang		\
 	vala.lang		\
 	vbnet.lang		\
 	verilog.lang		\
@@ -117,6 +125,11 @@ LANGUAGES =			\
 languagesdir = $(datadir)/gtksourceview-3.0/language-specs
 languages_DATA = $(LANGUAGES) language.rng language2.rng language.dtd
 
-EXTRA_DIST = $(languages_DATA) check-language.sh
+EXTRA_DIST =			\
+	$(languages_DATA)	\
+	check-language.sh	\
+	language-specs.its	\
+	language-specs.pot	\
+	update-pot.sh
 
 -include $(top_srcdir)/git.mk

@@ -1,4 +1,12 @@
-<refentry id="lang-reference" revision="23 November 2013">
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+   "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+ <!ENTITY % local.common.attrib "xmlns:xi CDATA #FIXED 'http://www.w3.org/2003/XInclude'">
+ <!ENTITY % gtkdocentities SYSTEM "xml/gtkdocentities.ent">
+ %gtkdocentities;
+]>
+<refentry id="lang-reference" revision="6 March 2015">
 <refmeta>
 <refentrytitle>Language Definition v2.0 Reference</refentrytitle>
 </refmeta>
@@ -30,13 +38,51 @@ should be installed on your system in the directory
 <filename>${PREFIX}</filename> can be <filename>/usr/</filename> or
 <filename>/usr/local/</filename> if you have installed from source.
 </para>
+
+<para>
+The preinstalled language files are located in
+<filename>${PREFIX}/share/gtksourceview-3.0/language-specs/</filename>. Custom
+user languages are usually placed in
+<filename>~/.local/share/gtksourceview-3.0/language-specs/</filename>. Note:
+replace 3 with 2 in the path for GtkSourceView version 2.
+</para>
 </refsect1>
 
 <refsect1>
-<title>Best practices</title>
+<title>Some advices</title>
 
 <para>
-It is better to follow the following rules, especially if you want to
+The easiest way to start a new language definition is to copy a preinstalled
+language definition from a language that has similar constructs as the one you
+want to write a specification for. You can copy and rename a file from the
+systems directory to the local user one (create the directory if it doesn't
+exist yet) and edit the file accordingly.
+</para>
+
+<para>
+The important thing you need to change are the <code>id</code> and
+<code>name</code> of the language and the metadata properties
+<code>mimetypes</code> and <code>globs</code> in the language spec. These
+should resemble your new language. It might be that your files do not have an
+appropriate mimetype associated yet. You can either in that case leave it
+empty, or add a new mimetype (see below).
+</para>
+
+<para>
+If for some reason your language spec doesn't show up in an application like
+gedit, it might be a good idea to start the application from a terminal window
+and see if any errors/warnings appear for your language file. This usually
+gives good clues what's wrong with the specification. Note that you need to
+restart the application to take into account changes in a language definition
+file.
+</para>
+</refsect1>
+
+<refsect1>
+<title>Conventions</title>
+
+<para>
+It is better to follow the following conventions, especially if you want to
 contribute upstream, and get your language definition file included in
 GtkSourceView.
 </para>
@@ -168,7 +214,13 @@ Recognized elements are (all optional):
 <varlistentry>
 <term><code>mimetypes</code></term>
 <listitem><para>
-The semicolon-separated list of mimetypes associated to the language.
+The semicolon-separated list of mimetypes associated to the language. See the
+<ulink url="http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/">shared-mime-info</ulink>
+freedesktop.org specification. A language definition file shipped by
+GtkSourceView needs to have a mimetype defined in the shared-mime-info
+database. If the language definition file is not shipped by GtkSourceView, you
+can also create the mimetype locally, usually in
+<filename>~/.local/share/mime/packages/</filename>.
 </para></listitem>
 </varlistentry>
 
@@ -362,17 +414,24 @@ Contained elements:
 <title>Tag <code>&lt;define-regex&gt;</code></title>
 
 <para>
-Defines a regular expression that can be reused inside other regular
-expression, to avoid replicating common portions.  Those regular
-expressions are PCRE regular expressions in the form <code>/regex/options</code> (see
-the documentation of PCRE for details). If there are no options to be
-specified and you don't need to match the spaces at the start and at the
-end of the regular expression, you can omit the slashes, putting here only
-<code>regex</code>.  The possible options are those specified above in the description
-of the <code>&lt;default-regex-options&gt;</code> element. To disable a group of
-options, instead, you have to prepend an hyphen <code>-</code> to them.  In
-GtkSourceView are also available some extensions to the standard Perl style
-regular expressions:
+The syntax highlighting engine of GtkSourceView uses
+<link linkend="GRegex"><type>GRegex</type></link>,
+which uses the PCRE library. See the
+<ulink url="https://developer.gnome.org/glib/stable/glib-regex-syntax.html">Regular expression syntax</ulink>
+page in the GLib reference manual.
+</para>
+
+<para>
+The <code>&lt;define-regex&gt;</code> tag defines a regular expression that can
+be reused inside other regular expression, to avoid replicating common portions.
+Those regular expressions are in the form <code>/regex/options</code>.  If there
+are no options to be specified and you don't need to match the spaces at the
+start and at the end of the regular expression, you can omit the slashes,
+putting here only <code>regex</code>.  The possible options are those specified
+above in the description of the <code>&lt;default-regex-options&gt;</code>
+element. To disable a group of options, instead, you have to prepend an hyphen
+<code>-</code> to them.  In GtkSourceView are also available some extensions to
+the standard Perl style regular expressions:
 </para>
 
 <itemizedlist>
@@ -390,7 +449,7 @@ be redefined with the <code>&lt;keyword-char-class&gt;</code> (in contrast with
 
 <para>
 It is allowed to use any of the attributes from
-<code>&lt;default-regex-opts&gt;</code> as attributes of this tag.
+<code>&lt;default-regex-options&gt;</code> as attributes of this tag.
 </para>
 
 <para>
@@ -439,13 +498,18 @@ default context classes:
   </listitem>
   <listitem>
     <para>
-      <emphasis>string</emphasis>: the context delimits a string;
+      <emphasis>no-spell-check</emphasis>: the context's content should
+      not be spell checked;
     </para>
   </listitem>
   <listitem>
     <para>
-      <emphasis>no-spell-check</emphasis>: the context's content should
-      not be spell checked.
+      <emphasis>path</emphasis>: the context delimits a path to a file;
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+      <emphasis>string</emphasis>: the context delimits a string.
     </para>
   </listitem>
 </itemizedlist>
@@ -615,7 +679,9 @@ on the first line of buffer. If not specified it defaults to <code>false</code>.
 <term><code>once-only</code> (optional)</term>
 <listitem><para>
 A boolean value telling the engine whether the context can occur only
-once in its parent. If not specified it defaults to <code>false</code>.
+once in its parent. For a container context, it means that
+<emphasis>each</emphasis> included context can occur once.
+If not specified it defaults to <code>false</code>.
 </para></listitem></varlistentry>
 
 <varlistentry>
@@ -762,7 +828,9 @@ Contained elements:
 </para>
 
 <para>
-The attributes are the same used in simple contexts.
+The attributes are the same used in simple contexts. If the
+<code>once-only</code> attribute is <code>true</code>, it means that
+<emphasis>each</emphasis> keyword can occur once.
 </para>
 
 </refsect2>
@@ -794,7 +862,7 @@ Contains the regular expression for the current simple context.
 The expression is in the same form used in
 <code>&lt;define-regex&gt;</code> elements.
 It is allowed to use any of the attributes from
-<code>&lt;default-regex-opts&gt;</code> as attributes of this tag.
+<code>&lt;default-regex-options&gt;</code> as attributes of this tag.
 </para>
 
 <para>
@@ -811,7 +879,7 @@ Contains the starting regular expression for the current container context.
 The expression is in the same form used in <code>&lt;define-regex&gt;</code>
 elements.
 It is allowed to use any of the attributes from
-<code>&lt;default-regex-opts&gt;</code> as attributes of this tag.
+<code>&lt;default-regex-options&gt;</code> as attributes of this tag.
 </para>
 
 <para>
@@ -842,7 +910,7 @@ implement shell-style here-documents with this code:
 
 <para>
 It is also possible to use any of the attributes from
-<code>&lt;default-regex-opts&gt;</code> as attributes of this tag.
+<code>&lt;default-regex-options&gt;</code> as attributes of this tag.
 </para>
 <para>
 Contained elements: none.

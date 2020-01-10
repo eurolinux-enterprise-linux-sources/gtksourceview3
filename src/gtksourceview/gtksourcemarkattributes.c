@@ -20,6 +20,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcemarkattributes.h"
 #include "gtksourcemark.h"
 #include "gtksourceview-i18n.h"
@@ -104,10 +108,10 @@ enum
 {
 	QUERY_TOOLTIP_TEXT,
 	QUERY_TOOLTIP_MARKUP,
-	NUM_SIGNALS
+	N_SIGNALS
 };
 
-static guint signals[NUM_SIGNALS] = {0,};
+static guint signals[N_SIGNALS];
 
 static void
 gtk_source_mark_attributes_finalize (GObject *object)
@@ -284,10 +288,11 @@ gtk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_BACKGROUND,
 	                                 g_param_spec_boxed ("background",
-	                                                     _("Background"),
-	                                                     _("The background"),
+	                                                     "Background",
+	                                                     "The background",
 	                                                     GDK_TYPE_RGBA,
-	                                                     G_PARAM_READWRITE));
+	                                                     G_PARAM_READWRITE |
+							     G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceMarkAttributes:stock-id:
@@ -299,10 +304,12 @@ gtk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_STOCK_ID,
 	                                 g_param_spec_string ("stock-id",
-	                                                      _("Stock Id"),
-	                                                      _("The stock id"),
+	                                                      "Stock Id",
+	                                                      "The stock id",
 	                                                      NULL,
-	                                                      G_PARAM_READWRITE));
+	                                                      G_PARAM_READWRITE |
+							      G_PARAM_DEPRECATED |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceMarkAttributes:pixbuf:
@@ -312,10 +319,11 @@ gtk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_PIXBUF,
 	                                 g_param_spec_object ("pixbuf",
-	                                                      _("Pixbuf"),
-	                                                      _("The pixbuf"),
+	                                                      "Pixbuf",
+	                                                      "The pixbuf",
 	                                                      GDK_TYPE_PIXBUF,
-	                                                      G_PARAM_READWRITE));
+	                                                      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceMarkAttributes:icon-name:
@@ -325,10 +333,11 @@ gtk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_ICON_NAME,
 	                                 g_param_spec_string ("icon-name",
-	                                                      _("Icon Name"),
-	                                                      _("The icon name"),
+	                                                      "Icon Name",
+	                                                      "The icon name",
 	                                                      NULL,
-	                                                      G_PARAM_READWRITE));
+	                                                      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceMarkAttributes:gicon:
@@ -338,10 +347,11 @@ gtk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_GICON,
 	                                 g_param_spec_object ("gicon",
-	                                                      _("GIcon"),
-	                                                      _("The GIcon"),
+	                                                      "GIcon",
+	                                                      "The GIcon",
 	                                                      G_TYPE_ICON,
-	                                                      G_PARAM_READWRITE));
+	                                                      G_PARAM_READWRITE |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceMarkAttributes::query-tooltip-text:
@@ -402,7 +412,7 @@ gtk_source_mark_attributes_init (GtkSourceMarkAttributes *self)
  * Returns: (transfer full): a new source mark attributes.
  */
 GtkSourceMarkAttributes *
-gtk_source_mark_attributes_new ()
+gtk_source_mark_attributes_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_MARK_ATTRIBUTES, NULL);
 }

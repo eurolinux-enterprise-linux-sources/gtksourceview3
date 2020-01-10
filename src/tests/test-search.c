@@ -147,7 +147,7 @@ update_label_regex_error (TestSearch *search)
 	{
 		gtk_label_set_text (search->priv->label_regex_error, error->message);
 		gtk_widget_show (GTK_WIDGET (search->priv->label_regex_error));
-		g_error_free (error);
+		g_clear_error (&error);
 	}
 }
 
@@ -187,11 +187,12 @@ backward_search_finished (GtkSourceSearchContext *search_context,
 	GtkTextIter match_start;
 	GtkTextIter match_end;
 
-	if (gtk_source_search_context_backward_finish (search_context,
-						       result,
-						       &match_start,
-						       &match_end,
-						       NULL))
+	if (gtk_source_search_context_backward_finish2 (search_context,
+							result,
+							&match_start,
+							&match_end,
+							NULL,
+							NULL))
 	{
 		select_search_occurrence (search, &match_start, &match_end);
 	}
@@ -222,11 +223,12 @@ forward_search_finished (GtkSourceSearchContext *search_context,
 	GtkTextIter match_start;
 	GtkTextIter match_end;
 
-	if (gtk_source_search_context_forward_finish (search_context,
-						      result,
-						      &match_start,
-						      &match_end,
-						      NULL))
+	if (gtk_source_search_context_forward_finish2 (search_context,
+						       result,
+						       &match_start,
+						       &match_end,
+						       NULL,
+						       NULL))
 	{
 		select_search_occurrence (search, &match_start, &match_end);
 	}
@@ -266,12 +268,12 @@ button_replace_clicked_cb (TestSearch *search,
 	entry_buffer = gtk_entry_get_buffer (search->priv->replace_entry);
 	replace_length = gtk_entry_buffer_get_bytes (entry_buffer);
 
-	gtk_source_search_context_replace (search->priv->search_context,
-					   &match_start,
-					   &match_end,
-					   gtk_entry_get_text (search->priv->replace_entry),
-					   replace_length,
-					   NULL);
+	gtk_source_search_context_replace2 (search->priv->search_context,
+					    &match_start,
+					    &match_end,
+					    gtk_entry_get_text (search->priv->replace_entry),
+					    replace_length,
+					    NULL);
 
 	gtk_text_buffer_get_selection_bounds (GTK_TEXT_BUFFER (search->priv->source_buffer),
 					      NULL,
@@ -415,15 +417,9 @@ test_search_class_init (TestSearchClass *klass)
 static void
 test_search_init (TestSearch *search)
 {
-	PangoFontDescription *font;
-
 	search->priv = test_search_get_instance_private (search);
 
 	gtk_widget_init_template (GTK_WIDGET (search));
-
-	font = pango_font_description_from_string ("Monospace 10");
-	gtk_widget_override_font (GTK_WIDGET (search->priv->source_view), font);
-	pango_font_description_free (font);
 
 	search->priv->source_buffer = GTK_SOURCE_BUFFER (
 		gtk_text_view_get_buffer (GTK_TEXT_VIEW (search->priv->source_view)));

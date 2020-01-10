@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceSearchSettings: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch08.html" title="Search and Replace">
 <link rel="prev" href="GtkSourceSearchContext.html" title="GtkSourceSearchContext">
-<link rel="next" href="GtkSourceStyle.html" title="GtkSourceStyle">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="next" href="ch09.html" title="Other">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,9 +20,9 @@
                   <a href="#GtkSourceSearchSettings.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch08.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceSearchContext.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourceStyle.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="ch09.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourceSearchSettings"></a><div class="titlepage"></div>
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceSearchSettings.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -133,7 +133,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceSearchSettings.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -171,7 +171,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceSearchSettings.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -184,7 +184,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceSearchSettings.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceSearchSettings
 </pre>
 </div>
@@ -207,11 +207,10 @@ search settings can be associated with one or several
 gtk_source_search_settings_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new search settings object.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-new.returns"></a><h4>Returns</h4>
 <p> a new search settings object.</p>
-<p></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -223,8 +222,8 @@ gtk_source_search_settings_get_search_text
 <p>You may be interested to call <a class="link" href="gtksourceview-3.0-GtkSourceUtils.html#gtk-source-utils-escape-search-text" title="gtk_source_utils_escape_search_text ()"><code class="function">gtk_source_utils_escape_search_text()</code></a> after
 this function.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.3.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-get-search-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -238,11 +237,11 @@ this function.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.24.9.3.7"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-get-search-text.returns"></a><h4>Returns</h4>
 <p> the text to search, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the search is disabled. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -260,8 +259,8 @@ a call to this function.</p>
 <p>You may be interested to call <a class="link" href="gtksourceview-3.0-GtkSourceUtils.html#gtk-source-utils-unescape-search-text" title="gtk_source_utils_unescape_search_text ()"><code class="function">gtk_source_utils_unescape_search_text()</code></a> before
 this function.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.4.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-set-search-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -276,12 +275,12 @@ this function.</p>
 <tr>
 <td class="parameter_name"><p>search_text</p></td>
 <td class="parameter_description"><p> the nul-terminated text to search, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to disable the search. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -290,8 +289,8 @@ this function.</p>
 gtk_source_search_settings_get_case_sensitive
                                (<em class="parameter"><code><a class="link" href="GtkSourceSearchSettings.html" title="GtkSourceSearchSettings"><span class="type">GtkSourceSearchSettings</span></a> *settings</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.24.9.5.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-get-case-sensitive.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -305,11 +304,10 @@ gtk_source_search_settings_get_case_sensitive
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.24.9.5.5"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-get-case-sensitive.returns"></a><h4>Returns</h4>
 <p> whether the search is case sensitive.</p>
-<p></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -320,8 +318,8 @@ gtk_source_search_settings_set_case_sensitive
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> case_sensitive</code></em>);</pre>
 <p>Enables or disables the case sensitivity for the search.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-set-case-sensitive.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -341,7 +339,7 @@ gtk_source_search_settings_set_case_sensitive
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -350,8 +348,8 @@ gtk_source_search_settings_set_case_sensitive
 gtk_source_search_settings_get_at_word_boundaries
                                (<em class="parameter"><code><a class="link" href="GtkSourceSearchSettings.html" title="GtkSourceSearchSettings"><span class="type">GtkSourceSearchSettings</span></a> *settings</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.24.9.7.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-get-at-word-boundaries.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -365,11 +363,10 @@ gtk_source_search_settings_get_at_word_boundaries
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.24.9.7.5"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-get-at-word-boundaries.returns"></a><h4>Returns</h4>
 <p> whether to search at word boundaries.</p>
-<p></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -381,11 +378,11 @@ gtk_source_search_settings_set_at_word_boundaries
 <p>Change whether the search is done at word boundaries. If <em class="parameter"><code>at_word_boundaries</code></em>
 
 is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, a search match must start and end a word. The match can span
-multiple words. See also <a href="http://developer.gnome.org/gtk2/GtkTextIter.html#gtk-text-iter-starts-word"><code class="function">gtk_text_iter_starts_word()</code></a> and
-<a href="http://developer.gnome.org/gtk2/GtkTextIter.html#gtk-text-iter-ends-word"><code class="function">gtk_text_iter_ends_word()</code></a>.</p>
+multiple words. See also <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#gtk-text-iter-starts-word"><code class="function">gtk_text_iter_starts_word()</code></a> and
+<a href="http://developer.gnome.org/gtk4/GtkTextIter.html#gtk-text-iter-ends-word"><code class="function">gtk_text_iter_ends_word()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-set-at-word-boundaries.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -405,7 +402,7 @@ multiple words. See also <a href="http://developer.gnome.org/gtk2/GtkTextIter.ht
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -414,8 +411,8 @@ multiple words. See also <a href="http://developer.gnome.org/gtk2/GtkTextIter.ht
 gtk_source_search_settings_get_wrap_around
                                (<em class="parameter"><code><a class="link" href="GtkSourceSearchSettings.html" title="GtkSourceSearchSettings"><span class="type">GtkSourceSearchSettings</span></a> *settings</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.24.9.9.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-get-wrap-around.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -429,11 +426,10 @@ gtk_source_search_settings_get_wrap_around
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.24.9.9.5"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-get-wrap-around.returns"></a><h4>Returns</h4>
 <p> whether to wrap around the search.</p>
-<p></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -448,8 +444,8 @@ forward search continues at the beginning of the buffer if no search
 occurrences are found. Similarly, the backward search continues to search at
 the end of the buffer.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-set-wrap-around.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -469,7 +465,7 @@ the end of the buffer.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -478,8 +474,8 @@ the end of the buffer.</p>
 gtk_source_search_settings_get_regex_enabled
                                (<em class="parameter"><code><a class="link" href="GtkSourceSearchSettings.html" title="GtkSourceSearchSettings"><span class="type">GtkSourceSearchSettings</span></a> *settings</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.24.9.11.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-get-regex-enabled.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -493,11 +489,10 @@ gtk_source_search_settings_get_regex_enabled
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.24.9.11.5"></a><h4>Returns</h4>
+<a name="gtk-source-search-settings-get-regex-enabled.returns"></a><h4>Returns</h4>
 <p> whether to search by regular expressions.</p>
-<p></p>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -509,9 +504,12 @@ gtk_source_search_settings_set_regex_enabled
 <p>Enables or disables whether to search by regular expressions.
 If enabled, the <a class="link" href="GtkSourceSearchSettings.html#GtkSourceSearchSettings--search-text" title="The “search-text” property"><span class="type">“search-text”</span></a> property contains the
 pattern of the regular expression.</p>
+<p><a class="link" href="GtkSourceSearchContext.html" title="GtkSourceSearchContext"><span class="type">GtkSourceSearchContext</span></a> uses <a href="https://developer.gnome.org/glib/unstable/glib-Perl-compatible-regular-expressions.html#GRegex"><span class="type">GRegex</span></a> when regex search is enabled. See the
+<a class="ulink" href="https://developer.gnome.org/glib/stable/glib-regex-syntax.html" target="_top">Regular expression syntax</a>
+page in the GLib reference manual.</p>
 <div class="refsect3">
-<a name="id-1.2.24.9.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-search-settings-set-regex-enabled.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -531,7 +529,7 @@ pattern of the regular expression.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -550,7 +548,7 @@ pattern of the regular expression.</p>
 span multiple words.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -559,7 +557,7 @@ span multiple words.</p>
 <p>Whether the search is case sensitive.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -569,7 +567,7 @@ span multiple words.</p>
 <a class="link" href="GtkSourceSearchSettings.html#GtkSourceSearchSettings--search-text" title="The “search-text” property"><span class="type">“search-text”</span></a> as the pattern.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -580,7 +578,7 @@ expression search is enabled, <a class="link" href="GtkSourceSearchSettings.html
 the pattern.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: NULL</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -591,7 +589,7 @@ search occurrence is found. For a backward search, continue at the
 end of the buffer.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -600,7 +598,6 @@ end of the buffer.</p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

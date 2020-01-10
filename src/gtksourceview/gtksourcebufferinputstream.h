@@ -20,13 +20,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_BUFFER_INPUT_STREAM_H__
-#define __GTK_SOURCE_BUFFER_INPUT_STREAM_H__
+#ifndef GTK_SOURCE_BUFFER_INPUT_STREAM_H
+#define GTK_SOURCE_BUFFER_INPUT_STREAM_H
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 #include "gtksourcetypes-private.h"
 #include "gtksourcebuffer.h"
+#include "gtksourcefile.h"
 
 G_BEGIN_DECLS
 
@@ -52,21 +53,21 @@ struct _GtkSourceBufferInputStreamClass
 	GInputStreamClass parent_class;
 };
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GType		 _gtk_source_buffer_input_stream_get_type		(void) G_GNUC_CONST;
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GtkSourceBufferInputStream
 		*_gtk_source_buffer_input_stream_new			(GtkTextBuffer              *buffer,
 									 GtkSourceNewlineType        type,
 									 gboolean                    add_trailing_newline);
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 gsize		 _gtk_source_buffer_input_stream_get_total_size		(GtkSourceBufferInputStream *stream);
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 gsize		 _gtk_source_buffer_input_stream_tell			(GtkSourceBufferInputStream *stream);
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_BUFFER_INPUT_STREAM_H__ */
+#endif /* GTK_SOURCE_BUFFER_INPUT_STREAM_H */

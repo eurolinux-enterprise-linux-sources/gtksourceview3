@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceFileLoader: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch05.html" title="File Loading and Saving">
 <link rel="prev" href="GtkSourceFile.html" title="GtkSourceFile">
 <link rel="next" href="GtkSourceFileSaver.html" title="GtkSourceFileSaver">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,7 +20,7 @@
                   <a href="#GtkSourceFileLoader.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceFile.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceFileSaver.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *
+<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-get-location" title="gtk_source_file_loader_get_location ()">gtk_source_file_loader_get_location</a> <span class="c_punctuation">()</span>
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="returnvalue">GInputStream</span></a> *
+<a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="returnvalue">GInputStream</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-get-input-stream" title="gtk_source_file_loader_get_input_stream ()">gtk_source_file_loader_get_input_stream</a> <span class="c_punctuation">()</span>
@@ -141,7 +141,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -162,13 +162,13 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *</td>
+<a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceFileLoader.html#GtkSourceFileLoader--input-stream" title="The “input-stream” property">input-stream</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> *</td>
+<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceFileLoader.html#GtkSourceFileLoader--location" title="The “location” property">location</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
@@ -177,7 +177,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -200,7 +200,9 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">╰──</span> GtkSourceFileLoaderError
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceFileLoader
 </pre>
 </div>
@@ -211,11 +213,21 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.description"></a><h2>Description</h2>
-<p>A <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object permits to load the contents of a <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> or a
-<a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> into a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p>
+<p>A <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object permits to load the contents of a <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> or a
+<a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> into a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p>
 <p>A file loader should be used only for one load operation, including errors
 handling. If an error occurs, you can reconfigure the loader and relaunch the
 operation with <a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-load-async" title="gtk_source_file_loader_load_async ()"><code class="function">gtk_source_file_loader_load_async()</code></a>.</p>
+<p>Running a <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> is an undoable action for the
+<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>. That is, <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-begin-not-undoable-action" title="gtk_source_buffer_begin_not_undoable_action ()"><code class="function">gtk_source_buffer_begin_not_undoable_action()</code></a> and
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-end-not-undoable-action" title="gtk_source_buffer_end_not_undoable_action ()"><code class="function">gtk_source_buffer_end_not_undoable_action()</code></a> are called, which delete the
+undo/redo history.</p>
+<p>After a file loading, the buffer is reset to the contents provided by the
+<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> or <a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a>, so the buffer is set as “unmodified”, that is,
+<a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-set-modified"><code class="function">gtk_text_buffer_set_modified()</code></a> is called with <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>. If the contents isn't
+saved somewhere (for example if you load from stdin), then you should
+probably call <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#gtk-text-buffer-set-modified"><code class="function">gtk_text_buffer_set_modified()</code></a> with <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> after calling
+<a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-load-finish" title="gtk_source_file_loader_load_finish ()"><code class="function">gtk_source_file_loader_load_finish()</code></a>.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceFileLoader.functions_details"></a><h2>Functions</h2>
@@ -231,8 +243,8 @@ location is anyway not needed, because as soon as the file loading begins,
 the <em class="parameter"><code>buffer</code></em>
  is emptied.</p>
 <div class="refsect3">
-<a name="id-1.2.12.9.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -253,11 +265,10 @@ the <em class="parameter"><code>buffer</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.2.6"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -266,12 +277,12 @@ the <em class="parameter"><code>buffer</code></em>
 gtk_source_file_loader_new_from_stream
                                (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *stream</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> *stream</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object. The contents is read from <em class="parameter"><code>stream</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.12.9.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-new-from-stream.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -290,18 +301,17 @@ gtk_source_file_loader_new_from_stream
 </tr>
 <tr>
 <td class="parameter_name"><p>stream</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> to load, e.g. stdin.</p></td>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> to load, e.g. stdin.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-new-from-stream.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -315,16 +325,16 @@ the same order as the list.</p>
 <p>For convenience, <em class="parameter"><code>candidate_encodings</code></em>
  can contain duplicates. Only the first
 occurrence of a duplicated encoding is kept in the list.</p>
-<p>By default the candidate encodings are (in that order):</p>
+<p>By default the candidate encodings are (in that order in the list):</p>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><p>If set, the <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>'s encoding. See <a class="link" href="GtkSourceFile.html#gtk-source-file-get-encoding" title="gtk_source_file_get_encoding ()"><code class="function">gtk_source_file_get_encoding()</code></a>.</p></li>
-<li class="listitem"><p>Depending on the current locale (language and country), a list of common
-encodings are added. The UTF-8 encoding and the current locale encoding are
-always present.</p></li>
+<li class="listitem"><p>If set, the <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>'s encoding as returned by
+<a class="link" href="GtkSourceFile.html#gtk-source-file-get-encoding" title="gtk_source_file_get_encoding ()"><code class="function">gtk_source_file_get_encoding()</code></a>.</p></li>
+<li class="listitem"><p>The default candidates as returned by
+<a class="link" href="GtkSourceEncoding.html#gtk-source-encoding-get-default-candidates" title="gtk_source_encoding_get_default_candidates ()"><code class="function">gtk_source_encoding_get_default_candidates()</code></a>.</p></li>
 </ol></div>
 <div class="refsect3">
-<a name="id-1.2.12.9.4.8"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-set-candidate-encodings.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -345,7 +355,7 @@ always present.</p></li>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -353,8 +363,8 @@ always present.</p></li>
 <pre class="programlisting"><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="returnvalue">GtkSourceBuffer</span></a> *
 gtk_source_file_loader_get_buffer (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.5.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-buffer.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -368,11 +378,11 @@ gtk_source_file_loader_get_buffer (<em class="parameter"><code><a class="link" h
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.5.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-get-buffer.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> to load the contents into. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -380,8 +390,8 @@ gtk_source_file_loader_get_buffer (<em class="parameter"><code><a class="link" h
 <pre class="programlisting"><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="returnvalue">GtkSourceFile</span></a> *
 gtk_source_file_loader_get_file (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.6.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-file.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -395,20 +405,20 @@ gtk_source_file_loader_get_file (<em class="parameter"><code><a class="link" hre
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.6.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-get-file.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-file-loader-get-location"></a><h3>gtk_source_file_loader_get_location ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
 gtk_source_file_loader_get_location (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.7.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-location.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -422,22 +432,22 @@ gtk_source_file_loader_get_location (<em class="parameter"><code><a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.7.5"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> to load, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if an input stream is
-used. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<a name="gtk-source-file-loader-get-location.returns"></a><h4>Returns</h4>
+<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> to load, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if an input stream is used. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-file-loader-get-input-stream"></a><h3>gtk_source_file_loader_get_input_stream ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="returnvalue">GInputStream</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="returnvalue">GInputStream</span></a> *
 gtk_source_file_loader_get_input_stream
                                (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.8.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-input-stream.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -451,12 +461,12 @@ gtk_source_file_loader_get_input_stream
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.8.5"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> to load, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if a <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> is
-used. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<a name="gtk-source-file-loader-get-input-stream.returns"></a><h4>Returns</h4>
+<p> the <a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> to load, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if a <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> is used. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -464,18 +474,18 @@ used. </p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_file_loader_load_async (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> io_priority</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                   <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> *cancellable</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFileProgressCallback"><span class="type">GFileProgressCallback</span></a> progress_callback</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> progress_callback_data</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> progress_callback_notify</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>Loads asynchronously the file or input stream contents into the
-<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>. See the <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> documentation to know how to use this
+<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>. See the <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a> documentation to know how to use this
 function.</p>
 <div class="refsect3">
-<a name="id-1.2.12.9.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-load-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -495,7 +505,7 @@ function.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancellable</p></td>
-<td class="parameter_description"><p> optional <a href="https://developer.gnome.org/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> object, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
+<td class="parameter_description"><p> optional <a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> object, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -534,22 +544,22 @@ satisfied. </p></td>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-file-loader-load-finish"></a><h3>gtk_source_file_loader_load_finish ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_file_loader_load_finish (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                    <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a> *result</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Finishes a file loading started with <a class="link" href="GtkSourceFileLoader.html#gtk-source-file-loader-load-async" title="gtk_source_file_loader_load_async ()"><code class="function">gtk_source_file_loader_load_async()</code></a>.</p>
 <p>If the contents has been loaded, the following <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> properties will
 be updated: the location, the encoding, the newline type and the compression
 type.</p>
 <div class="refsect3">
-<a name="id-1.2.12.9.10.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-load-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -563,7 +573,7 @@ type.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>result</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -575,11 +585,10 @@ type.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.10.7"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-load-finish.returns"></a><h4>Returns</h4>
 <p> whether the contents has been loaded successfully.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -587,8 +596,8 @@ type.</p>
 <pre class="programlisting">const <a class="link" href="GtkSourceEncoding.html" title="GtkSourceEncoding"><span class="returnvalue">GtkSourceEncoding</span></a> *
 gtk_source_file_loader_get_encoding (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.11.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-encoding.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -602,11 +611,10 @@ gtk_source_file_loader_get_encoding (<em class="parameter"><code><a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.11.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-get-encoding.returns"></a><h4>Returns</h4>
 <p> the detected file encoding.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -615,8 +623,8 @@ gtk_source_file_loader_get_encoding (<em class="parameter"><code><a class="link"
 gtk_source_file_loader_get_newline_type
                                (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.12.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-newline-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -630,11 +638,10 @@ gtk_source_file_loader_get_newline_type
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.12.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-get-newline-type.returns"></a><h4>Returns</h4>
 <p> the detected newline type.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -643,8 +650,8 @@ gtk_source_file_loader_get_newline_type
 gtk_source_file_loader_get_compression_type
                                (<em class="parameter"><code><a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> *loader</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.12.9.13.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-loader-get-compression-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -658,11 +665,10 @@ gtk_source_file_loader_get_compression_type
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.12.9.13.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-loader-get-compression-type.returns"></a><h4>Returns</h4>
 <p> the detected compression type.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -682,8 +688,8 @@ gtk_source_file_loader_get_compression_type
 <a name="GtkSourceFileLoaderError"></a><h3>enum GtkSourceFileLoaderError</h3>
 <p>An error code used with the <a class="link" href="GtkSourceFileLoader.html#GTK-SOURCE-FILE-LOADER-ERROR:CAPS" title="GTK_SOURCE_FILE_LOADER_ERROR"><code class="literal">GTK_SOURCE_FILE_LOADER_ERROR</code></a> domain.</p>
 <div class="refsect3">
-<a name="id-1.2.12.10.4.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceFileLoaderError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -726,7 +732,7 @@ conversion error and it was needed to use a fallback character.</p>
 <p>The <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> to load the contents into. The
 <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object has a weak reference to the buffer.</p>
 <p>Flags: Read / Write / Construct Only</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -735,26 +741,26 @@ conversion error and it was needed to use a fallback character.</p>
 <p>The <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>. The <a class="link" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader"><span class="type">GtkSourceFileLoader</span></a> object has a weak
 reference to the file.</p>
 <p>Flags: Read / Write / Construct Only</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceFileLoader--input-stream"></a><h3>The <code class="literal">“input-stream”</code> property</h3>
-<pre class="programlisting">  “input-stream”             <a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> to load. Useful for reading stdin. If this property
+<pre class="programlisting">  “input-stream”             <a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> *</pre>
+<p>The <a href="https://developer.gnome.org/gio/unstable/GInputStream.html#GInputStream-struct"><span class="type">GInputStream</span></a> to load. Useful for reading stdin. If this property
 is set, the <a class="link" href="GtkSourceFileLoader.html#GtkSourceFileLoader--location" title="The “location” property"><span class="type">“location”</span></a> property is ignored.</p>
 <p>Flags: Read / Write / Construct Only</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceFileLoader--location"></a><h3>The <code class="literal">“location”</code> property</h3>
-<pre class="programlisting">  “location”                 <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> to load. If the <a class="link" href="GtkSourceFileLoader.html#GtkSourceFileLoader--input-stream" title="The “input-stream” property"><span class="type">“input-stream”</span></a> is
+<pre class="programlisting">  “location”                 <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *</pre>
+<p>The <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> to load. If the <a class="link" href="GtkSourceFileLoader.html#GtkSourceFileLoader--input-stream" title="The “input-stream” property"><span class="type">“input-stream”</span></a> is
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, by default the location is taken from the <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> at
 construction time.</p>
 <p>Flags: Read / Write / Construct Only</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -763,7 +769,6 @@ construction time.</p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

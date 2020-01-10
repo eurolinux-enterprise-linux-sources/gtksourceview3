@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceLanguage: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText">
+<link rel="up" href="ch02.html" title="Syntax Highlighting">
+<link rel="prev" href="ch02.html" title="Syntax Highlighting">
 <link rel="next" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,8 +20,8 @@
                   <a href="#GtkSourceLanguage.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="GtkSourceGutterRendererText.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceLanguageManager.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -29,13 +29,13 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkSourceLanguage.top_of_page"></a>GtkSourceLanguage</span></h2>
-<p>GtkSourceLanguage — Object representing a syntax highlighted language</p>
+<p>GtkSourceLanguage — Represents a syntax highlighted language</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -120,7 +120,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -155,7 +155,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -168,7 +168,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceLanguage
 </pre>
 </div>
@@ -179,10 +179,10 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.description"></a><h2>Description</h2>
-<p><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> encapsulates syntax and highlighting styles for a
-particular language. Use <a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> to obtain a
-<a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> instance, and <a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a> to apply it
-to a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p>
+<p>A <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> represents a programming or markup language, affecting
+syntax highlighting and <a class="link" href="GtkSourceBuffer.html#context-classes" title="Context Classes">context classes</a>.</p>
+<p>Use <a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> to obtain a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> instance, and
+<a class="link" href="GtkSourceBuffer.html#gtk-source-buffer-set-language" title="gtk_source_buffer_set_language ()"><code class="function">gtk_source_buffer_set_language()</code></a> to apply it to a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a>.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguage.functions_details"></a><h2>Functions</h2>
@@ -195,8 +195,8 @@ The returned string is owned by <em class="parameter"><code>language</code></em>
  and should not be freed
 or modified.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -210,10 +210,9 @@ or modified.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.2.6"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-id.returns"></a><h4>Returns</h4>
 <p> the ID of <em class="parameter"><code>language</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -226,8 +225,8 @@ The returned string is owned by <em class="parameter"><code>language</code></em>
  and should not be freed
 or modified.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -241,10 +240,9 @@ or modified.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-name.returns"></a><h4>Returns</h4>
 <p> the name of <em class="parameter"><code>language</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -259,8 +257,8 @@ The returned string is owned by <em class="parameter"><code>language</code></em>
  and should not be freed
 or modified.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-section.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -274,10 +272,9 @@ or modified.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.4.6"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-section.returns"></a><h4>Returns</h4>
 <p> the section of <em class="parameter"><code>language</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -287,8 +284,8 @@ or modified.</p>
 gtk_source_language_get_hidden (<em class="parameter"><code><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> *language</code></em>);</pre>
 <p>Returns whether the language should be hidden from the user.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-hidden.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -302,9 +299,8 @@ gtk_source_language_get_hidden (<em class="parameter"><code><a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.5.6"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-hidden.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the language should be hidden, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -314,8 +310,8 @@ gtk_source_language_get_hidden (<em class="parameter"><code><a class="link" href
 gtk_source_language_get_metadata (<em class="parameter"><code><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> *language</code></em>,
                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.18.9.6.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-metadata.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -336,14 +332,16 @@ gtk_source_language_get_metadata (<em class="parameter"><code><a class="link" hr
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.6.5"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-metadata.returns"></a><h4>Returns</h4>
 <p> value of property <em class="parameter"><code>name</code></em>
-stored in the metadata of <em class="parameter"><code>language</code></em>
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if language doesn't contain that metadata property.
+stored in
+the metadata of <em class="parameter"><code>language</code></em>
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if language does not contain the
+specified metadata property.
 The returned string is owned by <em class="parameter"><code>language</code></em>
 and should not be freed
-or modified.</p>
-<p></p>
+or modified. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -356,8 +354,8 @@ an utility wrapper around <a class="link" href="GtkSourceLanguage.html#gtk-sourc
 retrieve the "mimetypes" metadata property and split it into an
 array.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-mime-types.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -371,12 +369,11 @@ array.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.7.6"></a><h4>Returns</h4>
-<p> a newly-allocated
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array containing the mime types or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no
-mime types are found.
+<a name="gtk-source-language-get-mime-types.returns"></a><h4>Returns</h4>
+<p>a newly-allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array containing the mime types
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no mime types are found.
 The returned array must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p>
-<p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -388,8 +385,8 @@ gtk_source_language_get_globs (<em class="parameter"><code><a class="link" href=
 an utility wrapper around <a class="link" href="GtkSourceLanguage.html#gtk-source-language-get-metadata" title="gtk_source_language_get_metadata ()"><code class="function">gtk_source_language_get_metadata()</code></a> to
 retrieve the "globs" metadata property and split it into an array.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-globs.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -403,11 +400,11 @@ retrieve the "globs" metadata property and split it into an array.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.8.6"></a><h4>Returns</h4>
-<p> a newly-allocated
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array containing the globs or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no globs are found.
+<a name="gtk-source-language-get-globs.returns"></a><h4>Returns</h4>
+<p>a newly-allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array containing the globs or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if no globs are found.
 The returned array must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p>
-<p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -420,8 +417,8 @@ gtk_source_language_get_style_name (<em class="parameter"><code><a class="link" 
  defined by this <em class="parameter"><code>language</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-style-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -442,17 +439,16 @@ gtk_source_language_get_style_name (<em class="parameter"><code><a class="link" 
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.9.6"></a><h4>Returns</h4>
+<a name="gtk-source-language-get-style-name.returns"></a><h4>Returns</h4>
 <p> the name of the style with ID <em class="parameter"><code>style_id</code></em>
 defined by this <em class="parameter"><code>language</code></em>
-or
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the style has no name or there is no style with ID <em class="parameter"><code>style_id</code></em>
-defined
-by this <em class="parameter"><code>language</code></em>
-. The returned string is owned by the <em class="parameter"><code>language</code></em>
-and must
-not be modified.</p>
-<p></p>
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the style has no name or there is no
+style with ID <em class="parameter"><code>style_id</code></em>
+defined by this <em class="parameter"><code>language</code></em>
+.
+The returned string is owned by the <em class="parameter"><code>language</code></em>
+and must not be modified. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -463,8 +459,8 @@ gtk_source_language_get_style_ids (<em class="parameter"><code><a class="link" h
 <p>Returns the ids of the styles defined by this <em class="parameter"><code>language</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-style-ids.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -478,13 +474,12 @@ gtk_source_language_get_style_ids (<em class="parameter"><code><a class="link" h
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.10.6"></a><h4>Returns</h4>
-<p> a  <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated
-array containing ids of the styles defined by this <em class="parameter"><code>language</code></em>
-or
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no style is defined.
+<a name="gtk-source-language-get-style-ids.returns"></a><h4>Returns</h4>
+<p>a newly-allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array containing ids of the
+styles defined by this <em class="parameter"><code>language</code></em>
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no style is defined.
 The returned array must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p>
-<p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -498,8 +493,8 @@ gtk_source_language_get_style_fallback
 
 is not present in the current style scheme.</p>
 <div class="refsect3">
-<a name="id-1.2.18.9.11.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-language-get-style-fallback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -520,15 +515,16 @@ is not present in the current style scheme.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.18.9.11.6"></a><h4>Returns</h4>
-<p> the ID of the style to use if the specified <em class="parameter"><code>style_id</code></em>
-is not present in the current style scheme or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the style has
-no fallback defined.
+<a name="gtk-source-language-get-style-fallback.returns"></a><h4>Returns</h4>
+<p> the ID of the style to use if the
+specified <em class="parameter"><code>style_id</code></em>
+is not present in the current style scheme or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if the style has no fallback defined.
 The returned string is owned by the <em class="parameter"><code>language</code></em>
-and must not be modified.</p>
-<p></p>
+and must not be modified. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.4</p>
+<p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -578,7 +574,6 @@ and must not be modified.</p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

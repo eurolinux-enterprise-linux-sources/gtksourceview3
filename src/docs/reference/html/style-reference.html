@@ -3,21 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Style Scheme Definition Reference: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch02.html" title="Syntax highlighting reference">
+<link rel="up" href="pt02.html" title="Part II. Syntax highlighting reference">
 <link rel="prev" href="lang-reference.html" title="Language Definition v2.0 Reference">
-<link rel="next" href="object-tree.html" title="Object Hierarchy">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="next" href="pt03.html" title="Part III. Annexes">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
 <td width="100%" align="left" class="shortcuts"></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="pt02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="lang-reference.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="pt03.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="style-reference"></a><div class="titlepage"></div>
@@ -181,7 +181,18 @@ Background color.
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">underline</code></span></p></td>
-<td><p>"true" or "false"</p></td>
+<td><p>
+Accepts the values supported by PangoUnderline ("none", "single",
+"double", "low", "error"). GtkSourceView versions &lt;= 3.16 only
+supported "true" or "false" and such value are still accepted
+for backward compatibility.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">underline-color</code></span></p></td>
+<td><p>
+Underline color.
+</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">strikethrough</code></span></p></td>
@@ -201,7 +212,7 @@ Scale the matched text block. Possible values are a float number as factor
 <p>
 </p>
 <p>
-The following are names of styles which control #GtkSourceView appearance:
+The following are names of styles which control GtkSourceView appearance:
 </p>
 <div class="variablelist"><table border="0" class="variablelist">
 <colgroup>
@@ -223,23 +234,30 @@ The following are names of styles which control #GtkSourceView appearance:
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">cursor</code></span></p></td>
-<td><p>Text cursor style. Only <code class="code">foreground</code> attribute is used
-for this style</p></td>
+<td><p>Text cursor style. Only the <code class="code">foreground</code> attribute is used
+for this style.</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">secondary-cursor</code></span></p></td>
-<td><p>Secondary cursor style (used in bidi text). Only <code class="code">foreground</code> attribute
-is used for this style. If this is not set while "cursor" is, then a color between text background
-and cursor colors is chosen, so it is enough to use "cursor" style only.</p></td>
+<td><p>Secondary cursor style (used in bidirectional text). Only the
+<code class="code">foreground</code> attribute is used for this style. If this is not set
+while "cursor" is, then a color between text background and cursor colors is
+chosen, so it is enough to use "cursor" style only.</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">current-line</code></span></p></td>
-<td><p>Current line style. Only <code class="code">background</code> attribute is used</p></td>
+<td><p>Current line style. Only the <code class="code">background</code> attribute
+is used.</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">line-numbers</code></span></p></td>
-<td><p>Text and background colors for the left margin, on which line numbers are
-drawn</p></td>
+<td><p>Text and background colors for the left margin, on which line
+numbers are drawn.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">current-line-number</code></span></p></td>
+<td><p>Current line style for the left margin, on which the current
+line number is drawn. Only the <code class="code">background</code> attribute is used.</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="code">bracket-match</code></span></p></td>
@@ -262,6 +280,11 @@ choice.</p></td>
 <td><p>Style to use for drawing spaces (special symbols for a space, a tabulation, etc).
 Only the <code class="code">foreground</code> attribute is used.</p></td>
 </tr>
+<tr>
+<td><p><span class="term"><code class="code">background-pattern</code></span></p></td>
+<td><p>Style to use for drawing a background pattern, for example a
+grid. Only the <code class="code">background</code> attribute is used.</p></td>
+</tr>
 </tbody>
 </table></div>
 <p>
@@ -277,7 +300,6 @@ GtkSourceView-based application must use it by default.
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

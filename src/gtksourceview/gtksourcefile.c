@@ -2,7 +2,7 @@
 /* gtksourcefile.c
  * This file is part of GtkSourceView
  *
- * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,9 +19,13 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcefile.h"
 #include "gtksourceencoding.h"
-#include "gtksourceview-typebuiltins.h"
+#include "gtksourceview-enumtypes.h"
 #include "gtksourceview-i18n.h"
 
 /**
@@ -45,7 +49,8 @@ enum
 	PROP_LOCATION,
 	PROP_ENCODING,
 	PROP_NEWLINE_TYPE,
-	PROP_COMPRESSION_TYPE
+	PROP_COMPRESSION_TYPE,
+	PROP_READ_ONLY
 };
 
 struct _GtkSourceFilePrivate
@@ -65,6 +70,10 @@ struct _GtkSourceFilePrivate
 	GTimeVal modification_time;
 
 	guint modification_time_set : 1;
+
+	guint externally_modified : 1;
+	guint deleted : 1;
+	guint readonly : 1;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFile, gtk_source_file, G_TYPE_OBJECT)
@@ -97,6 +106,10 @@ gtk_source_file_get_property (GObject    *object,
 
 		case PROP_COMPRESSION_TYPE:
 			g_value_set_enum (value, file->priv->compression_type);
+			break;
+
+		case PROP_READ_ONLY:
+			g_value_set_boolean (value, file->priv->readonly);
 			break;
 
 		default:
@@ -164,10 +177,11 @@ gtk_source_file_class_init (GtkSourceFileClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_LOCATION,
 					 g_param_spec_object ("location",
-							      _("Location"),
+							      "Location",
 							      "",
 							      G_TYPE_FILE,
 							      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT |
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
@@ -181,7 +195,7 @@ gtk_source_file_class_init (GtkSourceFileClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_ENCODING,
 					 g_param_spec_boxed ("encoding",
-							     _("Encoding"),
+							     "Encoding",
 							     "",
 							     GTK_SOURCE_TYPE_ENCODING,
 							     G_PARAM_READABLE |
@@ -197,7 +211,7 @@ gtk_source_file_class_init (GtkSourceFileClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_NEWLINE_TYPE,
 					 g_param_spec_enum ("newline-type",
-							    _("Newline type"),
+							    "Newline type",
 							    "",
 							    GTK_SOURCE_TYPE_NEWLINE_TYPE,
 							    GTK_SOURCE_NEWLINE_TYPE_LF,
@@ -214,12 +228,29 @@ gtk_source_file_class_init (GtkSourceFileClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_COMPRESSION_TYPE,
 					 g_param_spec_enum ("compression-type",
-							    _("Compression type"),
+							    "Compression type",
 							    "",
 							    GTK_SOURCE_TYPE_COMPRESSION_TYPE,
 							    GTK_SOURCE_COMPRESSION_TYPE_NONE,
 							    G_PARAM_READABLE |
 							    G_PARAM_STATIC_STRINGS));
+
+	/**
+	 * GtkSourceFile:read-only:
+	 *
+	 * Whether the file is read-only or not. The value of this property is
+	 * not updated automatically (there is no file monitors).
+	 *
+	 * Since: 3.18
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_READ_ONLY,
+					 g_param_spec_boolean ("read-only",
+							       "Read Only",
+							       "",
+							       FALSE,
+							       G_PARAM_READABLE |
+							       G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -228,6 +259,8 @@ gtk_source_file_init (GtkSourceFile *file)
 	file->priv = gtk_source_file_get_instance_private (file);
 
 	file->priv->encoding = NULL;
+	file->priv->newline_type = GTK_SOURCE_NEWLINE_TYPE_LF;
+	file->priv->compression_type = GTK_SOURCE_COMPRESSION_TYPE_NONE;
 }
 
 /**
@@ -258,20 +291,15 @@ gtk_source_file_set_location (GtkSourceFile *file,
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
 	g_return_if_fail (location == NULL || G_IS_FILE (location));
 
-	if (file->priv->location != location)
+	if (g_set_object (&file->priv->location, location))
 	{
-		g_clear_object (&file->priv->location);
-		file->priv->location = location;
-
-		if (location != NULL)
-		{
-			g_object_ref (location);
-		}
-
 		g_object_notify (G_OBJECT (file), "location");
 
 		/* The modification_time is for the old location. */
 		file->priv->modification_time_set = FALSE;
+
+		file->priv->externally_modified = FALSE;
+		file->priv->deleted = FALSE;
 	}
 }
 
@@ -453,4 +481,191 @@ _gtk_source_file_set_modification_time (GtkSourceFile *file,
 		file->priv->modification_time = modification_time;
 		file->priv->modification_time_set = TRUE;
 	}
+}
+
+/**
+ * gtk_source_file_is_local:
+ * @file: a #GtkSourceFile.
+ *
+ * Returns whether the file is local. If the #GtkSourceFile:location is %NULL,
+ * returns %FALSE.
+ *
+ * Returns: whether the file is local.
+ * Since: 3.18
+ */
+gboolean
+gtk_source_file_is_local (GtkSourceFile *file)
+{
+	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+
+	if (file->priv->location == NULL)
+	{
+		return FALSE;
+	}
+
+	return g_file_has_uri_scheme (file->priv->location, "file");
+}
+
+/**
+ * gtk_source_file_check_file_on_disk:
+ * @file: a #GtkSourceFile.
+ *
+ * Checks synchronously the file on disk, to know whether the file is externally
+ * modified, or has been deleted, and whether the file is read-only.
+ *
+ * #GtkSourceFile doesn't create a #GFileMonitor to track those properties, so
+ * this function needs to be called instead. Creating lots of #GFileMonitor's
+ * would take lots of resources.
+ *
+ * Since this function is synchronous, it is advised to call it only on local
+ * files. See gtk_source_file_is_local().
+ *
+ * Since: 3.18
+ */
+void
+gtk_source_file_check_file_on_disk (GtkSourceFile *file)
+{
+	GFileInfo *info;
+
+	if (file->priv->location == NULL)
+	{
+		return;
+	}
+
+	info = g_file_query_info (file->priv->location,
+				  G_FILE_ATTRIBUTE_TIME_MODIFIED ","
+				  G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE,
+				  G_FILE_QUERY_INFO_NONE,
+				  NULL,
+				  NULL);
+
+	if (info == NULL)
+	{
+		file->priv->deleted = TRUE;
+		return;
+	}
+
+	if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_TIME_MODIFIED) &&
+	    file->priv->modification_time_set)
+	{
+		GTimeVal timeval;
+
+		g_file_info_get_modification_time (info, &timeval);
+
+		/* Note that the modification time can even go backwards if the
+		 * user is copying over an old file.
+		 */
+		if (timeval.tv_sec != file->priv->modification_time.tv_sec ||
+		    timeval.tv_usec != file->priv->modification_time.tv_usec)
+		{
+			file->priv->externally_modified = TRUE;
+		}
+	}
+
+	if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE))
+	{
+		gboolean readonly;
+
+		readonly = !g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+
+		_gtk_source_file_set_readonly (file, readonly);
+	}
+
+	g_object_unref (info);
+}
+
+void
+_gtk_source_file_set_externally_modified (GtkSourceFile *file,
+					  gboolean       externally_modified)
+{
+	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+
+	file->priv->externally_modified = externally_modified != FALSE;
+}
+
+/**
+ * gtk_source_file_is_externally_modified:
+ * @file: a #GtkSourceFile.
+ *
+ * Returns whether the file is externally modified. If the
+ * #GtkSourceFile:location is %NULL, returns %FALSE.
+ *
+ * To have an up-to-date value, you must first call
+ * gtk_source_file_check_file_on_disk().
+ *
+ * Returns: whether the file is externally modified.
+ * Since: 3.18
+ */
+gboolean
+gtk_source_file_is_externally_modified (GtkSourceFile *file)
+{
+	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+
+	return file->priv->externally_modified;
+}
+
+void
+_gtk_source_file_set_deleted (GtkSourceFile *file,
+			      gboolean       deleted)
+{
+	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+
+	file->priv->deleted = deleted != FALSE;
+}
+
+/**
+ * gtk_source_file_is_deleted:
+ * @file: a #GtkSourceFile.
+ *
+ * Returns whether the file has been deleted. If the
+ * #GtkSourceFile:location is %NULL, returns %FALSE.
+ *
+ * To have an up-to-date value, you must first call
+ * gtk_source_file_check_file_on_disk().
+ *
+ * Returns: whether the file has been deleted.
+ * Since: 3.18
+ */
+gboolean
+gtk_source_file_is_deleted (GtkSourceFile *file)
+{
+	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+
+	return file->priv->deleted;
+}
+
+void
+_gtk_source_file_set_readonly (GtkSourceFile *file,
+			       gboolean       readonly)
+{
+	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+
+	readonly = readonly != FALSE;
+
+	if (file->priv->readonly != readonly)
+	{
+		file->priv->readonly = readonly;
+		g_object_notify (G_OBJECT (file), "read-only");
+	}
+}
+
+/**
+ * gtk_source_file_is_readonly:
+ * @file: a #GtkSourceFile.
+ *
+ * Returns whether the file is read-only. If the
+ * #GtkSourceFile:location is %NULL, returns %FALSE.
+ *
+ * To have an up-to-date value, you must first call
+ * gtk_source_file_check_file_on_disk().
+ *
+ * Returns: whether the file is read-only.
+ * Since: 3.18
+ */
+gboolean
+gtk_source_file_is_readonly (GtkSourceFile *file)
+{
+	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+
+	return file->priv->readonly;
 }

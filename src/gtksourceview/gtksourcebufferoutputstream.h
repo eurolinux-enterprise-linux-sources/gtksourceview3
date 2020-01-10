@@ -20,13 +20,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_BUFFER_OUTPUT_STREAM_H__
-#define __GTK_SOURCE_BUFFER_OUTPUT_STREAM_H__
+#ifndef GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
+#define GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
 
 #include <gtk/gtk.h>
 #include "gtksourcetypes.h"
 #include "gtksourcetypes-private.h"
 #include "gtksourcebuffer.h"
+#include "gtksourcefile.h"
 
 G_BEGIN_DECLS
 
@@ -52,26 +53,26 @@ struct _GtkSourceBufferOutputStreamClass
 	GOutputStreamClass parent_class;
 };
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GType			 gtk_source_buffer_output_stream_get_type	(void) G_GNUC_CONST;
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GtkSourceBufferOutputStream
 			*gtk_source_buffer_output_stream_new		(GtkSourceBuffer             *buffer,
 									 GSList                      *candidate_encodings,
 									 gboolean                     remove_trailing_newline);
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GtkSourceNewlineType	 gtk_source_buffer_output_stream_detect_newline_type
 									(GtkSourceBufferOutputStream *stream);
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 const GtkSourceEncoding	*gtk_source_buffer_output_stream_get_guessed	(GtkSourceBufferOutputStream *stream);
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 guint			 gtk_source_buffer_output_stream_get_num_fallbacks
 									(GtkSourceBufferOutputStream *stream);
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_BUFFER_OUTPUT_STREAM_H__ */
+#endif /* GTK_SOURCE_BUFFER_OUTPUT_STREAM_H */

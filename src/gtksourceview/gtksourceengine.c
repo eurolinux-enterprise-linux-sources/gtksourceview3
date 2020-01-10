@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
- * gtksourceengine.c - Abstract base class for highlighting engines
+ * gtksourceengine.c
  * This file is part of GtkSourceView
  *
  * Copyright (C) 2003 - Gustavo Giráldez
@@ -18,6 +18,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
+
+/* Interface for syntax highlighting engines. */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -94,15 +96,4 @@ _gtk_source_engine_set_style_scheme (GtkSourceEngine      *engine,
 	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme != NULL);
 
 	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme (engine, scheme);
-}
-
-GtkTextTag *
-_gtk_source_engine_get_context_class_tag (GtkSourceEngine *engine,
-					  const gchar     *context_class)
-{
-	g_return_val_if_fail (GTK_SOURCE_IS_ENGINE (engine), NULL);
-	g_return_val_if_fail (context_class != NULL, NULL);
-
-	return GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->get_context_class_tag (engine,
-										context_class);
 }

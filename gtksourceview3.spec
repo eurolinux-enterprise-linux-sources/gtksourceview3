@@ -1,24 +1,29 @@
-%define gtk_version 3.13.7
+%global glib_version 2.48
+%global gtk_version 3.20
 
-%define po_package gtksourceview-3.0
+%global po_package gtksourceview-3.0
 
-Summary: A library for viewing source files
 Name: gtksourceview3
-Version: 3.14.3
+Version: 3.22.2
 Release: 1%{?dist}
-License: LGPLv2+
-Group: System Environment/Libraries
-URL: http://gtksourceview.sourceforge.net/
-#VCS: git:git://git.gnome.org/gtksourceview
-Source0: http://download.gnome.org/sources/gtksourceview/3.14/gtksourceview-%{version}.tar.xz
-BuildRequires: libxml2-devel
-BuildRequires: gtk3-devel >= %{gtk_version}
-BuildRequires: glade-devel
-BuildRequires: intltool >= 0.35
-BuildRequires: gettext
-BuildRequires: gobject-introspection-devel
-BuildRequires: vala-tools
+Summary: A library for viewing source files
 
+License: LGPLv2+
+URL: https://wiki.gnome.org/Projects/GtkSourceView
+Source0: http://download.gnome.org/sources/gtksourceview/3.22/gtksourceview-%{version}.tar.xz
+
+BuildRequires: pkgconfig(gdk-pixbuf-2.0)
+BuildRequires: pkgconfig(gladeui-2.0)
+BuildRequires: pkgconfig(gobject-introspection-1.0)
+BuildRequires: pkgconfig(glib-2.0) >= %{glib_version}
+BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk_version}
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(pango)
+BuildRequires: gettext
+BuildRequires: itstool
+BuildRequires: vala
+
+Requires: glib2%{?_isa} >= %{glib_version}
 Requires: gtk3%{?_isa} >= %{gtk_version}
 
 %description
@@ -31,23 +36,31 @@ This package contains version 3 of GtkSourceView. The older version
 
 %package devel
 Summary: Files to compile applications that use gtksourceview3
-Group: Development/Libraries
 Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 gtksourceview3-devel contains the files required to compile
 applications which use GtkSourceView 3.
 
+%package tests
+Summary: Tests for the gtksourceview3 package
+Requires: %{name}%{?_isa} = %{version}-%{release}
+
+%description tests
+The gtksourceview3-tests package contains tests that can be used to verify
+the functionality of the installed gtksourceview package.
+
 %prep
 %setup -q -n gtksourceview-%{version}
 
 %build
-%configure --disable-gtk-doc --disable-static --enable-glade-catalog
+%configure --disable-gtk-doc --disable-static --enable-glade-catalog \
+ --enable-installed-tests
 
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 
 # remove unwanted files
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
@@ -59,7 +72,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %postun -p /sbin/ldconfig
 
 %files -f %{po_package}.lang
-%doc README AUTHORS COPYING NEWS MAINTAINERS
+%doc README AUTHORS NEWS MAINTAINERS
+%license COPYING
 %{_datadir}/gtksourceview-3.0
 %{_libdir}/*.so.*
 %{_libdir}/girepository-1.0/GtkSource-3.0.typelib
@@ -78,7 +92,15 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_datadir}/vala/vapi/gtksourceview-3.0.deps
 %{_datadir}/vala/vapi/gtksourceview-3.0.vapi
 
+%files tests
+%{_libexecdir}/installed-tests/gtksourceview-3.0/
+%{_datadir}/installed-tests/gtksourceview-3.0/
+
 %changelog
+* Sun Nov 27 2016 Kalev Lember <klember@redhat.com> - 3.22.2-1
+- Update to 3.22.2
+- Resolves: #1386983
+
 * Thu Jan 08 2015 David King <amigadave@amigadave.com> - 3.14.3-1
 - Update to 3.14.3
 - Resolves: #1174500

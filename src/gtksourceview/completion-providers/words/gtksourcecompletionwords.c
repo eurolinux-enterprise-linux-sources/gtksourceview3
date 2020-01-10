@@ -30,12 +30,16 @@
  * appearing in the registered #GtkTextBuffer<!-- -->s.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcecompletionwords.h"
 #include "gtksourcecompletionwordslibrary.h"
 #include "gtksourcecompletionwordsbuffer.h"
 #include "gtksourcecompletionwordsutils.h"
 #include "gtksourceview/gtksource.h"
-#include "gtksourceview/gtksourceview-typebuiltins.h"
+#include "gtksourceview/gtksourceview-enumtypes.h"
 #include "gtksourceview/gtksourceview-i18n.h"
 
 #include <string.h>
@@ -45,7 +49,6 @@
 enum
 {
 	PROP_0,
-
 	PROP_NAME,
 	PROP_ICON,
 	PROP_PROPOSALS_BATCH_SIZE,
@@ -53,7 +56,8 @@ enum
 	PROP_MINIMUM_WORD_SIZE,
 	PROP_INTERACTIVE_DELAY,
 	PROP_PRIORITY,
-	PROP_ACTIVATION
+	PROP_ACTIVATION,
+	N_PROPERTIES
 };
 
 struct _GtkSourceCompletionWordsPrivate
@@ -87,6 +91,8 @@ typedef struct
 	GtkSourceCompletionWords *words;
 	GtkSourceCompletionWordsBuffer *buffer;
 } BufferBinding;
+
+static GParamSpec *properties[N_PROPERTIES];
 
 static void gtk_source_completion_words_iface_init (GtkSourceCompletionProviderIface *iface);
 
@@ -217,7 +223,11 @@ gtk_source_completion_words_populate (GtkSourceCompletionProvider *provider,
 	GtkTextIter iter;
 	gchar *word;
 
-	gtk_source_completion_context_get_iter (context, &iter);
+	if (!gtk_source_completion_context_get_iter (context, &iter))
+	{
+		gtk_source_completion_context_add_proposals (context, provider, NULL, TRUE);
+		return;
+	}
 
 	g_free (words->priv->word);
 	words->priv->word = NULL;
@@ -228,13 +238,10 @@ gtk_source_completion_words_populate (GtkSourceCompletionProvider *provider,
 
 	if (word == NULL ||
 	    (activation == GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE &&
-	     g_utf8_strlen (word, -1) < words->priv->minimum_word_size))
+	     g_utf8_strlen (word, -1) < (glong)words->priv->minimum_word_size))
 	{
 		g_free (word);
-		gtk_source_completion_context_add_proposals (context,
-		                                             provider,
-		                                             NULL,
-		                                             TRUE);
+		gtk_source_completion_context_add_proposals (context, provider, NULL, TRUE);
 		return;
 	}
 
@@ -418,76 +425,68 @@ gtk_source_completion_words_class_init (GtkSourceCompletionWordsClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+	object_class->get_property = gtk_source_completion_words_get_property;
+	object_class->set_property = gtk_source_completion_words_set_property;
 	object_class->dispose = gtk_source_completion_words_dispose;
 
-	object_class->set_property = gtk_source_completion_words_set_property;
-	object_class->get_property = gtk_source_completion_words_get_property;
+	properties[PROP_NAME] =
+		g_param_spec_string ("name",
+				     "Name",
+				     "The provider name",
+				     NULL,
+				     G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_NAME,
-	                                 g_param_spec_string ("name",
-	                                                      C_("Object", "Name"),
-	                                                      _("The provider name"),
-	                                                      NULL,
-	                                                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_ICON] =
+		g_param_spec_object ("icon",
+				     "Icon",
+				     "The provider icon",
+				     GDK_TYPE_PIXBUF,
+				     G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_ICON,
-	                                 g_param_spec_object ("icon",
-	                                                      _("Icon"),
-	                                                      _("The provider icon"),
-	                                                      GDK_TYPE_PIXBUF,
-	                                                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_PROPOSALS_BATCH_SIZE] =
+		g_param_spec_uint ("proposals-batch-size",
+				   "Proposals Batch Size",
+				   "Number of proposals added in one batch",
+				   1,
+				   G_MAXUINT,
+				   300,
+				   G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_PROPOSALS_BATCH_SIZE,
-	                                 g_param_spec_uint ("proposals-batch-size",
-	                                                    _("Proposals Batch Size"),
-	                                                    _("Number of proposals added in one batch"),
-	                                                    1,
-	                                                    G_MAXUINT,
-	                                                    300,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_SCAN_BATCH_SIZE] =
+		g_param_spec_uint ("scan-batch-size",
+				   "Scan Batch Size",
+				   "Number of lines scanned in one batch",
+				   1,
+				   G_MAXUINT,
+				   50,
+				   G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_SCAN_BATCH_SIZE,
-	                                 g_param_spec_uint ("scan-batch-size",
-	                                                    _("Scan Batch Size"),
-	                                                    _("Number of lines scanned in one batch"),
-	                                                    1,
-	                                                    G_MAXUINT,
-	                                                    50,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_MINIMUM_WORD_SIZE] =
+		g_param_spec_uint ("minimum-word-size",
+				   "Minimum Word Size",
+				   "The minimum word size to complete",
+				   2,
+				   G_MAXUINT,
+				   2,
+				   G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_MINIMUM_WORD_SIZE,
-	                                 g_param_spec_uint ("minimum-word-size",
-	                                                    _("Minimum Word Size"),
-	                                                    _("The minimum word size to complete"),
-	                                                    2,
-	                                                    G_MAXUINT,
-	                                                    2,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_INTERACTIVE_DELAY] =
+		g_param_spec_int ("interactive-delay",
+				  "Interactive Delay",
+				  "The delay before initiating interactive completion",
+				  -1,
+				  G_MAXINT,
+				  50,
+				  G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
-	g_object_class_install_property (object_class,
-	                                 PROP_INTERACTIVE_DELAY,
-	                                 g_param_spec_int ("interactive-delay",
-	                                                   _("Interactive Delay"),
-	                                                   _("The delay before initiating interactive completion"),
-	                                                   -1,
-	                                                   G_MAXINT,
-	                                                   50,
-	                                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
-
-	g_object_class_install_property (object_class,
-	                                 PROP_PRIORITY,
-	                                 g_param_spec_int ("priority",
-	                                                   _("Priority"),
-	                                                   _("Provider priority"),
-	                                                   G_MININT,
-	                                                   G_MAXINT,
-	                                                   0,
-	                                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_PRIORITY] =
+		g_param_spec_int ("priority",
+				  "Priority",
+				  "Provider priority",
+				  G_MININT,
+				  G_MAXINT,
+				  0,
+				  G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
 	/**
 	 * GtkSourceCompletionWords:activation:
@@ -496,15 +495,16 @@ gtk_source_completion_words_class_init (GtkSourceCompletionWordsClass *klass)
 	 *
 	 * Since: 3.10
 	 */
-	g_object_class_install_property (object_class,
-	                                 PROP_ACTIVATION,
-					 g_param_spec_flags ("activation",
-							     _("Activation"),
-							     _("The type of activation"),
-							     GTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
-							     GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
-							     GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
-							     G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	properties[PROP_ACTIVATION] =
+		g_param_spec_flags ("activation",
+				    "Activation",
+				    "The type of activation",
+				    GTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
+				    GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
+				    GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
+				    G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
+
+	g_object_class_install_properties (object_class, N_PROPERTIES, properties);
 }
 
 static gboolean
@@ -516,7 +516,10 @@ gtk_source_completion_words_get_start_iter (GtkSourceCompletionProvider *provide
 	gchar *word;
 	glong nb_chars;
 
-	gtk_source_completion_context_get_iter (context, iter);
+	if (!gtk_source_completion_context_get_iter (context, iter))
+	{
+		return FALSE;
+	}
 
 	word = get_word_at_iter (iter);
 	g_return_val_if_fail (word != NULL, FALSE);
@@ -568,8 +571,8 @@ gtk_source_completion_words_init (GtkSourceCompletionWords *self)
 
 /**
  * gtk_source_completion_words_new:
- * @name: (allow-none): The name for the provider
- * @icon: (allow-none): A specific icon for the provider
+ * @name: (nullable): The name for the provider, or %NULL.
+ * @icon: (nullable): A specific icon for the provider, or %NULL.
  *
  * Returns: a new #GtkSourceCompletionWords provider
  */

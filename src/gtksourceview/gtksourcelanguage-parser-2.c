@@ -55,7 +55,7 @@
 #define PARSER_ERROR (parser_error_quark ())
 #define ATTR_NO_STYLE ""
 
-typedef enum {
+typedef enum _ParserError {
 	PARSER_ERROR_CANNOT_OPEN     = 0,
 	PARSER_ERROR_CANNOT_VALIDATE,
 	PARSER_ERROR_INVALID_DOC,
@@ -1090,6 +1090,8 @@ replace_delimiter (const GMatchInfo *match_info,
 			g_string_append (expanded_regex,
 					parser_state->closing_delimiter);
 			break;
+		default:
+			break;
 	}
 
 	g_free (delim);
@@ -1100,13 +1102,13 @@ replace_delimiter (const GMatchInfo *match_info,
 
 static gchar *
 expand_regex_delimiters (ParserState *parser_state,
-		gchar *regex,
-		gint len)
+			 gchar       *regex,
+			 gint         len)
 {
 	/* This is the commented regex without the doubled escape needed
 	 * in a C string:
 	 *
-	 * (?<!\\)(\\\\)*\\%([\[|\])
+	 * (?<!\\)(\\\\)*\\%(\[|\])
 	 * |------------||---------|
 	 *      |             |
 	 *      |        the strings
@@ -1678,6 +1680,8 @@ file_parse (gchar                     *filename,
 			case XML_READER_TYPE_END_ELEMENT:
 				element_end (parser_state);
 				break;
+			default:
+				break;
 		}
 	}
 
@@ -1751,8 +1755,7 @@ parser_state_destroy (ParserState *parser_state)
 	if (parser_state->reader != NULL)
 		xmlFreeTextReader (parser_state->reader);
 
-	if (parser_state->error != NULL)
-		g_error_free (parser_state->error);
+	g_clear_error (&parser_state->error);
 
 	g_queue_free (parser_state->curr_parents);
 	g_free (parser_state->current_lang_id);
@@ -1833,7 +1836,7 @@ _gtk_source_language_file_parse_version2 (GtkSourceLanguage       *language,
 	{
 		g_warning ("Failed to load '%s': %s",
 			   filename, error->message);
-		g_error_free (error);
+		g_clear_error (&error);
 		return FALSE;
 	}
 

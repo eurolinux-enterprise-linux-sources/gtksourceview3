@@ -19,6 +19,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcesearchsettings.h"
 #include "gtksourceview-i18n.h"
 
@@ -165,10 +169,12 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_SEARCH_TEXT,
 					 g_param_spec_string ("search-text",
-							      _("Search text"),
-							      _("The text to search"),
+							      "Search text",
+							      "The text to search",
 							      NULL,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceSearchSettings:case-sensitive:
@@ -180,10 +186,12 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_CASE_SENSITIVE,
 					 g_param_spec_boolean ("case-sensitive",
-							       _("Case sensitive"),
-							       _("Case sensitive"),
+							       "Case sensitive",
+							       "Case sensitive",
 							       FALSE,
-							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceSearchSettings:at-word-boundaries:
@@ -196,10 +204,12 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_AT_WORD_BOUNDARIES,
 					 g_param_spec_boolean ("at-word-boundaries",
-							       _("At word boundaries"),
-							       _("Search at word boundaries"),
+							       "At word boundaries",
+							       "Search at word boundaries",
 							       FALSE,
-							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceSearchSettings:wrap-around:
@@ -213,10 +223,12 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_WRAP_AROUND,
 					 g_param_spec_boolean ("wrap-around",
-							       _("Wrap around"),
-							       _("Wrap around"),
+							       "Wrap around",
+							       "Wrap around",
 							       FALSE,
-							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceSearchSettings:regex-enabled:
@@ -229,10 +241,12 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_REGEX_ENABLED,
 					 g_param_spec_boolean ("regex-enabled",
-							       _("Regex enabled"),
-							       _("Whether to search by regular expression"),
+							       "Regex enabled",
+							       "Whether to search by regular expression",
 							       FALSE,
-							       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 }
 
 static void
@@ -258,7 +272,7 @@ gtk_source_search_settings_new (void)
 /**
  * gtk_source_search_settings_set_search_text:
  * @settings: a #GtkSourceSearchSettings.
- * @search_text: (allow-none): the nul-terminated text to search, or %NULL to disable the search.
+ * @search_text: (nullable): the nul-terminated text to search, or %NULL to disable the search.
  *
  * Sets the text to search. If @text is %NULL or is empty, the search will be
  * disabled. A copy of @text will be made, so you can safely free @text after
@@ -448,6 +462,10 @@ gtk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
  * Enables or disables whether to search by regular expressions.
  * If enabled, the #GtkSourceSearchSettings:search-text property contains the
  * pattern of the regular expression.
+ *
+ * #GtkSourceSearchContext uses #GRegex when regex search is enabled. See the
+ * [Regular expression syntax](https://developer.gnome.org/glib/stable/glib-regex-syntax.html)
+ * page in the GLib reference manual.
  *
  * Since: 3.10
  */

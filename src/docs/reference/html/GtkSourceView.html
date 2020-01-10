@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceView: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
-<link rel="prev" href="gtksourceview-3.0-GtkSourceUtils.html" title="GtkSourceUtils">
-<link rel="next" href="ch02.html" title="Syntax highlighting reference">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="up" href="ch01.html" title="Main Classes">
+<link rel="prev" href="GtkSourceBuffer.html" title="GtkSourceBuffer">
+<link rel="next" href="ch02.html" title="Syntax Highlighting">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -23,7 +23,7 @@
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="gtksourceview-3.0-GtkSourceUtils.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="GtkSourceBuffer.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="ch02.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -31,13 +31,13 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkSourceView.top_of_page"></a>GtkSourceView</span></h2>
-<p>GtkSourceView — The view object</p>
+<p>GtkSourceView — Widget that displays a GtkSourceBuffer</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceView.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -45,7 +45,7 @@
 <tbody>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gtk2/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *
+<a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceView.html#gtk-source-view-new" title="gtk_source_view_new ()">gtk_source_view_new</a> <span class="c_punctuation">()</span>
@@ -53,138 +53,10 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gtk2/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *
+<a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceView.html#gtk-source-view-new-with-buffer" title="gtk_source_view_new_with_buffer ()">gtk_source_view_new_with_buffer</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-auto-indent" title="gtk_source_view_set_auto_indent ()">gtk_source_view_set_auto_indent</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-auto-indent" title="gtk_source_view_get_auto_indent ()">gtk_source_view_get_auto_indent</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-on-tab" title="gtk_source_view_set_indent_on_tab ()">gtk_source_view_set_indent_on_tab</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-indent-on-tab" title="gtk_source_view_get_indent_on_tab ()">gtk_source_view_get_indent_on_tab</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-width" title="gtk_source_view_set_indent_width ()">gtk_source_view_set_indent_width</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-indent-width" title="gtk_source_view_get_indent_width ()">gtk_source_view_get_indent_width</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-insert-spaces-instead-of-tabs" title="gtk_source_view_set_insert_spaces_instead_of_tabs ()">gtk_source_view_set_insert_spaces_instead_of_tabs</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-insert-spaces-instead-of-tabs" title="gtk_source_view_get_insert_spaces_instead_of_tabs ()">gtk_source_view_get_insert_spaces_instead_of_tabs</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-smart-home-end" title="gtk_source_view_set_smart_home_end ()">gtk_source_view_set_smart_home_end</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="returnvalue">GtkSourceSmartHomeEndType</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-smart-home-end" title="gtk_source_view_get_smart_home_end ()">gtk_source_view_get_smart_home_end</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-mark-attributes" title="gtk_source_view_set_mark_attributes ()">gtk_source_view_set_mark_attributes</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="returnvalue">GtkSourceMarkAttributes</span></a> *
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-mark-attributes" title="gtk_source_view_get_mark_attributes ()">gtk_source_view_get_mark_attributes</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-highlight-current-line" title="gtk_source_view_set_highlight_current_line ()">gtk_source_view_set_highlight_current_line</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-highlight-current-line" title="gtk_source_view_get_highlight_current_line ()">gtk_source_view_get_highlight_current_line</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-set-show-line-marks" title="gtk_source_view_set_show_line_marks ()">gtk_source_view_set_show_line_marks</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-</td>
-<td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-show-line-marks" title="gtk_source_view_get_show_line_marks ()">gtk_source_view_get_show_line_marks</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -240,6 +112,54 @@
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-highlight-current-line" title="gtk_source_view_set_highlight_current_line ()">gtk_source_view_set_highlight_current_line</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-highlight-current-line" title="gtk_source_view_get_highlight_current_line ()">gtk_source_view_get_highlight_current_line</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-auto-indent" title="gtk_source_view_set_auto_indent ()">gtk_source_view_set_auto_indent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-auto-indent" title="gtk_source_view_get_auto_indent ()">gtk_source_view_get_auto_indent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-on-tab" title="gtk_source_view_set_indent_on_tab ()">gtk_source_view_set_indent_on_tab</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-indent-on-tab" title="gtk_source_view_get_indent_on_tab ()">gtk_source_view_get_indent_on_tab</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
 <a class="link" href="GtkSourceView.html#gtk-source-view-set-tab-width" title="gtk_source_view_set_tab_width ()">gtk_source_view_set_tab_width</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
@@ -249,6 +169,126 @@
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceView.html#gtk-source-view-get-tab-width" title="gtk_source_view_get_tab_width ()">gtk_source_view_get_tab_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-width" title="gtk_source_view_set_indent_width ()">gtk_source_view_set_indent_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-indent-width" title="gtk_source_view_get_indent_width ()">gtk_source_view_get_indent_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-insert-spaces-instead-of-tabs" title="gtk_source_view_set_insert_spaces_instead_of_tabs ()">gtk_source_view_set_insert_spaces_instead_of_tabs</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-insert-spaces-instead-of-tabs" title="gtk_source_view_get_insert_spaces_instead_of_tabs ()">gtk_source_view_get_insert_spaces_instead_of_tabs</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-indent-lines" title="gtk_source_view_indent_lines ()">gtk_source_view_indent_lines</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-unindent-lines" title="gtk_source_view_unindent_lines ()">gtk_source_view_unindent_lines</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-visual-column" title="gtk_source_view_get_visual_column ()">gtk_source_view_get_visual_column</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-smart-backspace" title="gtk_source_view_set_smart_backspace ()">gtk_source_view_set_smart_backspace</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-smart-backspace" title="gtk_source_view_get_smart_backspace ()">gtk_source_view_get_smart_backspace</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-smart-home-end" title="gtk_source_view_set_smart_home_end ()">gtk_source_view_set_smart_home_end</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="returnvalue">GtkSourceSmartHomeEndType</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-smart-home-end" title="gtk_source_view_get_smart_home_end ()">gtk_source_view_get_smart_home_end</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-mark-attributes" title="gtk_source_view_set_mark_attributes ()">gtk_source_view_set_mark_attributes</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="returnvalue">GtkSourceMarkAttributes</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-mark-attributes" title="gtk_source_view_get_mark_attributes ()">gtk_source_view_get_mark_attributes</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-show-line-marks" title="gtk_source_view_set_show_line_marks ()">gtk_source_view_set_show_line_marks</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-show-line-marks" title="gtk_source_view_get_show_line_marks ()">gtk_source_view_get_show_line_marks</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -285,10 +325,18 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">void</span>
 </td>
 <td class="function_name">
-<a class="link" href="GtkSourceView.html#gtk-source-view-get-visual-column" title="gtk_source_view_get_visual_column ()">gtk_source_view_get_visual_column</a> <span class="c_punctuation">()</span>
+<a class="link" href="GtkSourceView.html#gtk-source-view-set-background-pattern" title="gtk_source_view_set_background_pattern ()">gtk_source_view_set_background_pattern</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="returnvalue">GtkSourceBackgroundPatternType</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceView.html#gtk-source-view-get-background-pattern" title="gtk_source_view_get_background_pattern ()">gtk_source_view_get_background_pattern</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 </tbody>
@@ -296,7 +344,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -306,6 +354,11 @@
 <tr>
 <td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourceView.html#GtkSourceView--auto-indent" title="The “auto-indent” property">auto-indent</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a></td>
+<td class="property_name"><a class="link" href="GtkSourceView.html#GtkSourceView--background-pattern" title="The “background-pattern” property">background-pattern</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
@@ -360,6 +413,11 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkSourceView.html#GtkSourceView--smart-backspace" title="The “smart-backspace” property">smart-backspace</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
 <td class="property_type"><a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourceView.html#GtkSourceView--smart-home-end" title="The “smart-home-end” property">smart-home-end</a></td>
 <td class="property_flags">Read / Write</td>
@@ -374,7 +432,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.signals"></a><h2>Signals</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="signals_return">
 <col width="300px" class="signals_name">
@@ -383,12 +441,32 @@
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-change-case" title="The “change-case” signal">change-case</a></td>
+<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-change-number" title="The “change-number” signal">change-number</a></td>
+<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-join-lines" title="The “join-lines” signal">join-lines</a></td>
+<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-line-mark-activated" title="The “line-mark-activated” signal">line-mark-activated</a></td>
 <td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-move-lines" title="The “move-lines” signal">move-lines</a></td>
+<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkSourceView.html#GtkSourceView-move-to-matching-bracket" title="The “move-to-matching-bracket” signal">move-to-matching-bracket</a></td>
 <td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
 </tr>
 <tr>
@@ -421,7 +499,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -443,24 +521,35 @@
 <td class="datatype_keyword">enum</td>
 <td class="function_name"><a class="link" href="GtkSourceView.html#GtkSourceViewGutterPosition" title="enum GtkSourceViewGutterPosition">GtkSourceViewGutterPosition</a></td>
 </tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType">GtkSourceBackgroundPatternType</a></td>
+</tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">├──</span> GtkSourceBackgroundPatternType
+    <span class="lineart">├──</span> GtkSourceSmartHomeEndType
+    <span class="lineart">╰──</span> GtkSourceViewGutterPosition
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GFlags</a>
+    <span class="lineart">╰──</span> GtkSourceDrawSpacesFlags
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
-        <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
-            <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
-                <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk2/GtkTextView.html">GtkTextView</a>
+        <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct">GtkWidget</a>
+            <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk4/GtkContainer.html#GtkContainer-struct">GtkContainer</a>
+                <span class="lineart">╰──</span> <a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkTextView-struct">GtkTextView</a>
                     <span class="lineart">╰──</span> GtkSourceView
+                        <span class="lineart">╰──</span> <a class="link" href="GtkSourceMap.html" title="GtkSourceMap">GtkSourceMap</a>
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
 <p>
 GtkSourceView implements
- AtkImplementorIface,  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a> and  <a href="http://developer.gnome.org/gtk2/GtkScrollable.html">GtkScrollable</a>.</p>
+ AtkImplementorIface,  <a href="http://developer.gnome.org/gtk4/GtkBuildable.html#GtkBuildable-struct">GtkBuildable</a> and  <a href="http://developer.gnome.org/gtk4/GtkScrollable.html#GtkScrollable-struct">GtkScrollable</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.includes"></a><h2>Includes</h2>
@@ -469,12 +558,24 @@ GtkSourceView implements
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.description"></a><h2>Description</h2>
-<p><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> is the main object of the GtkSourceView library. It provides
-a text view with syntax highlighting, undo/redo and text marks. Use a
-<a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> to display text with a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p>
+<p><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> is the main class of the GtkSourceView library.
+Use a <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> to display text with a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p>
+<p>This class provides:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>Show the line numbers;</p></li>
+<li class="listitem"><p>Show a right margin;</p></li>
+<li class="listitem"><p>Highlight the current line;</p></li>
+<li class="listitem"><p>Indentation settings;</p></li>
+<li class="listitem"><p>Configuration for the Home and End keyboard keys;</p></li>
+<li class="listitem"><p>Configure and show line marks;</p></li>
+<li class="listitem"><p>A way to visualize white spaces (by drawing symbols);</p></li>
+<li class="listitem"><p>And a few other things.</p></li>
+</ul></div>
+<p>An easy way to test all these features is to use the test-widget mini-program
+provided in the GtkSourceView repository, in the tests/ directory.</p>
 <div class="refsect2">
-<a name="id-1.2.30.10.3"></a><h3>GtkSourceView as GtkBuildable</h3>
-<p>The GtkSourceView implementation of the <a href="http://developer.gnome.org/gtk2/GtkBuildable.html"><span class="type">GtkBuildable</span></a> interface exposes the
+<a name="id-1.2.2.3.10.6"></a><h3>GtkSourceView as GtkBuildable</h3>
+<p>The GtkSourceView implementation of the <a href="http://developer.gnome.org/gtk4/GtkBuildable.html#GtkBuildable-struct"><span class="type">GtkBuildable</span></a> interface exposes the
 <a class="link" href="GtkSourceView.html#GtkSourceView--completion" title="The “completion” property"><span class="type">“completion”</span></a> object with the internal-child "completion".</p>
 <p>An example of a UI definition fragment with GtkSourceView:</p>
 <div class="informalexample">
@@ -511,28 +612,30 @@ a text view with syntax highlighting, undo/redo and text marks. Use a
 <a name="GtkSourceView.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="gtk-source-view-new"></a><h3>gtk_source_view_new ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gtk2/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
 gtk_source_view_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>Creates a new <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>. An empty default buffer will be
-created for you. If you want to specify your own buffer, consider
+<p>Creates a new <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p>
+<p>By default, an empty <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> will be lazily created and can be
+retrieved with <a href="http://developer.gnome.org/gtk4/GtkTextView.html#gtk-text-view-get-buffer"><code class="function">gtk_text_view_get_buffer()</code></a>.</p>
+<p>If you want to specify your own buffer, either override the
+<a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkTextViewClass"><span class="type">GtkTextViewClass</span></a> create_buffer factory method, or use
 <a class="link" href="GtkSourceView.html#gtk-source-view-new-with-buffer" title="gtk_source_view_new_with_buffer ()"><code class="function">gtk_source_view_new_with_buffer()</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-view-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-view-new-with-buffer"></a><h3>gtk_source_view_new_with_buffer ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gtk2/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct"><span class="returnvalue">GtkWidget</span></a> *
 gtk_source_view_new_with_buffer (<em class="parameter"><code><a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a> *buffer</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> widget displaying the buffer
 <em class="parameter"><code>buffer</code></em>
 . One buffer can be shared among many widgets.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-new-with-buffer.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -546,9 +649,239 @@ gtk_source_view_new_with_buffer (<em class="parameter"><code><a class="link" hre
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.3.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-new-with-buffer.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p>
-<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-show-line-numbers"></a><h3>gtk_source_view_set_show_line_numbers ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_show_line_numbers (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show</code></em>);</pre>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> line numbers will be displayed beside the text.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-show-line-numbers.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>show</p></td>
+<td class="parameter_description"><p>whether line numbers should be displayed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-show-line-numbers"></a><h3>gtk_source_view_get_show_line_numbers ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_view_get_show_line_numbers (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns whether line numbers are displayed beside the text.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-show-line-numbers.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-show-line-numbers.returns"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the line numbers are displayed.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-show-right-margin"></a><h3>gtk_source_view_set_show_right_margin ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_show_right_margin (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show</code></em>);</pre>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> a right margin is displayed.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-show-right-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>show</p></td>
+<td class="parameter_description"><p>whether to show a right margin.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-show-right-margin"></a><h3>gtk_source_view_get_show_right_margin ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_view_get_show_right_margin (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns whether a right margin is displayed.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-show-right-margin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-show-right-margin.returns"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the right margin is shown.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-right-margin-position"></a><h3>gtk_source_view_set_right_margin_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_right_margin_position
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> pos</code></em>);</pre>
+<p>Sets the position of the right margin in the given <em class="parameter"><code>view</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-right-margin-position.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>pos</p></td>
+<td class="parameter_description"><p>the width in characters where to position the right margin.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-right-margin-position"></a><h3>gtk_source_view_get_right_margin_position ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+gtk_source_view_get_right_margin_position
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Gets the position of the right margin in the given <em class="parameter"><code>view</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-right-margin-position.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-right-margin-position.returns"></a><h4>Returns</h4>
+<p> the position of the right margin.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-highlight-current-line"></a><h3>gtk_source_view_set_highlight_current_line ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_highlight_current_line
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> highlight</code></em>);</pre>
+<p>If <em class="parameter"><code>highlight</code></em>
+ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> the current line will be highlighted.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-highlight-current-line.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>highlight</p></td>
+<td class="parameter_description"><p>whether to highlight the current line.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-highlight-current-line"></a><h3>gtk_source_view_get_highlight_current_line ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_view_get_highlight_current_line
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns whether the current line is highlighted.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-highlight-current-line.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-highlight-current-line.returns"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the current line is highlighted.</p>
 </div>
 </div>
 <hr>
@@ -557,10 +890,14 @@ gtk_source_view_new_with_buffer (<em class="parameter"><code><a class="link" hre
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_view_set_auto_indent (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>);</pre>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> auto indentation of text is enabled.</p>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> auto-indentation of text is enabled.</p>
+<p>When Enter is pressed to create a new line, the auto-indentation inserts the
+same indentation as the previous line. This is <span class="emphasis"><em>not</em></span> a
+"smart indentation" where an indentation level is added or removed depending
+on the context.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-auto-indent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -586,10 +923,10 @@ gtk_source_view_set_auto_indent (<em class="parameter"><code><a class="link" hre
 <a name="gtk-source-view-get-auto-indent"></a><h3>gtk_source_view_get_auto_indent ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_view_get_auto_indent (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Returns whether auto indentation of text is enabled.</p>
+<p>Returns whether auto-indentation of text is enabled.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-auto-indent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -603,9 +940,8 @@ gtk_source_view_get_auto_indent (<em class="parameter"><code><a class="link" hre
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.5.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-auto-indent.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if auto indentation is enabled.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -614,12 +950,16 @@ gtk_source_view_get_auto_indent (<em class="parameter"><code><a class="link" hre
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_view_set_indent_on_tab (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>);</pre>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, when the tab key is pressed and there is a selection, the
-selected text is indented of one level instead of being replaced with
-the \t characters. Shift+Tab unindents the selection.</p>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, when the tab key is pressed when several lines are selected, the
+selected lines are indented of one level instead of being replaced with a \t
+character. Shift+Tab unindents the selection.</p>
+<p>If the first or last line is not selected completely, it is also indented or
+unindented.</p>
+<p>When the selection doesn't span several lines, the tab key always replaces
+the selection with a normal \t character.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-indent-on-tab.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -639,7 +979,6 @@ the \t characters. Shift+Tab unindents the selection.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 1.8</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -649,8 +988,8 @@ gtk_source_view_get_indent_on_tab (<em class="parameter"><code><a class="link" h
 <p>Returns whether when the tab key is pressed the current selection
 should get indented instead of replaced with the \t character.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-indent-on-tab.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -664,11 +1003,67 @@ should get indented instead of replaced with the \t character.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.7.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-indent-on-tab.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the selection is indented when tab is pressed.</p>
-<p></p>
 </div>
-<p class="since">Since 1.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-tab-width"></a><h3>gtk_source_view_set_tab_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_tab_width (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> width</code></em>);</pre>
+<p>Sets the width of tabulation in characters. The <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> still contains
+\t characters, but they can take a different visual width in a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>
+widget.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-tab-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width</p></td>
+<td class="parameter_description"><p>width of tab in characters.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-tab-width"></a><h3>gtk_source_view_get_tab_width ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+gtk_source_view_get_tab_width (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns the width of tabulation in characters.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-tab-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-tab-width.returns"></a><h4>Returns</h4>
+<p> width of tab.</p>
+</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -676,13 +1071,28 @@ should get indented instead of replaced with the \t character.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_view_set_indent_width (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
                                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>);</pre>
-<p>Sets the number of spaces to use for each step of indent.
-If <em class="parameter"><code>width</code></em>
+<p>Sets the number of spaces to use for each step of indent when the tab key is
+pressed. If <em class="parameter"><code>width</code></em>
  is -1, the value of the <a class="link" href="GtkSourceView.html#GtkSourceView--tab-width" title="The “tab-width” property"><span class="type">“tab-width”</span></a> property
 will be used.</p>
+<p>The <a class="link" href="GtkSourceView.html#GtkSourceView--indent-width" title="The “indent-width” property"><span class="type">“indent-width”</span></a> interacts with the
+<a class="link" href="GtkSourceView.html#GtkSourceView--insert-spaces-instead-of-tabs" title="The “insert-spaces-instead-of-tabs” property"><span class="type">“insert-spaces-instead-of-tabs”</span></a> property and
+<a class="link" href="GtkSourceView.html#GtkSourceView--tab-width" title="The “tab-width” property"><span class="type">“tab-width”</span></a>. An example will be clearer: if the
+<a class="link" href="GtkSourceView.html#GtkSourceView--indent-width" title="The “indent-width” property"><span class="type">“indent-width”</span></a> is 4 and
+<a class="link" href="GtkSourceView.html#GtkSourceView--tab-width" title="The “tab-width” property"><span class="type">“tab-width”</span></a> is 8 and
+<a class="link" href="GtkSourceView.html#GtkSourceView--insert-spaces-instead-of-tabs" title="The “insert-spaces-instead-of-tabs” property"><span class="type">“insert-spaces-instead-of-tabs”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, then pressing the tab
+key at the beginning of a line will insert 4 spaces. So far so good. Pressing
+the tab key a second time will remove the 4 spaces and insert a \t character
+instead (since <a class="link" href="GtkSourceView.html#GtkSourceView--tab-width" title="The “tab-width” property"><span class="type">“tab-width”</span></a> is 8). On the other hand, if
+<a class="link" href="GtkSourceView.html#GtkSourceView--insert-spaces-instead-of-tabs" title="The “insert-spaces-instead-of-tabs” property"><span class="type">“insert-spaces-instead-of-tabs”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, the second tab key
+pressed will insert 4 more spaces for a total of 8 spaces in the
+<a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a>.</p>
+<p>The test-widget program (available in the GtkSourceView repository) may be
+useful to better understand the indentation settings (enable the space
+drawing!).</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-indent-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -711,8 +1121,8 @@ gtk_source_view_get_indent_width (<em class="parameter"><code><a class="link" hr
 <p>Returns the number of spaces to use for each step of indent.
 See <a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-width" title="gtk_source_view_set_indent_width ()"><code class="function">gtk_source_view_set_indent_width()</code></a> for details.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-indent-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -726,9 +1136,8 @@ See <a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-width" t
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.9.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-indent-width.returns"></a><h4>Returns</h4>
 <p> indent width.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -738,11 +1147,12 @@ See <a class="link" href="GtkSourceView.html#gtk-source-view-set-indent-width" t
 gtk_source_view_set_insert_spaces_instead_of_tabs
                                (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enable</code></em>);</pre>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> any tabulator character inserted is replaced by a group
-of space characters.</p>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> a tab key pressed is replaced by a group of space characters. Of
+course it is still possible to insert a real \t programmatically with the
+<a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> API.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-insert-spaces-instead-of-tabs.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -772,8 +1182,8 @@ gtk_source_view_get_insert_spaces_instead_of_tabs
 <p>Returns whether when inserting a tabulator character it should
 be replaced by a group of space characters.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.11.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-insert-spaces-instead-of-tabs.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -787,22 +1197,22 @@ be replaced by a group of space characters.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.11.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-insert-spaces-instead-of-tabs.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if spaces are inserted instead of tabs.</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
-<a name="gtk-source-view-set-smart-home-end"></a><h3>gtk_source_view_set_smart_home_end ()</h3>
+<a name="gtk-source-view-indent-lines"></a><h3>gtk_source_view_indent_lines ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_smart_home_end (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                    <em class="parameter"><code><a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a> smart_he</code></em>);</pre>
-<p>Set the desired movement of the cursor when HOME and END keys
-are pressed.</p>
+gtk_source_view_indent_lines (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                              <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
+<p>Insert one indentation level at the beginning of the
+specified lines.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-indent-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -815,7 +1225,181 @@ are pressed.</p>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td class="parameter_name"><p>smart_he</p></td>
+<td class="parameter_name"><p>start</p></td>
+<td class="parameter_description"><p><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> of the first line to indent</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>end</p></td>
+<td class="parameter_description"><p><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> of the last line to indent</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-unindent-lines"></a><h3>gtk_source_view_unindent_lines ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_unindent_lines (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *start</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *end</code></em>);</pre>
+<p>Removes one indentation level at the beginning of the
+specified lines.</p>
+<div class="refsect3">
+<a name="gtk-source-view-unindent-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>start</p></td>
+<td class="parameter_description"><p><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> of the first line to indent</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>end</p></td>
+<td class="parameter_description"><p><a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> of the last line to indent</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-visual-column"></a><h3>gtk_source_view_get_visual_column ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+gtk_source_view_get_visual_column (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
+<p>Determines the visual column at <em class="parameter"><code>iter</code></em>
+ taking into consideration the
+<a class="link" href="GtkSourceView.html#GtkSourceView--tab-width" title="The “tab-width” property"><span class="type">“tab-width”</span></a> of <em class="parameter"><code>view</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-visual-column.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>iter</p></td>
+<td class="parameter_description"><p>a position in <em class="parameter"><code>view</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-visual-column.returns"></a><h4>Returns</h4>
+<p> the visual column at <em class="parameter"><code>iter</code></em>
+.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-smart-backspace"></a><h3>gtk_source_view_set_smart_backspace ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_smart_backspace (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> smart_backspace</code></em>);</pre>
+<p>When set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, pressing the Backspace key will try to delete spaces
+up to the previous tab stop.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-smart-backspace.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>smart_backspace</p></td>
+<td class="parameter_description"><p>whether to enable smart Backspace handling.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-smart-backspace"></a><h3>gtk_source_view_get_smart_backspace ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_view_get_smart_backspace (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if pressing the Backspace key will try to delete spaces
+up to the previous tab stop.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-smart-backspace.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-smart-backspace.returns"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if smart Backspace handling is enabled.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-set-smart-home-end"></a><h3>gtk_source_view_set_smart_home_end ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_smart_home_end (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a> smart_home_end</code></em>);</pre>
+<p>Set the desired movement of the cursor when HOME and END keys
+are pressed.</p>
+<div class="refsect3">
+<a name="gtk-source-view-set-smart-home-end.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>smart_home_end</p></td>
 <td class="parameter_description"><p>the desired behavior among <a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -831,8 +1415,8 @@ gtk_source_view_get_smart_home_end (<em class="parameter"><code><a class="link" 
 <p>Returns a <a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a> end value specifying
 how the cursor will move when HOME and END keys are pressed.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.13.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-smart-home-end.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -846,9 +1430,8 @@ how the cursor will move when HOME and END keys are pressed.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.13.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-smart-home-end.returns"></a><h4>Returns</h4>
 <p> a <a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a> value.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -862,8 +1445,8 @@ gtk_source_view_set_mark_attributes (<em class="parameter"><code><a class="link"
 <p>Sets attributes and priority for the <em class="parameter"><code>category</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.14.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-mark-attributes.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -904,8 +1487,8 @@ gtk_source_view_get_mark_attributes (<em class="parameter"><code><a class="link"
 <p>Gets attributes and priority for the <em class="parameter"><code>category</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.15.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-mark-attributes.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -931,72 +1514,12 @@ gtk_source_view_get_mark_attributes (<em class="parameter"><code><a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.15.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-mark-attributes.returns"></a><h4>Returns</h4>
 <p> <a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> for the <em class="parameter"><code>category</code></em>
 .
 The object belongs to <em class="parameter"><code>view</code></em>
 , so it must not be unreffed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-set-highlight-current-line"></a><h3>gtk_source_view_set_highlight_current_line ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_highlight_current_line
-                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hl</code></em>);</pre>
-<p>If <em class="parameter"><code>hl</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> the current line is highlighted.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.16.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>hl</p></td>
-<td class="parameter_description"><p>whether to highlight the current line.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-get-highlight-current-line"></a><h3>gtk_source_view_get_highlight_current_line ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gtk_source_view_get_highlight_current_line
-                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Returns whether the current line is highlighted.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.17.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.30.11.17.6"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the current line is highlighted.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -1007,8 +1530,8 @@ gtk_source_view_set_show_line_marks (<em class="parameter"><code><a class="link"
                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show</code></em>);</pre>
 <p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> line marks will be displayed beside the text.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.18.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-show-line-marks.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1028,7 +1551,7 @@ gtk_source_view_set_show_line_marks (<em class="parameter"><code><a class="link"
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 2.2</p>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1037,8 +1560,8 @@ gtk_source_view_set_show_line_marks (<em class="parameter"><code><a class="link"
 gtk_source_view_get_show_line_marks (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
 <p>Returns whether line marks are displayed beside the text.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.19.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-show-line-marks.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1052,243 +1575,10 @@ gtk_source_view_get_show_line_marks (<em class="parameter"><code><a class="link"
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.19.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-show-line-marks.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the line marks are displayed.</p>
-<p></p>
 </div>
-<p class="since">Since 2.2</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-set-show-line-numbers"></a><h3>gtk_source_view_set_show_line_numbers ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_show_line_numbers (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show</code></em>);</pre>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> line numbers will be displayed beside the text.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.20.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>show</p></td>
-<td class="parameter_description"><p>whether line numbers should be displayed.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-get-show-line-numbers"></a><h3>gtk_source_view_get_show_line_numbers ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gtk_source_view_get_show_line_numbers (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Returns whether line numbers are displayed beside the text.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.21.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.30.11.21.6"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the line numbers are displayed.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-set-show-right-margin"></a><h3>gtk_source_view_set_show_right_margin ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_show_right_margin (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show</code></em>);</pre>
-<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> a right margin is displayed.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.22.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>show</p></td>
-<td class="parameter_description"><p>whether to show a right margin.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-get-show-right-margin"></a><h3>gtk_source_view_get_show_right_margin ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gtk_source_view_get_show_right_margin (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Returns whether a right margin is displayed.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.23.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.30.11.23.6"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the right margin is shown.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-set-right-margin-position"></a><h3>gtk_source_view_set_right_margin_position ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_right_margin_position
-                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> pos</code></em>);</pre>
-<p>Sets the position of the right margin in the given <em class="parameter"><code>view</code></em>
-.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.24.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>pos</p></td>
-<td class="parameter_description"><p>the width in characters where to position the right margin.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-get-right-margin-position"></a><h3>gtk_source_view_get_right_margin_position ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gtk_source_view_get_right_margin_position
-                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Gets the position of the right margin in the given <em class="parameter"><code>view</code></em>
-.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.25.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.30.11.25.6"></a><h4>Returns</h4>
-<p> the position of the right margin.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-set-tab-width"></a><h3>gtk_source_view_set_tab_width ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-gtk_source_view_set_tab_width (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> width</code></em>);</pre>
-<p>Sets the width of tabulation in characters.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.26.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>width</p></td>
-<td class="parameter_description"><p>width of tab in characters.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="gtk-source-view-get-tab-width"></a><h3>gtk_source_view_get_tab_width ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gtk_source_view_get_tab_width (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
-<p>Returns the width of tabulation in characters.</p>
-<div class="refsect3">
-<a name="id-1.2.30.11.27.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>view</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.30.11.27.6"></a><h4>Returns</h4>
-<p> width of tab.</p>
-<p></p>
-</div>
+<p class="since">Since: <a class="link" href="api-index-2-2.html#api-index-2.2">2.2</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1299,9 +1589,11 @@ gtk_source_view_set_draw_spaces (<em class="parameter"><code><a class="link" hre
 <p>Set if and how the spaces should be visualized. Specifying <em class="parameter"><code>flags</code></em>
  as 0 will
 disable display of spaces.</p>
+<p>For a finer-grained method, there is also the GtkSourceTag's
+<a class="link" href="GtkSourceTag.html#GtkSourceTag--draw-spaces" title="The “draw-spaces” property"><span class="type">“draw-spaces”</span></a> property.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.28.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-draw-spaces.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1332,8 +1624,8 @@ gtk_source_view_get_draw_spaces (<em class="parameter"><code><a class="link" hre
 should be displayed for this <em class="parameter"><code>view</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.29.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-draw-spaces.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1347,9 +1639,8 @@ should be displayed for this <em class="parameter"><code>view</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.29.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-draw-spaces.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceView.html#GtkSourceDrawSpacesFlags" title="enum GtkSourceDrawSpacesFlags"><span class="type">GtkSourceDrawSpacesFlags</span></a>, 0 if no spaces should be drawn.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -1360,8 +1651,8 @@ gtk_source_view_get_completion (<em class="parameter"><code><a class="link" href
 <p>Gets the <a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> associated with <em class="parameter"><code>view</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.30.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-completion.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1375,7 +1666,7 @@ gtk_source_view_get_completion (<em class="parameter"><code><a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.30.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-completion.returns"></a><h4>Returns</h4>
 <p>the <a class="link" href="GtkSourceCompletion.html" title="GtkSourceCompletion"><span class="type">GtkSourceCompletion</span></a> associated with <em class="parameter"><code>view</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GtkSource.Completion][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1386,7 +1677,7 @@ gtk_source_view_get_completion (<em class="parameter"><code><a class="link" href
 <a name="gtk-source-view-get-gutter"></a><h3>gtk_source_view_get_gutter ()</h3>
 <pre class="programlisting"><a class="link" href="GtkSourceGutter.html" title="GtkSourceGutter"><span class="returnvalue">GtkSourceGutter</span></a> *
 gtk_source_view_get_gutter (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                            <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextView.html#GtkTextWindowType"><span class="type">GtkTextWindowType</span></a> window_type</code></em>);</pre>
+                            <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkTextWindowType"><span class="type">GtkTextWindowType</span></a> window_type</code></em>);</pre>
 <p>Returns the <a class="link" href="GtkSourceGutter.html" title="GtkSourceGutter"><span class="type">GtkSourceGutter</span></a> object associated with <em class="parameter"><code>window_type</code></em>
  for <em class="parameter"><code>view</code></em>
 .
@@ -1394,8 +1685,8 @@ Only GTK_TEXT_WINDOW_LEFT and GTK_TEXT_WINDOW_RIGHT are supported,
 respectively corresponding to the left and right gutter. The line numbers
 and mark category icons are rendered in the left gutter.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.31.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-get-gutter.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1416,25 +1707,23 @@ and mark category icons are rendered in the left gutter.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.30.11.31.6"></a><h4>Returns</h4>
+<a name="gtk-source-view-get-gutter.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="GtkSourceGutter.html" title="GtkSourceGutter"><span class="type">GtkSourceGutter</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 2.8</p>
+<p class="since">Since: <a class="link" href="api-index-2-8.html#api-index-2.8">2.8</a></p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="gtk-source-view-get-visual-column"></a><h3>gtk_source_view_get_visual_column ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gtk_source_view_get_visual_column (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
-<p>Determines the visual column at <em class="parameter"><code>iter</code></em>
- taking into
-consideration the indent width of <em class="parameter"><code>view</code></em>
-.</p>
+<a name="gtk-source-view-set-background-pattern"></a><h3>gtk_source_view_set_background_pattern ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_view_set_background_pattern
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>,
+                                <em class="parameter"><code><a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a> background_pattern</code></em>);</pre>
+<p>Set if and how the background pattern should be displayed.</p>
 <div class="refsect3">
-<a name="id-1.2.30.11.32.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-view-set-background-pattern.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1447,20 +1736,44 @@ consideration the indent width of <em class="parameter"><code>view</code></em>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
-<td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a position in <em class="parameter"><code>view</code></em>
-.</p></td>
+<td class="parameter_name"><p>background_pattern</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<div class="refsect3">
-<a name="id-1.2.30.11.32.6"></a><h4>Returns</h4>
-<p> the visual column at <em class="parameter"><code>iter</code></em>
-.</p>
-<p></p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-view-get-background-pattern"></a><h3>gtk_source_view_get_background_pattern ()</h3>
+<pre class="programlisting"><a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="returnvalue">GtkSourceBackgroundPatternType</span></a>
+gtk_source_view_get_background_pattern
+                               (<em class="parameter"><code><a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view</code></em>);</pre>
+<p>Returns the <a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a> specifying if and how
+the background pattern should be displayed for this <em class="parameter"><code>view</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtk-source-view-get-background-pattern.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-view-get-background-pattern.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a>.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -1473,8 +1786,8 @@ consideration the indent width of <em class="parameter"><code>view</code></em>
 <div class="refsect2">
 <a name="GtkSourceSmartHomeEndType"></a><h3>enum GtkSourceSmartHomeEndType</h3>
 <div class="refsect3">
-<a name="id-1.2.30.12.3.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceSmartHomeEndType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1526,8 +1839,8 @@ of GTK_SOURCE_DRAW_SPACES_LEADING, GTK_SOURCE_DRAW_SPACES_TEXT or
 GTK_SOURCE_DRAW_SPACES_TRAILING is specified, whitespaces at any position in
 the line will be drawn (i.e. it has the same effect as specifying all of them).</p>
 <div class="refsect3">
-<a name="id-1.2.30.12.4.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceDrawSpacesFlags.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1551,7 +1864,9 @@ the line will be drawn (i.e. it has the same effect as specifying all of them).<
 <tr>
 <td class="enum_member_name"><p><a name="GTK-SOURCE-DRAW-SPACES-NEWLINE:CAPS"></a>GTK_SOURCE_DRAW_SPACES_NEWLINE</p></td>
 <td class="enum_member_description">
-<p>whether the line breaks should be drawn.</p>
+<p>whether the line breaks should be drawn. If
+  the <a class="link" href="GtkSourceBuffer.html#GtkSourceBuffer--implicit-trailing-newline" title="The “implicit-trailing-newline” property"><span class="type">“implicit-trailing-newline”</span></a> property is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, a line
+  break is also drawn at the end of the buffer.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1598,8 +1913,8 @@ the line will be drawn (i.e. it has the same effect as specifying all of them).<
 <div class="refsect2">
 <a name="GtkSourceViewGutterPosition"></a><h3>enum GtkSourceViewGutterPosition</h3>
 <div class="refsect3">
-<a name="id-1.2.30.12.5.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceViewGutterPosition.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1626,6 +1941,37 @@ renderer</p>
 </table></div>
 </div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceBackgroundPatternType"></a><h3>enum GtkSourceBackgroundPatternType</h3>
+<div class="refsect3">
+<a name="GtkSourceBackgroundPatternType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-BACKGROUND-PATTERN-TYPE-NONE:CAPS"></a>GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE</p></td>
+<td class="enum_member_description">
+<p>no pattern</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-SOURCE-BACKGROUND-PATTERN-TYPE-GRID:CAPS"></a>GTK_SOURCE_BACKGROUND_PATTERN_TYPE_GRID</p></td>
+<td class="enum_member_description">
+<p>grid pattern</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.property-details"></a><h2>Property Details</h2>
@@ -1635,6 +1981,15 @@ renderer</p>
 <p>Whether to enable auto indentation.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceView--background-pattern"></a><h3>The <code class="literal">“background-pattern”</code> property</h3>
+<pre class="programlisting">  “background-pattern”       <a class="link" href="GtkSourceView.html#GtkSourceBackgroundPatternType" title="enum GtkSourceBackgroundPatternType"><span class="type">GtkSourceBackgroundPatternType</span></a></pre>
+<p>Draw a specific background pattern on the view.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE</p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1648,8 +2003,10 @@ renderer</p>
 <a name="GtkSourceView--draw-spaces"></a><h3>The <code class="literal">“draw-spaces”</code> property</h3>
 <pre class="programlisting">  “draw-spaces”              <a class="link" href="GtkSourceView.html#GtkSourceDrawSpacesFlags" title="enum GtkSourceDrawSpacesFlags"><span class="type">GtkSourceDrawSpacesFlags</span></a></pre>
 <p>Set if and how the spaces should be visualized.</p>
+<p>For a finer-grained method, there is also the GtkSourceTag's
+<a class="link" href="GtkSourceTag.html#GtkSourceTag--draw-spaces" title="The “draw-spaces” property"><span class="type">“draw-spaces”</span></a> property.</p>
 <p>Flags: Read / Write</p>
-<p class="since">Since 2.4</p>
+<p class="since">Since: <a class="link" href="api-index-2-4.html#api-index-2.4">2.4</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1719,12 +2076,21 @@ renderer</p>
 </div>
 <hr>
 <div class="refsect2">
+<a name="GtkSourceView--smart-backspace"></a><h3>The <code class="literal">“smart-backspace”</code> property</h3>
+<pre class="programlisting">  “smart-backspace”          <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether smart Backspace should be used.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GtkSourceView--smart-home-end"></a><h3>The <code class="literal">“smart-home-end”</code> property</h3>
 <pre class="programlisting">  “smart-home-end”           <a class="link" href="GtkSourceView.html#GtkSourceSmartHomeEndType" title="enum GtkSourceSmartHomeEndType"><span class="type">GtkSourceSmartHomeEndType</span></a></pre>
 <p>Set the behavior of the HOME and END keys.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_SOURCE_SMART_HOME_END_DISABLED</p>
-<p class="since">Since 2.0</p>
+<p class="since">Since: <a class="link" href="api-index-2-0.html#api-index-2.0">2.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1739,19 +2105,127 @@ renderer</p>
 <div class="refsect1">
 <a name="GtkSourceView.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
+<a name="GtkSourceView-change-case"></a><h3>The <code class="literal">“change-case”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a>          *view,
+               <a class="link" href="GtkSourceBuffer.html#GtkSourceChangeCaseType" title="enum GtkSourceChangeCaseType"><span class="type">GtkSourceChangeCaseType</span></a> case_type,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                user_data)</pre>
+<p>Keybinding signal to change case of the text at the current cursor position.</p>
+<div class="refsect3">
+<a name="GtkSourceView-change-case.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>case_type</p></td>
+<td class="parameter_description"><p>the case to use</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceView-change-number"></a><h3>The <code class="literal">“change-number”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>           count,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
+<p>Keybinding signal to edit a number at the current cursor position.</p>
+<div class="refsect3">
+<a name="GtkSourceView-change-number.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>count</p></td>
+<td class="parameter_description"><p>the number to add to the number at the current position</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceView-join-lines"></a><h3>The <code class="literal">“join-lines”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
+<p>Keybinding signal to join the lines currently selected.</p>
+<div class="refsect3">
+<a name="GtkSourceView-join-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GtkSourceView-line-mark-activated"></a><h3>The <code class="literal">“line-mark-activated”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view,
-               <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>   *iter,
-               <a href="http://developer.gnome.org/gdk2/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
+               <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>   *iter,
+               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>Emitted when a line mark has been activated (for instance when there
 was a button press in the line marks gutter). You can use <em class="parameter"><code>iter</code></em>
  to
 determine on which line the activation took place.</p>
 <div class="refsect3">
-<a name="id-1.2.30.14.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceView-line-mark-activated.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1765,12 +2239,12 @@ determine on which line the activation took place.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a></p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gdk2/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that activated the event</p></td>
+<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that activated the event</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1799,8 +2273,8 @@ or the current line by <em class="parameter"><code>count</code></em>
 <em class="parameter"><code>count</code></em>
  of -1 or 1 is valid.</p>
 <div class="refsect3">
-<a name="id-1.2.30.14.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceView-move-lines.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1832,7 +2306,45 @@ or the current line by <em class="parameter"><code>count</code></em>
 </table></div>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
-<p class="since">Since 2.10</p>
+<p class="since">Since: <a class="link" href="api-index-2-10.html#api-index-2.10">2.10</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceView-move-to-matching-bracket"></a><h3>The <code class="literal">“move-to-matching-bracket”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>       extend_selection,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
+<p>Keybinding signal to move the cursor to the matching bracket.</p>
+<div class="refsect3">
+<a name="GtkSourceView-move-to-matching-bracket.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>view</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>extend_selection</p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the move should extend the selection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1846,8 +2358,8 @@ when the user initiates moving a word. The default binding key
 is Alt+Left/Right Arrow and moves the current selection, or the current
 word by one word.</p>
 <div class="refsect3">
-<a name="id-1.2.30.14.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceView-move-words.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1873,7 +2385,7 @@ word by one word.</p>
 </table></div>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
-<p class="since">Since 3.0</p>
+<p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1898,8 +2410,8 @@ type as <a class="link" href="GtkSourceCompletionContext.html#GTK-SOURCE-COMPLET
 <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-emit-by-name"><code class="function">g_signal_emit_by_name()</code></a> if they need to activate the completion by
 another means, for example with another key binding or a menu entry.</p>
 <div class="refsect3">
-<a name="id-1.2.30.14.6.8"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceView-show-completion.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1926,7 +2438,7 @@ another means, for example with another key binding or a menu entry.</p>
 <a name="GtkSourceView-smart-home-end"></a><h3>The <code class="literal">“smart-home-end”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><span class="type">GtkSourceView</span></a> *view,
-               <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a>   *iter,
+               <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a>   *iter,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>           count,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>Emitted when a the cursor was moved according to the smart home
@@ -1935,8 +2447,8 @@ during the GtkTextView::move-cursor action. This can be used to find
 out whether the cursor was moved by a normal home/end or by a smart
 home/end.</p>
 <div class="refsect3">
-<a name="id-1.2.30.14.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceView-smart-home-end.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1950,7 +2462,7 @@ home/end.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextIter.html"><span class="type">GtkTextIter</span></a></p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextIter.html#GtkTextIter-struct"><span class="type">GtkTextIter</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1967,7 +2479,7 @@ home/end.</p>
 </table></div>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
-<p class="since">Since 3.0</p>
+<p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1980,11 +2492,10 @@ user_function (<a class="link" href="GtkSourceView.html" title="GtkSourceView"><
 </div>
 <div class="refsect1">
 <a name="GtkSourceView.see-also"></a><h2>See Also</h2>
-<p><a href="http://developer.gnome.org/gtk2/GtkTextView.html"><span class="type">GtkTextView</span></a>, <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a></p>
+<p><a href="http://developer.gnome.org/gtk4/GtkTextView.html#GtkTextView-struct"><span class="type">GtkTextView</span></a>, <a class="link" href="GtkSourceBuffer.html" title="GtkSourceBuffer"><span class="type">GtkSourceBuffer</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

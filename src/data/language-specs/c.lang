@@ -106,7 +106,7 @@
         (".*?"|&lt;.*&gt;)
       </match>
       <include>
-        <context id="included-file" sub-pattern="2" style-ref="included-file"/>
+        <context id="included-file" sub-pattern="2" style-ref="included-file" class="path"/>
       </include>
     </context>
 
@@ -136,7 +136,7 @@
       </include>
     </context>
 
-    <context id="char" style-ref="char">
+    <context id="char" style-ref="char" class="string">
       <match>L?'(\%{escaped-character}|.)'</match>
     </context>
 
@@ -213,7 +213,12 @@
     </context>
 
     <context id="operators" style-ref="operator">
+      <keyword>(_A|a)lignof</keyword>
+      <keyword>_Generic</keyword>
+      <keyword>offsetof</keyword>
+      <keyword>(_S|s)tatic_assert</keyword>
       <keyword>sizeof</keyword>
+      <keyword>typeof</keyword>
     </context>
 
     <context id="types" style-ref="type">
@@ -222,10 +227,13 @@
       <keyword>_Imaginary</keyword>
       <keyword>bool</keyword>
       <keyword>char</keyword>
+      <keyword>char(16|32)_t</keyword>
       <keyword>double</keyword>
       <keyword>float</keyword>
       <keyword>int</keyword>
-      <keyword>(u)?int(8|16|32|64)_t</keyword>
+      <keyword>(u)?int(_least|_fast)?(8|16|32|64)_t</keyword>
+      <keyword>(u)?intmax_t</keyword>
+      <keyword>(u)?intptr_t</keyword>
       <keyword>long</keyword>
       <keyword>ptrdiff_t</keyword>
       <keyword>off(64)?_t</keyword>
@@ -240,6 +248,10 @@
     </context>
 
     <context id="storage-class" style-ref="storage-class">
+      <keyword>(_A|a)lignas</keyword>
+      <keyword>_Atomic</keyword>
+      <keyword>(_N|n)oreturn</keyword>
+      <keyword>(_T|t)hread_local</keyword>
       <keyword>auto</keyword>
       <keyword>const</keyword>
       <keyword>extern</keyword>
@@ -303,9 +315,9 @@
     <context id="c" class="no-spell-check">
       <include>
         <context ref="gtk-doc:inline-docs-section"/>
-        <context ref="def:c-like-comment"/>
-        <context ref="def:c-like-comment-multiline"/>
-        <context ref="def:c-like-close-comment-outside-comment"/>
+        <context ref="def:c-like-comment" style-ref="comment"/>
+        <context ref="def:c-like-comment-multiline" style-ref="comment"/>
+        <context ref="def:c-like-close-comment-outside-comment" style-ref="comment"/>
         <context ref="if0-comment"/>
         <context ref="include"/>
         <context ref="preprocessor"/>

@@ -19,13 +19,19 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_STYLE_PRIVATE_H__
-#define __GTK_SOURCE_STYLE_PRIVATE_H__
+#ifndef GTK_SOURCE_STYLE_PRIVATE_H
+#define GTK_SOURCE_STYLE_PRIVATE_H
 
-#include "gtksourcestyle.h"
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
+
+/*
+ * We need to be lower than the application priority to allow
+ * application overrides. And we need enough room for
+ * GtkSourceMap to be able to override the style priority.
+ */
+#define GTK_SOURCE_STYLE_PROVIDER_PRIORITY (GTK_STYLE_PROVIDER_PRIORITY_APPLICATION-2)
 
 enum
 {
@@ -36,7 +42,8 @@ enum
 	GTK_SOURCE_STYLE_USE_BOLD            = 1 << 4,	/*< nick=use_bold >*/
 	GTK_SOURCE_STYLE_USE_UNDERLINE       = 1 << 5,	/*< nick=use_underline >*/
 	GTK_SOURCE_STYLE_USE_STRIKETHROUGH   = 1 << 6,	/*< nick=use_strikethrough >*/
-	GTK_SOURCE_STYLE_USE_SCALE           = 1 << 7	/*< nick=use_scale >*/
+	GTK_SOURCE_STYLE_USE_SCALE           = 1 << 7,	/*< nick=use_scale >*/
+	GTK_SOURCE_STYLE_USE_UNDERLINE_COLOR = 1 << 8	/*< nick=use_underline_color >*/
 };
 
 struct _GtkSourceStyle
@@ -50,18 +57,16 @@ struct _GtkSourceStyle
 	const gchar *background;
 	const gchar *line_background;
 	const gchar *scale;
+	const gchar *underline_color;
+
+	PangoUnderline underline;
 
 	guint italic : 1;
 	guint bold : 1;
-	guint underline : 1;
 	guint strikethrough : 1;
 	guint mask : 12;
 };
 
-G_GNUC_INTERNAL
-void		 _gtk_source_style_apply	(const GtkSourceStyle *style,
-						 GtkTextTag           *tag);
-
 G_END_DECLS
 
-#endif  /* __GTK_SOURCE_STYLE_PRIVATE_H__ */
+#endif  /* GTK_SOURCE_STYLE_PRIVATE_H */

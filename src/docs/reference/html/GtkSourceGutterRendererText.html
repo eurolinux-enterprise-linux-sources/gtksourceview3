@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceGutterRendererText: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch06.html" title="Gutter and Marks">
 <link rel="prev" href="GtkSourceGutterRendererPixbuf.html" title="GtkSourceGutterRendererPixbuf">
-<link rel="next" href="GtkSourceLanguage.html" title="GtkSourceLanguage">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="next" href="GtkSourceMark.html" title="GtkSourceMark">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,9 +20,9 @@
                   <a href="#GtkSourceGutterRendererText.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch06.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceGutterRendererPixbuf.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourceLanguage.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="GtkSourceMark.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourceGutterRendererText"></a><div class="titlepage"></div>
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceGutterRendererText.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -86,7 +86,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceGutterRendererText.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -110,7 +110,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceGutterRendererText.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -123,7 +123,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceGutterRendererText.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
         <span class="lineart">╰──</span> <a class="link" href="GtkSourceGutterRenderer.html" title="GtkSourceGutterRenderer">GtkSourceGutterRenderer</a>
             <span class="lineart">╰──</span> GtkSourceGutterRendererText
@@ -147,7 +147,7 @@
 gtk_source_gutter_renderer_text_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Create a new <a class="link" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText"><span class="type">GtkSourceGutterRendererText</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.17.9.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-gutter-renderer-text-new.returns"></a><h4>Returns</h4>
 <p> A <a class="link" href="GtkSourceGutterRenderer.html" title="GtkSourceGutterRenderer"><span class="type">GtkSourceGutterRenderer</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -179,6 +179,42 @@ gtk_source_gutter_renderer_text_measure
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);</pre>
+<p>Measures the text provided using the pango layout used by the
+<a class="link" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText"><span class="type">GtkSourceGutterRendererText</span></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-gutter-renderer-text-measure.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>renderer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText"><span class="type">GtkSourceGutterRendererText</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p>the text to measure.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width</p></td>
+<td class="parameter_description"><p> location to store the width of the text in pixels,
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>height</p></td>
+<td class="parameter_description"><p> location to store the height of the text in
+pixels, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -189,6 +225,42 @@ gtk_source_gutter_renderer_text_measure_markup
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *markup</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);</pre>
+<p>Measures the pango markup provided using the pango layout used by the
+<a class="link" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText"><span class="type">GtkSourceGutterRendererText</span></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-gutter-renderer-text-measure-markup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>renderer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceGutterRendererText.html" title="GtkSourceGutterRendererText"><span class="type">GtkSourceGutterRendererText</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>markup</p></td>
+<td class="parameter_description"><p>the pango markup to measure.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width</p></td>
+<td class="parameter_description"><p> location to store the width of the text in pixels,
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>height</p></td>
+<td class="parameter_description"><p> location to store the height of the text in
+pixels, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 </div>
 <div class="refsect1">
@@ -222,7 +294,6 @@ gtk_source_gutter_renderer_text_measure_markup
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

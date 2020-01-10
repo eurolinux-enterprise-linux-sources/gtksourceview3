@@ -3,7 +3,7 @@
  * This file is part of GtkSourceView
  *
  * Copyright (C) 2002-2005 - Paolo Maggi
- * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
+ * Copyright (C) 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
  * GtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,8 +20,16 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_ENCODING_H__
-#define __GTK_SOURCE_ENCODING_H__
+#ifndef GTK_SOURCE_ENCODING_H
+#define GTK_SOURCE_ENCODING_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,24 +39,41 @@ G_BEGIN_DECLS
 
 #define GTK_SOURCE_TYPE_ENCODING (gtk_source_encoding_get_type ())
 
-GType			 gtk_source_encoding_get_type		(void) G_GNUC_CONST;
+GTK_SOURCE_AVAILABLE_IN_3_14
+GType			 gtk_source_encoding_get_type			(void) G_GNUC_CONST;
 
-const GtkSourceEncoding	*gtk_source_encoding_get_from_charset	(const gchar             *charset);
+GTK_SOURCE_AVAILABLE_IN_3_14
+const GtkSourceEncoding	*gtk_source_encoding_get_from_charset		(const gchar             *charset);
 
-gchar			*gtk_source_encoding_to_string		(const GtkSourceEncoding *enc);
+GTK_SOURCE_AVAILABLE_IN_3_14
+gchar			*gtk_source_encoding_to_string			(const GtkSourceEncoding *enc);
 
-const gchar		*gtk_source_encoding_get_name		(const GtkSourceEncoding *enc);
-const gchar		*gtk_source_encoding_get_charset	(const GtkSourceEncoding *enc);
+GTK_SOURCE_AVAILABLE_IN_3_14
+const gchar		*gtk_source_encoding_get_name			(const GtkSourceEncoding *enc);
 
-const GtkSourceEncoding	*gtk_source_encoding_get_utf8		(void);
-const GtkSourceEncoding	*gtk_source_encoding_get_current	(void);
+GTK_SOURCE_AVAILABLE_IN_3_14
+const gchar		*gtk_source_encoding_get_charset		(const GtkSourceEncoding *enc);
 
-GSList			*gtk_source_encoding_get_all		(void);
+GTK_SOURCE_AVAILABLE_IN_3_14
+const GtkSourceEncoding	*gtk_source_encoding_get_utf8			(void);
+
+GTK_SOURCE_AVAILABLE_IN_3_14
+const GtkSourceEncoding	*gtk_source_encoding_get_current		(void);
+
+GTK_SOURCE_AVAILABLE_IN_3_14
+GSList			*gtk_source_encoding_get_all			(void);
+
+GTK_SOURCE_AVAILABLE_IN_3_18
+GSList			*gtk_source_encoding_get_default_candidates	(void);
 
 /* These should not be used, they are just to make python bindings happy */
-GtkSourceEncoding	*gtk_source_encoding_copy		(const GtkSourceEncoding *enc);
-void			 gtk_source_encoding_free		(GtkSourceEncoding       *enc);
+
+GTK_SOURCE_AVAILABLE_IN_3_14
+GtkSourceEncoding	*gtk_source_encoding_copy			(const GtkSourceEncoding *enc);
+
+GTK_SOURCE_AVAILABLE_IN_3_14
+void			 gtk_source_encoding_free			(GtkSourceEncoding       *enc);
 
 G_END_DECLS
 
-#endif  /* __GTK_SOURCE_ENCODING_H__ */
+#endif  /* GTK_SOURCE_ENCODING_H */

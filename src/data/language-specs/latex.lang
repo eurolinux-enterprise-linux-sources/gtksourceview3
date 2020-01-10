@@ -5,7 +5,7 @@
 
  Copyright (C) 2005-2007 - Marco Barisione <barisione@gmail.com>
  Copyright (C) 2012-2013 - Tobias Marczewski <tmarczewski@ed-alumni.net>
- Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
+ Copyright (C) 2013, 2016 - Sébastien Wilmet <swilmet@gnome.org>
 
  GtkSourceView is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -47,9 +47,6 @@
     <style id="subsubsection"      _name="SubSubSection Heading" map-to="def:heading4"/>
     <style id="paragraph"          _name="Paragraph Heading"     map-to="def:heading5"/>
     <style id="subparagraph"       _name="SubParagraph Heading"  map-to="def:heading6"/>
-
-    <!-- names, e.g., name of package, name of environment, name of class -->
-    <style id="name"               _name="Name"                 map-to="def:identifier"/>
   </styles>
 
   <definitions>
@@ -79,11 +76,22 @@
     <!-- verbatim -->
 
     <context id="verbatim-env" style-inside="true" style-ref="verbatim" class-disabled="no-spell-check">
-      <start>(\\begin)\{(verbatim\*?|lstlisting|alltt)\}</start>
-      <end>(\\end)\{\%{2@start}\}</end>
+      <start>(\\begin)\{(verbatim\*?|alltt)\}</start>
+      <end>(\\end)\{(\%{2@start})\}</end>
       <include>
         <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
         <context sub-pattern="1" where="end" style-ref="common-commands" class="no-spell-check"/>
+        <context sub-pattern="2" where="start" class="no-spell-check"/>
+        <context sub-pattern="2" where="end" class="no-spell-check"/>
+      </include>
+    </context>
+
+    <context id="lstlisting-env" style-inside="true" style-ref="verbatim" class="no-spell-check">
+      <start>(\\begin)\{lstlisting\}</start>
+      <end>(\\end)\{lstlisting\}</end>
+      <include>
+        <context sub-pattern="1" where="start" style-ref="common-commands"/>
+        <context sub-pattern="1" where="end" style-ref="common-commands"/>
       </include>
     </context>
 
@@ -91,12 +99,10 @@
 
     <context id="R-block" class="no-spell-check">
       <start>(\\begin)\{(Scode|Sinput|Soutput)\}</start>
-      <end>(\\end)\{(\%{2@start})\}</end>
+      <end>(\\end)\{\%{2@start}\}</end>
       <include>
         <context sub-pattern="1" where="start" style-ref="common-commands"/>
-        <context sub-pattern="2" where="start" style-ref="name"/>
         <context sub-pattern="1" where="end" style-ref="common-commands"/>
-        <context sub-pattern="2" where="end" style-ref="name"/>
         <context ref="r:r"/>
       </include>
     </context>
@@ -118,29 +124,29 @@
 
           If using \verb instead of \lstinline, the brackets cannot be used
         -->
-    <context id="lstinline-curly-brackets" style-inside="true" style-ref="verbatim" class-disabled="no-spell-check">
+    <context id="lstinline-curly-brackets" style-inside="true" style-ref="verbatim" class="no-spell-check">
       <start>(\\lstinline)(\[.*?\])?{</start>
       <end>}</end>
       <include>
-        <context sub-pattern="1" where="start" style-ref="command" class="no-spell-check"/>
+        <context sub-pattern="1" where="start" style-ref="command"/>
       </include>
     </context>
 
-    <context id="lstinline-square-brackets" style-inside="true" style-ref="verbatim" class-disabled="no-spell-check">
+    <context id="lstinline-square-brackets" style-inside="true" style-ref="verbatim" class="no-spell-check">
       <!-- square brackets don't match with the pair, and they require an
            optional argument, even if empty -->
       <start>(\\lstinline)(\[.*?\])\[</start>
       <end>\[</end>
       <include>
-        <context sub-pattern="1" where="start" style-ref="command" class="no-spell-check"/>
+        <context sub-pattern="1" where="start" style-ref="command"/>
       </include>
     </context>
 
-    <context id="lstinline" style-inside="true" style-ref="verbatim" class-disabled="no-spell-check">
+    <context id="lstinline" style-inside="true" style-ref="verbatim" class="no-spell-check">
       <start>(\\lstinline)(\[.*?\])?((?!\[)\S)</start>  <!-- ignore when starting with [ -->
       <end>\%{3@start}</end>
       <include>
-        <context sub-pattern="1" where="start" style-ref="command" class="no-spell-check"/>
+        <context sub-pattern="1" where="start" style-ref="command"/>
       </include>
     </context>
 
@@ -156,6 +162,7 @@
     <context id="verbatim">
       <include>
         <context ref="verbatim-env"/>
+        <context ref="lstlisting-env"/>
         <context ref="verbatim-inline"/>
         <context ref="lstinline-curly-brackets"/>
         <context ref="lstinline-square-brackets"/>
@@ -280,42 +287,30 @@
       <keyword>zeta</keyword>
     </context>
 
-    <context id="include" style-ref="include" class="no-spell-check">
-      <prefix>\\</prefix>
-
-      <keyword>input</keyword>
-      <keyword>include</keyword>
-      <keyword>includeonly</keyword>
-      <keyword>usepackage</keyword>
-    </context>
-
     <context id="generic-command" style-ref="command" class="no-spell-check" extend-parent="false">
-      <match>\\[a-zA-Z@]+\*?</match>
+      <match>\\\@?[[:alnum:]]+\*?</match>
     </context>
 
     <context id="specific-commands">
       <include>
         <context id="documentclass" class="no-spell-check">
-          <match>(\\documentclass)(\[.*\])?\{([a-zA-Z]+)\}</match>
+          <match>(\\documentclass)(\[.*\])?(\{.*\})?</match>
           <include>
             <context sub-pattern="1" style-ref="common-commands"/>
-            <context sub-pattern="3" style-ref="name"/>
           </include>
         </context>
 
-        <context id="usepackage" class="no-spell-check">
-          <match>(\\usepackage)(\[.*\])?\{([0-9a-zA-Z,\s]+)\}</match>
+        <context id="include" class="no-spell-check">
+          <match>(\\(input|include|includeonly|usepackage))(\[.*\])?(\{.*\})?</match>
           <include>
             <context sub-pattern="1" style-ref="include"/>
-            <context sub-pattern="3" style-ref="name"/>
           </include>
         </context>
 
         <context id="begin-end-command" class="no-spell-check">
-          <match>(\\(begin|end))\{([a-zA-Z0-9]+\*?)\}</match>
+          <match>(\\(begin|end))\{.*\}</match>
           <include>
             <context sub-pattern="1" style-ref="common-commands"/>
-            <context sub-pattern="3" style-ref="name"/>
           </include>
         </context>
       </include>
@@ -377,71 +372,71 @@
 
     <context id="headings">
       <include>
-        <context id="part" style-inside="true" style-ref="part" end-at-line-end="true">
+        <context id="part" style-inside="true" style-ref="part" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\part\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="chapter" style-inside="true" style-ref="chapter" end-at-line-end="true">
+        <context id="chapter" style-inside="true" style-ref="chapter" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\chapter\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="section" style-inside="true" style-ref="section" end-at-line-end="true">
+        <context id="section" style-inside="true" style-ref="section" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\section\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="subsection" style-inside="true" style-ref="subsection" end-at-line-end="true">
+        <context id="subsection" style-inside="true" style-ref="subsection" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\subsection\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="subsubsection" style-inside="true" style-ref="subsubsection" end-at-line-end="true">
+        <context id="subsubsection" style-inside="true" style-ref="subsubsection" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\subsubsection\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="paragraph" style-inside="true" style-ref="paragraph" end-at-line-end="true">
+        <context id="paragraph" style-inside="true" style-ref="paragraph" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\paragraph\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
         </context>
 
-        <context id="subparagraph" style-inside="true" style-ref="subparagraph" end-at-line-end="true">
+        <context id="subparagraph" style-inside="true" style-ref="subparagraph" end-at-line-end="true" class-disabled="no-spell-check">
           <start>(\\subparagraph\*?)\{</start>
           <end>\}</end>
           <include>
-            <context sub-pattern="1" where="start" style-ref="common-commands"/>
+            <context sub-pattern="1" where="start" style-ref="common-commands" class="no-spell-check"/>
             <context ref="curly-braces-pair"/>
             <context ref="latex"/>
           </include>
@@ -540,14 +535,12 @@
       </include>
     </context>
 
-    <context id="math-env" style-ref="math" class="no-spell-check">
+    <context id="math-env" style-ref="math" style-inside="true" class="no-spell-check">
       <start>(\\begin)\{(math|displaymath|equation\*?|align\*?|eqnarray\*?)\}</start>
-      <end>(\\end)\{(\%{2@start})\}</end>
+      <end>(\\end)\{\%{2@start}\}</end>
       <include>
         <context sub-pattern="1" where="start" style-ref="common-commands"/>
-        <context sub-pattern="2" where="start" style-ref="name"/>
         <context sub-pattern="1" where="end" style-ref="common-commands"/>
-        <context sub-pattern="2" where="end" style-ref="name"/>
         <context ref="in-math"/>
       </include>
     </context>
@@ -590,7 +583,6 @@
         <context ref="headings"/>
         <context ref="math"/>
         <context ref="specific-commands"/>
-        <context ref="include"/>
         <context ref="common-commands"/>
         <context ref="special-char"/>
         <context ref="generic-command"/>

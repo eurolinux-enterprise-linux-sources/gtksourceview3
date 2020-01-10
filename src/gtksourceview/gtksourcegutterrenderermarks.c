@@ -19,6 +19,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcegutterrenderermarks.h"
 #include "gtksourceview.h"
 #include "gtksourcebuffer.h"
@@ -27,17 +31,7 @@
 
 #define COMPOSITE_ALPHA                 225
 
-struct _GtkSourceGutterRendererMarksPrivate
-{
-};
-
 G_DEFINE_TYPE (GtkSourceGutterRendererMarks, gtk_source_gutter_renderer_marks, GTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF)
-
-static void
-gtk_source_gutter_renderer_marks_finalize (GObject *object)
-{
-	G_OBJECT_CLASS (gtk_source_gutter_renderer_marks_parent_class)->finalize (object);
-}
 
 static gint
 sort_marks_by_priority (gconstpointer m1,
@@ -396,10 +390,7 @@ gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
 static void
 gtk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *klass)
 {
-	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GtkSourceGutterRendererClass *renderer_class = GTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
-
-	object_class->finalize = gtk_source_gutter_renderer_marks_finalize;
 
 	renderer_class->query_data = gutter_renderer_query_data;
 	renderer_class->query_tooltip = gutter_renderer_query_tooltip;
@@ -413,7 +404,7 @@ gtk_source_gutter_renderer_marks_init (GtkSourceGutterRendererMarks *self)
 }
 
 GtkSourceGutterRenderer *
-gtk_source_gutter_renderer_marks_new ()
+gtk_source_gutter_renderer_marks_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, NULL);
 }

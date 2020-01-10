@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceMarkAttributes: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch06.html" title="Gutter and Marks">
 <link rel="prev" href="GtkSourceMark.html" title="GtkSourceMark">
-<link rel="next" href="GtkSourcePrintCompositor.html" title="GtkSourcePrintCompositor">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="next" href="ch07.html" title="Printing">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -21,9 +21,9 @@
                   <a href="#GtkSourceMarkAttributes.signals" class="shortcut">Signals</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch06.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceMark.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourcePrintCompositor.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="ch07.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourceMarkAttributes"></a><div class="titlepage"></div>
@@ -36,7 +36,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceMarkAttributes.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="returnvalue">GIcon</span></a> *
+<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-attributes-get-gicon" title="gtk_source_mark_attributes_get_gicon ()">gtk_source_mark_attributes_get_gicon</a> <span class="c_punctuation">()</span>
@@ -121,14 +121,14 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *
+<td class="function_type">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-attributes-get-pixbuf" title="gtk_source_mark_attributes_get_pixbuf ()">gtk_source_mark_attributes_get_pixbuf</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *
+<td class="function_type">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-attributes-render-icon" title="gtk_source_mark_attributes_render_icon ()">gtk_source_mark_attributes_render_icon</a> <span class="c_punctuation">()</span>
@@ -155,7 +155,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceMarkAttributes.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -164,13 +164,13 @@
 <tbody>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
+<a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceMarkAttributes.html#GtkSourceMarkAttributes--background" title="The “background” property">background</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> *</td>
+<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceMarkAttributes.html#GtkSourceMarkAttributes--gicon" title="The “gicon” property">gicon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -182,7 +182,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *</td>
+<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceMarkAttributes.html#GtkSourceMarkAttributes--pixbuf" title="The “pixbuf” property">pixbuf</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -197,7 +197,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceMarkAttributes.signals"></a><h2>Signals</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="signals_return">
 <col width="300px" class="signals_name">
@@ -221,7 +221,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceMarkAttributes.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -234,7 +234,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceMarkAttributes.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceMarkAttributes
 </pre>
 </div>
@@ -289,7 +289,7 @@ takes precedence.</p>
 gtk_source_mark_attributes_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new source mark attributes.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-new.returns"></a><h4>Returns</h4>
 <p> a new source mark attributes. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -300,12 +300,12 @@ gtk_source_mark_attributes_new (<em class="parameter"><code><span class="type">v
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_mark_attributes_set_background
                                (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>,
-                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *background</code></em>);</pre>
+                                <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *background</code></em>);</pre>
 <p>Sets background color to the one given in <em class="parameter"><code>background</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-set-background.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -319,7 +319,7 @@ gtk_source_mark_attributes_set_background
 </tr>
 <tr>
 <td class="parameter_name"><p>background</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -332,12 +332,12 @@ gtk_source_mark_attributes_set_background
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_source_mark_attributes_get_background
                                (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *background</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *background</code></em>);</pre>
 <p>Stores background color in <em class="parameter"><code>background</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-background.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -351,17 +351,16 @@ gtk_source_mark_attributes_get_background
 </tr>
 <tr>
 <td class="parameter_name"><p>background</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>. </p></td>
+<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.4.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-background.returns"></a><h4>Returns</h4>
 <p> whether background color for <em class="parameter"><code>attributes</code></em>
 was set.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -377,8 +376,8 @@ gtk_source_mark_attributes_set_stock_id
 </div>
 <p>Sets stock id to be used as a base for rendered icon.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.5.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-set-stock-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -412,8 +411,8 @@ gtk_source_mark_attributes_get_stock_id
 <p>Gets a stock id of an icon used by this attributes. Note that the stock id can
 be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it wasn't set earlier.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.6.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-stock-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -427,7 +426,7 @@ be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.6.7"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-stock-id.returns"></a><h4>Returns</h4>
 <p> Stock id. Returned string is owned by <em class="parameter"><code>attributes</code></em>
 and
 shouldn't be freed. </p>
@@ -443,8 +442,8 @@ gtk_source_mark_attributes_set_icon_name
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>);</pre>
 <p>Sets a name of an icon to be used as a base for rendered icon.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-set-icon-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -474,8 +473,8 @@ gtk_source_mark_attributes_get_icon_name
 <p>Gets a name of an icon to be used as a base for rendered icon. Note that the
 icon name can be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it wasn't set earlier.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-icon-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -489,7 +488,7 @@ icon name can be <a href="https://developer.gnome.org/glib/unstable/glib-Standar
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.8.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-icon-name.returns"></a><h4>Returns</h4>
 <p> An icon name. The string belongs to <em class="parameter"><code>attributes</code></em>
 and
 should not be freed. </p>
@@ -501,11 +500,11 @@ should not be freed. </p>
 <a name="gtk-source-mark-attributes-set-gicon"></a><h3>gtk_source_mark_attributes_set_gicon ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_mark_attributes_set_gicon (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> *gicon</code></em>);</pre>
+                                      <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *gicon</code></em>);</pre>
 <p>Sets an icon to be used as a base for rendered icon.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-set-gicon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -519,7 +518,7 @@ gtk_source_mark_attributes_set_gicon (<em class="parameter"><code><a class="link
 </tr>
 <tr>
 <td class="parameter_name"><p>gicon</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> to be used.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to be used.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -529,13 +528,13 @@ gtk_source_mark_attributes_set_gicon (<em class="parameter"><code><a class="link
 <hr>
 <div class="refsect2">
 <a name="gtk-source-mark-attributes-get-gicon"></a><h3>gtk_source_mark_attributes_get_gicon ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="returnvalue">GIcon</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
 gtk_source_mark_attributes_get_gicon (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>);</pre>
-<p>Gets a <a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> to be used as a base for rendered icon. Note that the icon can
+<p>Gets a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to be used as a base for rendered icon. Note that the icon can
 be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it wasn't set earlier.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-gicon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -549,7 +548,7 @@ be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.10.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-gicon.returns"></a><h4>Returns</h4>
 <p> An icon. The icon belongs to <em class="parameter"><code>attributes</code></em>
 and should
 not be unreffed. </p>
@@ -561,11 +560,11 @@ not be unreffed. </p>
 <a name="gtk-source-mark-attributes-set-pixbuf"></a><h3>gtk_source_mark_attributes_set_pixbuf ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_mark_attributes_set_pixbuf (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>,
-                                       <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
+                                       <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <p>Sets a pixbuf to be used as a base for rendered icon.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.11.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-set-pixbuf.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -579,7 +578,7 @@ gtk_source_mark_attributes_set_pixbuf (<em class="parameter"><code><a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>pixbuf</p></td>
-<td class="parameter_description"><p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> to be used.</p></td>
+<td class="parameter_description"><p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be used.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -589,13 +588,13 @@ gtk_source_mark_attributes_set_pixbuf (<em class="parameter"><code><a class="lin
 <hr>
 <div class="refsect2">
 <a name="gtk-source-mark-attributes-get-pixbuf"></a><h3>gtk_source_mark_attributes_get_pixbuf ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_source_mark_attributes_get_pixbuf (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>);</pre>
-<p>Gets a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> to be used as a base for rendered icon. Note that the
+<p>Gets a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be used as a base for rendered icon. Note that the
 pixbuf can be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it wasn't set earlier.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-pixbuf.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -609,7 +608,7 @@ pixbuf can be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-M
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.12.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-pixbuf.returns"></a><h4>Returns</h4>
 <p> A pixbuf. The pixbuf belongs to <em class="parameter"><code>attributes</code></em>
 and
 should not be unreffed. </p>
@@ -619,10 +618,10 @@ should not be unreffed. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-mark-attributes-render-icon"></a><h3>gtk_source_mark_attributes_render_icon ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_source_mark_attributes_render_icon
                                (<em class="parameter"><code><a class="link" href="GtkSourceMarkAttributes.html" title="GtkSourceMarkAttributes"><span class="type">GtkSourceMarkAttributes</span></a> *attributes</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkWidget.html"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> *widget</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);</pre>
 <p>Renders an icon of given size. The base of the icon is set by the last call
 to one of: <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-attributes-set-pixbuf" title="gtk_source_mark_attributes_set_pixbuf ()"><code class="function">gtk_source_mark_attributes_set_pixbuf()</code></a>,
@@ -631,8 +630,8 @@ to one of: <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-at
 <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-attributes-set-stock-id" title="gtk_source_mark_attributes_set_stock_id ()"><code class="function">gtk_source_mark_attributes_set_stock_id()</code></a>. <em class="parameter"><code>size</code></em>
  cannot be lower than 1.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.13.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-render-icon.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -658,7 +657,7 @@ to one of: <a class="link" href="GtkSourceMarkAttributes.html#gtk-source-mark-at
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.13.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-render-icon.returns"></a><h4>Returns</h4>
 <p> A rendered pixbuf. The pixbuf belongs to <em class="parameter"><code>attributes</code></em>
 and should not be unreffed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -675,8 +674,8 @@ gtk_source_mark_attributes_get_tooltip_text
 a <a class="link" href="GtkSourceMarkAttributes.html#GtkSourceMarkAttributes-query-tooltip-text" title="The “query-tooltip-text” signal"><span class="type">“query-tooltip-text”</span></a> signal. The tooltip is a plain
 text.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.14.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-tooltip-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -697,7 +696,7 @@ text.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.14.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-tooltip-text.returns"></a><h4>Returns</h4>
 <p> A tooltip. The returned string should be freed by
 using <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done with it. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -714,8 +713,8 @@ gtk_source_mark_attributes_get_tooltip_markup
 a <a class="link" href="GtkSourceMarkAttributes.html#GtkSourceMarkAttributes-query-tooltip-markup" title="The “query-tooltip-markup” signal"><span class="type">“query-tooltip-markup”</span></a> signal. The tooltip may contain
 a markup.</p>
 <div class="refsect3">
-<a name="id-1.2.21.10.15.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-mark-attributes-get-tooltip-markup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -736,7 +735,7 @@ a markup.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.10.15.6"></a><h4>Returns</h4>
+<a name="gtk-source-mark-attributes-get-tooltip-markup.returns"></a><h4>Returns</h4>
 <p> A tooltip. The returned string should be freed by
 using <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done with it. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -754,15 +753,15 @@ using <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.
 <a name="GtkSourceMarkAttributes.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkSourceMarkAttributes--background"></a><h3>The <code class="literal">“background”</code> property</h3>
-<pre class="programlisting">  “background”               <a href="http://developer.gnome.org/gdk2/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
+<pre class="programlisting">  “background”               <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
 <p>A color used for background of a line.</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceMarkAttributes--gicon"></a><h3>The <code class="literal">“gicon”</code> property</h3>
-<pre class="programlisting">  “gicon”                    <a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> *</pre>
-<p>A <a href="https://developer.gnome.org/gio/unstable/GIcon.html"><span class="type">GIcon</span></a> that may be a base of a rendered icon.</p>
+<pre class="programlisting">  “gicon”                    <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
+<p>A <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> that may be a base of a rendered icon.</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
@@ -776,8 +775,8 @@ using <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.
 <hr>
 <div class="refsect2">
 <a name="GtkSourceMarkAttributes--pixbuf"></a><h3>The <code class="literal">“pixbuf”</code> property</h3>
-<pre class="programlisting">  “pixbuf”                   <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *</pre>
-<p>A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> that may be a base of a rendered icon.</p>
+<pre class="programlisting">  “pixbuf”                   <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *</pre>
+<p>A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> that may be a base of a rendered icon.</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
@@ -805,8 +804,8 @@ user_function (<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSou
 <em class="parameter"><code>mark</code></em>
 . The tooltip can contain a markup.</p>
 <div class="refsect3">
-<a name="id-1.2.21.13.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceMarkAttributes-query-tooltip-markup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -832,7 +831,7 @@ user_function (<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSou
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.13.2.6"></a><h4>Returns</h4>
+<a name="GtkSourceMarkAttributes-query-tooltip-markup.returns"></a><h4>Returns</h4>
 <p> A tooltip. The string should be freed with
 <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done with it. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -850,8 +849,8 @@ user_function (<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSou
 <em class="parameter"><code>mark</code></em>
 . The tooltip should be just a plain text.</p>
 <div class="refsect3">
-<a name="id-1.2.21.13.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceMarkAttributes-query-tooltip-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -877,7 +876,7 @@ user_function (<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSou
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.21.13.3.6"></a><h4>Returns</h4>
+<a name="GtkSourceMarkAttributes-query-tooltip-text.returns"></a><h4>Returns</h4>
 <p> A tooltip. The string should be freed with
 <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done with it. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -891,7 +890,6 @@ user_function (<a class="link" href="GtkSourceMarkAttributes.html" title="GtkSou
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

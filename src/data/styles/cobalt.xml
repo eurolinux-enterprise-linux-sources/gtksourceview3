@@ -49,6 +49,8 @@
   <color name="bluish_grey"                 value="#777777"/>
   <color name="steelblue3"                  value="#4f94cd"/>
 
+  <color name="dark_medium_blue_blend"      value="#00213F"/>
+
   <!-- Global Settings -->
 
   <style name="text"                        foreground="white" background="dark_blue"/>
@@ -58,10 +60,11 @@
   <style name="line-numbers"                foreground="light_blue" background="black_blue"/>
   <style name="draw-spaces"                 foreground="bluish_grey"/>
   <style name="right-margin"                foreground="light_grey" background="light_grey"/>
+  <style name="background-pattern"          background="dark_medium_blue_blend"/>
 
   <!-- Bracket Matching -->
   <style name="bracket-match"               background="steelblue3"/>
-  <style name="bracket-mismatch"            background="dark_red" bold="true"/>
+  <style name="bracket-mismatch"            background="dark_red"/>
 
   <!-- Search Matching -->
   <style name="search-match"                foreground="white" background="sea_green"/>
@@ -99,7 +102,7 @@
   <style name="def:error"                   foreground="white" background="dark_red" bold="true"/>
   <style name="def:warning"                 foreground="white" background="nail_polish_pink"/>
   <style name="def:note"                    foreground="neon_pink" bold="true"/>
-  <style name="def:net-address-in-comment"  foreground="teal_blue" italic="false" underline="true"/>
+  <style name="def:net-address-in-comment"  foreground="teal_blue" italic="false" underline="single"/>
   <style name="def:preprocessor"            foreground="light_grey"/>
 
   <!-- Heading styles, uncomment to enable -->

@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceCompletionWords: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch04.html" title="Completion">
 <link rel="prev" href="GtkSourceCompletionProvider.html" title="GtkSourceCompletionProvider">
-<link rel="next" href="GtkSourceEncoding.html" title="GtkSourceEncoding">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="next" href="ch05.html" title="File Loading and Saving">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -21,9 +21,9 @@
                   <a href="#GtkSourceCompletionWords.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceCompletionProvider.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkSourceEncoding.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="ch05.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkSourceCompletionWords"></a><div class="titlepage"></div>
@@ -36,7 +36,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -71,7 +71,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *</td>
+<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceCompletionWords.html#GtkSourceCompletionWords--icon" title="The “icon” property">icon</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
@@ -125,7 +125,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -138,7 +138,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceCompletionWords
 </pre>
 </div>
@@ -150,14 +150,14 @@ GtkSourceCompletionWords implements
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtksourceview/completion-providers/words/gtksourcecompletionwords.h&gt;
+<pre class="synopsis">#include &lt;gtksourceview/gtksource.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.description"></a><h2>Description</h2>
 <p>The <a class="link" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords"><span class="type">GtkSourceCompletionWords</span></a> is an example of an implementation of
 the <a class="link" href="GtkSourceCompletionProvider.html" title="GtkSourceCompletionProvider"><span class="type">GtkSourceCompletionProvider</span></a> interface. The proposals are words
-appearing in the registered <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a>s.</p>
+appearing in the registered <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a>s.</p>
 </div>
 <div class="refsect1">
 <a name="GtkSourceCompletionWords.functions_details"></a><h2>Functions</h2>
@@ -165,10 +165,10 @@ appearing in the registered <a href="http://developer.gnome.org/gtk2/GtkTextBuff
 <a name="gtk-source-completion-words-new"></a><h3>gtk_source_completion_words_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords"><span class="returnvalue">GtkSourceCompletionWords</span></a> *
 gtk_source_completion_words_new (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                 <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *icon</code></em>);</pre>
+                                 <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *icon</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.9.10.2.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-words-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -177,21 +177,20 @@ gtk_source_completion_words_new (<em class="parameter"><code>const <a href="http
 <tbody>
 <tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> The name for the provider. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> The name for the provider, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p> A specific icon for the provider. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> A specific icon for the provider, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.9.10.2.5"></a><h4>Returns</h4>
+<a name="gtk-source-completion-words-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords"><span class="type">GtkSourceCompletionWords</span></a> provider</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -199,13 +198,13 @@ gtk_source_completion_words_new (<em class="parameter"><code>const <a href="http
 <a name="gtk-source-completion-words-register"></a><h3>gtk_source_completion_words_register ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_completion_words_register (<em class="parameter"><code><a class="link" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords"><span class="type">GtkSourceCompletionWords</span></a> *words</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a> *buffer</code></em>);</pre>
+                                      <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> *buffer</code></em>);</pre>
 <p>Registers <em class="parameter"><code>buffer</code></em>
  in the <em class="parameter"><code>words</code></em>
  provider.</p>
 <div class="refsect3">
-<a name="id-1.2.9.10.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-words-register.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -219,7 +218,7 @@ gtk_source_completion_words_register (<em class="parameter"><code><a class="link
 </tr>
 <tr>
 <td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a></p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -232,13 +231,13 @@ gtk_source_completion_words_register (<em class="parameter"><code><a class="link
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_completion_words_unregister
                                (<em class="parameter"><code><a class="link" href="GtkSourceCompletionWords.html" title="GtkSourceCompletionWords"><span class="type">GtkSourceCompletionWords</span></a> *words</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a> *buffer</code></em>);</pre>
+                                <em class="parameter"><code><a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> *buffer</code></em>);</pre>
 <p>Unregisters <em class="parameter"><code>buffer</code></em>
  from the <em class="parameter"><code>words</code></em>
  provider.</p>
 <div class="refsect3">
-<a name="id-1.2.9.10.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-completion-words-unregister.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -252,7 +251,7 @@ gtk_source_completion_words_unregister
 </tr>
 <tr>
 <td class="parameter_name"><p>buffer</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk2/GtkTextBuffer.html"><span class="type">GtkTextBuffer</span></a></p></td>
+<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gtk4/GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -275,12 +274,12 @@ gtk_source_completion_words_unregister
 <p>The type of activation.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE | GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED</p>
-<p class="since">Since 3.10</p>
+<p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceCompletionWords--icon"></a><h3>The <code class="literal">“icon”</code> property</h3>
-<pre class="programlisting">  “icon”                     <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *</pre>
+<pre class="programlisting">  “icon”                     <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *</pre>
 <p>The provider icon.</p>
 <p>Flags: Read / Write / Construct</p>
 </div>
@@ -339,7 +338,6 @@ gtk_source_completion_words_unregister
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

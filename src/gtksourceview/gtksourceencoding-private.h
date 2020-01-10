@@ -19,10 +19,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_ENCODING_PRIVATE_H__
-#define __GTK_SOURCE_ENCODING_PRIVATE_H__
+#ifndef GTK_SOURCE_ENCODING_PRIVATE_H
+#define GTK_SOURCE_ENCODING_PRIVATE_H
 
 #include <glib.h>
+#include "gtksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
@@ -42,14 +43,10 @@ typedef enum _GtkSourceEncodingDuplicates
 	GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST
 } GtkSourceEncodingDuplicates;
 
-G_GNUC_INTERNAL
+GTK_SOURCE_INTERNAL
 GSList *		_gtk_source_encoding_remove_duplicates		(GSList                      *encodings,
 									 GtkSourceEncodingDuplicates  removal_type);
 
-G_GNUC_INTERNAL
-GSList *		_gtk_source_encoding_get_default_candidates	(void);
-
-
 G_END_DECLS
 
-#endif  /* __GTK_SOURCE_ENCODING_PRIVATE_H__ */
+#endif  /* GTK_SOURCE_ENCODING_PRIVATE_H */

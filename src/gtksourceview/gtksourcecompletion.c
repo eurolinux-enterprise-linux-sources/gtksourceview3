@@ -97,6 +97,10 @@
  * GtkSourceCompletionInfo for the main completion window.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "gtksourcecompletion.h"
 #include "gtksourcecompletion-private.h"
 #include "gtksourcecompletionmodel.h"
@@ -109,7 +113,6 @@
 #include "gtksourceview.h"
 #include "gtksourceview-i18n.h"
 
-/* Signals */
 enum
 {
 	SHOW,
@@ -121,7 +124,7 @@ enum
 	MOVE_CURSOR,
 	MOVE_PAGE,
 
-	LAST_SIGNAL
+	N_SIGNALS
 };
 
 enum
@@ -200,7 +203,7 @@ struct _GtkSourceCompletionPrivate
 	guint show_icons : 1;
 };
 
-static guint signals[LAST_SIGNAL] = { 0 };
+static guint signals[N_SIGNALS];
 
 static void	gtk_source_completion_buildable_interface_init (GtkBuildableIface *iface);
 
@@ -321,8 +324,14 @@ static GList *
 select_providers (GList                      *providers,
                   GtkSourceCompletionContext *context)
 {
+	GtkTextIter context_iter;
 	GList *selection = NULL;
 	GList *l;
+
+	if (!gtk_source_completion_context_get_iter (context, &context_iter))
+	{
+		return NULL;
+	}
 
 	for (l = providers; l != NULL; l = l->next)
 	{
@@ -473,7 +482,14 @@ update_window_position (GtkSourceCompletion *completion)
 
 	if (get_selected_proposal (completion, &provider, &proposal))
 	{
-		if (gtk_source_completion_provider_get_start_iter (provider,
+		GtkTextIter context_iter;
+		gboolean valid_context;
+
+		valid_context = gtk_source_completion_context_get_iter (completion->priv->context,
+									&context_iter);
+
+		if (valid_context &&
+		    gtk_source_completion_provider_get_start_iter (provider,
 		                                                   completion->priv->context,
 		                                                   proposal,
 		                                                   &iter))
@@ -666,6 +682,8 @@ gtk_source_completion_activate_proposal (GtkSourceCompletion *completion)
 	GtkSourceCompletionProvider *provider = NULL;
 	GtkSourceCompletionProposal *proposal = NULL;
 	GtkTextIter insert_iter;
+	GtkTextIter context_iter;
+	gboolean valid_context;
 	gboolean activated;
 
 	if (completion->priv->view == NULL)
@@ -684,7 +702,11 @@ gtk_source_completion_activate_proposal (GtkSourceCompletion *completion)
 
 	activated = gtk_source_completion_provider_activate_proposal (provider, proposal, &insert_iter);
 
-	if (!activated)
+	valid_context = (completion->priv->context != NULL &&
+			 gtk_source_completion_context_get_iter (completion->priv->context,
+								 &context_iter));
+
+	if (!activated && valid_context)
 	{
 		GtkTextIter start_iter;
 		gchar *text = gtk_source_completion_proposal_get_text (proposal);
@@ -1136,7 +1158,7 @@ get_accel_at_iter (GtkSourceCompletion *completion,
                    GtkTreeIter         *iter)
 {
 	GtkTreeIter it;
-	gint accel;
+	guint accel;
 
 	if (gtk_source_completion_model_iter_is_header (completion->priv->model_proposals, iter))
 	{
@@ -1200,7 +1222,7 @@ activate_by_accelerator (GtkSourceCompletion *completion,
 
 	num = num == 0 ? 9 : num - 1;
 
-	if (num < 0 || completion->priv->num_accelerators <= num)
+	if (num < 0 || completion->priv->num_accelerators <= (guint)num)
 	{
 		return FALSE;
 	}
@@ -1356,6 +1378,8 @@ update_completion (GtkSourceCompletion        *completion,
                    GtkSourceCompletionContext *context)
 {
 	GList *item;
+	GtkTextIter context_iter;
+	gboolean valid_context;
 
 	/* Copy the parameters, because they can be freed by reset_completion(). */
 	GList *providers_copy = g_list_copy (providers);
@@ -1374,10 +1398,15 @@ update_completion (GtkSourceCompletion        *completion,
 
 	replace_model (completion);
 
-	for (item = providers_copy; item != NULL; item = g_list_next (item))
+	valid_context = gtk_source_completion_context_get_iter (context_copy, &context_iter);
+
+	if (valid_context)
 	{
-		GtkSourceCompletionProvider *provider = item->data;
-		gtk_source_completion_provider_populate (provider, context_copy);
+		for (item = providers_copy; item != NULL; item = g_list_next (item))
+		{
+			GtkSourceCompletionProvider *provider = item->data;
+			gtk_source_completion_provider_populate (provider, context_copy);
+		}
 	}
 
 	g_list_free (providers_copy);
@@ -1548,12 +1577,35 @@ style_context_changed (GtkStyleContext     *style_context,
 {
 	PangoFontDescription *font_desc = NULL;
 
-	gtk_style_context_get (style_context, GTK_STATE_FLAG_NORMAL,
+	gtk_style_context_save (style_context);
+	gtk_style_context_set_state (style_context, GTK_STATE_FLAG_NORMAL);
+
+	gtk_style_context_get (style_context,
+			       gtk_style_context_get_state (style_context),
 			       GTK_STYLE_PROPERTY_FONT, &font_desc,
 			       NULL);
+
+	gtk_style_context_restore (style_context);
+
+	/*
+	 * Work around issue where when a proposal provides "<b>markup</b>" and
+	 * the weight is set in the font description, the <b> markup will not
+	 * have it's weight respected. This seems to be happening because the
+	 * weight mask is getting set in pango_font_description_from_string()
+	 * even if the the value is set to normal. That matter is complicated
+	 * because PangoAttrFontDesc and PangoAttrWeight will both have the
+	 * same starting offset in the PangoLayout.
+	 * https://bugzilla.gnome.org/show_bug.cgi?id=755968
+	 */
+	if (PANGO_WEIGHT_NORMAL == pango_font_description_get_weight (font_desc))
+	{
+		pango_font_description_unset_fields (font_desc, PANGO_FONT_MASK_WEIGHT);
+	}
+
 	g_object_set (completion->priv->cell_renderer_proposal,
 		      "font-desc", font_desc,
 		      NULL);
+
 	pango_font_description_free (font_desc);
 }
 
@@ -1924,6 +1976,51 @@ accelerators_notify_cb (GtkSourceCompletion *completion,
 }
 
 static void
+cell_icon_func (GtkTreeViewColumn *column,
+                GtkCellRenderer   *cell,
+                GtkTreeModel      *model,
+                GtkTreeIter       *iter,
+                gpointer           data)
+{
+	GdkPixbuf *pixbuf;
+	gchar *icon_name;
+	GIcon *gicon;
+	gboolean set = FALSE;
+
+	gtk_tree_model_get (model, iter,
+	                    GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON, &pixbuf,
+	                    GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON_NAME, &icon_name,
+	                    GTK_SOURCE_COMPLETION_MODEL_COLUMN_GICON, &gicon,
+	                    -1);
+
+	if (pixbuf != NULL)
+	{
+		g_object_set (cell, "pixbuf", pixbuf, NULL);
+		g_object_unref (pixbuf);
+		set = TRUE;
+	}
+
+	if (icon_name != NULL)
+	{
+		g_object_set (cell, "icon-name", icon_name, NULL);
+		g_free (icon_name);
+		set = TRUE;
+	}
+
+	if (gicon != NULL)
+	{
+		g_object_set (cell, "gicon", gicon, NULL);
+		g_object_unref (gicon);
+		set = TRUE;
+	}
+
+	if (!set)
+	{
+		g_object_set (cell, "icon-name", NULL, NULL);
+	}
+}
+
+static void
 init_tree_view (GtkSourceCompletion *completion,
 		GtkBuilder          *builder)
 {
@@ -1966,15 +2063,35 @@ init_tree_view (GtkSourceCompletion *completion,
 
 	column = GTK_TREE_VIEW_COLUMN (gtk_builder_get_object (builder, "tree_view_column_icon"));
 
+	/* We use a cell function instead of plain attributes for the icon since
+	 * the pixbuf renderer will not renderer any icon if pixbuf is set to NULL.
+	 * See https://bugzilla.gnome.org/show_bug.cgi?id=753510
+	 */
+	gtk_tree_view_column_set_cell_data_func (column,
+	                                         cell_renderer,
+	                                         cell_icon_func,
+	                                         NULL,
+	                                         NULL);
+
 	gtk_tree_view_column_set_attributes (column, cell_renderer,
-					     "pixbuf", GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON,
 					     "cell-background-set", GTK_SOURCE_COMPLETION_MODEL_COLUMN_IS_HEADER,
 					     NULL);
 
 	style_context = gtk_widget_get_style_context (GTK_WIDGET (completion->priv->tree_view_proposals));
-	gtk_style_context_get_background_color (style_context,
-	                                        GTK_STATE_FLAG_INSENSITIVE,
-	                                        &background_color);
+
+	gtk_style_context_save (style_context);
+	gtk_style_context_set_state (style_context, GTK_STATE_FLAG_INSENSITIVE);
+
+	gtk_style_context_get (style_context,
+			       gtk_style_context_get_state (style_context),
+			       "background-color", &background_color,
+			       NULL);
+
+	gtk_style_context_get_color (style_context,
+				     gtk_style_context_get_state (style_context),
+				     &foreground_color);
+
+	gtk_style_context_restore (style_context);
 
 	g_object_set (cell_renderer,
 	              "cell-background-rgba", &background_color,
@@ -1996,10 +2113,6 @@ init_tree_view (GtkSourceCompletion *completion,
 					     "cell-background-set", GTK_SOURCE_COMPLETION_MODEL_COLUMN_IS_HEADER,
 					     "foreground-set", GTK_SOURCE_COMPLETION_MODEL_COLUMN_IS_HEADER,
 					     NULL);
-
-	gtk_style_context_get_color (style_context,
-	                             GTK_STATE_FLAG_INSENSITIVE,
-	                             &foreground_color);
 
 	g_object_set (cell_renderer,
 	              "foreground-rgba", &foreground_color,
@@ -2184,10 +2297,12 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_VIEW,
 					 g_param_spec_object ("view",
-							      _("View"),
-							      _("The GtkSourceView bound to the completion"),
+							      "View",
+							      "The GtkSourceView bound to the completion",
 							      GTK_SOURCE_TYPE_VIEW,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+							      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT_ONLY |
+							      G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:remember-info-visibility:
@@ -2199,10 +2314,12 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_REMEMBER_INFO_VISIBILITY,
 					 g_param_spec_boolean ("remember-info-visibility",
-							      _("Remember Info Visibility"),
-							      _("Remember the last info window visibility state"),
-							      FALSE,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       "Remember Info Visibility",
+							       "Remember the last info window visibility state",
+							       FALSE,
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 	/**
 	 * GtkSourceCompletion:select-on-show:
 	 *
@@ -2212,10 +2329,12 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_SELECT_ON_SHOW,
 					 g_param_spec_boolean ("select-on-show",
-							      _("Select on Show"),
-							      _("Select first proposal when completion is shown"),
-							      TRUE,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       "Select on Show",
+							       "Select first proposal when completion is shown",
+							       TRUE,
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:show-headers:
@@ -2226,10 +2345,12 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_SHOW_HEADERS,
 					 g_param_spec_boolean ("show-headers",
-							      _("Show Headers"),
-							      _("Show provider headers when proposals from multiple providers are available"),
-							      TRUE,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       "Show Headers",
+							       "Show provider headers when proposals from multiple providers are available",
+							       TRUE,
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:show-icons:
@@ -2240,10 +2361,12 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_SHOW_ICONS,
 					 g_param_spec_boolean ("show-icons",
-							      _("Show Icons"),
-							      _("Show provider and proposal icons in the completion popup"),
-							      TRUE,
-							      G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							       "Show Icons",
+							       "Show provider and proposal icons in the completion popup",
+							       TRUE,
+							       G_PARAM_READWRITE |
+							       G_PARAM_CONSTRUCT |
+							       G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:accelerators:
@@ -2255,12 +2378,14 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_ACCELERATORS,
 	                                 g_param_spec_uint ("accelerators",
-	                                                    _("Accelerators"),
-	                                                    _("Number of proposal accelerators to show"),
+	                                                    "Accelerators",
+	                                                    "Number of proposal accelerators to show",
 	                                                    0,
 	                                                    10,
 	                                                    5,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	                                                    G_PARAM_READWRITE |
+							    G_PARAM_CONSTRUCT |
+							    G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:auto-complete-delay:
@@ -2271,12 +2396,14 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_AUTO_COMPLETE_DELAY,
 					 g_param_spec_uint ("auto-complete-delay",
-							    _("Auto Complete Delay"),
-							    _("Completion popup delay for interactive completion"),
+							    "Auto Complete Delay",
+							    "Completion popup delay for interactive completion",
 							    0,
 							    G_MAXUINT,
 							    250,
-							    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+							    G_PARAM_READWRITE |
+							    G_PARAM_CONSTRUCT |
+							    G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:provider-page-size:
@@ -2288,12 +2415,14 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_PROVIDER_PAGE_SIZE,
 	                                 g_param_spec_uint ("provider-page-size",
-	                                                    _("Provider Page Size"),
-	                                                    _("Provider scrolling page size"),
+	                                                    "Provider Page Size",
+	                                                    "Provider scrolling page size",
 	                                                    1,
 	                                                    G_MAXUINT,
 	                                                    5,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	                                                    G_PARAM_READWRITE |
+							    G_PARAM_CONSTRUCT |
+							    G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion:proposal-page-size:
@@ -2309,12 +2438,14 @@ gtk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	g_object_class_install_property (object_class,
 	                                 PROP_PROPOSAL_PAGE_SIZE,
 	                                 g_param_spec_uint ("proposal-page-size",
-	                                                    _("Proposal Page Size"),
-	                                                    _("Proposal scrolling page size"),
+	                                                    "Proposal Page Size",
+	                                                    "Proposal scrolling page size",
 	                                                    1,
 	                                                    G_MAXUINT,
 	                                                    5,
-	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+	                                                    G_PARAM_READWRITE |
+							    G_PARAM_CONSTRUCT |
+							    G_PARAM_STATIC_STRINGS));
 
 	/**
 	 * GtkSourceCompletion::show:
@@ -2625,7 +2756,7 @@ _gtk_source_completion_add_proposals (GtkSourceCompletion         *completion,
 /**
  * gtk_source_completion_show:
  * @completion: a #GtkSourceCompletion.
- * @providers: (element-type GtkSource.CompletionProvider) (allow-none):
+ * @providers: (element-type GtkSource.CompletionProvider) (nullable):
  * a list of #GtkSourceCompletionProvider, or %NULL.
  * @context: (transfer floating): The #GtkSourceCompletionContext
  * with which to start the completion.
@@ -2743,7 +2874,7 @@ gtk_source_completion_new (GtkSourceView *view)
  * gtk_source_completion_add_provider:
  * @completion: a #GtkSourceCompletion.
  * @provider: a #GtkSourceCompletionProvider.
- * @error: (allow-none): a #GError.
+ * @error: a #GError.
  *
  * Add a new #GtkSourceCompletionProvider to the completion object. This will
  * add a reference @provider, so make sure to unref your own copy when you
@@ -2788,7 +2919,7 @@ gtk_source_completion_add_provider (GtkSourceCompletion          *completion,
  * gtk_source_completion_remove_provider:
  * @completion: a #GtkSourceCompletion.
  * @provider: a #GtkSourceCompletionProvider.
- * @error: (allow-none): a #GError.
+ * @error: a #GError.
  *
  * Remove @provider from the completion.
  *
@@ -2876,7 +3007,7 @@ gtk_source_completion_get_info_window (GtkSourceCompletion *completion)
  * The #GtkSourceView associated with @completion, or %NULL if the view has been
  * destroyed.
  *
- * Returns: (type GtkSource.View) (transfer none):
+ * Returns: (type GtkSource.View) (nullable) (transfer none):
  * The #GtkSourceView associated with @completion, or %NULL.
  */
 GtkSourceView *
@@ -2890,7 +3021,7 @@ gtk_source_completion_get_view (GtkSourceCompletion *completion)
 /**
  * gtk_source_completion_create_context:
  * @completion: a #GtkSourceCompletion.
- * @position: (allow-none): a #GtkTextIter, or %NULL.
+ * @position: (nullable): a #GtkTextIter, or %NULL.
  *
  * Create a new #GtkSourceCompletionContext for @completion. The position where
  * the completion occurs can be specified by @position. If @position is %NULL,

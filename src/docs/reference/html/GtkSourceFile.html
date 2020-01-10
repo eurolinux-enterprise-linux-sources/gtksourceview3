@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkSourceFile: GtkSourceView 3 Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="ch01.html" title="API reference">
+<link rel="up" href="ch05.html" title="File Loading and Saving">
 <link rel="prev" href="GtkSourceEncoding.html" title="GtkSourceEncoding">
 <link rel="next" href="GtkSourceFileLoader.html" title="GtkSourceFileLoader">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,7 +20,7 @@
                   <a href="#GtkSourceFile.properties" class="shortcut">Properties</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="GtkSourceEncoding.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="GtkSourceFileLoader.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="GtkSourceFile.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -43,7 +43,7 @@
 <tbody>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html"><span class="returnvalue">GMountOperation</span></a> *
+<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#GMountOperation-struct"><span class="returnvalue">GMountOperation</span></a> *
 </td>
 <td class="function_name">
 <span class="c_punctuation">(</span><a class="link" href="GtkSourceFile.html#GtkSourceMountOperationFactory" title="GtkSourceMountOperationFactory ()">*GtkSourceMountOperationFactory</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
@@ -59,7 +59,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *
+<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceFile.html#gtk-source-file-get-location" title="gtk_source_file_get_location ()">gtk_source_file_get_location</a> <span class="c_punctuation">()</span>
@@ -101,6 +101,46 @@
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
+<a class="link" href="GtkSourceFile.html#gtk-source-file-check-file-on-disk" title="gtk_source_file_check_file_on_disk ()">gtk_source_file_check_file_on_disk</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceFile.html#gtk-source-file-is-local" title="gtk_source_file_is_local ()">gtk_source_file_is_local</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceFile.html#gtk-source-file-is-externally-modified" title="gtk_source_file_is_externally_modified ()">gtk_source_file_is_externally_modified</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceFile.html#gtk-source-file-is-deleted" title="gtk_source_file_is_deleted ()">gtk_source_file_is_deleted</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtkSourceFile.html#gtk-source-file-is-readonly" title="gtk_source_file_is_readonly ()">gtk_source_file_is_readonly</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
 <a class="link" href="GtkSourceFile.html#gtk-source-file-set-mount-operation-factory" title="gtk_source_file_set_mount_operation_factory ()">gtk_source_file_set_mount_operation_factory</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
@@ -109,7 +149,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFile.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -129,13 +169,18 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> *</td>
+<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkSourceFile.html#GtkSourceFile--location" title="The “location” property">location</a></td>
-<td class="property_flags">Read / Write</td>
+<td class="property_flags">Read / Write / Construct</td>
 </tr>
 <tr>
 <td class="property_type"><a class="link" href="GtkSourceFile.html#GtkSourceNewlineType" title="enum GtkSourceNewlineType"><span class="type">GtkSourceNewlineType</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourceFile.html#GtkSourceFile--newline-type" title="The “newline-type” property">newline-type</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkSourceFile.html#GtkSourceFile--read-only" title="The “read-only” property">read-only</a></td>
 <td class="property_flags">Read</td>
 </tr>
 </tbody>
@@ -143,7 +188,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFile.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -170,7 +215,10 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceFile.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Enumeration-and-Flag-Types.html">GEnum</a>
+    <span class="lineart">├──</span> GtkSourceCompressionType
+    <span class="lineart">╰──</span> GtkSourceNewlineType
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceFile
 </pre>
 </div>
@@ -193,14 +241,14 @@ have still the previous valid values.</p>
 <a name="GtkSourceFile.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="GtkSourceMountOperationFactory"></a><h3>GtkSourceMountOperationFactory ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GMountOperation.html"><span class="returnvalue">GMountOperation</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#GMountOperation-struct"><span class="returnvalue">GMountOperation</span></a> *
 <span class="c_punctuation">(</span>*GtkSourceMountOperationFactory<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> userdata</code></em>);</pre>
 <p>Type definition for a function that will be called to create a
-<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html"><span class="type">GMountOperation</span></a>. This is useful for creating a <a href="http://developer.gnome.org/gtk2/gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a>.</p>
+<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#GMountOperation-struct"><span class="type">GMountOperation</span></a>. This is useful for creating a <a href="http://developer.gnome.org/gtk4/gtk4-Filesystem-utilities.html#GtkMountOperation-struct"><span class="type">GtkMountOperation</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.11.9.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceMountOperationFactory.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -220,7 +268,7 @@ have still the previous valid values.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -228,20 +276,19 @@ have still the previous valid values.</p>
 <pre class="programlisting"><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="returnvalue">GtkSourceFile</span></a> *
 gtk_source_file_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.9.3.4"></a><h4>Returns</h4>
+<a name="gtk-source-file-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> object.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-file-get-location"></a><h3>gtk_source_file_get_location ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
 gtk_source_file_get_location (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.9.4.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-get-location.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -255,22 +302,22 @@ gtk_source_file_get_location (<em class="parameter"><code><a class="link" href="
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.9.4.5"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a>. </p>
+<a name="gtk-source-file-get-location.returns"></a><h4>Returns</h4>
+<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-file-set-location"></a><h3>gtk_source_file_set_location ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_file_set_location (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> *location</code></em>);</pre>
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *location</code></em>);</pre>
 <p>Sets the location.</p>
 <div class="refsect3">
-<a name="id-1.2.11.9.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-set-location.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -284,13 +331,13 @@ gtk_source_file_set_location (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>location</p></td>
-<td class="parameter_description"><p> the new <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p> the new <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -300,8 +347,8 @@ gtk_source_file_get_encoding (<em class="parameter"><code><a class="link" href="
 <p>The encoding is initially <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. After a successful file loading or saving
 operation, the encoding is non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.11.9.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-get-encoding.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -315,11 +362,10 @@ operation, the encoding is non-<a href="https://developer.gnome.org/glib/unstabl
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.9.6.6"></a><h4>Returns</h4>
+<a name="gtk-source-file-get-encoding.returns"></a><h4>Returns</h4>
 <p> the character encoding.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -327,8 +373,8 @@ operation, the encoding is non-<a href="https://developer.gnome.org/glib/unstabl
 <pre class="programlisting"><a class="link" href="GtkSourceFile.html#GtkSourceNewlineType" title="enum GtkSourceNewlineType"><span class="returnvalue">GtkSourceNewlineType</span></a>
 gtk_source_file_get_newline_type (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.9.7.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-get-newline-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -342,11 +388,10 @@ gtk_source_file_get_newline_type (<em class="parameter"><code><a class="link" hr
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.9.7.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-get-newline-type.returns"></a><h4>Returns</h4>
 <p> the newline type.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -354,8 +399,8 @@ gtk_source_file_get_newline_type (<em class="parameter"><code><a class="link" hr
 <pre class="programlisting"><a class="link" href="GtkSourceFile.html#GtkSourceCompressionType" title="enum GtkSourceCompressionType"><span class="returnvalue">GtkSourceCompressionType</span></a>
 gtk_source_file_get_compression_type (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.11.9.8.4"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-get-compression-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -369,11 +414,158 @@ gtk_source_file_get_compression_type (<em class="parameter"><code><a class="link
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.11.9.8.5"></a><h4>Returns</h4>
+<a name="gtk-source-file-get-compression-type.returns"></a><h4>Returns</h4>
 <p> the compression type.</p>
-<p></p>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-file-check-file-on-disk"></a><h3>gtk_source_file_check_file_on_disk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_source_file_check_file_on_disk (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
+<p>Checks synchronously the file on disk, to know whether the file is externally
+modified, or has been deleted, and whether the file is read-only.</p>
+<p><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> doesn't create a <a href="https://developer.gnome.org/gio/unstable/GFileMonitor.html#GFileMonitor-struct"><span class="type">GFileMonitor</span></a> to track those properties, so
+this function needs to be called instead. Creating lots of <a href="https://developer.gnome.org/gio/unstable/GFileMonitor.html#GFileMonitor-struct"><span class="type">GFileMonitor</span></a>'s
+would take lots of resources.</p>
+<p>Since this function is synchronous, it is advised to call it only on local
+files. See <a class="link" href="GtkSourceFile.html#gtk-source-file-is-local" title="gtk_source_file_is_local ()"><code class="function">gtk_source_file_is_local()</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-file-check-file-on-disk.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-file-is-local"></a><h3>gtk_source_file_is_local ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_file_is_local (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
+<p>Returns whether the file is local. If the <a class="link" href="GtkSourceFile.html#GtkSourceFile--location" title="The “location” property"><span class="type">“location”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,
+returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-file-is-local.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-file-is-local.returns"></a><h4>Returns</h4>
+<p> whether the file is local.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-file-is-externally-modified"></a><h3>gtk_source_file_is_externally_modified ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_file_is_externally_modified
+                               (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
+<p>Returns whether the file is externally modified. If the
+<a class="link" href="GtkSourceFile.html#GtkSourceFile--location" title="The “location” property"><span class="type">“location”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+<p>To have an up-to-date value, you must first call
+<a class="link" href="GtkSourceFile.html#gtk-source-file-check-file-on-disk" title="gtk_source_file_check_file_on_disk ()"><code class="function">gtk_source_file_check_file_on_disk()</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-file-is-externally-modified.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-file-is-externally-modified.returns"></a><h4>Returns</h4>
+<p> whether the file is externally modified.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-file-is-deleted"></a><h3>gtk_source_file_is_deleted ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_file_is_deleted (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
+<p>Returns whether the file has been deleted. If the
+<a class="link" href="GtkSourceFile.html#GtkSourceFile--location" title="The “location” property"><span class="type">“location”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+<p>To have an up-to-date value, you must first call
+<a class="link" href="GtkSourceFile.html#gtk-source-file-check-file-on-disk" title="gtk_source_file_check_file_on_disk ()"><code class="function">gtk_source_file_check_file_on_disk()</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-file-is-deleted.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-file-is-deleted.returns"></a><h4>Returns</h4>
+<p> whether the file has been deleted.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-source-file-is-readonly"></a><h3>gtk_source_file_is_readonly ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtk_source_file_is_readonly (<em class="parameter"><code><a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a> *file</code></em>);</pre>
+<p>Returns whether the file is read-only. If the
+<a class="link" href="GtkSourceFile.html#GtkSourceFile--location" title="The “location” property"><span class="type">“location”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+<p>To have an up-to-date value, you must first call
+<a class="link" href="GtkSourceFile.html#gtk-source-file-check-file-on-disk" title="gtk_source_file_check_file_on_disk ()"><code class="function">gtk_source_file_check_file_on_disk()</code></a>.</p>
+<div class="refsect3">
+<a name="gtk-source-file-is-readonly.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkSourceFile.html" title="GtkSourceFile"><span class="type">GtkSourceFile</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-source-file-is-readonly.returns"></a><h4>Returns</h4>
+<p> whether the file is read-only.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -385,13 +577,13 @@ gtk_source_file_set_mount_operation_factory
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
 <p>Sets a <a class="link" href="GtkSourceFile.html#GtkSourceMountOperationFactory" title="GtkSourceMountOperationFactory ()"><span class="type">GtkSourceMountOperationFactory</span></a> function that will be called when a
-<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html"><span class="type">GMountOperation</span></a> must be created. This is useful for creating a
-<a href="http://developer.gnome.org/gtk2/gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> with the parent <a href="http://developer.gnome.org/gtk2/GtkWindow.html"><span class="type">GtkWindow</span></a>.</p>
+<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#GMountOperation-struct"><span class="type">GMountOperation</span></a> must be created. This is useful for creating a
+<a href="http://developer.gnome.org/gtk4/gtk4-Filesystem-utilities.html#GtkMountOperation-struct"><span class="type">GtkMountOperation</span></a> with the parent <a href="http://developer.gnome.org/gtk4/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a>.</p>
 <p>If a mount operation factory isn't set, <a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#g-mount-operation-new"><code class="function">g_mount_operation_new()</code></a> will be
 called.</p>
 <div class="refsect3">
-<a name="id-1.2.11.9.9.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="gtk-source-file-set-mount-operation-factory.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -406,7 +598,7 @@ called.</p>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
 <td class="parameter_description"><p> a <a class="link" href="GtkSourceFile.html#GtkSourceMountOperationFactory" title="GtkSourceMountOperationFactory ()"><span class="type">GtkSourceMountOperationFactory</span></a> to call when a
-<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html"><span class="type">GMountOperation</span></a> is needed. </p></td>
+<a href="https://developer.gnome.org/gio/unstable/GMountOperation.html#GMountOperation-struct"><span class="type">GMountOperation</span></a> is needed. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until the GDestroyNotify argument is called."><span class="acronym">scope notified</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -426,7 +618,7 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -439,8 +631,8 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <div class="refsect2">
 <a name="GtkSourceNewlineType"></a><h3>enum GtkSourceNewlineType</h3>
 <div class="refsect3">
-<a name="id-1.2.11.10.3.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceNewlineType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -472,7 +664,7 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -480,14 +672,14 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <pre class="programlisting">#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_CR_LF
 </pre>
 <p>The default newline type on the current OS.</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceCompressionType"></a><h3>enum GtkSourceCompressionType</h3>
 <div class="refsect3">
-<a name="id-1.2.11.10.5.3"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="GtkSourceCompressionType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -511,7 +703,7 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -522,7 +714,7 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <p>The compression type.</p>
 <p>Flags: Read</p>
 <p>Default value: GTK_SOURCE_COMPRESSION_TYPE_NONE</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -531,15 +723,15 @@ longer needed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <p>The character encoding, initially <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. After a successful file
 loading or saving operation, the encoding is non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
 <p>Flags: Read</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceFile--location"></a><h3>The <code class="literal">“location”</code> property</h3>
-<pre class="programlisting">  “location”                 <a href="https://developer.gnome.org/gio/unstable/GFile.html"><span class="type">GFile</span></a> *</pre>
+<pre class="programlisting">  “location”                 <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *</pre>
 <p>The location.</p>
-<p>Flags: Read / Write</p>
-<p class="since">Since 3.14</p>
+<p>Flags: Read / Write / Construct</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -548,7 +740,17 @@ loading or saving operation, the encoding is non-<a href="https://developer.gnom
 <p>The line ending type.</p>
 <p>Flags: Read</p>
 <p>Default value: GTK_SOURCE_NEWLINE_TYPE_LF</p>
-<p class="since">Since 3.14</p>
+<p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSourceFile--read-only"></a><h3>The <code class="literal">“read-only”</code> property</h3>
+<pre class="programlisting">  “read-only”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether the file is read-only or not. The value of this property is
+not updated automatically (there is no file monitors).</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="api-index-3-18.html#api-index-3.18">3.18</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -557,7 +759,6 @@ loading or saving operation, the encoding is non-<a href="https://developer.gnom
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

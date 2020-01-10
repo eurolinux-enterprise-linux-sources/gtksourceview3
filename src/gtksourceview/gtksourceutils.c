@@ -20,6 +20,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 /**
  * SECTION:utils
  * @title: GtkSourceUtils
@@ -36,7 +40,7 @@
  * @text: the text to unescape.
  *
  * Use this function before gtk_source_search_settings_set_search_text(), to
- * unescape the following sequences of characters: \n, \r, \t and \\.
+ * unescape the following sequences of characters: `\n`, `\r`, `\t` and `\\`.
  * The purpose is to easily write those characters in a search entry.
  *
  * Note that unescaping the search text is not needed for regular expression
@@ -127,7 +131,7 @@ gtk_source_utils_unescape_search_text (const gchar *text)
  * gtk_source_utils_escape_search_text:
  * @text: the text to escape.
  *
- * Use this function to escape the following characters: \n, \r, \t and \.
+ * Use this function to escape the following characters: `\n`, `\r`, `\t` and `\`.
  *
  * For a regular expression search, use g_regex_escape_string() instead.
  *
@@ -138,7 +142,7 @@ gtk_source_utils_unescape_search_text (const gchar *text)
  * See also: gtk_source_utils_unescape_search_text().
  *
  * <warning>
- * The escape and unescape functions are not reciprocal! For example,
+ * Warning: the escape and unescape functions are not reciprocal! For example,
  * escape (unescape (\)) = \\. So avoid cycles such as: search entry -> unescape
  * -> search settings -> escape -> search entry. The original search entry text
  * may be modified.

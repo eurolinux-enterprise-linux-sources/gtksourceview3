@@ -19,10 +19,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 #include "gtksourcepixbufhelper.h"
 
-typedef enum
+typedef enum _IconType
 {
 	ICON_TYPE_PIXBUF,
 	ICON_TYPE_STOCK,
@@ -279,20 +278,37 @@ from_name (GtkSourcePixbufHelper *helper,
 	GtkIconTheme *icon_theme;
 	GtkIconInfo *info;
 	GtkIconLookupFlags flags;
+	gint scale;
 
 	screen = gtk_widget_get_screen (widget);
 	icon_theme = gtk_icon_theme_get_for_screen (screen);
 
 	flags = GTK_ICON_LOOKUP_USE_BUILTIN;
+        scale = gtk_widget_get_scale_factor (widget);
 
-	info = gtk_icon_theme_lookup_icon (icon_theme,
-	                                   helper->icon_name,
-	                                   size,
-	                                   flags);
+	info = gtk_icon_theme_lookup_icon_for_scale (icon_theme,
+	                                             helper->icon_name,
+	                                             size,
+	                                             scale,
+	                                             flags);
 
 	if (info)
 	{
-		set_cache (helper, gtk_icon_info_load_icon (info, NULL));
+		GdkPixbuf *pixbuf;
+
+		if (gtk_icon_info_is_symbolic (info))
+		{
+			GtkStyleContext *context;
+
+			context = gtk_widget_get_style_context (widget);
+			pixbuf = gtk_icon_info_load_symbolic_for_context (info, context, NULL, NULL);
+		}
+		else
+		{
+			pixbuf = gtk_icon_info_load_icon (info, NULL);
+		}
+
+		set_cache (helper, pixbuf);
 	}
 }
 
@@ -321,6 +337,8 @@ gtk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
 		case ICON_TYPE_NAME:
 			from_name (helper, widget, size);
 			break;
+		default:
+			g_assert_not_reached ();
 	}
 
 	return helper->cached_pixbuf;

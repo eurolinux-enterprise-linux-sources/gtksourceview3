@@ -19,8 +19,16 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef __GTK_SOURCE_SEARCH_SETTINGS_H__
-#define __GTK_SOURCE_SEARCH_SETTINGS_H__
+#ifndef GTK_SOURCE_SEARCH_SETTINGS_H
+#define GTK_SOURCE_SEARCH_SETTINGS_H
+
+#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#  if defined (__GNUC__)
+#    warning "Only <gtksourceview/gtksource.h> can be included directly."
+#  elif defined (G_OS_WIN32)
+#    pragma message("Only <gtksourceview/gtksource.h> can be included directly.")
+#  endif
+#endif
 
 #include <glib-object.h>
 #include <gtksourceview/gtksourcetypes.h>
@@ -51,35 +59,47 @@ struct _GtkSourceSearchSettingsClass
 	gpointer padding[10];
 };
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 GType			 gtk_source_search_settings_get_type			(void) G_GNUC_CONST;
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceSearchSettings *gtk_source_search_settings_new				(void);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 void			 gtk_source_search_settings_set_search_text		(GtkSourceSearchSettings *settings,
 										 const gchar		 *search_text);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 const gchar		*gtk_source_search_settings_get_search_text		(GtkSourceSearchSettings *settings);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 void			 gtk_source_search_settings_set_case_sensitive		(GtkSourceSearchSettings *settings,
 										 gboolean		  case_sensitive);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean		 gtk_source_search_settings_get_case_sensitive		(GtkSourceSearchSettings *settings);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 void			 gtk_source_search_settings_set_at_word_boundaries	(GtkSourceSearchSettings *settings,
 										 gboolean		  at_word_boundaries);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean		 gtk_source_search_settings_get_at_word_boundaries	(GtkSourceSearchSettings *settings);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 void			 gtk_source_search_settings_set_wrap_around		(GtkSourceSearchSettings *settings,
 										 gboolean		  wrap_around);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean		 gtk_source_search_settings_get_wrap_around		(GtkSourceSearchSettings *settings);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 void			 gtk_source_search_settings_set_regex_enabled		(GtkSourceSearchSettings *settings,
 										 gboolean		  regex_enabled);
 
+GTK_SOURCE_AVAILABLE_IN_ALL
 gboolean		 gtk_source_search_settings_get_regex_enabled		(GtkSourceSearchSettings *settings);
 
 G_END_DECLS
 
-#endif /* __GTK_SOURCE_SEARCH_SETTINGS_H__ */
+#endif /* GTK_SOURCE_SEARCH_SETTINGS_H */

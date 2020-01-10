@@ -8,7 +8,10 @@ DOC_MODULE = gtksourceview-3.0
 DOC_MAIN_SGML_FILE = gtksourceview-docs.xml
 
 # Extra options to supply to gtkdoc-scan
-SCAN_OPTIONS = --deprecated-guards='GTKSOURCEVIEW_DISABLE_DEPRECATED' --rebuild-types
+SCAN_OPTIONS =								\
+	--deprecated-guards='GTKSOURCEVIEW_DISABLE_DEPRECATED'		\
+	--rebuild-types							\
+	--ignore-decorators='GTK_SOURCE_DEPRECATED\w*\s*\([^)]*\)|GTK_SOURCE_DEPRECATED\w*|GTK_SOURCE_AVAILABLE\w*'
 
 # The directory containing the source code. Relative to $(srcdir)
 DOC_SOURCE_DIR = $(top_srcdir)/gtksourceview
@@ -17,12 +20,21 @@ DOC_SOURCE_DIR = $(top_srcdir)/gtksourceview
 HFILE_GLOB = $(top_srcdir)/gtksourceview/*.h
 CFILE_GLOB = $(top_srcdir)/gtksourceview/*.c
 
+# Extra header to include when scanning, which are not under DOC_SOURCE_DIR
+# e.g. EXTRA_HFILES = $(top_srcdir}/contrib/extra.h
+EXTRA_HFILES =								\
+	$(top_builddir)/gtksourceview/gtksourceversion.h		\
+	$(top_builddir)/gtksourceview/gtksourceview-enumtypes.h
+
 # Header files or dirs to ignore when scanning. Use base file/dir names
 # e.g. IGNORE_HFILES=gtkdebug.h gtkintl.h private_code
 IGNORE_HFILES =					\
 	config.h				\
+	gconstructor.h				\
+	gtksource.h				\
 	gtksourcebuffer-private.h		\
 	gtksourcebufferinputstream.h		\
+	gtksourcebufferinternal.h		\
 	gtksourcebufferoutputstream.h		\
 	gtksourcecompletioncontainer.h		\
 	gtksourcecompletionmodel.h		\
@@ -38,25 +50,17 @@ IGNORE_HFILES =					\
 	gtksourcegutterrendererlines.h		\
 	gtksourcegutterrenderermarks.h		\
 	gtksourcegutterrenderer-private.h	\
+	gtksourceiter.h				\
 	gtksourcelanguage-private.h		\
 	gtksourcemarkssequence.h		\
 	gtksourcepixbufhelper.h			\
 	gtksourceregex.h			\
+	gtksourcespacedrawer.h			\
 	gtksourcestyle-private.h		\
 	gtksourcetypes-private.h		\
 	gtksourceundomanagerdefault.h		\
 	gtksourceview-i18n.h			\
-	gtksourceview-typebuiltins.h		\
-	gtksourceview-utils.h			\
-	gtktextregion.h
-
-update-sections: $(HFILE_GLOB)
-	@echo 'gtk-doc: Scanning header files'
-	cp $(DOC_MODULE)-sections.txt $(DOC_MODULE)-sections.txt.old && \
-	(cd $(srcdir) && \
-	  gtkdoc-scan --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --ignore-headers="$(IGNORE_HFILES)" --rebuild-sections $(SCAN_OPTIONS) $(EXTRA_HFILES)) && \
-	cp $(DOC_MODULE)-sections.txt $(DOC_MODULE)-sections.txt.new && \
-	mv $(DOC_MODULE)-sections.txt.old $(DOC_MODULE)-sections.txt
+	gtksourceview-utils.h
 
 # Extra options to supply to gtkdoc-mkdb
 MKDB_OPTIONS = --xml-mode --output-format=xml
@@ -66,20 +70,12 @@ HTML_IMAGES =
 
 # Extra XML files that are included by $(DOC_MAIN_SGML_FILE)
 content_files =			\
-	version.xml		\
 	lang-tutorial.xml	\
 	lang-reference.xml	\
 	style-reference.xml
 
 # Extra options to supply to gtkdoc-fixref
-FIXXREF_OPTIONS =							\
-	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/gobject		\
-	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/glib		\
-	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/gio		\
-	--extra-dir=$(GTK_PREFIX)/share/gtk-doc/html/gtk3		\
-	--extra-dir=$(GTK_PREFIX)/share/gtk-doc/html/gdk3		\
-	--extra-dir=$(PANGO_PREFIX)/share/gtk-doc/html/pango		\
-	--extra-dir=$(GDK_PIXBUF_PREFIX)/share/gtk-doc/html/gdk-pixbuf
+FIXXREF_OPTIONS =
 
 # CFLAGS and LDFLAGS for compiling gtkdoc-scangobj with your library.
 # Only needed if you are using gtkdoc-scangobj to dynamically query widget

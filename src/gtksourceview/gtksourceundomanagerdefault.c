@@ -33,7 +33,7 @@
 typedef struct _Action		Action;
 typedef struct _ActionGroup	ActionGroup;
 
-typedef enum
+typedef enum _ActionType
 {
 	ACTION_TYPE_INSERT,
 	ACTION_TYPE_DELETE
@@ -44,7 +44,7 @@ typedef enum
  * events on the GtkSourceView widget, which is more complicated than simply
  * listening to the insert-text and delete-range GtkTextBuffer signals.
  */
-typedef enum
+typedef enum _DeletionType
 {
 	DELETION_TYPE_SELECTION_DELETED,
 	DELETION_TYPE_BACKSPACE_KEY,
@@ -372,7 +372,9 @@ check_history_size (GtkSourceUndoManagerDefault *manager)
 		return;
 	}
 
-	while (manager->priv->action_groups->length > manager->priv->max_undo_levels)
+	g_return_if_fail (manager->priv->max_undo_levels > 0);
+
+	while (manager->priv->action_groups->length > (guint)manager->priv->max_undo_levels)
 	{
 		/* Strip redo action groups first. */
 		if (manager->priv->location != NULL)
@@ -1360,7 +1362,9 @@ gtk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *kl
 	                                                      "Buffer",
 	                                                      "The text buffer to add undo support on",
 	                                                      GTK_TYPE_TEXT_BUFFER,
-	                                                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+	                                                      G_PARAM_READWRITE |
+							      G_PARAM_CONSTRUCT_ONLY |
+							      G_PARAM_STATIC_STRINGS));
 
 	g_object_class_install_property (object_class,
 	                                 PROP_MAX_UNDO_LEVELS,
@@ -1370,7 +1374,8 @@ gtk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *kl
 	                                                   -1,
 	                                                   G_MAXINT,
 	                                                   DEFAULT_MAX_UNDO_LEVELS,
-	                                                   G_PARAM_READWRITE));
+	                                                   G_PARAM_READWRITE |
+							   G_PARAM_STATIC_STRINGS));
 }
 
 static void
