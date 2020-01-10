@@ -4,13 +4,13 @@
 %global po_package gtksourceview-3.0
 
 Name: gtksourceview3
-Version: 3.22.2
+Version: 3.24.8
 Release: 1%{?dist}
 Summary: A library for viewing source files
 
 License: LGPLv2+
 URL: https://wiki.gnome.org/Projects/GtkSourceView
-Source0: http://download.gnome.org/sources/gtksourceview/3.22/gtksourceview-%{version}.tar.xz
+Source0: https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-%{version}.tar.xz
 
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
 BuildRequires: pkgconfig(gladeui-2.0)
@@ -97,6 +97,14 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_datadir}/installed-tests/gtksourceview-3.0/
 
 %changelog
+* Tue Jun 26 2018 Kalev Lember <klember@redhat.com> - 3.24.8-1
+- Update to 3.24.8
+- Resolves: #1569278
+
+* Wed Mar 14 2018 Kalev Lember <klember@redhat.com> - 3.24.7-1
+- Update to 3.24.7
+- Resolves: #1569278
+
 * Sun Nov 27 2016 Kalev Lember <klember@redhat.com> - 3.22.2-1
 - Update to 3.22.2
 - Resolves: #1386983

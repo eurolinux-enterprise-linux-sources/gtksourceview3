@@ -979,20 +979,6 @@ test_widget_class_init (TestWidgetClass *klass)
 	gtk_widget_class_bind_template_child_private (widget_class, TestWidget, background_pattern);
 }
 
-static gboolean
-tranform_boolean_to_draw_spaces_flags (GBinding *binding,
-                                       const GValue *from_value,
-                                       GValue *to_value,
-                                       gpointer user_data)
-{
-	gboolean active;
-
-	active = g_value_get_boolean (from_value);
-	g_value_set_flags (to_value, active ? GTK_SOURCE_DRAW_SPACES_ALL : 0);
-
-	return TRUE;
-}
-
 static void
 show_top_border_window_toggled_cb (GtkToggleButton *checkbutton,
 				   TestWidget      *self)
@@ -1009,6 +995,8 @@ show_top_border_window_toggled_cb (GtkToggleButton *checkbutton,
 static void
 test_widget_init (TestWidget *self)
 {
+	GtkSourceSpaceDrawer *space_drawer;
+
 	self->priv = test_widget_get_instance_private (self);
 
 	gtk_widget_init_template (GTK_WIDGET (self));
@@ -1067,16 +1055,6 @@ test_widget_init (TestWidget *self)
 	                        "visible",
 	                        G_BINDING_SYNC_CREATE);
 
-	g_object_bind_property_full (self->priv->draw_spaces_checkbutton,
-	                             "active",
-	                             self->priv->view,
-	                             "draw-spaces",
-	                             G_BINDING_SYNC_CREATE,
-	                             tranform_boolean_to_draw_spaces_flags,
-	                             NULL,
-	                             NULL,
-	                             NULL);
-
 	g_object_bind_property (self->priv->smart_backspace_checkbutton,
 	                        "active",
 	                        self->priv->view,
@@ -1087,6 +1065,11 @@ test_widget_init (TestWidget *self)
 	                  "changed",
 	                  G_CALLBACK (on_background_pattern_changed),
 	                  self);
+
+	space_drawer = gtk_source_view_get_space_drawer (self->priv->view);
+	g_object_bind_property (self->priv->draw_spaces_checkbutton, "active",
+				space_drawer, "enable-matrix",
+				G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
 
 	open_file (self, TOP_SRCDIR "/gtksourceview/gtksourcebuffer.c");
 }

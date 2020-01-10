@@ -1,11 +1,108 @@
-News in 3.22.2
---------------
-* Build fixes on Windows
+News in 3.24.8, 2018-06-17
+--------------------------
+* MS Windows: lib shutdown on DLL_PROCESS_DETACH, not DLL_THREAD_DETACH.
+* Syntax highlighting: sync all *.lang files from GtkSourceView 4.
+* Translation updates.
 
-News in 3.22.1
+News in 3.24.7, 2018-03-14
+--------------------------
+* GtkSourceView class: respect the GtkTextView:accepts-tab property.
+* Syntax highlighting: sync all *.lang files from GtkSourceView 4.
+* Build system: don't declare functions in AC_TRY_COMPILE.
+* Translation updates.
+
+News in 3.24.6
 --------------
-* Bug fix in gtk_source_buffer_sort_lines()
-* Fixes in the win32 MSVC build
+* New syntax highlighting definition file for: logcat.
+* Improvements to the syntax highlighting of: Python and reStructuredText.
+* Improvements to the Visual Studio builds.
+* Translation updates.
+
+News in 3.24.5
+--------------
+* Bug fix in gtk_source_view_indent_lines().
+* Improvements to the Visual Studio builds.
+* Improvements to the syntax highlighting of: Vala.
+* Translation updates.
+
+News in 3.24.4
+--------------
+* Fix bug when GtkSourceView:indent-width and :tab-width are equal.
+* New syntax highlighting definition files for: Swift, Maxima and Kotlin.
+* Improvements to the syntax highlighting of: CSS.
+* Various other small improvements.
+* Translation updates.
+
+News in 3.24.3
+--------------
+* Improvements to the syntax highlighting of: SPARQL, CSS, BibTeX and LaTeX.
+
+News in 3.24.2
+--------------
+* Avoid type redefinitions.
+* jade.lang: add *.pug to globs.
+* Bug fix in LaTeX syntax highlighting.
+* Various other small bug fixes.
+* Translation updates.
+
+News in 3.24.1
+--------------
+* Deprecate the 'copy' parameter of the GtkSourceView::move-lines signal.
+* Force visual word movements for RTL text with Ctrl+left/right.
+* Misc bug fixes.
+* Translation update.
+
+News in 3.24.0
+--------------
+* Translation update
+
+News in 3.23.91
+---------------
+* Improvements to the Visual Studio builds and add support for Visual Studio
+  2017.
+* Bug fix in Rust syntax highlighting
+* Add mimetype to python3.lang
+* Translation updates
+
+News in 3.23.90
+---------------
+* Bug fix in GtkSourceGutterRendererPixbuf
+* Fixes for bugs found by Coverity
+* New syntax highlighting definition file for: Django template
+* Improvements to the syntax highlighting of: CSS and JavaScript
+* Translation updates
+
+News in 3.23.2
+--------------
+
+This version still uses GTK+ 3. A GtkSourceView 3.24 version is planned (still
+depending on GTK+ 3), which will be released at the same time as GNOME 3.24 in
+March 2017.
+
+* Docs: add an introduction with the pkg-config name and which GTK+ version is
+  used.
+* Build fixes on MS Windows.
+* New syntax highlighting definition files for: ABNF and HAXE.
+* Improvements to the syntax highlighting of: JavaScript, PHP, Meson, CSS, ini
+  and Rust.
+* Translation updates.
+
+News in 3.23.1
+--------------
+
+This version still uses GTK+ 3. A GtkSourceView 3.24 version is planned (still
+depending on GTK+ 3), but the release date is not yet determined.
+
+* New class: GtkSourceSpaceDrawer with a matrix property to combine space types
+  vs locations. The old white space drawing API has been deprecated.
+* gtk_source_search_context_set_settings() has been deprecated, the "settings"
+  property will become construct-only.
+* GtkSourceCompletionItem: add a new API and deprecate the old constructors.
+* GtkSourceGutter: add get_view() and get_window_type() public functions.
+* Build system: do not hardcode the API version (currently 3.0) at as many
+  places as possible (use a variable instead).
+* Bug fixes
+* Documentation improvements
 * Translation updates
 
 News in 3.22.0

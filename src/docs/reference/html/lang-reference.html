@@ -5,17 +5,17 @@
 <title>Language Definition v2.0 Reference: GtkSourceView 3 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="GtkSourceView 3 Reference Manual">
-<link rel="up" href="pt02.html" title="Part II. Syntax highlighting reference">
+<link rel="up" href="pt03.html" title="Part III. Syntax highlighting reference">
 <link rel="prev" href="lang-tutorial.html" title="Language Definition v2.0 Tutorial">
 <link rel="next" href="style-reference.html" title="Style Scheme Definition Reference">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
 <td width="100%" align="left" class="shortcuts"></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="pt02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="u" href="pt03.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="lang-tutorial.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="style-reference.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
@@ -31,10 +31,10 @@ Reference to the GtkSourceView language definition file format
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id-1.3.3.3"></a><h2>Overview</h2>
+<a name="id-1.4.3.3"></a><h2>Overview</h2>
 <div class="note"><p>
     The version 2 here refers to the language definition file format,
-    not to the version of GtkSourceView. So this reference is suitable
+    not to the version of GtkSourceView. This reference is suitable
     for GtkSourceView 2 and 3.
   </p></div>
 <p>
@@ -55,7 +55,7 @@ replace 3 with 2 in the path for GtkSourceView version 2.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.4"></a><h2>Some advices</h2>
+<a name="id-1.4.3.4"></a><h2>Some advices</h2>
 <p>
 The easiest way to start a new language definition is to copy a preinstalled
 language definition from a language that has similar constructs as the one you
@@ -81,7 +81,7 @@ file.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.5"></a><h2>Conventions</h2>
+<a name="id-1.4.3.5"></a><h2>Conventions</h2>
 <p>
 It is better to follow the following conventions, especially if you want to
 contribute upstream, and get your language definition file included in
@@ -116,7 +116,7 @@ GtkSourceView.
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.6"></a><h2>Tag <code class="code">&lt;language&gt;</code>
+<a name="id-1.4.3.6"></a><h2>Tag <code class="code">&lt;language&gt;</code>
 </h2>
 <p>
 The root element for Language Definition files.
@@ -179,7 +179,7 @@ a syntax highlighting choice.
 </div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.7"></a><h2>Tag <code class="code">&lt;metadata&gt;</code>
+<a name="id-1.4.3.7"></a><h2>Tag <code class="code">&lt;metadata&gt;</code>
 </h2>
 <p>
 Contains optional metadata about the language definition.
@@ -219,7 +219,7 @@ files.
 </p></dd>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.8"></a><h2>Tag <code class="code">&lt;styles&gt;</code>
+<a name="id-1.4.3.8"></a><h2>Tag <code class="code">&lt;styles&gt;</code>
 </h2>
 <p>
 Contains the definitions of every style used in the current language and
@@ -231,7 +231,7 @@ Contained elements:
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.9"></a><h2>Tag <code class="code">&lt;style&gt;</code>
+<a name="id-1.4.3.9"></a><h2>Tag <code class="code">&lt;style&gt;</code>
 </h2>
 <p>
 Defines a style, associating its id with a user visible translatable
@@ -281,7 +281,7 @@ style.
 </div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.10"></a><h2>Tag <code class="code">&lt;keyword-char-class&gt;</code>
+<a name="id-1.4.3.10"></a><h2>Tag <code class="code">&lt;keyword-char-class&gt;</code>
 </h2>
 <p>
 Contains a regex character class used to redefine the customizable
@@ -294,7 +294,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.11"></a><h2>Tag <code class="code">&lt;default-regex-options&gt;</code>
+<a name="id-1.4.3.11"></a><h2>Tag <code class="code">&lt;default-regex-options&gt;</code>
 </h2>
 <p>
 Used to set global options for how regular expressions are processed.
@@ -338,7 +338,7 @@ Defaults to <code class="code">false</code>.
 </div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.12"></a><h2>Tag <code class="code">&lt;definitions&gt;</code>
+<a name="id-1.4.3.12"></a><h2>Tag <code class="code">&lt;definitions&gt;</code>
 </h2>
 <p>
 The element containing the real description of the syntax to be
@@ -359,11 +359,11 @@ Contained elements:
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.13"></a><h2>Tag <code class="code">&lt;define-regex&gt;</code>
+<a name="id-1.4.3.13"></a><h2>Tag <code class="code">&lt;define-regex&gt;</code>
 </h2>
 <p>
 The syntax highlighting engine of GtkSourceView uses
-<a href="https://developer.gnome.org/glib/unstable/glib-Perl-compatible-regular-expressions.html#GRegex"><span class="type">GRegex</span></a>,
+<a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Perl-compatible-regular-expressions.html#GRegex"><span class="type">GRegex</span></a>,
 which uses the PCRE library. See the
 <a class="ulink" href="https://developer.gnome.org/glib/stable/glib-regex-syntax.html" target="_top">Regular expression syntax</a>
 page in the GLib reference manual.
@@ -418,7 +418,7 @@ hyphens ("<code class="code">-</code>") and underscores ("<code class="code">_</
 </div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.14"></a><h2>Tag <code class="code">&lt;context&gt;</code>
+<a name="id-1.4.3.14"></a><h2>Tag <code class="code">&lt;context&gt;</code>
 </h2>
 <p>
 This is the most important element when describing the syntax: the file to
@@ -449,7 +449,7 @@ default context classes:
     </p></li>
 </ul></div>
 <div class="refsect2">
-<a name="id-1.3.3.14.5"></a><h3>Simple contexts</h3>
+<a name="id-1.4.3.14.5"></a><h3>Simple contexts</h3>
 They contain a mandatory <code class="code">&lt;match&gt;</code> element and an optional
 <code class="code">&lt;include&gt;</code> element. The context will span over the strings
 matched by the regular expression contained in the <code class="code">&lt;match&gt;</code>
@@ -532,7 +532,7 @@ A space-separated list of context classes to disable.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id-1.3.3.14.6"></a><h3>Container contexts</h3>
+<a name="id-1.4.3.14.6"></a><h3>Container contexts</h3>
 They contain a <code class="code">&lt;start&gt;</code> element and an optional
 <code class="code">&lt;end&gt;</code>. They respectively contain the regular
 expression that makes the engine enter in the context and the terminating one.
@@ -638,7 +638,7 @@ A space-separated list of context classes to disable.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id-1.3.3.14.7"></a><h3>Sub-pattern contexts</h3>
+<a name="id-1.4.3.14.7"></a><h3>Sub-pattern contexts</h3>
 <p>
 They refer to a group in a regular expression of the parent context, so it
 is possible to highlight differently only a portion of the matched regular
@@ -698,7 +698,7 @@ A space-separated list of context classes to disable.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id-1.3.3.14.8"></a><h3>Reference contexts</h3>
+<a name="id-1.4.3.14.8"></a><h3>Reference contexts</h3>
 <p>
 Used to include a previously defined context.
 </p>
@@ -752,7 +752,7 @@ has been replaced with the <code class="code">&lt;replace&gt;</code> tag.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id-1.3.3.14.9"></a><h3>Keyword contexts</h3>
+<a name="id-1.4.3.14.9"></a><h3>Keyword contexts</h3>
 <p>
 They contain a list of <code class="code">&lt;keyword&gt;</code> and matches every keyword
 listed. You can also put a <code class="code">&lt;prefix&gt;</code> and/or a
@@ -775,7 +775,7 @@ The attributes are the same used in simple contexts. If the
 </div>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.15"></a><h2>Tag <code class="code">&lt;include&gt;</code>
+<a name="id-1.4.3.15"></a><h2>Tag <code class="code">&lt;include&gt;</code>
 </h2>
 <p>
 Contains the list of context contained in the current
@@ -787,7 +787,7 @@ Contained elements:
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.16"></a><h2>Tag <code class="code">&lt;match&gt;</code>
+<a name="id-1.4.3.16"></a><h2>Tag <code class="code">&lt;match&gt;</code>
 </h2>
 <p>
 Contains the regular expression for the current simple context.
@@ -801,7 +801,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.17"></a><h2>Tag <code class="code">&lt;start&gt;</code>
+<a name="id-1.4.3.17"></a><h2>Tag <code class="code">&lt;start&gt;</code>
 </h2>
 <p>
 Contains the starting regular expression for the current container context.
@@ -815,7 +815,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.18"></a><h2>Tag <code class="code">&lt;end&gt;</code>
+<a name="id-1.4.3.18"></a><h2>Tag <code class="code">&lt;end&gt;</code>
 </h2>
 <p>
 Contains the terminating regular expression for the current container
@@ -841,7 +841,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.19"></a><h2>Tag <code class="code">&lt;keyword&gt;</code>
+<a name="id-1.4.3.19"></a><h2>Tag <code class="code">&lt;keyword&gt;</code>
 </h2>
 <p>
 Contains a keyword to be matched by the current context. The keyword is a
@@ -852,7 +852,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.20"></a><h2>Tag <code class="code">&lt;prefix&gt;</code>
+<a name="id-1.4.3.20"></a><h2>Tag <code class="code">&lt;prefix&gt;</code>
 </h2>
 <p>
 Contains a prefix common to all of the following keywords in the current
@@ -865,7 +865,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.21"></a><h2>Tag <code class="code">&lt;suffix&gt;</code>
+<a name="id-1.4.3.21"></a><h2>Tag <code class="code">&lt;suffix&gt;</code>
 </h2>
 <p>
 Contains a suffix common to all of the following keywords in the current
@@ -878,7 +878,7 @@ Contained elements: none.
 </p>
 </div>
 <div class="refsect1">
-<a name="id-1.3.3.22"></a><h2>Tag <code class="code">&lt;replace&gt;</code>
+<a name="id-1.4.3.22"></a><h2>Tag <code class="code">&lt;replace&gt;</code>
 </h2>
 <p>
 The replace tag allows you to change one context so it functions as
@@ -919,6 +919,6 @@ The id of the context to put in place of the context being replaced. Ex: <code c
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.28.1</div>
 </body>
 </html>

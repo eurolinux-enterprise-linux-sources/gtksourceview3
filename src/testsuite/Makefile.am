@@ -78,6 +78,9 @@ test_region_SOURCES = test-region.c
 UNIT_TEST_PROGS += test-search-context
 test_search_context_SOURCES = test-search-context.c
 
+UNIT_TEST_PROGS += test-space-drawer
+test_space_drawer_SOURCES = test-space-drawer.c
+
 UNIT_TEST_PROGS += test-stylescheme
 test_stylescheme_SOURCES = test-stylescheme.c
 
@@ -89,6 +92,9 @@ test_undo_manager_SOURCES = test-undo-manager.c
 
 UNIT_TEST_PROGS += test-utils
 test_utils_SOURCES = test-utils.c
+
+UNIT_TEST_PROGS += test-view
+test_view_SOURCES = test-view.c
 
 TESTS_ENVIRONMENT = G_TEST_SRCDIR="$(abs_srcdir)"
 TESTS = $(UNIT_TEST_PROGS)
@@ -102,15 +108,15 @@ EXTRA_DIST =				\
 	styles/test.xml
 
 if INSTALLED_TESTS
-insttestdir = $(libexecdir)/installed-tests/$(PACKAGE)-3.0
+insttestdir = $(libexecdir)/installed-tests/$(PACKAGE)-@GSV_API_VERSION@
 insttest_PROGRAMS = $(UNIT_TEST_PROGS)
 
-insttestlangdir = $(libexecdir)/installed-tests/$(PACKAGE)-3.0/language-specs
+insttestlangdir = $(libexecdir)/installed-tests/$(PACKAGE)-@GSV_API_VERSION@/language-specs
 insttestlang_DATA = 			\
 	language-specs/test-empty.lang	\
 	language-specs/test-full.lang
 
-instteststyledir = $(libexecdir)/installed-tests/$(PACKAGE)-3.0/styles
+instteststyledir = $(libexecdir)/installed-tests/$(PACKAGE)-@GSV_API_VERSION@/styles
 instteststyle_DATA = 			\
 	styles/classic.xml		\
 	styles/test.xml
@@ -127,7 +133,7 @@ test_files = $(UNIT_TEST_PROGS:=.test)
 
 DISTCLEANFILES = $(test_files)
 
-testmetadir = $(datadir)/installed-tests/$(PACKAGE)-3.0
+testmetadir = $(datadir)/installed-tests/$(PACKAGE)-@GSV_API_VERSION@
 testmeta_DATA = $(test_files)
 
 endif # INSTALLED_TESTS

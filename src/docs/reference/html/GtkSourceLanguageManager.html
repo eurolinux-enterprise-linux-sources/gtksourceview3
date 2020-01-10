@@ -8,7 +8,7 @@
 <link rel="up" href="ch02.html" title="Syntax Highlighting">
 <link rel="prev" href="GtkSourceLanguage.html" title="GtkSourceLanguage">
 <link rel="next" href="ch03.html" title="Styling">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.28.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -66,14 +66,14 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
+<td class="function_type">const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceLanguageManager.html#gtk-source-language-manager-get-search-path" title="gtk_source_language_manager_get_search_path ()">gtk_source_language_manager_get_search_path</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
+<td class="function_type">const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSourceLanguageManager.html#gtk-source-language-manager-get-language-ids" title="gtk_source_language_manager_get_language_ids ()">gtk_source_language_manager_get_language_ids</a> <span class="c_punctuation">()</span>
@@ -108,12 +108,12 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></td>
+<td class="property_type"><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourceLanguageManager.html#GtkSourceLanguageManager--language-ids" title="The “language-ids” property">language-ids</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></td>
+<td class="property_type"><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></td>
 <td class="property_name"><a class="link" href="GtkSourceLanguageManager.html#GtkSourceLanguageManager--search-path" title="The “search-path” property">search-path</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -135,7 +135,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkSourceLanguageManager.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    <a href="/home/seb/jhbuild/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkSourceLanguageManager
 </pre>
 </div>
@@ -177,7 +177,7 @@ gtk_source_language_manager_get_default
 <p>Returns the default <a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> instance.</p>
 <div class="refsect3">
 <a name="gtk-source-language-manager-get-default.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a>.
+<p>a <a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a>.
 Return value is owned by GtkSourceView library and must not be unref'ed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -188,12 +188,12 @@ Return value is owned by GtkSourceView library and must not be unref'ed. </p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_source_language_manager_set_search_path
                                (<em class="parameter"><code><a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> *lm</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **dirs</code></em>);</pre>
+                                <em class="parameter"><code><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **dirs</code></em>);</pre>
 <p>Sets the list of directories where the <em class="parameter"><code>lm</code></em>
  looks for
 language files.
 If <em class="parameter"><code>dirs</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the search path is reset to default.</p>
+ is <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the search path is reset to default.</p>
 <div class="note"><p>
     At the moment this function can be called only before the
     language files are loaded for the first time. In practice
@@ -216,7 +216,7 @@ If <em class="parameter"><code>dirs</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>dirs</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -226,7 +226,7 @@ If <em class="parameter"><code>dirs</code></em>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-language-manager-get-search-path"></a><h3>gtk_source_language_manager_get_search_path ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
+<pre class="programlisting">const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
 gtk_source_language_manager_get_search_path
                                (<em class="parameter"><code><a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> *lm</code></em>);</pre>
 <p>Gets the list directories where <em class="parameter"><code>lm</code></em>
@@ -248,7 +248,7 @@ gtk_source_language_manager_get_search_path
 </div>
 <div class="refsect3">
 <a name="gtk-source-language-manager-get-search-path.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array
+<p><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array
 containg a list of language files directories.
 The array is owned by <em class="parameter"><code>lm</code></em>
 and must not be modified. </p>
@@ -258,7 +258,7 @@ and must not be modified. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-source-language-manager-get-language-ids"></a><h3>gtk_source_language_manager_get_language_ids ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
+<pre class="programlisting">const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> * const *
 gtk_source_language_manager_get_language_ids
                                (<em class="parameter"><code><a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> *lm</code></em>);</pre>
 <p>Returns the ids of the available languages.</p>
@@ -279,8 +279,8 @@ gtk_source_language_manager_get_language_ids
 </div>
 <div class="refsect3">
 <a name="gtk-source-language-manager-get-language-ids.returns"></a><h4>Returns</h4>
-<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings containing the ids of the available
-languages or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no language is available.
+<p>a <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings containing the ids of the available
+languages or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no language is available.
 The array is sorted alphabetically according to the language name.
 The array is owned by <em class="parameter"><code>lm</code></em>
 and must not be modified. </p>
@@ -293,7 +293,7 @@ and must not be modified. </p>
 <pre class="programlisting"><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="returnvalue">GtkSourceLanguage</span></a> *
 gtk_source_language_manager_get_language
                                (<em class="parameter"><code><a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> *lm</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
+                                <em class="parameter"><code>const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
 <p>Gets the <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> identified by the given <em class="parameter"><code>id</code></em>
  in the language
 manager.</p>
@@ -321,7 +321,7 @@ manager.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-source-language-manager-get-language.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>, or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if there is no language identified by the given <em class="parameter"><code>id</code></em>
 . Return value is
 owned by <em class="parameter"><code>lm</code></em>
@@ -335,13 +335,13 @@ and should not be freed. </p>
 <pre class="programlisting"><a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="returnvalue">GtkSourceLanguage</span></a> *
 gtk_source_language_manager_guess_language
                                (<em class="parameter"><code><a class="link" href="GtkSourceLanguageManager.html" title="GtkSourceLanguageManager"><span class="type">GtkSourceLanguageManager</span></a> *lm</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);</pre>
+                                <em class="parameter"><code>const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                <em class="parameter"><code>const <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);</pre>
 <p>Picks a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a> for given file name and content type,
 according to the information in lang files. Either <em class="parameter"><code>filename</code></em>
  or
 <em class="parameter"><code>content_type</code></em>
- may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. This function can be used as follows:</p>
+ may be <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. This function can be used as follows:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -350,7 +350,7 @@ according to the information in lang files. Either <em class="parameter"><code>f
 2
 3</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkSourceLanguage</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">lang</span><span class="symbol">;</span>
-<span class="normal">lang </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSourceLanguageManager.html#gtk-source-language-manager-guess-language">gtk_source_language_manager_guess_language</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">lang </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSourceLanguageManager.html#gtk-source-language-manager-guess-language">gtk_source_language_manager_guess_language</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="function"><a href="GtkSourceBuffer.html#gtk-source-buffer-set-language">gtk_source_buffer_set_language</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">buffer</span><span class="symbol">,</span><span class="normal"> lang</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
@@ -377,21 +377,21 @@ according to the information in lang files. Either <em class="parameter"><code>f
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkSourceLanguage</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">lang </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkSourceLanguage</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">lang </span><span class="symbol">=</span><span class="normal"> <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 <span class="usertype">gboolean</span><span class="normal"> result_uncertain</span><span class="symbol">;</span>
 <span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">content_type</span><span class="symbol">;</span>
 
-<span class="normal">content_type </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gio/unstable/gio-GContentType.html#g-content-type-guess">g_content_type_guess</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">result_uncertain</span><span class="symbol">);</span>
+<span class="normal">content_type </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/home/seb/jhbuild/share/gtk-doc/html/gio/gio-GContentType.html#g-content-type-guess">g_content_type_guess</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">result_uncertain</span><span class="symbol">);</span>
 <span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result_uncertain</span><span class="symbol">)</span>
 <span class="normal">  </span><span class="cbracket">{</span>
-<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">content_type</span><span class="symbol">);</span>
-<span class="normal">    content_type </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="normal">    </span><span class="function"><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">content_type</span><span class="symbol">);</span>
+<span class="normal">    content_type </span><span class="symbol">=</span><span class="normal"> <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 <span class="normal">  </span><span class="cbracket">}</span>
 
 <span class="normal">lang </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSourceLanguageManager.html#gtk-source-language-manager-guess-language">gtk_source_language_manager_guess_language</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">manager</span><span class="symbol">,</span><span class="normal"> filename</span><span class="symbol">,</span><span class="normal"> content_type</span><span class="symbol">);</span>
 <span class="function"><a href="GtkSourceBuffer.html#gtk-source-buffer-set-language">gtk_source_buffer_set_language</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">buffer</span><span class="symbol">,</span><span class="normal"> lang</span><span class="symbol">);</span>
 
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">content_type</span><span class="symbol">);</span></pre></td>
+<span class="function"><a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">content_type</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -415,12 +415,12 @@ if you need full control over file -&gt; language mapping.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> a filename in Glib filename encoding, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a filename in Glib filename encoding, or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>content_type</p></td>
-<td class="parameter_description"><p> a content type (as in GIO API), or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a content type (as in GIO API), or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -428,7 +428,7 @@ if you need full control over file -&gt; language mapping.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-source-language-manager-guess-language.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
+<p>a <a class="link" href="GtkSourceLanguage.html" title="GtkSourceLanguage"><span class="type">GtkSourceLanguage</span></a>, or <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
 is no suitable language for given <em class="parameter"><code>filename</code></em>
 and/or <em class="parameter"><code>content_type</code></em>
 . Return
@@ -450,14 +450,14 @@ and should not be freed. </p>
 <a name="GtkSourceLanguageManager.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkSourceLanguageManager--language-ids"></a><h3>The <code class="literal">“language-ids”</code> property</h3>
-<pre class="programlisting">  “language-ids”             <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></pre>
+<pre class="programlisting">  “language-ids”             <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></pre>
 <p>List of the ids of the available languages.</p>
 <p>Flags: Read</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSourceLanguageManager--search-path"></a><h3>The <code class="literal">“search-path”</code> property</h3>
-<pre class="programlisting">  “search-path”              <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></pre>
+<pre class="programlisting">  “search-path”              <a href="/home/seb/jhbuild/share/gtk-doc/html/glib/glib-String-Utility-Functions.html#GStrv"><span class="type">GStrv</span></a></pre>
 <p>List of directories where the language specification files (.lang) are located.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -468,6 +468,6 @@ and should not be freed. </p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.28.1</div>
 </body>
 </html>

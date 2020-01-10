@@ -51,6 +51,7 @@
 #include "gtksourceiter.h"
 #include "gtksourcesearchcontext.h"
 #include "gtksourcespacedrawer.h"
+#include "gtksourcespacedrawer-private.h"
 
 /**
  * SECTION:view
@@ -68,7 +69,6 @@
  *  - Indentation settings;
  *  - Configuration for the Home and End keyboard keys;
  *  - Configure and show line marks;
- *  - A way to visualize white spaces (by drawing symbols);
  *  - And a few other things.
  *
  * An easy way to test all these features is to use the test-widget mini-program
@@ -159,7 +159,8 @@ enum
 	PROP_INDENT_ON_TAB,
 	PROP_DRAW_SPACES,
 	PROP_BACKGROUND_PATTERN,
-	PROP_SMART_BACKSPACE
+	PROP_SMART_BACKSPACE,
+	PROP_SPACE_DRAWER
 };
 
 struct _GtkSourceViewPrivate
@@ -645,6 +646,8 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 	 * #GtkSourceTag:draw-spaces property.
 	 *
 	 * Since: 2.4
+	 * Deprecated: 3.24: Use the #GtkSourceSpaceDrawer:matrix property
+	 * instead.
 	 */
 	g_object_class_install_property (object_class,
 					 PROP_DRAW_SPACES,
@@ -654,7 +657,8 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 							     GTK_SOURCE_TYPE_DRAW_SPACES_FLAGS,
 							     0,
 							     G_PARAM_READWRITE |
-							     G_PARAM_STATIC_STRINGS));
+							     G_PARAM_STATIC_STRINGS |
+							     G_PARAM_DEPRECATED));
 
 	/**
 	 * GtkSourceView:background-pattern:
@@ -688,6 +692,22 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 							       FALSE,
 							       G_PARAM_READWRITE |
 							       G_PARAM_STATIC_STRINGS));
+
+	/**
+	 * GtkSourceView:space-drawer:
+	 *
+	 * The #GtkSourceSpaceDrawer object associated with the view.
+	 *
+	 * Since: 3.24
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_SPACE_DRAWER,
+					 g_param_spec_object ("space-drawer",
+							      "Space Drawer",
+							      "",
+							      GTK_SOURCE_TYPE_SPACE_DRAWER,
+							      G_PARAM_READABLE |
+							      G_PARAM_STATIC_STRINGS));
 
 	signals[UNDO] =
 		g_signal_new ("undo",
@@ -752,9 +772,11 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 	/**
 	 * GtkSourceView::move-lines:
 	 * @view: the #GtkSourceView which received the signal
-	 * @copy: %TRUE if the line should be copied,
-	 *        %FALSE if it should be moved
-	 * @count: the number of lines to move over.
+	 * @copy: %TRUE if the line should be copied, %FALSE if it should be
+	 *   moved. This parameter is deprecated and will be removed in a later
+	 *   version, it should be always %FALSE.
+	 * @count: the number of lines to move over. Only 1 and -1 are
+	 *   supported.
 	 *
 	 * The ::move-lines signal is a keybinding which gets emitted
 	 * when the user initiates moving a line. The default binding key
@@ -762,8 +784,10 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 	 * or the current line by @count. For the moment, only
 	 * @count of -1 or 1 is valid.
 	 *
-	 * Since: 2.10
+	 * The @copy parameter is deprecated, it has never been used by
+	 * GtkSourceView (the value is always %FALSE) and was buggy.
 	 *
+	 * Since: 2.10
 	 */
 	signals[MOVE_LINES] =
 		g_signal_new ("move-lines",
@@ -1144,7 +1168,9 @@ gtk_source_view_set_property (GObject      *object,
 			break;
 
 		case PROP_DRAW_SPACES:
+			G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 			gtk_source_view_set_draw_spaces (view, g_value_get_flags (value));
+			G_GNUC_END_IGNORE_DEPRECATIONS;
 			break;
 
 		case PROP_BACKGROUND_PATTERN:
@@ -1224,7 +1250,9 @@ gtk_source_view_get_property (GObject    *object,
 			break;
 
 		case PROP_DRAW_SPACES:
+			G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 			g_value_set_flags (value, gtk_source_view_get_draw_spaces (view));
+			G_GNUC_END_IGNORE_DEPRECATIONS;
 			break;
 
 		case PROP_BACKGROUND_PATTERN:
@@ -1235,10 +1263,23 @@ gtk_source_view_get_property (GObject    *object,
 			g_value_set_boolean (value, gtk_source_view_get_smart_backspace (view));
 			break;
 
+		case PROP_SPACE_DRAWER:
+			g_value_set_object (value, gtk_source_view_get_space_drawer (view));
+			break;
+
 		default:
 			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 			break;
 	}
+}
+
+static void
+space_drawer_notify_cb (GtkSourceSpaceDrawer *space_drawer,
+			GParamSpec           *pspec,
+			GtkSourceView        *view)
+{
+	gtk_widget_queue_draw (GTK_WIDGET (view));
+	g_object_notify (G_OBJECT (view), "draw-spaces");
 }
 
 static void
@@ -1270,7 +1311,12 @@ gtk_source_view_init (GtkSourceView *view)
 	view->priv->right_margin_line_color = NULL;
 	view->priv->right_margin_overlay_color = NULL;
 
-	view->priv->space_drawer = _gtk_source_space_drawer_new ();
+	view->priv->space_drawer = gtk_source_space_drawer_new ();
+	g_signal_connect_object (view->priv->space_drawer,
+				 "notify",
+				 G_CALLBACK (space_drawer_notify_cb),
+				 view,
+				 0);
 
 	view->priv->mark_categories = g_hash_table_new_full (g_str_hash,
 	                                                     g_str_equal,
@@ -1380,6 +1426,19 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 	GtkTextIter visible_end;
 	GtkTextIter intersect_start;
 	GtkTextIter intersect_end;
+
+#if 0
+	{
+		static gint nth_call = 0;
+
+		g_message ("%s(view=%p) %d [%d-%d]",
+			   G_STRFUNC,
+			   text_view,
+			   ++nth_call,
+			   gtk_text_iter_get_offset (_start),
+			   gtk_text_iter_get_offset (_end));
+	}
+#endif
 
 	start = *_start;
 	end = *_end;
@@ -2071,6 +2130,9 @@ move_cursor_words (GtkTextView *text_view,
 	GtkTextBuffer *buffer;
 	GtkTextIter insert;
 	GtkTextIter newplace;
+	GtkTextIter line_start;
+	GtkTextIter line_end;
+	gchar *line_text;
 
 	buffer = gtk_text_view_get_buffer (text_view);
 
@@ -2078,7 +2140,23 @@ move_cursor_words (GtkTextView *text_view,
 					  &insert,
 					  gtk_text_buffer_get_insert (buffer));
 
-	newplace = insert;
+	line_start = line_end = newplace = insert;
+
+	/* Get the text of the current line for RTL analysis */
+	gtk_text_iter_set_line_offset (&line_start, 0);
+	gtk_text_iter_forward_line (&line_end);
+	line_text = gtk_text_iter_get_visible_text (&line_start, &line_end);
+
+	/* Swap direction for RTL to maintain visual cursor movement.
+	 * Otherwise, cursor will move in opposite direction which is counter
+	 * intuitve and causes confusion for RTL users.
+	 */
+	if (pango_find_base_dir (line_text, -1) == PANGO_DIRECTION_RTL)
+	{
+		count *= -1;
+	}
+
+	g_free (line_text);
 
 	if (count < 0)
 	{
@@ -2329,6 +2407,7 @@ gtk_source_view_paint_line_background (GtkTextView    *text_view,
 {
 	gdouble x1, y1, x2, y2;
 
+	cairo_save (cr);
 	cairo_clip_extents (cr, &x1, &y1, &x2, &y2);
 
 	gdk_cairo_set_source_rgba (cr, (GdkRGBA *)color);
@@ -2336,6 +2415,7 @@ gtk_source_view_paint_line_background (GtkTextView    *text_view,
 	cairo_rectangle (cr, x1 + .5, y + .5, x2 - x1 - 1, height - 1);
 	cairo_stroke_preserve (cr);
 	cairo_fill (cr);
+	cairo_restore (cr);
 }
 
 static void
@@ -2485,6 +2565,7 @@ gtk_source_view_paint_right_margin (GtkSourceView *view,
 
 	x = view->priv->cached_right_margin_pos + gtk_text_view_get_left_margin (text_view);
 
+	cairo_save (cr);
 	cairo_set_line_width (cr, 1.0);
 
 	if (x + 1 >= clip.x && x <= clip.x + clip.width)
@@ -2507,6 +2588,8 @@ gtk_source_view_paint_right_margin (GtkSourceView *view,
 		gdk_cairo_set_source_rgba (cr, view->priv->right_margin_overlay_color);
 		cairo_fill (cr);
 	}
+
+	cairo_restore (cr);
 
 	PROFILE ({
 		g_timer_stop (timer);
@@ -2674,12 +2757,12 @@ gtk_source_view_draw (GtkWidget *widget,
 
 	if (view->priv->left_gutter != NULL)
 	{
-		gtk_source_gutter_draw (view->priv->left_gutter, view, cr);
+		_gtk_source_gutter_draw (view->priv->left_gutter, view, cr);
 	}
 
 	if (view->priv->right_gutter != NULL)
 	{
-		gtk_source_gutter_draw (view->priv->right_gutter, view, cr);
+		_gtk_source_gutter_draw (view->priv->right_gutter, view, cr);
 	}
 
 	PROFILE ({
@@ -3132,8 +3215,8 @@ get_indent_string (guint tabs,
  * @start: #GtkTextIter of the first line to indent
  * @end: #GtkTextIter of the last line to indent
  *
- * Insert one indentation level at the beginning of the
- * specified lines.
+ * Inserts one indentation level at the beginning of the specified lines. The
+ * empty lines are not indented.
  *
  * Since: 3.16
  */
@@ -3179,7 +3262,8 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 
 		tab_buffer = g_strnfill (spaces, ' ');
 	}
-	else if (view->priv->indent_width > 0)
+	else if (view->priv->indent_width > 0 &&
+	         view->priv->indent_width != (gint)view->priv->tab_width)
 	{
 		guint indent_width;
 
@@ -3205,17 +3289,24 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 
 		gtk_text_buffer_get_iter_at_line (buf, &iter, i);
 
+		/* Don't add indentation on completely empty lines, to not add
+		 * trailing spaces.
+		 * Note that non-empty lines containing only whitespaces are
+		 * indented like any other non-empty line, because those lines
+		 * already contain trailing spaces, some users use those
+		 * whitespaces to more easily insert text at the right place
+		 * without the need to insert the indentation each time.
+		 */
+		if (gtk_text_iter_ends_line (&iter))
+		{
+			continue;
+		}
+
 		/* add spaces always after tabs, to avoid the case
 		 * where "\t" becomes "  \t" with no visual difference */
 		while (gtk_text_iter_get_char (&iter) == '\t')
 		{
 			gtk_text_iter_forward_char (&iter);
-		}
-
-		/* don't add indentation on empty lines */
-		if (gtk_text_iter_ends_line (&iter))
-		{
-			continue;
 		}
 
 		/* if tabs are allowed try to merge the spaces
@@ -3440,7 +3531,8 @@ insert_tab_or_spaces (GtkSourceView *view,
 
 		tab_buf = g_strnfill (spaces, ' ');
 	}
-	else if (view->priv->indent_width > 0)
+	else if (view->priv->indent_width > 0 &&
+	         view->priv->indent_width != (gint)view->priv->tab_width)
 	{
 		GtkTextIter iter;
 		gint i;
@@ -3659,18 +3751,71 @@ gtk_source_view_move_words (GtkSourceView *view,
 	g_free (new_text);
 }
 
+static gboolean
+buffer_contains_trailing_newline (GtkTextBuffer *buffer)
+{
+	GtkTextIter iter;
+	gunichar ch;
+
+	gtk_text_buffer_get_end_iter (buffer, &iter);
+	gtk_text_iter_backward_char (&iter);
+	ch = gtk_text_iter_get_char (&iter);
+
+	return (ch == '\n' || ch == '\r');
+}
+
+/* FIXME could be a function of GtkSourceBuffer, it's also useful for the
+ * FileLoader.
+ */
+static void
+remove_trailing_newline (GtkTextBuffer *buffer)
+{
+	GtkTextIter start;
+	GtkTextIter end;
+
+	gtk_text_buffer_get_end_iter (buffer, &end);
+	start = end;
+
+	gtk_text_iter_set_line_offset (&start, 0);
+
+	if (gtk_text_iter_ends_line (&start) &&
+	    gtk_text_iter_backward_line (&start))
+	{
+		if (!gtk_text_iter_ends_line (&start))
+		{
+			gtk_text_iter_forward_to_line_end (&start);
+		}
+
+		gtk_text_buffer_delete (buffer, &start, &end);
+	}
+}
+
 static void
 gtk_source_view_move_lines (GtkSourceView *view,
 			    gboolean       copy,
 			    gint           step)
 {
-	GtkTextBuffer *buf;
-	GtkTextIter s, e;
-	GtkTextMark *mark;
-	gboolean down;
+	GtkTextBuffer *buffer;
+	GtkTextIter start;
+	GtkTextIter end;
+	GtkTextIter insert_pos;
+	GtkTextMark *start_mark;
+	GtkTextMark *end_mark;
 	gchar *text;
+	gboolean initially_contains_trailing_newline;
+	gboolean down;
 
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	if (copy)
+	{
+		g_warning ("The 'copy' parameter of GtkSourceView::move-lines is deprecated.");
+	}
+
+	if (step != 1 && step != -1)
+	{
+		g_warning ("The 'count' parameter of GtkSourceView::move-lines should be either 1 or -1.");
+	}
+
+	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
 	if (step == 0 || !gtk_text_view_get_editable (GTK_TEXT_VIEW (view)))
 	{
@@ -3681,94 +3826,88 @@ gtk_source_view_move_lines (GtkSourceView *view,
 
 	down = step > 0;
 
-	gtk_text_buffer_get_selection_bounds (buf, &s, &e);
+	gtk_text_buffer_get_selection_bounds (buffer, &start, &end);
 
-	/* get the entire lines, including the paragraph terminator */
-	gtk_text_iter_set_line_offset (&s, 0);
-	if (!gtk_text_iter_starts_line (&e) ||
-	     gtk_text_iter_get_line (&s) == gtk_text_iter_get_line (&e))
+	/* Get the entire lines, including the paragraph terminator. */
+	gtk_text_iter_set_line_offset (&start, 0);
+	if (!gtk_text_iter_starts_line (&end) ||
+	    gtk_text_iter_get_line (&start) == gtk_text_iter_get_line (&end))
 	{
-		gtk_text_iter_forward_line (&e);
+		gtk_text_iter_forward_line (&end);
 	}
 
-	if ((!down && (0 == gtk_text_iter_get_line (&s))) ||
-	    (down && (gtk_text_iter_is_end (&e))) ||
-	    (down && (gtk_text_buffer_get_line_count (buf) == gtk_text_iter_get_line (&e))))
+	if ((!down && gtk_text_iter_is_start (&start)) ||
+	    (down && gtk_text_iter_is_end (&end)))
 	{
+		/* Nothing to do, and the undo/redo history must remain
+		 * unchanged.
+		 */
 		return;
 	}
 
-	text = gtk_text_buffer_get_slice (buf, &s, &e, TRUE);
+	start_mark = gtk_text_buffer_create_mark (buffer, NULL, &start, TRUE);
+	end_mark = gtk_text_buffer_create_mark (buffer, NULL, &end, FALSE);
 
-	/* First special case) We are moving up the last line
-	 * of the buffer, check if buffer ends with a paragraph
-	 * delimiter otherwise append a \n ourselves */
-	if (gtk_text_iter_is_end (&e))
+	gtk_text_buffer_begin_user_action (buffer);
+
+	initially_contains_trailing_newline = buffer_contains_trailing_newline (buffer);
+
+	if (!initially_contains_trailing_newline)
 	{
-		GtkTextIter iter;
-		iter = e;
-
-		gtk_text_iter_set_line_offset (&iter, 0);
-		if (!gtk_text_iter_ends_line (&iter) &&
-		    !gtk_text_iter_forward_to_line_end (&iter))
-		{
-			gchar *tmp;
-
-			tmp = g_strdup_printf ("%s\n", text);
-
-			g_free (text);
-			text = tmp;
-		}
+		/* Insert a trailing newline. */
+		gtk_text_buffer_get_end_iter (buffer, &end);
+		gtk_text_buffer_insert (buffer, &end, "\n", -1);
 	}
 
-	gtk_text_buffer_begin_user_action (buf);
+	/* At this point all lines finish with a newline or carriage return, so
+	 * there are no special cases for the last line.
+	 */
+
+	gtk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
+	gtk_text_buffer_get_iter_at_mark (buffer, &end, end_mark);
+	gtk_text_buffer_delete_mark (buffer, start_mark);
+	gtk_text_buffer_delete_mark (buffer, end_mark);
+	start_mark = NULL;
+	end_mark = NULL;
+
+	text = gtk_text_buffer_get_text (buffer, &start, &end, TRUE);
 
 	if (!copy)
 	{
-		gtk_text_buffer_delete (buf, &s, &e);
+		gtk_text_buffer_delete (buffer, &start, &end);
 	}
 
 	if (down)
 	{
-		gtk_text_iter_forward_line (&e);
-
-		/* Second special case) We are moving down the last-but-one line
-		 * of the buffer, check if buffer ends with a paragraph
-		 * delimiter otherwise prepend a \n ourselves */
-		if (gtk_text_iter_is_end (&e))
-		{
-			GtkTextIter iter;
-			iter = e;
-
-			gtk_text_iter_set_line_offset (&iter, 0);
-			if (!gtk_text_iter_ends_line (&iter) &&
-			    !gtk_text_iter_forward_to_line_end (&iter))
-			{
-				gtk_text_buffer_insert (buf, &e, "\n", -1);
-			}
-		}
+		insert_pos = end;
+		gtk_text_iter_forward_line (&insert_pos);
 	}
 	else
 	{
-		gtk_text_iter_backward_line (&e);
+		insert_pos = start;
+		gtk_text_iter_backward_line (&insert_pos);
 	}
 
-	/* use anon mark to be able to select after insertion */
-	mark = gtk_text_buffer_create_mark (buf, NULL, &e, TRUE);
+	start_mark = gtk_text_buffer_create_mark (buffer, NULL, &insert_pos, TRUE);
 
-	gtk_text_buffer_insert (buf, &e, text, -1);
-
-	gtk_text_buffer_end_user_action (buf);
-
+	gtk_text_buffer_insert (buffer, &insert_pos, text, -1);
 	g_free (text);
 
-	/* select the moved text */
-	gtk_text_buffer_get_iter_at_mark (buf, &s, mark);
-	gtk_text_buffer_select_range (buf, &s, &e);
-	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
-					    gtk_text_buffer_get_insert (buf));
+	/* Select the moved text. */
+	gtk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
+	gtk_text_buffer_delete_mark (buffer, start_mark);
 
-	gtk_text_buffer_delete_mark (buf, mark);
+	gtk_text_buffer_select_range (buffer, &start, &insert_pos);
+
+	if (!initially_contains_trailing_newline)
+	{
+		remove_trailing_newline (buffer);
+	}
+
+	gtk_text_buffer_end_user_action (buffer);
+
+	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
+					    gtk_text_buffer_get_insert (buffer));
 }
 
 static gboolean
@@ -3959,7 +4098,8 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 	if ((key == GDK_KEY_Tab || key == GDK_KEY_KP_Tab || key == GDK_KEY_ISO_Left_Tab) &&
 	    ((event->state & modifiers) == 0 ||
 	     (event->state & modifiers) == GDK_SHIFT_MASK) &&
-	    editable)
+	    editable &&
+	    gtk_text_view_get_accepts_tab (GTK_TEXT_VIEW (view)))
 	{
 		GtkTextIter s, e;
 		gboolean has_selection;
@@ -4432,6 +4572,9 @@ gtk_source_view_get_smart_home_end (GtkSourceView *view)
  *
  * For a finer-grained method, there is also the GtkSourceTag's
  * #GtkSourceTag:draw-spaces property.
+ *
+ * Deprecated: 3.24: Use gtk_source_space_drawer_set_types_for_locations()
+ * instead.
  */
 void
 gtk_source_view_set_draw_spaces (GtkSourceView            *view,
@@ -4444,11 +4587,7 @@ gtk_source_view_set_draw_spaces (GtkSourceView            *view,
 		return;
 	}
 
-	if (_gtk_source_space_drawer_set_flags (view->priv->space_drawer, flags))
-	{
-		gtk_widget_queue_draw (GTK_WIDGET (view));
-		g_object_notify (G_OBJECT (view), "draw-spaces");
-	}
+	_gtk_source_space_drawer_set_flags (view->priv->space_drawer, flags);
 }
 
 /**
@@ -4459,6 +4598,8 @@ gtk_source_view_set_draw_spaces (GtkSourceView            *view,
  * should be displayed for this @view.
  *
  * Returns: the #GtkSourceDrawSpacesFlags, 0 if no spaces should be drawn.
+ * Deprecated: 3.24: Use gtk_source_space_drawer_get_types_for_locations()
+ * instead.
  */
 GtkSourceDrawSpacesFlags
 gtk_source_view_get_draw_spaces (GtkSourceView *view)
@@ -4734,10 +4875,11 @@ mark_category_free (MarkCategory *category)
  * gtk_source_view_get_completion:
  * @view: a #GtkSourceView.
  *
- * Gets the #GtkSourceCompletion associated with @view.
+ * Gets the #GtkSourceCompletion associated with @view. The returned object is
+ * guaranteed to be the same for the lifetime of @view. Each #GtkSourceView
+ * object has a different #GtkSourceCompletion.
  *
- * Returns: (type GtkSource.Completion) (transfer none):
- * the #GtkSourceCompletion associated with @view.
+ * Returns: (transfer none): the #GtkSourceCompletion associated with @view.
  */
 GtkSourceCompletion *
 gtk_source_view_get_completion (GtkSourceView *view)
@@ -4778,7 +4920,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
 	{
 		if (view->priv->left_gutter == NULL)
 		{
-			view->priv->left_gutter = gtk_source_gutter_new (view, window_type);
+			view->priv->left_gutter = _gtk_source_gutter_new (view, window_type);
 		}
 
 		return view->priv->left_gutter;
@@ -4787,7 +4929,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
 	{
 		if (view->priv->right_gutter == NULL)
 		{
-			view->priv->right_gutter = gtk_source_gutter_new (view, window_type);
+			view->priv->right_gutter = _gtk_source_gutter_new (view, window_type);
 		}
 
 		return view->priv->right_gutter;
@@ -4900,4 +5042,23 @@ gtk_source_view_get_background_pattern (GtkSourceView *view)
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE);
 
 	return view->priv->background_pattern;
+}
+
+/**
+ * gtk_source_view_get_space_drawer:
+ * @view: a #GtkSourceView.
+ *
+ * Gets the #GtkSourceSpaceDrawer associated with @view. The returned object is
+ * guaranteed to be the same for the lifetime of @view. Each #GtkSourceView
+ * object has a different #GtkSourceSpaceDrawer.
+ *
+ * Returns: (transfer none): the #GtkSourceSpaceDrawer associated with @view.
+ * Since: 3.24
+ */
+GtkSourceSpaceDrawer *
+gtk_source_view_get_space_drawer (GtkSourceView *view)
+{
+	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), NULL);
+
+	return view->priv->space_drawer;
 }

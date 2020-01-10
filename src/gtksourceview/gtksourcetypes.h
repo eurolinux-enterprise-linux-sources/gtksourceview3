@@ -35,6 +35,12 @@
 
 G_BEGIN_DECLS
 
+/* This header exists to avoid cycles in header inclusions, when header A needs
+ * the type B and header B needs the type A. For an alternative way to solve
+ * this problem (in C11), see:
+ * https://bugzilla.gnome.org/show_bug.cgi?id=679424#c20
+ */
+
 typedef struct _GtkSourceBuffer			GtkSourceBuffer;
 typedef struct _GtkSourceCompletionContext	GtkSourceCompletionContext;
 typedef struct _GtkSourceCompletion		GtkSourceCompletion;
@@ -52,15 +58,19 @@ typedef struct _GtkSourceGutterRendererPixbuf	GtkSourceGutterRendererPixbuf;
 typedef struct _GtkSourceGutterRendererText	GtkSourceGutterRendererText;
 typedef struct _GtkSourceLanguage		GtkSourceLanguage;
 typedef struct _GtkSourceLanguageManager	GtkSourceLanguageManager;
+typedef struct _GtkSourceMap			GtkSourceMap;
 typedef struct _GtkSourceMarkAttributes		GtkSourceMarkAttributes;
 typedef struct _GtkSourceMark			GtkSourceMark;
 typedef struct _GtkSourcePrintCompositor	GtkSourcePrintCompositor;
 typedef struct _GtkSourceSearchContext		GtkSourceSearchContext;
 typedef struct _GtkSourceSearchSettings		GtkSourceSearchSettings;
+typedef struct _GtkSourceSpaceDrawer		GtkSourceSpaceDrawer;
 typedef struct _GtkSourceStyle			GtkSourceStyle;
 typedef struct _GtkSourceStyleScheme		GtkSourceStyleScheme;
+typedef struct _GtkSourceStyleSchemeChooser	GtkSourceStyleSchemeChooser;
+typedef struct _GtkSourceStyleSchemeChooserButton GtkSourceStyleSchemeChooserButton;
+typedef struct _GtkSourceStyleSchemeChooserWidget GtkSourceStyleSchemeChooserWidget;
 typedef struct _GtkSourceStyleSchemeManager	GtkSourceStyleSchemeManager;
-typedef struct _GtkSourceTag			GtkSourceTag;
 typedef struct _GtkSourceUndoManager		GtkSourceUndoManager;
 typedef struct _GtkSourceView			GtkSourceView;
 

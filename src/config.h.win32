@@ -61,7 +61,7 @@
 #define PACKAGE_NAME "gtksourceview"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "gtksourceview 3.22.2"
+#define PACKAGE_STRING "gtksourceview 3.24.8"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "gtksourceview"
@@ -70,13 +70,13 @@
 #define PACKAGE_URL "http://projects.gnome.org/gtksourceview/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.22.2"
+#define PACKAGE_VERSION "3.24.8"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "3.22.2"
+#define VERSION "3.24.8"
 
 #ifdef _MSC_VER
 #define _GTK_SOURCE_EXTERN __declspec (dllexport) extern

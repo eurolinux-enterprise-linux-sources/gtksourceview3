@@ -37,6 +37,7 @@
 #include "gtksourcestyleschememanager.h"
 
 #ifdef G_OS_WIN32
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 static HMODULE gtksourceview_dll;
@@ -165,7 +166,7 @@ DllMain (HINSTANCE hinstDLL,
 			gtksourceview_init ();
 			break;
 
-		case DLL_THREAD_DETACH:
+		case DLL_PROCESS_DETACH:
 			gtksourceview_shutdown ();
 			break;
 

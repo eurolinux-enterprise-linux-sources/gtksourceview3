@@ -13,9 +13,8 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
 
- You should have received a copy of the GNU Lesser General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ You should have received a copy of the GNU Lesser General Public License
+ along with this library; if not, see <http://www.gnu.org/licenses/>.
 
 -->
 
@@ -33,7 +32,7 @@ option. This file may not be copied, modified, or distributed
 except according to those terms.
 -->
 
-<language id="rust" _name="Rust" version="2.0" _section="Source">
+<language id="rust" name="Rust" version="2.0" _section="Source">
   <metadata>
     <property name="mimetypes">text/rust</property>
     <property name="globs">*.rs</property>
@@ -43,18 +42,18 @@ except according to those terms.
   </metadata>
 
   <styles>
-    <style id="comment"    _name="Comment"       map-to="def:comment"/>
-    <style id="string"     _name="String"        map-to="def:string"/>
-    <style id="char"       _name="Character"     map-to="def:character"/>
-    <style id="keyword"    _name="Keyword"       map-to="def:keyword"/>
-    <style id="type"       _name="Data Type"     map-to="def:type"/>
-    <style id="boolean"    _name="Boolean value" map-to="def:boolean"/>
-    <style id="identifier" _name="Identifier"    map-to="def:identifier"/>
-    <style id="number"     _name="Number"        map-to="def:number"/>
-    <style id="scope"      _name="Scope"         map-to="def:preprocessor"/>
-    <style id="attribute"  _name="Attribute"     map-to="def:preprocessor"/>
-    <style id="macro"      _name="Macro"         map-to="def:preprocessor"/>
-    <style id="error"      _name="Error"         map-to="def:error"/>
+    <style id="comment"    name="Comment"       map-to="def:comment"/>
+    <style id="string"     name="String"        map-to="def:string"/>
+    <style id="char"       name="Character"     map-to="def:character"/>
+    <style id="keyword"    name="Keyword"       map-to="def:keyword"/>
+    <style id="type"       name="Data Type"     map-to="def:type"/>
+    <style id="boolean"    name="Boolean value" map-to="def:boolean"/>
+    <style id="identifier" name="Identifier"    map-to="def:identifier"/>
+    <style id="number"     name="Number"        map-to="def:number"/>
+    <style id="scope"      name="Scope"         map-to="def:preprocessor"/>
+    <style id="attribute"  name="Attribute"     map-to="def:preprocessor"/>
+    <style id="macro"      name="Macro"         map-to="def:preprocessor"/>
+    <style id="error"      name="Error"         map-to="def:error"/>
   </styles>
 
   <definitions>
@@ -129,10 +128,12 @@ except according to those terms.
       <keyword>i16</keyword>
       <keyword>i32</keyword>
       <keyword>i64</keyword>
+      <keyword>i128</keyword>
       <keyword>u8</keyword>
       <keyword>u16</keyword>
       <keyword>u32</keyword>
       <keyword>u64</keyword>
+      <keyword>u128</keyword>
       <keyword>f32</keyword>
       <keyword>f64</keyword>
       <keyword>char</keyword>
@@ -150,7 +151,7 @@ except according to those terms.
     </context>
 
     <define-regex id="int-suffix" extended="true">
-      (i8|i16|i32|i64|isize|u8|u16|u32|u64|usize)
+      (i8|i16|i32|i64|i128|isize|u8|u16|u32|u64|u128|usize)
     </define-regex>
 
     <define-regex id="exponent" extended="true">
@@ -231,7 +232,7 @@ except according to those terms.
     </define-regex>
 
     <define-regex id="unicode-escape" extended="true">
-      u{\%{hex-digit}{1,6}}
+      u{(\%{hex-digit}_*){1,6}}
     </define-regex>
 
     <context id="string-escape" style-ref="def:special-char">
@@ -273,7 +274,7 @@ except according to those terms.
     </context>
 
     <context id="invalid-char" style-ref="error">
-      <match extended="true">'([^\\']|\\\%{common-escape}|\\\%{unicode-escape}){2,}'</match>
+      <match extended="true">'([^\\']|\\\%{common-escape}|\\\%{unicode-escape}){2,}'(?!\%{ident})</match>
     </context>
 
     <context id="byte" style-ref="char">
@@ -294,10 +295,18 @@ except according to those terms.
       </include>
     </context>
 
+    <context id="comment-multiline-nested" style-ref="comment" class-disabled="no-spell-check" class="comment" >
+      <start>/\*</start>
+      <end>\*/</end>
+      <include>
+        <context ref="comment-multiline-nested"/>
+      </include>
+    </context>
+
     <context id="rust" class="no-spell-check">
       <include>
         <context ref="def:c-like-comment" style-ref="comment"/>
-        <context ref="def:c-like-comment-multiline" style-ref="comment"/>
+        <context ref="comment-multiline-nested"/>
         <context ref="function"/>
         <context ref="type"/>
         <context ref="keywords"/>

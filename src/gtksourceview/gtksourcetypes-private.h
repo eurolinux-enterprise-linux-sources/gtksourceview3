@@ -27,7 +27,6 @@
 G_BEGIN_DECLS
 
 typedef struct _GtkSourceBufferInputStream	GtkSourceBufferInputStream;
-typedef struct _GtkSourceBufferInternal		GtkSourceBufferInternal;
 typedef struct _GtkSourceBufferOutputStream	GtkSourceBufferOutputStream;
 typedef struct _GtkSourceCompletionContainer	GtkSourceCompletionContainer;
 typedef struct _GtkSourceCompletionModel	GtkSourceCompletionModel;
@@ -38,7 +37,6 @@ typedef struct _GtkSourceGutterRendererMarks	GtkSourceGutterRendererMarks;
 typedef struct _GtkSourceMarksSequence		GtkSourceMarksSequence;
 typedef struct _GtkSourcePixbufHelper		GtkSourcePixbufHelper;
 typedef struct _GtkSourceRegex			GtkSourceRegex;
-typedef struct _GtkSourceSpaceDrawer		GtkSourceSpaceDrawer;
 typedef struct _GtkSourceUndoManagerDefault	GtkSourceUndoManagerDefault;
 
 #ifdef _MSC_VER

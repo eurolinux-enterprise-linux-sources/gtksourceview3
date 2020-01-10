@@ -1,6 +1,7 @@
 TESTS = check-language.sh
 
 LANGUAGES =			\
+	abnf.lang		\
 	actionscript.lang	\
 	ada.lang		\
 	ansforth94.lang		\
@@ -11,14 +12,14 @@ LANGUAGES =			\
 	bibtex.lang		\
 	bluespec.lang		\
 	boo.lang		\
-	changelog.lang		\
-	c.lang			\
 	cg.lang			\
+	changelog.lang		\
 	chdr.lang		\
+	c.lang			\
 	cmake.lang		\
 	cobol.lang		\
-	cpp.lang		\
 	cpphdr.lang		\
+	cpp.lang		\
 	csharp.lang		\
 	css.lang		\
 	csv.lang		\
@@ -32,6 +33,7 @@ LANGUAGES =			\
 	dot.lang		\
 	dpatch.lang		\
 	dtd.lang		\
+	dtl.lang		\
 	eiffel.lang		\
 	erlang.lang		\
 	fcl.lang		\
@@ -43,32 +45,38 @@ LANGUAGES =			\
 	genie.lang		\
 	glsl.lang		\
 	go.lang			\
+	groovy.lang		\
 	gtk-doc.lang		\
 	gtkrc.lang		\
 	haddock.lang		\
 	haskell.lang		\
 	haskell-literate.lang	\
+	haxe.lang		\
 	html.lang		\
-	idl.lang		\
 	idl-exelis.lang		\
+	idl.lang		\
 	imagej.lang		\
 	ini.lang		\
-	j.lang			\
 	jade.lang		\
 	java.lang		\
 	javascript.lang		\
+	j.lang			\
 	json.lang		\
 	julia.lang		\
+	kotlin.lang		\
 	latex.lang		\
+	less.lang		\
 	lex.lang		\
 	libtool.lang		\
 	llvm.lang		\
+	logcat.lang		\
 	lua.lang		\
 	m4.lang			\
 	makefile.lang		\
 	mallard.lang		\
 	markdown.lang		\
 	matlab.lang		\
+	maxima.lang		\
 	mediawiki.lang		\
 	meson.lang		\
 	modelica.lang		\
@@ -90,11 +98,11 @@ LANGUAGES =			\
 	pig.lang		\
 	pkgconfig.lang		\
 	po.lang			\
-	python.lang		\
-	python3.lang		\
 	prolog.lang		\
 	protobuf.lang		\
 	puppet.lang		\
+	python3.lang		\
+	python.lang		\
 	R.lang			\
 	rpmspec.lang		\
 	rst.lang		\
@@ -103,16 +111,20 @@ LANGUAGES =			\
 	scala.lang		\
 	scheme.lang		\
 	scilab.lang		\
+	scss.lang		\
 	sh.lang			\
 	sml.lang		\
 	sparql.lang		\
 	sql.lang		\
 	sweave.lang		\
+	swift.lang		\
 	systemverilog.lang	\
 	t2t.lang		\
 	tcl.lang		\
+	tera.lang		\
 	texinfo.lang		\
 	thrift.lang		\
+	toml.lang		\
 	vala.lang		\
 	vbnet.lang		\
 	verilog.lang		\
@@ -122,7 +134,7 @@ LANGUAGES =			\
 	yacc.lang		\
 	yaml.lang
 
-languagesdir = $(datadir)/gtksourceview-3.0/language-specs
+languagesdir = $(datadir)/gtksourceview-@GSV_API_VERSION@/language-specs
 languages_DATA = $(LANGUAGES) language.rng language2.rng language.dtd
 
 EXTRA_DIST =			\

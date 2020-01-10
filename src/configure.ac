@@ -3,8 +3,8 @@ dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ(2.64)
 
 m4_define(gtksourceview_major_version, 3)
-m4_define(gtksourceview_minor_version, 22)
-m4_define(gtksourceview_micro_version, 2)
+m4_define(gtksourceview_minor_version, 24)
+m4_define(gtksourceview_micro_version, 8)
 m4_define(gtksourceview_version, gtksourceview_major_version.gtksourceview_minor_version.gtksourceview_micro_version)
 
 AC_INIT([gtksourceview],
@@ -24,9 +24,11 @@ AC_SUBST(GTK_SOURCE_MICRO_VERSION)
 
 # Libtool versioning
 #
-# For development releases, keep the same numbers.
+# For development releases (if the minor package version is odd), keep the same
+# Libtool version.
 #
-# For stable releases, apply the following algorithm step by step:
+# For a new minor stable release (when incrementing the minor package version
+# to an even number), apply the following algorithm step by step:
 # 1. If the library source code has changed at all since the last
 #    update, then increment REVISION.
 # 2. If any exported functions or data have been added, removed, or
@@ -36,12 +38,30 @@ AC_SUBST(GTK_SOURCE_MICRO_VERSION)
 #    public release, increment AGE.
 # 4. If any exported functions or data have been removed since the last
 #    public release, set AGE to 0.
+#
+# When incrementing the API version (usually for a new major package version),
+# set CURRENT, REVISION and AGE to 0 since it's like a new library.
 
-GSV_LT_CURRENT=8
+GSV_LT_CURRENT=9
 GSV_LT_REVISION=0
-GSV_LT_AGE=7
+GSV_LT_AGE=8
 GSV_LT_VERSION="$GSV_LT_CURRENT:$GSV_LT_REVISION:$GSV_LT_AGE"
 AC_SUBST(GSV_LT_VERSION)
+
+# API version, used for parallel installability.
+# Not used in:
+# - po/Makevars
+# - the docs/reference/gtksourceview-3.0-sections.txt filename
+# - the gtksourceview/ directory and sub-directories, because make variables
+#   need to be transformed (3.0 -> 3_0), and it doesn't work if two different
+#   variables are used (it must be the same variable). With GSV_API_VERSION
+#   defined to a single digit (4 instead of 4.0), then it would work.
+# Because as far as I've tested, it is not easily feasible to not hardcode the
+# API version in those places (swilmet).
+GSV_API_VERSION=3.0
+GSV_MAJOR_API_VERSION=3
+AC_SUBST(GSV_API_VERSION)
+AC_SUBST(GSV_MAJOR_API_VERSION)
 
 # Dependencies
 glib_req=2.48
@@ -114,7 +134,7 @@ case "$host" in
         SAVED_CFLAGS="${CFLAGS}"
         CFLAGS="-fvisibility=hidden"
         AC_MSG_CHECKING([for -fvisibility=hidden compiler flag])
-        AC_TRY_COMPILE([], [int main (void) { return 0; }],
+        AC_TRY_COMPILE([], [return 0],
                        AC_MSG_RESULT(yes)
                        enable_fvisibility_hidden=yes,
                        AC_MSG_RESULT(no)
@@ -169,7 +189,7 @@ AM_GNU_GETTEXT_VERSION([0.19.4])
 AS_IF([test "$USE_NLS" = "yes"],
       [AC_DEFINE([ENABLE_NLS], [1], [Defined if native language support should be enabled.])])
 
-AC_SUBST([GETTEXT_PACKAGE], [gtksourceview-3.0])
+AC_SUBST([GETTEXT_PACKAGE], [gtksourceview-$GSV_API_VERSION])
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Define to the gettext package name.])
 
 # Documentation
@@ -204,28 +224,39 @@ VAPIGEN_CHECK
 ABS_TOP_SRCDIR=`cd $srcdir && pwd`
 AC_SUBST(ABS_TOP_SRCDIR)
 
+# Check whether MSVC toolset is explicitly set
+
+AM_CONDITIONAL(MSVC_BASE_NO_TOOLSET_SET, [test x$MSVC_BASE_TOOLSET = x])
+AM_CONDITIONAL(MSVC_NO_TOOLSET_SET, [test x$MSVC_TOOLSET = x])
+
 # Output files
 AC_CONFIG_FILES([
-gtksourceview-3.0.pc
+gtksourceview-${GSV_API_VERSION}.pc:gtksourceview.pc.in
 Makefile
 config.h.win32
-build/Makefile
-build/win32/Makefile
-build/win32/vs9/Makefile
-build/win32/vs9/gtksourceview-gen-srcs.vsprops
-build/win32/vs10/Makefile
-build/win32/vs10/gtksourceview-gen-srcs.props
-build/win32/vs11/Makefile
-build/win32/vs12/Makefile
-build/win32/vs14/Makefile
+win32/Makefile
+win32/vs9/Makefile
+win32/vs9/gtksourceview-version-paths.vsprops
+win32/vs10/Makefile
+win32/vs10/gtksourceview-version-paths.props
+win32/vs11/Makefile
+win32/vs12/Makefile
+win32/vs14/Makefile
+win32/vs15/Makefile
 data/Makefile
 data/glade/Makefile
+data/glade/gtksourceview.xml
 data/language-specs/Makefile
 data/styles/Makefile
 docs/Makefile
 docs/reference/Makefile
+docs/reference/gtksourceview-docs.xml
+docs/reference/intro.xml
+docs/reference/lang-reference.xml
+docs/reference/style-reference.xml
 gtksourceview/Makefile
 gtksourceview/gtksourceversion.h
+gtksourceview/GtkSource-${GSV_API_VERSION}.metadata:gtksourceview/GtkSource.metadata.in
 gtksourceview/completion-providers/Makefile
 gtksourceview/completion-providers/words/Makefile
 po/Makefile.in

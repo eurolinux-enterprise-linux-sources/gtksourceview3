@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtksourceview.master.hi\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gtksourceview\n"
-"POT-Creation-Date: 2016-11-27 10:58+0100\n"
+"POT-Creation-Date: 2018-06-17 11:54+0200\n"
 "PO-Revision-Date: 2013-03-25 10:29+0000\n"
 "Last-Translator: chandankumar <chandankumar.093047@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -93,11 +93,7 @@ msgstr "पीछा करता"
 msgid "All"
 msgstr "सभी"
 
-#. (itstool) path: actionscript.lang/language@_name
-#: actionscript.lang:25
-msgid "ActionScript"
-msgstr "ActionScript"
-
+#. (itstool) path: abnf.lang/language@_section
 #. (itstool) path: actionscript.lang/language@_section
 #. (itstool) path: ada.lang/language@_section
 #. (itstool) path: ansforth94.lang/language@_section
@@ -123,11 +119,14 @@ msgstr "ActionScript"
 #. (itstool) path: genie.lang/language@_section
 #. (itstool) path: glsl.lang/language@_section
 #. (itstool) path: go.lang/language@_section
+#. (itstool) path: groovy.lang/language@_section
 #. (itstool) path: haskell.lang/language@_section
 #. (itstool) path: haskell-literate.lang/language@_section
+#. (itstool) path: haxe.lang/language@_section
 #. (itstool) path: idl.lang/language@_section
 #. (itstool) path: java.lang/language@_section
 #. (itstool) path: j.lang/language@_section
+#. (itstool) path: kotlin.lang/language@_section
 #. (itstool) path: lex.lang/language@_section
 #. (itstool) path: llvm.lang/language@_section
 #. (itstool) path: makefile.lang/language@_section
@@ -149,353 +148,29 @@ msgstr "ActionScript"
 #. (itstool) path: sml.lang/language@_section
 #. (itstool) path: sparql.lang/language@_section
 #. (itstool) path: sql.lang/language@_section
+#. (itstool) path: swift.lang/language@_section
 #. (itstool) path: systemverilog.lang/language@_section
 #. (itstool) path: thrift.lang/language@_section
 #. (itstool) path: vala.lang/language@_section
 #. (itstool) path: vbnet.lang/language@_section
 #. (itstool) path: verilog.lang/language@_section
 #. (itstool) path: vhdl.lang/language@_section
-#: actionscript.lang:25 ada.lang:26 ansforth94.lang:25 asp.lang:24
-#: automake.lang:24 bennugd.lang:23 bluespec.lang:22 boo.lang:24 cg.lang:24
-#: chdr.lang:25 c.lang:25 cobol.lang:27 cpphdr.lang:25 cpp.lang:25
-#: csharp.lang:27 cuda.lang:23 d.lang:30 eiffel.lang:24 erlang.lang:24
-#: forth.lang:24 fortran.lang:25 fsharp.lang:25 genie.lang:24 glsl.lang:31
-#: go.lang:25 haskell.lang:25 haskell-literate.lang:24 idl.lang:24 java.lang:25
-#: j.lang:24 lex.lang:25 llvm.lang:23 makefile.lang:23 meson.lang:24
-#: nemerle.lang:24 netrexx.lang:24 objc.lang:24 objj.lang:26 ocaml.lang:27
-#: ooc.lang:24 opal.lang:24 opencl.lang:24 pascal.lang:25 pig.lang:27
-#: prolog.lang:24 rust.lang:36 scala.lang:25 scheme.lang:24 sml.lang:24
-#: sparql.lang:24 sql.lang:24 systemverilog.lang:22 thrift.lang:21 vala.lang:28
-#: vbnet.lang:24 verilog.lang:24 vhdl.lang:24
+#: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
+#: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
+#: chdr.lang:24 c.lang:24 cobol.lang:26 cpphdr.lang:24 cpp.lang:24
+#: csharp.lang:26 cuda.lang:22 d.lang:29 eiffel.lang:23 erlang.lang:23
+#: forth.lang:23 fortran.lang:24 fsharp.lang:24 genie.lang:23 glsl.lang:30
+#: go.lang:24 groovy.lang:24 haskell.lang:24 haskell-literate.lang:23
+#: haxe.lang:34 idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lex.lang:24
+#: llvm.lang:22 makefile.lang:22 meson.lang:23 nemerle.lang:23 netrexx.lang:23
+#: objc.lang:23 objj.lang:25 ocaml.lang:26 ooc.lang:23 opal.lang:23
+#: opencl.lang:23 pascal.lang:24 pig.lang:26 prolog.lang:23 rust.lang:35
+#: scala.lang:24 scheme.lang:23 sml.lang:23 sparql.lang:23 sql.lang:23
+#: swift.lang:24 systemverilog.lang:21 thrift.lang:20 vala.lang:27
+#: vbnet.lang:23 verilog.lang:23 vhdl.lang:23
 #, fuzzy
 msgid "Source"
 msgstr "सोर्सेज़"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:35 ada.lang:34 ansforth94.lang:39 asp.lang:32
-#: bennugd.lang:32 boo.lang:34 cg.lang:33 c.lang:35 cobol.lang:35
-#: csharp.lang:37 def.lang:40 d.lang:40 dosbatch.lang:31 dot.lang:34
-#: eiffel.lang:33 erlang.lang:32 fcl.lang:30 forth.lang:34 fortran.lang:33
-#: fsharp.lang:34 gap.lang:32 genie.lang:34 go.lang:35 gtkrc.lang:33
-#: haskell.lang:34 html.lang:34 idl-exelis.lang:28 idl.lang:32 ini.lang:31
-#: jade.lang:33 java.lang:35 j.lang:32 latex.lang:33 llvm.lang:30 lua.lang:34
-#: matlab.lang:41 modelica.lang:36 nemerle.lang:34 netrexx.lang:38 nsis.lang:32
-#: ocaml.lang:36 ocl.lang:41 octave.lang:41 ooc.lang:33 opal.lang:34
-#: pascal.lang:33 perl.lang:34 php.lang:40 pig.lang:41 po.lang:32
-#: prolog.lang:34 protobuf.lang:31 rst.lang:36 ruby.lang:36 rust.lang:45
-#: scala.lang:38 scheme.lang:32 scilab.lang:31 sh.lang:33 sml.lang:32
-#: sql.lang:32 sweave.lang:32 t2t.lang:31 texinfo.lang:33 thrift.lang:30
-#: vala.lang:38 vbnet.lang:32 verilog.lang:34 vhdl.lang:32 xml.lang:35
-#: yaml.lang:31
-msgid "Comment"
-msgstr "टिप्पणी"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:36 cg.lang:34 c.lang:54 cobol.lang:43 csharp.lang:38
-#: css.lang:48 def.lang:102 d.lang:41 dot.lang:35 go.lang:36 html.lang:39
-#: jade.lang:41 j.lang:35 json.lang:42 nemerle.lang:35 ocaml.lang:53
-#: ooc.lang:34 opal.lang:36 perl.lang:48 php.lang:41 prolog.lang:40
-#: scala.lang:36 vala.lang:39 verilog.lang:38 xml.lang:45
-msgid "Error"
-msgstr "त्रुटि"
-
-# src/gconf-key-editor.c:94
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:37 ada.lang:35 ansforth94.lang:43 asp.lang:33 boo.lang:36
-#: c.lang:36 cobol.lang:40 csharp.lang:40 css.lang:50 csv.lang:34 def.lang:57
-#: d.lang:42 dosbatch.lang:32 eiffel.lang:34 erlang.lang:36 forth.lang:35
-#: fortran.lang:34 fsharp.lang:38 gdb-log.lang:30 genie.lang:36 go.lang:37
-#: gtkrc.lang:34 haskell.lang:39 idl-exelis.lang:32 idl.lang:36 imagej.lang:40
-#: ini.lang:33 java.lang:37 javascript.lang:47 j.lang:45 json.lang:39
-#: julia.lang:37 llvm.lang:31 lua.lang:35 meson.lang:34 modelica.lang:37
-#: nemerle.lang:38 netrexx.lang:36 nsis.lang:33 objc.lang:37 objj.lang:41
-#: ocaml.lang:41 ocl.lang:42 octave.lang:42 ooc.lang:36 opal.lang:37
-#: pascal.lang:34 perl.lang:37 php.lang:45 po.lang:34 prolog.lang:37
-#: protobuf.lang:37 python3.lang:34 python.lang:39 ruby.lang:46 rust.lang:46
-#: scala.lang:39 scheme.lang:34 scilab.lang:33 sh.lang:35 sml.lang:36
-#: sql.lang:34 texinfo.lang:36 thrift.lang:33 vala.lang:41 vbnet.lang:33
-#: verilog.lang:35 vhdl.lang:33 yaml.lang:32
-msgid "String"
-msgstr "स्ट्रिंग"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:38 java.lang:41 ooc.lang:37 scala.lang:37
-msgid "External"
-msgstr "बाहरी"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:39 java.lang:42 ooc.lang:38 scala.lang:41
-msgid "Declaration"
-msgstr "घोषणा"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:40 ada.lang:39 cg.lang:40 c.lang:44 java.lang:43
-#: ooc.lang:39
-msgid "Storage Class"
-msgstr "भंडार वर्ग"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:41 java.lang:44 ooc.lang:40
-msgid "Scope Declaration"
-msgstr "स्कोप डिक्लेरेशन्स"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:42 ada.lang:36 ansforth94.lang:36 asp.lang:35 awk.lang:32
-#: bennugd.lang:36 bluespec.lang:35 boo.lang:41 cg.lang:38 c.lang:41
-#: cobol.lang:38 cpp.lang:35 csharp.lang:45 css.lang:59 cuda.lang:33
-#: def.lang:92 d.lang:43 dosbatch.lang:33 dot.lang:36 eiffel.lang:37
-#: erlang.lang:33 fcl.lang:32 forth.lang:37 fortran.lang:36 fsharp.lang:39
-#: gap.lang:34 genie.lang:41 glsl.lang:43 go.lang:39 gtkrc.lang:35
-#: haskell.lang:37 idl-exelis.lang:31 idl.lang:35 imagej.lang:38 ini.lang:34
-#: java.lang:45 javascript.lang:41 julia.lang:44 lex.lang:35 llvm.lang:32
-#: lua.lang:36 matlab.lang:42 modelica.lang:46 nemerle.lang:39 objc.lang:34
-#: objj.lang:37 ocaml.lang:42 ocl.lang:43 octave.lang:48 ooc.lang:41
-#: opal.lang:38 opencl.lang:33 pascal.lang:35 perl.lang:38 php.lang:48
-#: po.lang:36 prolog.lang:36 protobuf.lang:35 python3.lang:32 python.lang:37
-#: R.lang:34 ruby.lang:39 rust.lang:48 scala.lang:43 scheme.lang:35
-#: scilab.lang:34 sh.lang:36 sml.lang:33 sparql.lang:37 sql.lang:35
-#: systemverilog.lang:33 tcl.lang:33 texinfo.lang:37 thrift.lang:32
-#: vala.lang:42 vbnet.lang:35 verilog.lang:42 vhdl.lang:35
-msgid "Keyword"
-msgstr "कीवर्ड"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:43 boo.lang:43 csharp.lang:47 d.lang:46 fsharp.lang:52
-#: genie.lang:43 java.lang:46 javascript.lang:38 json.lang:40 nemerle.lang:41
-#: objj.lang:42 ooc.lang:42 php.lang:52 vala.lang:44
-msgid "Null Value"
-msgstr "रिक्त मान"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:44 ada.lang:38 asp.lang:42 bennugd.lang:41 cg.lang:46
-#: c.lang:51 csharp.lang:48 def.lang:75 fsharp.lang:50 go.lang:48 gtkrc.lang:40
-#: ini.lang:38 java.lang:47 llvm.lang:38 lua.lang:42 nemerle.lang:42
-#: ocaml.lang:52 ooc.lang:43 opal.lang:39 php.lang:53 protobuf.lang:36
-#: R.lang:39 ruby.lang:41 rust.lang:50 sml.lang:40 vala.lang:43 vbnet.lang:38
-#: vhdl.lang:37
-msgid "Boolean value"
-msgstr "बूलिए मान"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:45 asp.lang:43 boo.lang:45 cobol.lang:41 def.lang:63
-#: desktop.lang:38 forth.lang:39 genie.lang:45 java.lang:48 j.lang:42
-#: julia.lang:39 llvm.lang:39 netrexx.lang:48 prolog.lang:38 rust.lang:52
-#: scala.lang:45 vhdl.lang:40
-msgid "Number"
-msgstr "संख्या"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:46 java.lang:49 javascript.lang:46 ooc.lang:48
-msgid "Future Reserved Keywords"
-msgstr "भविष्य रिजर्व्ड शब्द"
-
-#. (itstool) path: styles/style@_name
-#: actionscript.lang:47 ada.lang:40 asp.lang:40 bennugd.lang:37 boo.lang:39
-#: cg.lang:39 c.lang:43 cpp.lang:36 csharp.lang:39 cuda.lang:34 d.lang:44
-#: eiffel.lang:38 forth.lang:38 fortran.lang:40 fsharp.lang:42 genie.lang:39
-#: glsl.lang:42 go.lang:40 gtkrc.lang:37 haskell.lang:38 idl-exelis.lang:29
-#: idl.lang:33 ini.lang:37 java.lang:50 javascript.lang:42 llvm.lang:37
-#: nemerle.lang:40 objc.lang:35 objj.lang:38 ocaml.lang:45 ocl.lang:45
-#: ooc.lang:49 opal.lang:41 opencl.lang:34 pascal.lang:37 php.lang:51
-#: pig.lang:36 protobuf.lang:34 rust.lang:49 scala.lang:47 sml.lang:34
-#: sparql.lang:34 sql.lang:38 thrift.lang:31 vala.lang:40 vbnet.lang:36
-msgid "Data Type"
-msgstr "डेटा प्रकार"
-
-#. (itstool) path: ada.lang/language@_name
-#: ada.lang:26
-msgid "Ada"
-msgstr "एडीए"
-
-#. (itstool) path: styles/style@_name
-#: ada.lang:37 bennugd.lang:39 cg.lang:43 c.lang:48 csharp.lang:49 csv.lang:31
-#: def.lang:67 d.lang:49 eiffel.lang:45 erlang.lang:39 fsharp.lang:37
-#: go.lang:45 idl-exelis.lang:34 nemerle.lang:44 ocaml.lang:40 ooc.lang:45
-#: opal.lang:40 php.lang:55 python3.lang:40 python.lang:46 ruby.lang:43
-msgid "Decimal number"
-msgstr "दशमलव संख्या"
-
-#. (itstool) path: styles/style@_name
-#: ada.lang:41 asp.lang:34 bennugd.lang:33 cg.lang:35 c.lang:37 csharp.lang:46
-#: forth.lang:36 fortran.lang:41 fsharp.lang:51 glsl.lang:41 haskell.lang:33
-#: idl-exelis.lang:30 idl.lang:34 nemerle.lang:36 objj.lang:39 pascal.lang:38
-#: vbnet.lang:34
-msgid "Preprocessor"
-msgstr "प्री-प्रोसेसर"
-
-#. (itstool) path: styles/style@_name
-#: ada.lang:42
-msgid "Arbitrary base number"
-msgstr "यादृच्छिक बेस संख्या"
-
-#. (itstool) path: styles/style@_name
-#: ada.lang:43 csharp.lang:51 verilog.lang:46 vhdl.lang:39
-msgid "Real number"
-msgstr "वास्तविक संख्या"
-
-#. (itstool) path: styles/style@_name
-#: ada.lang:44 cg.lang:41 c.lang:46 csharp.lang:42 eiffel.lang:42
-#: fortran.lang:44 fsharp.lang:49 go.lang:42 haskell.lang:41 imagej.lang:37
-#: java.lang:36 javascript.lang:37 json.lang:38 lua.lang:37 netrexx.lang:35
-#: ocaml.lang:51 ooc.lang:35 php.lang:44 prolog.lang:41 python3.lang:35
-#: python.lang:40 ruby.lang:35 scala.lang:40 sml.lang:37 texinfo.lang:34
-#: vala.lang:49 verilog.lang:37
-msgid "Escaped Character"
-msgstr "एस्केप वर्ण"
-
-#. (itstool) path: ansforth94.lang/language@_name
-#: ansforth94.lang:25
-#, fuzzy
-msgid "ANS-Forth94"
-msgstr "Forth"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:37
-#, fuzzy
-msgid "Obsolete Keyword"
-msgstr "अन्य खोजशब्द"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:40
-msgid "Alert"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:41 c.lang:40 csharp.lang:41 def.lang:55 erlang.lang:37
-#: gap.lang:33 go.lang:38 haskell.lang:40 java.lang:38 julia.lang:38
-#: nemerle.lang:37 netrexx.lang:37 rust.lang:47 sml.lang:35 vhdl.lang:34
-msgid "Character"
-msgstr "अक्षर"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:42
-msgid "Word"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:44 cmake.lang:34 cobol.lang:39 def.lang:53 gtk-doc.lang:32
-#: libtool.lang:32 ruby.lang:50
-msgid "Constant"
-msgstr "स्थिर"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:45 awk.lang:34 cmake.lang:37 cobol.lang:37 haskell.lang:35
-#: ini.lang:36 llvm.lang:35 makefile.lang:31 nsis.lang:34 perl.lang:44
-#: php.lang:42 pkgconfig.lang:31 prolog.lang:35 protobuf.lang:33 ruby.lang:54
-#: sh.lang:37 sparql.lang:44 tcl.lang:32
-msgid "Variable"
-msgstr "चर"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:46
-#, fuzzy
-msgid "Local Variable"
-msgstr "वैश्विक चर"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:47
-#, fuzzy
-msgid "Single Number"
-msgstr "पूर्णांक संख्या"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:48
-#, fuzzy
-msgid "Double Number"
-msgstr "कॉम्प्लैक्स संख्या"
-
-#. (itstool) path: styles/style@_name
-#: ansforth94.lang:49 haskell.lang:42
-msgid "Float"
-msgstr "फ्लोट"
-
-#. (itstool) path: asp.lang/language@_name
-#: asp.lang:24
-msgid "ASP"
-msgstr "ASP"
-
-#. (itstool) path: styles/style@_name
-#: asp.lang:36 cg.lang:48 changelog.lang:39 css.lang:53 def.lang:81 gap.lang:35
-#: gdb-log.lang:29 gtk-doc.lang:34 idl-exelis.lang:35 javascript.lang:43
-#: llvm.lang:33 lua.lang:40 scheme.lang:36 scilab.lang:35 sh.lang:34
-#: sparql.lang:35 sql.lang:36
-msgid "Function"
-msgstr "फंक्शन"
-
-#. (itstool) path: styles/style@_name
-#: asp.lang:37 bennugd.lang:35 c.lang:42 cmake.lang:35 cobol.lang:42
-#: def.lang:90 erlang.lang:34 imagej.lang:39 julia.lang:43 meson.lang:33
-#: modelica.lang:38 nsis.lang:31 octave.lang:43 perl.lang:43 php.lang:50
-#: prolog.lang:39 scala.lang:46 sparql.lang:45
-msgid "Operator"
-msgstr "ऑपरेटर"
-
-#. (itstool) path: styles/style@_name
-#: asp.lang:38
-msgid "ASP Object"
-msgstr "ASP वस्तु"
-
-#. (itstool) path: styles/style@_name
-#: asp.lang:39
-msgid "VBScript and ADO constants"
-msgstr "VBScript और ADO स्थिरांक"
-
-#. (itstool) path: styles/style@_name
-#: asp.lang:41 def.lang:73 vbnet.lang:37
-msgid "Special constant"
-msgstr "विशेष स्थिरांक"
-
-#. (itstool) path: automake.lang/language@_name
-#: automake.lang:24
-msgid "Automake"
-msgstr "Automake"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:39
-msgid "Automake Variable"
-msgstr "Automake चर"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:40
-msgid "Primary"
-msgstr "प्राथमिक"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:41
-msgid "Secondary"
-msgstr "द्वितीयक"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:42
-msgid "Prefix"
-msgstr "उपसर्ग"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:43
-msgid "Optional Target"
-msgstr "वैकल्पिक लक्ष्य"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:44
-msgid "Built-in Target"
-msgstr "अंतर्निमित लक्ष्य"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:45
-msgid "Other Keyword"
-msgstr "अन्य खोजशब्द"
-
-#. (itstool) path: styles/style@_name
-#: automake.lang:46 rst.lang:38
-msgid "Substitution"
-msgstr "सबस्टीट्यूशन "
-
-#. (itstool) path: awk.lang/language@_name
-#: awk.lang:24
-msgid "awk"
-msgstr "awk"
 
 #. (itstool) path: awk.lang/language@_section
 #. (itstool) path: dosbatch.lang/language@_section
@@ -509,58 +184,19 @@ msgstr "awk"
 #. (itstool) path: ruby.lang/language@_section
 #. (itstool) path: sh.lang/language@_section
 #. (itstool) path: tcl.lang/language@_section
-#: awk.lang:24 dosbatch.lang:24 javascript.lang:27 lua.lang:24 m4.lang:24
-#: perl.lang:26 php.lang:29 python3.lang:24 python.lang:28 ruby.lang:27
-#: sh.lang:25 tcl.lang:24
+#: awk.lang:23 dosbatch.lang:23 javascript.lang:26 lua.lang:23 m4.lang:23
+#: perl.lang:25 php.lang:28 python3.lang:23 python.lang:27 ruby.lang:26
+#: sh.lang:24 tcl.lang:23
 #, fuzzy
 msgid "Script"
 msgstr "स्क्रिप्ट्स"
-
-#. (itstool) path: styles/style@_name
-#: awk.lang:33 lex.lang:36
-msgid "Pattern"
-msgstr "पैटर्न"
-
-#. (itstool) path: styles/style@_name
-#: awk.lang:35 boo.lang:46 genie.lang:46 glsl.lang:44 go.lang:50
-#: netrexx.lang:47 perl.lang:39 python3.lang:45 python.lang:51
-msgid "Builtin Function"
-msgstr "विल्टइन फंक्शन्स"
-
-#. (itstool) path: bennugd.lang/language@_name
-#: bennugd.lang:23
-msgid "BennuGD"
-msgstr "BennuGD"
-
-#. (itstool) path: styles/style@_name
-#: bennugd.lang:34 def.lang:79 llvm.lang:36 php.lang:43 rust.lang:51
-msgid "Identifier"
-msgstr "पहचानकर्ता"
-
-#. (itstool) path: styles/style@_name
-#: bennugd.lang:38 cg.lang:42 c.lang:47 csv.lang:33 def.lang:65 d.lang:48
-#: erlang.lang:38 go.lang:43 idl-exelis.lang:33 json.lang:44 nemerle.lang:43
-#: ooc.lang:44 php.lang:54 python3.lang:39 python.lang:45 R.lang:41
-#: ruby.lang:42
-msgid "Floating point number"
-msgstr "फ्लोटिंग पाइंट संख्या"
-
-#. (itstool) path: styles/style@_name
-#: bennugd.lang:40 cg.lang:45 c.lang:50 csharp.lang:50 d.lang:52 eiffel.lang:46
-#: go.lang:47 nemerle.lang:47 ooc.lang:47 php.lang:57
-msgid "Hexadecimal number"
-msgstr "हेक्साडेसीमल संख्या"
-
-#. (itstool) path: bibtex.lang/language@_name
-#: bibtex.lang:24
-msgid "BibTeX"
-msgstr "BibTeX"
 
 # #-#-#-#-#  libgnomecanvas.HEAD.hi.po (libgnomecanvas)  #-#-#-#-#
 # libgnomecanvas/gnome-canvas-text.c:212
 #. (itstool) path: bibtex.lang/language@_section
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
+#. (itstool) path: dtl.lang/language@_section
 #. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
@@ -576,133 +212,19 @@ msgstr "BibTeX"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:24 docbook.lang:24 dtd.lang:24 gtk-doc.lang:25 haddock.lang:24
-#: html.lang:25 jade.lang:26 latex.lang:25 mallard.lang:23 markdown.lang:26
-#: mediawiki.lang:23 mxml.lang:24 rst.lang:23 sweave.lang:25 t2t.lang:24
-#: texinfo.lang:25 xml.lang:26 xslt.lang:24
+#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
+#: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
+#: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
+#: t2t.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
 msgid "Markup"
 msgstr "मार्कअप"
-
-#. (itstool) path: styles/style@_name
-#: bibtex.lang:32
-msgid "Entries"
-msgstr "प्रविष्टियाँ"
-
-#. (itstool) path: styles/style@_name
-#: bibtex.lang:33
-msgid "Field"
-msgstr "क्षेत्र"
-
-#. (itstool) path: bluespec.lang/language@_name
-#: bluespec.lang:22
-msgid "Bluespec SystemVerilog"
-msgstr "Bluespec SystemVerilog"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: bluespec.lang:31 systemverilog.lang:32
-msgid "System Task"
-msgstr "तंत्र कार्य"
-
-#. (itstool) path: styles/style@_name
-#: bluespec.lang:32
-msgid "Annotation"
-msgstr "एन्नोटेशन"
-
-#. (itstool) path: styles/style@_name
-#: bluespec.lang:33 rust.lang:54
-msgid "Attribute"
-msgstr "विशेषता"
-
-#. (itstool) path: styles/style@_name
-#: bluespec.lang:34
-msgid "Import BVI"
-msgstr "आयात BVI"
-
-#. (itstool) path: styles/style@_name
-#: bluespec.lang:36 gtk-doc.lang:33 julia.lang:49 systemverilog.lang:34
-#: verilog.lang:44 vhdl.lang:36
-msgid "Type"
-msgstr "क़िस्म"
-
-#. (itstool) path: boo.lang/language@_name
-#: boo.lang:24
-msgid "Boo"
-msgstr "बू"
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:35 genie.lang:35 python3.lang:33 python.lang:38
-msgid "Multiline string"
-msgstr "मल्टीलाइन स्ट्रिंग"
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:37 genie.lang:37 javascript.lang:48 perl.lang:47 ruby.lang:57
-#: vala.lang:48
-msgid "Regular Expression"
-msgstr "नियमित (रेगुलर) एक्सप्रेशन."
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:38 genie.lang:38 sparql.lang:38 xml.lang:44 xslt.lang:34
-msgid "Namespace"
-msgstr "नेमस्पेस"
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:40 genie.lang:40
-msgid "Definition"
-msgstr "परिभाषा"
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:42 genie.lang:42 python3.lang:37 python.lang:43 ruby.lang:52
-msgid "Special Variable"
-msgstr "विशेष चर"
-
-#. (itstool) path: styles/style@_name
-#: boo.lang:44 desktop.lang:39 d.lang:47 genie.lang:44 imagej.lang:34
-#: julia.lang:40 libtool.lang:33 modelica.lang:42 objj.lang:36 octave.lang:46
-#: python3.lang:38 python.lang:44 scheme.lang:33 scilab.lang:36 sparql.lang:39
-#: yaml.lang:39
-msgid "Boolean"
-msgstr "बूलियन"
 
 # #-#-#-#-#  gnome-desktop.HEAD.hi.po (gnome-desktop-2.0.hi)  #-#-#-#-# libgnome-desktop/gnome-ditem-edit.c:611
 # libgnome-desktop/gnome-ditem-edit.c:710
 #. (itstool) path: cg.lang/language@_name
-#: cg.lang:24
+#: cg.lang:23
 msgid "CG Shader Language"
 msgstr "CG शेडर भाषा"
-
-#. (itstool) path: styles/style@_name
-#: cg.lang:36
-msgid "Bindings"
-msgstr "बाइंडिंग"
-
-#. (itstool) path: styles/style@_name
-#: cg.lang:37 c.lang:39 fortran.lang:43 objj.lang:40
-msgid "Included File"
-msgstr "इनक्लूड फाइल"
-
-#. (itstool) path: styles/style@_name
-#: cg.lang:44 c.lang:49 d.lang:51 go.lang:46 nemerle.lang:46 ooc.lang:46
-#: php.lang:56
-msgid "Octal number"
-msgstr "ऑक्टल संख्या"
-
-#. (itstool) path: styles/style@_name
-#: cg.lang:47
-msgid "Swizzle operator"
-msgstr "स्विजल ऑपरेटर"
-
-#. (itstool) path: styles/style@_name
-#: cg.lang:49 erlang.lang:41 imagej.lang:33 matlab.lang:43 modelica.lang:47
-#: octave.lang:50 ruby.lang:49
-msgid "Builtin"
-msgstr "अंतर्निर्मित"
-
-#. (itstool) path: changelog.lang/language@_name
-#: changelog.lang:25
-msgid "ChangeLog"
-msgstr "ChangeLog"
 
 #. (itstool) path: changelog.lang/language@_section
 #. (itstool) path: cmake.lang/language@_section
@@ -717,6 +239,7 @@ msgstr "ChangeLog"
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: libtool.lang/language@_section
+#. (itstool) path: logcat.lang/language@_section
 #. (itstool) path: nsis.lang/language@_section
 #. (itstool) path: ocl.lang/language@_section
 #. (itstool) path: pkgconfig.lang/language@_section
@@ -724,583 +247,38 @@ msgstr "ChangeLog"
 #. (itstool) path: protobuf.lang/language@_section
 #. (itstool) path: puppet.lang/language@_section
 #. (itstool) path: rpmspec.lang/language@_section
-#. (itstool) path: styles/style@_name
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
-#: changelog.lang:25 cmake.lang:24 css.lang:39 csv.lang:24 desktop.lang:25
-#: diff.lang:24 dot.lang:24 dpatch.lang:24 gdb-log.lang:19 gtkrc.lang:25
-#: ini.lang:23 json.lang:30 libtool.lang:24 nsis.lang:24 ocl.lang:33
-#: pkgconfig.lang:24 po.lang:24 protobuf.lang:21 puppet.lang:24 rpmspec.lang:24
-#: scala.lang:49 yacc.lang:24 yaml.lang:22
+#: changelog.lang:24 cmake.lang:23 css.lang:38 csv.lang:23 desktop.lang:24
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 gtkrc.lang:24
+#: ini.lang:22 json.lang:29 libtool.lang:23 logcat.lang:23 nsis.lang:23
+#: ocl.lang:32 pkgconfig.lang:23 po.lang:23 protobuf.lang:21 puppet.lang:23
+#: rpmspec.lang:24 yacc.lang:23 yaml.lang:21
 #, fuzzy
 msgid "Other"
 msgstr "अन्य"
 
-#. (itstool) path: styles/style@_name
-#: changelog.lang:33 rpmspec.lang:43
-msgid "Date"
-msgstr "तिथि"
-
-#. (itstool) path: styles/style@_name
-#: changelog.lang:35
-msgid "Name"
-msgstr "नाम"
-
-#. (itstool) path: styles/style@_name
-#: changelog.lang:36
-msgid "E-mail address"
-msgstr "ई-मेल पता"
-
-#. (itstool) path: styles/style@_name
-#: changelog.lang:37
-msgid "File"
-msgstr "फ़ाइल"
-
-#. (itstool) path: styles/style@_name
-#: changelog.lang:38 rst.lang:34
-msgid "Bullet"
-msgstr "बुल्लेट"
-
-#. (itstool) path: styles/style@_name
-#: changelog.lang:40
-msgid "Release"
-msgstr "जारी"
-
 #. (itstool) path: chdr.lang/language@_name
-#: chdr.lang:25
+#: chdr.lang:24
 #, fuzzy
 msgid "C/ObjC Header"
 msgstr "C/C++/ObjC शीर्षिका"
 
-#. (itstool) path: c.lang/language@_name
-#: c.lang:25
-msgid "C"
-msgstr "सी"
-
-#. (itstool) path: styles/style@_name
-#: c.lang:38 cpp.lang:37 objc.lang:36 opal.lang:35
-msgid "Common Defines"
-msgstr "सामान्य परिभाषा देता है"
-
-#. (itstool) path: styles/style@_name
-#: c.lang:45 genie.lang:47 go.lang:41 verilog.lang:36
-msgid "printf Conversion"
-msgstr "printf वार्तालाप"
-
-#. (itstool) path: styles/style@_name
-#: c.lang:52
-msgid "Standard stream"
-msgstr "मानक धारा"
-
-#. (itstool) path: styles/style@_name
-#: c.lang:53
-msgid "Signal name"
-msgstr "संकेत नाम"
-
-#. (itstool) path: cmake.lang/language@_name
-#: cmake.lang:24
-msgid "CMake"
-msgstr "सी-मेक"
-
-#. (itstool) path: styles/style@_name
-#: cmake.lang:31 meson.lang:32
-msgid "Builtin Command"
-msgstr "अंतर्निहित कमांड"
-
-#. (itstool) path: styles/style@_name
-#: cmake.lang:32
-#, fuzzy
-msgid "Deprecated Builtin Command"
-msgstr "अंतर्निहित कमांड"
-
-#. (itstool) path: styles/style@_name
-#: cmake.lang:33 glsl.lang:46
-msgid "Builtin Variable"
-msgstr "अंतर्निमित चर"
-
-#. (itstool) path: styles/style@_name
-#: cmake.lang:36
-msgid "Control Keyword"
-msgstr "कंट्रोल कीवर्ड"
-
-#. (itstool) path: cobol.lang/language@_name
-#: cobol.lang:27
-msgid "COBOL"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: cobol.lang:36 def.lang:88 protobuf.lang:32
-msgid "Statement"
-msgstr "स्टेटमेन्ट"
-
 #. (itstool) path: cpphdr.lang/language@_name
-#: cpphdr.lang:25
+#: cpphdr.lang:24
 #, fuzzy
 msgid "C++ Header"
 msgstr "शीर्षिका"
 
-#. (itstool) path: cpp.lang/language@_name
-#: cpp.lang:25
-msgid "C++"
-msgstr "सी++"
-
-#. (itstool) path: csharp.lang/language@_name
-#: csharp.lang:27
-msgid "C#"
-msgstr "सी#"
-
-#. (itstool) path: styles/style@_name
-#: csharp.lang:44 po.lang:37
-msgid "String Format"
-msgstr "स्ट्रिंग प्रारूप"
-
-#. (itstool) path: css.lang/language@_name
-#: css.lang:39
-msgid "CSS"
-msgstr "CSS"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:49
-msgid "Others 2"
-msgstr "अन्य 2"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:51
-msgid "Color"
-msgstr "रंग"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:52
-msgid "Others 3"
-msgstr "अन्य 3"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:55 fcl.lang:34 fortran.lang:39 gap.lang:36 gtkrc.lang:36
-#: haskell.lang:43 ini.lang:35 json.lang:43 modelica.lang:43 pascal.lang:36
-#: sml.lang:39 sql.lang:37
-msgid "Decimal"
-msgstr "दशमलव"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:56
-msgid "Dimension"
-msgstr "आयाम"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:57
-#, fuzzy
-msgid "Property Value"
-msgstr "ज्ञात गुण मान"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:58
-msgid "at-rules"
-msgstr "नियम पर"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:60
-msgid "ID Selector"
-msgstr "आईडी चयनकर्ता "
-
-#. (itstool) path: styles/style@_name
-#: css.lang:61
-msgid "Class Selector"
-msgstr "वर्ग चयनकर्ता"
-
-#. (itstool) path: styles/style@_name
-#: css.lang:62
-msgid "Tag Name Selector"
-msgstr "टैग नाम चयनकर्ता "
-
-#. (itstool) path: csv.lang/language@_name
-#: csv.lang:24
-#, fuzzy
-msgid "CSV"
-msgstr "CSS"
-
-#. (itstool) path: styles/style@_name
-#: csv.lang:32
-#, fuzzy
-msgid "Escaped character"
-msgstr "एस्केप वर्ण"
-
-#. (itstool) path: cuda.lang/language@_name
-#: cuda.lang:23
-msgid "CUDA"
-msgstr "CUDA"
-
-#. (itstool) path: styles/style@_name
-#: cuda.lang:35
-msgid "Global Functions"
-msgstr "वैश्विक फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: cuda.lang:36
-msgid "Device Functions"
-msgstr "युक्ति फंक्शन"
-
-#. (itstool) path: styles/style@_name
-#: cuda.lang:37
-msgid "Global Variables"
-msgstr "वैश्विक चर"
-
-#. (itstool) path: def.lang/language@_name
-#: def.lang:25
-msgid "Defaults"
-msgstr "डिफ़ॉल्ट्स"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:42
-msgid "Shebang"
-msgstr "Shebang"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:45
-msgid "Documentation comment"
-msgstr "दस्तावेजीकरण टिप्पणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:49
-msgid "Documentation comment element"
-msgstr "दस्तावेजीकरण टिप्पणी तत्व"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:61
-msgid "Special character (inside a string)"
-msgstr "विशेष वर्ण (inside a string)"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:69 python3.lang:41 python.lang:47 ruby.lang:44
-msgid "Base-N number"
-msgstr "बेस-एन पूर्णांक"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:71 python3.lang:42 python.lang:48
-msgid "Complex number"
-msgstr "कॉम्प्लैक्स संख्या"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:84
-msgid "Built-in identifier"
-msgstr "विल्टइन फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:96 modelica.lang:40 octave.lang:44
-msgid "Data type"
-msgstr "डाटा प्रकार"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:100
-msgid "Preprocessor directive"
-msgstr "प्रीप्रोसेसर दिशा"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:104
-msgid "Warning"
-msgstr "चेतावनी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:106
-msgid "Reserved keyword"
-msgstr "रिज़र्व्ड कीशब्द"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:108
-msgid "Note (FIXME, TODO, XXX, etc.)"
-msgstr "नोट (FIXME, TODO, XXX, etc.)"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:110
-msgid "Underlined"
-msgstr "रेखांकित"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:112
-#, fuzzy
-msgid "Heading 0"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:113
-#, fuzzy
-msgid "Heading 1"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:114
-#, fuzzy
-msgid "Heading 2"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:115
-#, fuzzy
-msgid "Heading 3"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:116
-#, fuzzy
-msgid "Heading 4"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:117
-#, fuzzy
-msgid "Heading 5"
-msgstr "अग्रणी"
-
-#. (itstool) path: styles/style@_name
-#: def.lang:118
-#, fuzzy
-msgid "Heading 6"
-msgstr "अग्रणी"
-
-#. (itstool) path: desktop.lang/language@_name
-#: desktop.lang:25
-msgid ".desktop"
-msgstr ".डेस्कटॉप"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:33
-msgid "Group"
-msgstr "समूह"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:36 json.lang:37
-msgid "Key"
-msgstr "कुंजी"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:37
-msgid "Translation"
-msgstr "अनुवाद "
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:40
-msgid "Exec parameter"
-msgstr "ईएक्सईसी पैरामीटर"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:41
-msgid "Encoding"
-msgstr "एनकोडिंग"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:42
-msgid "Main Category"
-msgstr "मुख्य श्रेणी"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:43
-msgid "Additional Category"
-msgstr "अतिरिक्त श्रेणी"
-
-#. (itstool) path: styles/style@_name
-#: desktop.lang:44
-msgid "Reserved Category"
-msgstr "आरक्षित श्रेणी"
-
-#. (itstool) path: diff.lang/language@_name
-#: diff.lang:24
-msgid "Diff"
-msgstr "डिफ़"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:31
-msgid "Added line"
-msgstr "जोड़ी गई पंक्ति"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:32
-msgid "Removed line"
-msgstr "मिटाई गई पंक्ति"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:33
-msgid "Changed line"
-msgstr "बदली गई पंक्ति"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:34
-msgid "Special case"
-msgstr "विशेष केस"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:35 po.lang:33
-msgid "Location"
-msgstr "स्थान"
-
-#. (itstool) path: styles/style@_name
-#: diff.lang:36
-msgid "Ignore"
-msgstr "नज़रअंदाज़ करें"
-
-#. (itstool) path: d.lang/language@_name
-#: d.lang:30
-msgid "D"
-msgstr "D"
-
-#. (itstool) path: styles/style@_name
-#: d.lang:45
-msgid "Special Token"
-msgstr "विशेष टोकेन"
-
-#. (itstool) path: styles/style@_name
-#: d.lang:50 nemerle.lang:45
-msgid "Binary number"
-msgstr "द्विचर संख्या"
-
-#. (itstool) path: docbook.lang/language@_name
-#: docbook.lang:24
-msgid "DocBook"
-msgstr "डॉकबुक"
-
-#. (itstool) path: styles/style@_name
-#: docbook.lang:33
-msgid "Header Elements"
-msgstr "हेडर तत्व"
-
-#. (itstool) path: styles/style@_name
-#: docbook.lang:34
-msgid "Formatting Elements"
-msgstr "प्रारूपण तत्व"
-
-#. (itstool) path: styles/style@_name
-#: docbook.lang:35
-msgid "GUI Elements"
-msgstr "GUI तत्व"
-
-#. (itstool) path: styles/style@_name
-#: docbook.lang:36
-msgid "Structural Elements"
-msgstr "संरचनात्मक तत्व"
-
 #. (itstool) path: dosbatch.lang/language@_name
-#: dosbatch.lang:24
+#: dosbatch.lang:23
 msgid "DOS Batch"
 msgstr "DOS Batch"
 
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: dosbatch.lang:34 latex.lang:39 latex.lang:40 sweave.lang:33
-msgid "Command"
-msgstr "कमांड"
-
-#. (itstool) path: dot.lang/language@_name
-#: dot.lang:24
-msgid "Graphviz Dot"
-msgstr "Graphviz Dot"
-
-#. (itstool) path: styles/style@_name
-#: dot.lang:37 jade.lang:37 xml.lang:40
-msgid "Attribute name"
-msgstr "गुण नाम"
-
-#. (itstool) path: dpatch.lang/language@_name
-#: dpatch.lang:24
-msgid "DPatch"
-msgstr "तिथि"
-
-#. (itstool) path: styles/style@_name
-#: dpatch.lang:31
-#, fuzzy
-msgid "Patch Start"
-msgstr "patch-start"
-
-#. (itstool) path: dtd.lang/language@_name
-#. (itstool) path: styles/style@_name
-#: dtd.lang:24 html.lang:38
-msgid "DTD"
-msgstr "डीटीडी"
-
-#. (itstool) path: styles/style@_name
-#: dtd.lang:33
-msgid "entity"
-msgstr "एंटिटी"
-
-#. (itstool) path: styles/style@_name
-#: dtd.lang:34
-msgid "decl"
-msgstr "decl"
-
-#. (itstool) path: styles/style@_name
-#: dtd.lang:35
-msgid "error"
-msgstr "त्रुटि"
-
-#. (itstool) path: styles/style@_name
-#: dtd.lang:36
-#, fuzzy
-msgid "Quoted Value"
-msgstr "उद्धरित मान"
-
-#. (itstool) path: eiffel.lang/language@_name
-#: eiffel.lang:24
-msgid "Eiffel"
-msgstr "एफिल"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:35
-msgid "Debug"
-msgstr "दोषसुधार"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:36
-msgid "Assertion"
-msgstr "पुनर्प्रेषण"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:39
-msgid "Design by Contract"
-msgstr "संविदा से निर्मित"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:40
-msgid "Exception Handling"
-msgstr "गलती नियंत्रक"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:41 ruby.lang:53
-msgid "Predefined Variable"
-msgstr "पूर्वपरिभाषित चर"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:43
-msgid "Void Value"
-msgstr "रिक्त मान"
-
-#. (itstool) path: styles/style@_name
-#: eiffel.lang:44 javascript.lang:40 json.lang:41
-msgid "Boolean Value"
-msgstr "बूलिये मान"
-
-#. (itstool) path: erlang.lang/language@_name
-#: erlang.lang:24
-msgid "Erlang"
-msgstr "Erlang"
-
-#. (itstool) path: styles/style@_name
-#: erlang.lang:35
-msgid "Atom"
-msgstr "अणु"
-
-#. (itstool) path: styles/style@_name
-#: erlang.lang:40 fsharp.lang:35 modelica.lang:45 ocaml.lang:38 sml.lang:38
-#: verilog.lang:45 vhdl.lang:38
-msgid "Base-N Integer"
-msgstr "बेस-एन पूर्णांक"
-
-#. (itstool) path: styles/style@_name
-#: erlang.lang:42 forth.lang:42 systemverilog.lang:31 verilog.lang:39
-msgid "Compiler Directive"
-msgstr "कंपाइलर डायरेक्टिव"
-
-#. (itstool) path: fcl.lang/language@_name
-#: fcl.lang:23
-msgid "FCL"
-msgstr "FCL"
+#. (itstool) path: dtl.lang/language@_name
+#: dtl.lang:25
+msgid "Django Template"
+msgstr ""
 
 #. (itstool) path: fcl.lang/language@_section
 #. (itstool) path: gap.lang/language@_section
@@ -1308,1795 +286,41 @@ msgstr "FCL"
 #. (itstool) path: imagej.lang/language@_section
 #. (itstool) path: julia.lang/language@_section
 #. (itstool) path: matlab.lang/language@_section
+#. (itstool) path: maxima.lang/language@_section
 #. (itstool) path: modelica.lang/language@_section
 #. (itstool) path: octave.lang/language@_section
 #. (itstool) path: R.lang/language@_section
 #. (itstool) path: scilab.lang/language@_section
-#: fcl.lang:23 gap.lang:24 idl-exelis.lang:21 imagej.lang:24 julia.lang:24
-#: matlab.lang:26 modelica.lang:26 octave.lang:26 R.lang:26 scilab.lang:24
+#: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
+#: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
+#: scilab.lang:23
 msgid "Scientific"
 msgstr "वैज्ञानिक"
 
-#. (itstool) path: styles/style@_name
-#: fcl.lang:31 fortran.lang:35 ini.lang:32 modelica.lang:44 scilab.lang:32
-#: sql.lang:33
-msgid "Floating Point"
-msgstr "फ्लोटिंग पाइंट"
-
-#. (itstool) path: styles/style@_name
-#: fcl.lang:33
-msgid "Block"
-msgstr "रोकें"
-
-#. (itstool) path: styles/style@_name
-#: fcl.lang:35 octave.lang:49 scilab.lang:37
-msgid "Reserved Constant"
-msgstr "आरक्षित स्थिरांक"
-
-#. (itstool) path: forth.lang/language@_name
-#: forth.lang:24
-msgid "Forth"
-msgstr "Forth"
-
-#. (itstool) path: styles/style@_name
-#: forth.lang:40
-msgid "Debug Code"
-msgstr "डिबग कोड"
-
-#. (itstool) path: styles/style@_name
-#: forth.lang:41
-msgid "Error Text"
-msgstr "त्रुटि पाठ"
-
-#. (itstool) path: fortran.lang/language@_name
-#: fortran.lang:25
-msgid "Fortran 95"
-msgstr "Fortran 95"
-
-#. (itstool) path: styles/style@_name
-#: fortran.lang:37
-msgid "Intrinsic function"
-msgstr "आंतरिक फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: fortran.lang:38
-msgid "BOZ Literal"
-msgstr "बोज लिटरल्स"
-
-#. (itstool) path: styles/style@_name
-#: fortran.lang:42
-#, fuzzy
-msgid "OpenMP directives"
-msgstr "डायरेक्टिव शामिल करें"
-
-#. (itstool) path: fsharp.lang/language@_name
-#: fsharp.lang:25
-msgid "F#"
-msgstr "F#"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:36 ocaml.lang:39 sml.lang:41
-msgid "Floating Point number"
-msgstr "फ्लोटिंग पाइंट संख्या"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:40 ocaml.lang:43
-msgid "Type, module or object keyword"
-msgstr "प्रकार, वर्ग, और वस्तु कुंजीशब्द"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:41 ocaml.lang:44
-msgid "Builtin-function keyword"
-msgstr "विल्टइन फंक्शन्स कीवर्ड"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:43 ocaml.lang:46
-msgid "Labeled argument"
-msgstr "लेबल किया तर्क"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:44 ocaml.lang:47
-msgid "Polymorphic Variant"
-msgstr "पोलीमॉर्फिक चर"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:45 ocaml.lang:48
-msgid "Variant Constructor"
-msgstr "चर निर्माता"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:47 ocaml.lang:49
-msgid "Type Variable"
-msgstr "चर टाइप करें"
-
-#. (itstool) path: styles/style@_name
-#: fsharp.lang:48 ocaml.lang:50
-msgid "Module Path"
-msgstr "मॉड्यूल पथ"
-
-#. (itstool) path: gap.lang/language@_name
-#: gap.lang:24
-msgid "GAP"
-msgstr "GAP"
-
 #. (itstool) path: gdb-log.lang/language@_name
-#: gdb-log.lang:19
+#: gdb-log.lang:18
 msgid "GDB Log"
 msgstr "GDB लॉग"
 
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:25
-msgid "Thread Action"
-msgstr "लड़ी क्रिया"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:26
-msgid "Thread Header"
-msgstr "लड़ी शीर्षिका"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:27
-msgid "Frame Number"
-msgstr "फ्रेम संख्या"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:28
-msgid "Address"
-msgstr "पता"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:31
-msgid "Filename"
-msgstr "फ़ाइलनाम"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:32
-msgid "Optimized Out"
-msgstr "अनुकूलित करें"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:33
-msgid "Incomplete Sequence"
-msgstr "अपूर्ण वाक्य"
-
-#. (itstool) path: styles/style@_name
-#: gdb-log.lang:34
-msgid "Prompt"
-msgstr "संकेत"
-
-#. (itstool) path: genie.lang/language@_name
-#: genie.lang:24
-msgid "Genie"
-msgstr ""
-
 #. (itstool) path: glsl.lang/language@_name
-#: glsl.lang:31
+#: glsl.lang:30
 msgid "OpenGL Shading Language"
 msgstr "OpenGL शेडिंग भाषा"
 
-#. (itstool) path: styles/style@_name
-#: glsl.lang:45 go.lang:49 python3.lang:43 python.lang:49
-msgid "Builtin Constant"
-msgstr "अंतर्निहित स्थिरांक"
-
-#. (itstool) path: styles/style@_name
-#: glsl.lang:47
-msgid "Reserved Keywords"
-msgstr "आरक्षित बीजशब्द"
-
-#. (itstool) path: go.lang/language@_name
-#: go.lang:25
-msgid "Go"
-msgstr "जाएँ"
-
-#. (itstool) path: styles/style@_name
-#: go.lang:44
-msgid "Imaginary number"
-msgstr "काल्पनिक संख्या"
-
-#. (itstool) path: gtk-doc.lang/language@_name
-#: gtk-doc.lang:25
-msgid "gtk-doc"
-msgstr "gtk-doc"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:27
-msgid "Inline Documentation Section"
-msgstr "अंतर्रेखीय दस्तावेजीकरण खंड"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:28 python.lang:52
-msgid "Function Name"
-msgstr "फंक्शन नाम"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:29
-msgid "Signal Name"
-msgstr "संकेत नाम"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:30
-msgid "Property Name"
-msgstr "गुण नाम"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:31
-msgid "Parameter"
-msgstr "पैरामीटर"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:35
-msgid "Return"
-msgstr "रिटर्न"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:36
-msgid "Since"
-msgstr "जबसे"
-
-#. (itstool) path: styles/style@_name
-#: gtk-doc.lang:37
-msgid "Deprecated"
-msgstr "पदावनत"
-
-#. (itstool) path: gtkrc.lang/language@_name
-#: gtkrc.lang:25
-msgid "GtkRC"
-msgstr "GtkRC"
-
-#. (itstool) path: styles/style@_name
-#: gtkrc.lang:38
-msgid "Widget State"
-msgstr "विजेट स्थिति"
-
-#. (itstool) path: styles/style@_name
-#: gtkrc.lang:39
-msgid "Include directive"
-msgstr "डायरेक्टिव शामिल करें"
-
-#. (itstool) path: haddock.lang/language@_name
-#: haddock.lang:24
-msgid "Haddock"
-msgstr "Haddock"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:27
-msgid "Inline Haddock Section"
-msgstr "अंतर्रेखीय हैडोक खंड"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:28
-msgid "Haddock Directive"
-msgstr "हैडोक डायरेक्टिव"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:29
-msgid "Hyperlinked Identifier"
-msgstr "हाइपरलिंक पहचानकर्ता"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:30
-msgid "Hyperlinked Module Name"
-msgstr "हाइपरलिंक मॉड्यूल नाम"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:31
-msgid "Escape"
-msgstr "एस्केप"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:32 markdown.lang:45 rst.lang:32
-msgid "Emphasis"
-msgstr "एम्फेसिस"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:33
-msgid "Monospace"
-msgstr "मोनोस्पेस"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:34
-msgid "Code Block"
-msgstr "कोड ब्लॉक"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:35
-msgid "Header Property"
-msgstr "शीर्षिका गुण"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:36
-msgid "Itemized list"
-msgstr "मदीकृत सूची"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:37
-msgid "Enumerated list"
-msgstr "प्रसरित सूची"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:38
-msgid "Definition list"
-msgstr "परिभाषा सूची"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:39 markdown.lang:40 mediawiki.lang:33
-msgid "URL"
-msgstr "URL"
-
-#. (itstool) path: styles/style@_name
-#: haddock.lang:40 t2t.lang:41 yaml.lang:33
-msgid "Anchor"
-msgstr "एंकर"
-
-#. (itstool) path: haskell.lang/language@_name
-#: haskell.lang:25
-msgid "Haskell"
-msgstr "हास्कल"
-
-#. (itstool) path: styles/style@_name
-#: haskell.lang:36 ruby.lang:51
-msgid "Symbol"
-msgstr "प्रतीक"
-
-#. (itstool) path: styles/style@_name
-#: haskell.lang:44
-msgid "Octal"
-msgstr "ओक्टल"
-
-#. (itstool) path: styles/style@_name
-#: haskell.lang:45
-msgid "Hex"
-msgstr "हेक्स"
-
-#. (itstool) path: haskell-literate.lang/language@_name
-#: haskell-literate.lang:24
-msgid "Literate Haskell"
-msgstr "लिटरेट हास्कल"
-
-#. (itstool) path: html.lang/language@_name
-#: html.lang:25
-msgid "HTML"
-msgstr "एचटीएमएल"
-
-#. (itstool) path: styles/style@_name
-#: html.lang:35 xml.lang:43 yaml.lang:34
-msgid "Tag"
-msgstr "टैग"
-
-#. (itstool) path: styles/style@_name
-#: html.lang:36
-msgid "Attribute Name"
-msgstr "गुणधर्म नाम"
-
-#. (itstool) path: styles/style@_name
-#: html.lang:37 markdown.lang:43
-msgid "Attribute Value"
-msgstr "गुणधर्म मान"
-
-#. (itstool) path: styles/style@_name
-#: html.lang:40
-#, fuzzy
-msgid "Page title"
-msgstr "पृष्ठ तत्व"
-
-#. (itstool) path: styles/style@_name
-#: html.lang:41
-msgid "Heading level 1"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: html.lang:42
-msgid "Heading level 2"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: html.lang:43
-msgid "Heading level 3"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: html.lang:44
-msgid "Heading level 4"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: html.lang:45
-msgid "Heading level 5"
-msgstr ""
-
-#. (itstool) path: idl-exelis.lang/language@_name
-#: idl-exelis.lang:21
-msgid "IDL-Exelis"
-msgstr "आईडीएल-Exelis"
-
-#. (itstool) path: idl.lang/language@_name
-#: idl.lang:24
-msgid "IDL"
-msgstr "आईडीएल"
-
-#. (itstool) path: imagej.lang/language@_name
-#: imagej.lang:24
-msgid "ImageJ"
-msgstr "ImageJ"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: imagej.lang:35
-msgid "Commands"
-msgstr "कमांड"
-
-#. (itstool) path: styles/style@_name
-#: imagej.lang:36 octave.lang:45
-msgid "Storage Type"
-msgstr "भंडार प्रकार"
-
-#. (itstool) path: ini.lang/language@_name
-#: ini.lang:23
-msgid ".ini"
-msgstr ".ini"
-
-#. (itstool) path: jade.lang/language@_name
-#: jade.lang:26
-msgid "Jade"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:34 xml.lang:36
-msgid "DOCTYPE"
-msgstr "DOCTYPE"
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:35 xml.lang:38
-msgid "Processing instruction"
-msgstr "प्रोसेसिंग निर्देश"
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:36 mxml.lang:32 xml.lang:39
-msgid "Element name"
-msgstr "तत्व नाम"
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:38 xml.lang:41
-msgid "Attribute value"
-msgstr "गुण मान"
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:39
-msgid "Tags"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: jade.lang:40 xml.lang:42
-msgid "Entity"
-msgstr "एंटिटी"
-
-#. (itstool) path: java.lang/language@_name
-#: java.lang:25
-msgid "Java"
-msgstr "जावा"
-
-#. (itstool) path: javascript.lang/language@_name
-#: javascript.lang:27
-msgid "JavaScript"
-msgstr "जावास्क्रिप्ट "
-
-#. (itstool) path: styles/style@_name
-#: javascript.lang:39
-msgid "Undefined Value"
-msgstr "अपरिभाषित मान"
-
-#. (itstool) path: styles/style@_name
-#: javascript.lang:44
-msgid "Properties"
-msgstr "गुण"
-
-#. (itstool) path: styles/style@_name
-#: javascript.lang:45
-msgid "Constructors"
-msgstr "निर्माता"
-
-#. (itstool) path: j.lang/language@_name
-#: j.lang:24
-msgid "J"
-msgstr "J"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:31
-msgid "Adverb"
-msgstr "क्रियाविशेषण"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:33
-msgid "Conjunction"
-msgstr "कंजक्शन"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:34 perl.lang:46
-msgid "Control"
-msgstr "नियंत्रण"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:36
-msgid "Explicit Argument"
-msgstr "स्पष्ट तर्क"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:37
-msgid "Global"
-msgstr "वैश्विक"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:38
-msgid "Lab Text"
-msgstr "लैब पाठ"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:39
-msgid "Local"
-msgstr "स्थानीय"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:40
-msgid "Noun"
-msgstr "संज्ञा"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:41
-msgid "Explicit Noun Definition"
-msgstr "स्पष्ट संज्ञा परिभाषा"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:43
-msgid "Parens"
-msgstr "Parens"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:44
-msgid "Primitive"
-msgstr "प्राचीन"
-
-#. (itstool) path: styles/style@_name
-#: j.lang:46
-msgid "Verb"
-msgstr "क्रिया"
-
-#. (itstool) path: julia.lang/language@_name
-#: julia.lang:24
-msgid "Julia"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:41
-#, fuzzy
-msgid "Math Constant"
-msgstr "स्थिर"
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:42 R.lang:38 scala.lang:44
-msgid "Special Constant"
-msgstr "विशेष स्थिरांक"
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:45 rust.lang:55
-#, fuzzy
-msgid "Macro"
-msgstr "मेक्रोज़"
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:46
-#, fuzzy
-msgid "External Command"
-msgstr "बाहरी"
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:47
-#, fuzzy
-msgid "Built-in Function"
-msgstr "विल्टइन फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: julia.lang:48
-#, fuzzy
-msgid "Module"
-msgstr "मॉड्यूल पथ"
-
-#. (itstool) path: latex.lang/language@_name
-#: latex.lang:25
-msgid "LaTeX"
-msgstr "लेटेक्स"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:34 latex.lang:36
-msgid "Math Mode"
-msgstr "मैथ मोड"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:35
-msgid "Inline Math Mode"
-msgstr "अंतर्रेखीय मैथ मोड"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:37
-#, fuzzy
-msgid "Math Boundary"
-msgstr "मैथ मोड"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:38 texinfo.lang:41
-msgid "Include"
-msgstr "इनक्लूड"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:41 sweave.lang:34 t2t.lang:44
-msgid "Verbatim"
-msgstr "Verbatim"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:42
-#, fuzzy
-msgid "Special Character"
-msgstr "विशेष चर"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:43
-#, fuzzy
-msgid "Part Heading"
-msgstr "POD शीर्षक"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:44
-msgid "Chapter Heading"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:45
-#, fuzzy
-msgid "Section Heading"
-msgstr "गलती नियंत्रक"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:46
-#, fuzzy
-msgid "SubSection Heading"
-msgstr "गलती नियंत्रक"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:47
-#, fuzzy
-msgid "SubSubSection Heading"
-msgstr "गलती नियंत्रक"
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:48
-msgid "Paragraph Heading"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: latex.lang:49
-msgid "SubParagraph Heading"
-msgstr ""
-
-#. (itstool) path: lex.lang/language@_name
-#: lex.lang:25
-#, fuzzy
-msgid "Lex"
-msgstr "हेक्स"
-
-#. (itstool) path: styles/style@_name
-#: lex.lang:34
-msgid "Token"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: lex.lang:37
-#, fuzzy
-msgid "Expression"
-msgstr "नियमित (रेगुलर) एक्सप्रेशन."
-
-#. (itstool) path: libtool.lang/language@_name
-#: libtool.lang:24
-msgid "libtool"
-msgstr "libtool"
-
 #. (itstool) path: llvm.lang/language@_name
-#: llvm.lang:23
+#: llvm.lang:22
 msgid "LLVM IR"
 msgstr ""
 
-#. (itstool) path: styles/style@_name
-#: llvm.lang:34
-#, fuzzy
-msgid "Constants"
-msgstr "स्थिर"
-
-#. (itstool) path: lua.lang/language@_name
-#: lua.lang:24
-msgid "Lua"
-msgstr "Lua"
-
-#. (itstool) path: styles/style@_name
-#: lua.lang:38
-msgid "Reserved Identifier"
-msgstr "आरक्षित पहचानकर्ता"
-
-#. (itstool) path: styles/style@_name
-#: lua.lang:39 markdown.lang:42
-msgid "Label"
-msgstr "लेबल"
-
-#. (itstool) path: styles/style@_name
-#: lua.lang:41 ruby.lang:40
-msgid "Nil Constant"
-msgstr "निल स्थिरांक"
-
-#. (itstool) path: m4.lang/language@_name
-#: m4.lang:24
-msgid "m4"
-msgstr "m4"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: m4.lang:32
-#, fuzzy
-msgid "m4 Comment"
-msgstr "टिप्पणी"
-
-#. (itstool) path: styles/style@_name
-#: m4.lang:33
-msgid "m4 Macro"
-msgstr "m4 मैक्रो"
-
-#. (itstool) path: styles/style@_name
-#: m4.lang:34
-msgid "Autoconf Macro"
-msgstr "Autoconf मैक्रो"
-
-#. (itstool) path: styles/style@_name
-#: m4.lang:35
-msgid "Obsolete Autoconf Macro"
-msgstr "पुराना Autoconf मैक्रो"
-
-#. (itstool) path: makefile.lang/language@_name
-#: makefile.lang:23
-msgid "Makefile"
-msgstr "मेकफाइल"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:32
-msgid "Assignment Right Hand Side"
-msgstr "दक्षिण हस्त पक्षीय कार्यभार"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:33
-msgid "Assignment Left Hand Side"
-msgstr "वाम हस्त पक्षीय कार्यभार"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:34
-msgid "targets"
-msgstr "लक्ष्य"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:35
-msgid "prereq"
-msgstr "prereq"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: makefile.lang:36
-msgid "command"
-msgstr "कमांड"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:39
-msgid "Trailing Tab"
-msgstr "पीछा करता टैब"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:40
-msgid "function"
-msgstr "फंक्शन"
-
-#. (itstool) path: styles/style@_name
-#: makefile.lang:41 yacc.lang:35
-msgid "keyword"
-msgstr "कीवर्ड"
-
-#. (itstool) path: mallard.lang/language@_name
-#: mallard.lang:23
-msgid "Mallard"
-msgstr "मलार्ड"
-
-#. (itstool) path: styles/style@_name
-#: mallard.lang:32
-msgid "Page Elements"
-msgstr "पृष्ठ तत्व"
-
-#. (itstool) path: styles/style@_name
-#: mallard.lang:33
-msgid "Section Elements"
-msgstr "खंड तत्व"
-
-#. (itstool) path: styles/style@_name
-#: mallard.lang:34
-msgid "Block Elements"
-msgstr "ब्लॉक तत्व"
-
-#. (itstool) path: styles/style@_name
-#: mallard.lang:35
-msgid "Inline Elements"
-msgstr "अंतर्रेखीय तत्व"
-
-#. (itstool) path: markdown.lang/language@_name
-#: markdown.lang:26
-msgid "Markdown"
-msgstr "मार्कडाउन"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:35 rpmspec.lang:33 rst.lang:31 t2t.lang:34
-msgid "Header"
-msgstr "शीर्षिका"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:36
-msgid "Horizontal Rule"
-msgstr "क्षैतिज नियम"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:37
-msgid "List Marker"
-msgstr "सूची मार्कर"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:38 rst.lang:39
-msgid "Code"
-msgstr "कोड"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:39
-msgid "Blockquote Marker"
-msgstr "Blockquote मार्कर"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:41
-msgid "Link Text"
-msgstr "कड़ी पाठ"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:44
-msgid "Image Marker"
-msgstr "छवि मार्कर"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:46 mediawiki.lang:30 rst.lang:33
-msgid "Strong Emphasis"
-msgstr "मजबूत बलाघात"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:47
-msgid "Backslash Escape"
-msgstr "बैकस्लैश एस्केप"
-
-#. (itstool) path: styles/style@_name
-#: markdown.lang:48
-msgid "Line Break"
-msgstr "पंक्ति अंतराल"
-
-#. (itstool) path: matlab.lang/language@_name
-#: matlab.lang:26
-msgid "Matlab"
-msgstr "मैटलैब"
-
-#. (itstool) path: mediawiki.lang/language@_name
-#: mediawiki.lang:23
-msgid "MediaWiki"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:31
-#, fuzzy
-msgid "Light Emphasis"
-msgstr "एम्फेसिस"
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:32
-#, fuzzy
-msgid "Signature"
-msgstr "संकेत नाम"
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:34 rst.lang:37
-#, fuzzy
-msgid "Link"
-msgstr "कड़ी पाठ"
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:35
-msgid "Symbol on a Link"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:36
-msgid "Line"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:37
-msgid "List"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:38
-msgid "Magic Word"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:39
-msgid "Symbol of a Table"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:40
-msgid "Preformatted"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:41
-msgid "Redirect"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:42
-msgid "Title"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: mediawiki.lang:43
-msgid "Template"
-msgstr ""
-
-#. (itstool) path: meson.lang/language@_name
-#: meson.lang:24
-msgid "Meson"
-msgstr ""
-
-#. (itstool) path: modelica.lang/language@_name
-#: modelica.lang:26
-msgid "Modelica"
-msgstr "Modelica"
-
-#. (itstool) path: styles/style@_name
-#: modelica.lang:39
-msgid "Class type"
-msgstr "वर्ग के प्रकार"
-
-#. (itstool) path: styles/style@_name
-#: modelica.lang:41
-msgid "Default Attribute"
-msgstr "डिफ़ॉल्ट गुणधर्म"
-
-#. (itstool) path: mxml.lang/language@_name
-#: mxml.lang:24
-msgid "MXML"
-msgstr "MXML"
-
-#. (itstool) path: styles/style@_name
-#: mxml.lang:33 xml.lang:37
-msgid "CDATA delimiter"
-msgstr "CDATA परिसीमक"
-
-#. (itstool) path: nemerle.lang/language@_name
-#: nemerle.lang:24
-msgid "Nemerle"
-msgstr "Nemerle"
-
-#. (itstool) path: netrexx.lang/language@_name
-#: netrexx.lang:24
-msgid "NetRexx"
-msgstr "NetRexx"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:39
-msgid "Externals"
-msgstr " बाहरी"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:40
-msgid "Options"
-msgstr " विकल्प"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:41
-msgid "Data Types"
-msgstr " डेटा प्रकार"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:42
-msgid "Special"
-msgstr "विशेष"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:43
-msgid "Visibility"
-msgstr "दृश्यता"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:44
-msgid "Modifiers"
-msgstr "परिवर्धक:"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:45
-msgid "Keywords"
-msgstr "की-वर्डस"
-
-#. (itstool) path: styles/style@_name
-#: netrexx.lang:46
-msgid "Sub Keywords"
-msgstr "उप कीवर्ड"
-
-#. (itstool) path: nsis.lang/language@_name
-#: nsis.lang:24
-msgid "NSIS"
-msgstr "NSIS"
-
-#. (itstool) path: objc.lang/language@_name
-#: objc.lang:24
-msgid "Objective-C"
-msgstr "Objective-C"
-
-#. (itstool) path: objj.lang/language@_name
-#: objj.lang:26
-msgid "Objective-J"
-msgstr "Objective-J"
-
-#. (itstool) path: ocaml.lang/language@_name
-#: ocaml.lang:27
-msgid "OCaml"
-msgstr "OCaml"
-
-#. (itstool) path: styles/style@_name
-#: ocaml.lang:37
-msgid "Ocamldoc Comments"
-msgstr "Ocamldoc टिप्पणी"
-
-#. (itstool) path: styles/style@_name
-#: ocaml.lang:54
-msgid "Standard Modules"
-msgstr "मानक मॉड्यूल "
-
-#. (itstool) path: ocl.lang/language@_name
-#: ocl.lang:33
-msgid "OCL"
-msgstr "OCL"
-
-#. (itstool) path: styles/style@_name
-#: ocl.lang:44
-msgid "Type Operators"
-msgstr "प्रकार ऑपरेटर"
-
-#. (itstool) path: styles/style@_name
-#: ocl.lang:46
-msgid "Operation operator"
-msgstr "ऑपरेशन ऑपरेटर्स"
-
-#. (itstool) path: octave.lang/language@_name
-#: octave.lang:26
-msgid "Octave"
-msgstr "ओक्टेव"
-
-#. (itstool) path: styles/style@_name
-#: octave.lang:47
-msgid "Package Manager"
-msgstr "संकुल प्रबंधक"
-
-#. (itstool) path: ooc.lang/language@_name
-#: ooc.lang:24
-msgid "OOC"
-msgstr "OOC"
-
-#. (itstool) path: opal.lang/language@_name
-#: opal.lang:24
-msgid "Opal"
-msgstr "ओपल"
-
-#. (itstool) path: styles/style@_name
-#: opal.lang:33 python3.lang:31 python.lang:36
-msgid "Module Handler"
-msgstr "मॉड्यूल हैंडलर"
-
-#. (itstool) path: styles/style@_name
-#: opal.lang:42
-msgid "Keysymbol"
-msgstr "बीजसंकेत"
-
-#. (itstool) path: opencl.lang/language@_name
-#: opencl.lang:24
-msgid "OpenCL"
-msgstr "OpenCL"
-
-#. (itstool) path: styles/style@_name
-#: opencl.lang:35
-msgid "Global Function"
-msgstr "वैश्विक फंक्शन"
-
-#. (itstool) path: styles/style@_name
-#: opencl.lang:36
-msgid "Device Function"
-msgstr "युक्ति फंक्शन"
-
-#. (itstool) path: styles/style@_name
-#: opencl.lang:37
-msgid "Device Cast"
-msgstr "युक्ति कास्ट"
-
-#. (itstool) path: styles/style@_name
-#: opencl.lang:38
-msgid "OpenCL Constant"
-msgstr "OpenCL स्थिरांक"
-
-#. (itstool) path: styles/style@_name
-#: opencl.lang:39
-msgid "Global Variable"
-msgstr "वैश्विक चर"
-
-#. (itstool) path: pascal.lang/language@_name
-#: pascal.lang:25
-msgid "Pascal"
-msgstr "पास्कल"
-
-#. (itstool) path: perl.lang/language@_name
-#: perl.lang:26
-msgid "Perl"
-msgstr "पर्ल"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:35
-msgid "Line Directive"
-msgstr "पंक्ति डायरेक्टिव"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:36
-msgid "Include Statement"
-msgstr "कथन शामिल करें"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:40 php.lang:46 ruby.lang:55
-msgid "Heredoc"
-msgstr "Heredoc"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:41 php.lang:47 ruby.lang:56 sh.lang:41
-msgid "Heredoc Bound"
-msgstr "Heredoc बाउंड"
-
-# libgnome-desktop/gnome-ditem-edit.c:626
-# libgnome-desktop/gnome-ditem-edit.c:736
-#. (itstool) path: styles/style@_name
-#: perl.lang:42
-msgid "System Command"
-msgstr "तंत्र कमांड"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:45
-msgid "File Descriptor"
-msgstr "फ़ाइल विवरक"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:49
-msgid "POD"
-msgstr "POD"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:50
-msgid "POD Escape"
-msgstr "POD Escape"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:51
-msgid "POD keyword"
-msgstr "POD बीडशब्द"
-
-#. (itstool) path: styles/style@_name
-#: perl.lang:52
-msgid "POD heading"
-msgstr "POD शीर्षक"
-
-#. (itstool) path: php.lang/language@_name
-#: php.lang:29
-msgid "PHP"
-msgstr "पीएचपी"
-
-#. (itstool) path: styles/style@_name
-#: php.lang:39
-#, fuzzy
-msgid "Preprocessor tags"
-msgstr "प्री-प्रोसेसर"
-
-#. (itstool) path: styles/style@_name
-#: php.lang:49
-msgid "Common Function"
-msgstr "सामान्य फंक्शन"
-
-#. (itstool) path: pig.lang/language@_name
-#: pig.lang:27
-msgid "Pig"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: pig.lang:37
-#, fuzzy
-msgid "Reserved Words"
-msgstr "आरक्षित बीजशब्द"
-
-#. (itstool) path: styles/style@_name
-#: pig.lang:38
-#, fuzzy
-msgid "Built In Functions"
-msgstr "विल्टइन फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: pig.lang:39
-#, fuzzy
-msgid "Boolean values"
-msgstr "बूलिए मान"
-
-#. (itstool) path: styles/style@_name
-#: pig.lang:40 yaml.lang:38
-msgid "Null"
-msgstr ""
-
-#. (itstool) path: pkgconfig.lang/language@_name
-#: pkgconfig.lang:24
-msgid "pkg-config"
-msgstr "pkg-config"
-
-#. (itstool) path: styles/style@_name
-#: pkgconfig.lang:32
-msgid "Package Info"
-msgstr "संकुल सूचना"
-
 #. (itstool) path: po.lang/language@_name
-#: po.lang:24
+#: po.lang:23
 msgid "gettext translation"
 msgstr "गेटटेक्स्ट अनुवाद"
-
-#. (itstool) path: styles/style@_name
-#: po.lang:35
-msgid "Fuzzy"
-msgstr "फजी"
-
-#. (itstool) path: prolog.lang/language@_name
-#: prolog.lang:24
-msgid "Prolog"
-msgstr "प्रोलॉग"
-
-#. (itstool) path: puppet.lang/language@_name
-#: puppet.lang:24
-msgid "Puppet"
-msgstr "कठपुतली"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:31
-msgid "Resources"
-msgstr "संसाधन "
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:32
-msgid "Parameters"
-msgstr "पैरामीटर्स"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:33
-msgid "Metaparameters"
-msgstr "Metaparameters"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:34 R.lang:42
-msgid "Functions"
-msgstr "फंक्शन्स"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:35
-msgid "Values"
-msgstr "मान"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:36
-msgid "Variables"
-msgstr "चर"
-
-#. (itstool) path: styles/style@_name
-#: puppet.lang:37
-msgid "Class names"
-msgstr "वर्ग के नाम"
-
-#. (itstool) path: python3.lang/language@_name
-#: python3.lang:24
-msgid "Python 3"
-msgstr "पायथन 3"
-
-#. (itstool) path: styles/style@_name
-#: python3.lang:36 python.lang:41
-msgid "Format"
-msgstr "फॉर्मेट"
-
-#. (itstool) path: styles/style@_name
-#: python3.lang:44 python.lang:50
-msgid "Builtin Object"
-msgstr "अंतर्निर्मित वस्तु"
-
-#. (itstool) path: python.lang/language@_name
-#: python.lang:28
-msgid "Python"
-msgstr "पायथन"
-
-#. (itstool) path: styles/style@_name
-#: python.lang:42
-#, fuzzy
-msgid "String Conversion"
-msgstr "printf वार्तालाप"
-
-#. (itstool) path: styles/style@_name
-#: python.lang:53
-#, fuzzy
-msgid "Class Name"
-msgstr "वर्ग के नाम"
-
-#. (itstool) path: styles/style@_name
-#: python.lang:54
-#, fuzzy
-msgid "Decorator"
-msgstr "ऑपरेटर"
-
-#. (itstool) path: R.lang/language@_name
-#: R.lang:26
-msgid "R"
-msgstr "आर"
-
-#. (itstool) path: styles/style@_name
-#: R.lang:35
-msgid "Reserved Class"
-msgstr "आरक्षित वर्ग"
-
-#. (itstool) path: styles/style@_name
-#: R.lang:36
-msgid "Assignment Operator"
-msgstr "एसाइनमेंट ऑपरेटर्स"
-
-#. (itstool) path: styles/style@_name
-#: R.lang:37
-msgid "Delimiter"
-msgstr "परिसीमक"
-
-#. (itstool) path: styles/style@_name
-#: R.lang:40 verilog.lang:47
-msgid "Integer Number"
-msgstr "पूर्णांक संख्या"
 
 #. (itstool) path: rpmspec.lang/language@_name
 #: rpmspec.lang:24
 msgid "RPM spec"
 msgstr "RPM spec"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:32
-msgid "Define"
-msgstr "परिभाषा दो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:34 t2t.lang:35
-msgid "Section"
-msgstr "विभाग"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:35
-msgid "Spec Macro"
-msgstr "Spec मेक्रो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:36
-msgid "Directory Macro"
-msgstr "निर्देशिका मैक्रो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:37
-msgid "Command Macro"
-msgstr "कमांड मेक्रो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:38
-msgid "Conditional Macro"
-msgstr "सशर्त मेक्रो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:39
-msgid "Other Macro"
-msgstr "अन्य मैक्रो"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:40
-msgid "Flow Conditional"
-msgstr "सशर्त प्रवाह"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:41
-msgid "RPM Variable"
-msgstr "RPM चर"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:42
-msgid "Switch"
-msgstr "बदलें"
-
-#. (itstool) path: styles/style@_name
-#: rpmspec.lang:44
-msgid "Email"
-msgstr "ईमेल"
-
-#. (itstool) path: rst.lang/language@_name
-#: rst.lang:23
-#, fuzzy
-msgid "reStructuredText"
-msgstr "संरचनात्मक तत्व"
-
-#. (itstool) path: styles/style@_name
-#: rst.lang:35 yaml.lang:37
-#, fuzzy
-msgid "Directive"
-msgstr "पंक्ति डायरेक्टिव"
-
-#. (itstool) path: ruby.lang/language@_name
-#: ruby.lang:27
-msgid "Ruby"
-msgstr "रूबी"
-
-#. (itstool) path: styles/style@_name
-#: ruby.lang:37
-msgid "Attribute Definition"
-msgstr "गुणधर्म परिभाषा"
-
-#. (itstool) path: styles/style@_name
-#: ruby.lang:38
-msgid "Module handler"
-msgstr "मॉड्यूल हैंडलर"
-
-#. (itstool) path: styles/style@_name
-#: ruby.lang:45
-msgid "Numeric literal"
-msgstr "संख्या शाब्दिक"
-
-#. (itstool) path: styles/style@_name
-#: ruby.lang:47 sparql.lang:40
-msgid "Literal"
-msgstr "लिटरल"
-
-#. (itstool) path: rust.lang/language@_name
-#: rust.lang:36
-msgid "Rust"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: rust.lang:53
-msgid "Scope"
-msgstr ""
-
-#. (itstool) path: scala.lang/language@_name
-#: scala.lang:25
-msgid "Scala"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: scala.lang:42
-#, fuzzy
-msgid "Modifier"
-msgstr "परिवर्धक:"
-
-#. (itstool) path: styles/style@_name
-#: scala.lang:48
-#, fuzzy
-msgid "Built In"
-msgstr "अंतर्निर्मित"
-
-#. (itstool) path: styles/style@_name
-#: scala.lang:50
-msgid "XML Tag"
-msgstr ""
-
-#. (itstool) path: scheme.lang/language@_name
-#: scheme.lang:24
-msgid "Scheme"
-msgstr "योजना"
-
-#. (itstool) path: scilab.lang/language@_name
-#: scilab.lang:24
-msgid "Scilab"
-msgstr "Scilab"
-
-#. (itstool) path: sh.lang/language@_name
-#: sh.lang:25
-msgid "sh"
-msgstr "sh"
-
-#. (itstool) path: styles/style@_name
-#: sh.lang:38
-msgid "Variable Definition"
-msgstr "चर परिभाषा"
-
-#. (itstool) path: styles/style@_name
-#. *
-#. * SECTION:language
-#. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
-#. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
-#. * syntax highlighting and [context classes][context-classes].
-#. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
-#.
-#: sh.lang:39 texinfo.lang:35 gtksourceview/gtksourcelanguage.c:56
-msgid "Others"
-msgstr "अन्य"
-
-#. (itstool) path: styles/style@_name
-#: sh.lang:40
-msgid "Common Commands"
-msgstr "सामान्य कमांड"
-
-#. (itstool) path: styles/style@_name
-#: sh.lang:42
-msgid "Subshell"
-msgstr "उपशेल"
-
-#. (itstool) path: sml.lang/language@_name
-#: sml.lang:24
-msgid "Standard ML"
-msgstr "मानक ML"
-
-#. (itstool) path: styles/style@_name
-#: sml.lang:42
-msgid "Module name, Variant, etc"
-msgstr "मॉडयूल नाम, चर आदि"
-
-#. (itstool) path: sparql.lang/language@_name
-#: sparql.lang:24
-msgid "SPARQL"
-msgstr "SPARQL"
-
-#. (itstool) path: styles/style@_name
-#: sparql.lang:33
-msgid "Class"
-msgstr "वर्ग"
-
-#. (itstool) path: styles/style@_name
-#: sparql.lang:36
-msgid "Individual"
-msgstr "व्यक्ति"
-
-#. (itstool) path: styles/style@_name
-#: sparql.lang:41
-msgid "Predicate"
-msgstr "Predicate"
-
-#. (itstool) path: styles/style@_name
-#: sparql.lang:42
-msgid "QName"
-msgstr "QName"
-
-#. (itstool) path: styles/style@_name
-#: sparql.lang:43
-msgid "IRI"
-msgstr "IRI"
-
-#. (itstool) path: sql.lang/language@_name
-#: sql.lang:24
-msgid "SQL"
-msgstr "SQL"
-
-#. (itstool) path: styles/style@_name
-#: sql.lang:39
-msgid "No idea what it is"
-msgstr "कोई जानकारी नहीं कि यह क्या है"
-
-#. (itstool) path: sweave.lang/language@_name
-#: sweave.lang:25
-msgid "Sweave"
-msgstr ""
-
-#. (itstool) path: systemverilog.lang/language@_name
-#: systemverilog.lang:22
-msgid "SystemVerilog"
-msgstr "SystemVerilog"
-
-#. (itstool) path: t2t.lang/language@_name
-#: t2t.lang:24
-msgid "txt2tags"
-msgstr "txt2tags"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:32
-msgid "Option"
-msgstr "विकल्प"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:33
-msgid "Option Name"
-msgstr "विकल्प नाम"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:36
-msgid "Section 1"
-msgstr "खंड 1"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:37
-msgid "Section 2"
-msgstr "खंड 2"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:38
-msgid "Section 3"
-msgstr "खंड 3"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:39
-msgid "Section 4"
-msgstr "खंड 4"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:40
-msgid "Section 5"
-msgstr "खंड 5"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:42
-msgid "Italic"
-msgstr "ईटैलिक"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:43
-msgid "Bold"
-msgstr "गाढ़ा"
-
-#. (itstool) path: styles/style@_name
-#: t2t.lang:45
-msgid "Verbatim Block"
-msgstr "Verbatim खंड"
-
-#. (itstool) path: tcl.lang/language@_name
-#: tcl.lang:24
-msgid "Tcl"
-msgstr "Tcl"
-
-#. (itstool) path: texinfo.lang/language@_name
-#: texinfo.lang:25
-msgid "Texinfo"
-msgstr "Texinfo"
-
-#. (itstool) path: styles/style@_name
-#: texinfo.lang:38
-msgid "Macros"
-msgstr "मेक्रोज़"
-
-#. (itstool) path: styles/style@_name
-#: texinfo.lang:39
-msgid "File Attributes"
-msgstr "फाइल गुणधर्म"
-
-#. (itstool) path: styles/style@_name
-#: texinfo.lang:40
-msgid "Generated Content"
-msgstr "जनित सामग्री"
-
-#. (itstool) path: thrift.lang/language@_name
-#: thrift.lang:21
-msgid "Thrift"
-msgstr ""
-
-#. (itstool) path: vala.lang/language@_name
-#: vala.lang:28
-msgid "Vala"
-msgstr "वाला"
-
-#. (itstool) path: vbnet.lang/language@_name
-#: vbnet.lang:24
-msgid "VB.NET"
-msgstr "VB.NET"
-
-#. (itstool) path: verilog.lang/language@_name
-#: verilog.lang:24
-msgid "Verilog"
-msgstr "वेरिलॉग"
-
-#. (itstool) path: styles/style@_name
-#: verilog.lang:40
-msgid "IEEE System Task"
-msgstr "IEEE तंत्र कार्य"
-
-#. (itstool) path: styles/style@_name
-#: verilog.lang:41
-msgid "LRM Additional System Task"
-msgstr "LRM अतिरिक्त तंत्र कार्य"
-
-#. (itstool) path: styles/style@_name
-#: verilog.lang:43
-msgid "Gate"
-msgstr "गेट"
-
-#. (itstool) path: vhdl.lang/language@_name
-#: vhdl.lang:24
-msgid "VHDL"
-msgstr "VHDL"
-
-#. (itstool) path: xml.lang/language@_name
-#: xml.lang:26
-msgid "XML"
-msgstr "एक्सएमएल"
-
-#. (itstool) path: xslt.lang/language@_name
-#: xslt.lang:24
-msgid "XSLT"
-msgstr "XSLT"
-
-#. (itstool) path: styles/style@_name
-#: xslt.lang:33
-msgid "Element"
-msgstr "तत्व"
-
-#. (itstool) path: yacc.lang/language@_name
-#: yacc.lang:24
-msgid "Yacc"
-msgstr "Yacc"
-
-#. (itstool) path: styles/style@_name
-#: yacc.lang:36
-#, fuzzy
-msgid "token type"
-msgstr "टोकन प्रकार"
-
-#. (itstool) path: styles/style@_name
-#: yacc.lang:37
-msgid "rule"
-msgstr "नियम"
-
-#. (itstool) path: yaml.lang/language@_name
-#: yaml.lang:22
-msgid "YAML"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: yaml.lang:30
-#, fuzzy
-msgid "Block literal"
-msgstr "बोज लिटरल्स"
-
-#. (itstool) path: styles/style@_name
-#: yaml.lang:35
-msgid "Alias"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: yaml.lang:36
-msgid "Map key"
-msgstr ""
-
-#. (itstool) path: styles/style@_name
-#: yaml.lang:40
-#, fuzzy
-msgid "Integer"
-msgstr "बेस-एन पूर्णांक"
-
-#. (itstool) path: styles/style@_name
-#: yaml.lang:41
-#, fuzzy
-msgid "Floating point"
-msgstr "फ्लोटिंग पाइंट"
 
 #. (itstool) path: classic.xml/style-scheme@_name
 #: classic.xml:24
@@ -3185,12 +409,12 @@ msgstr "स्ट्रिंग रूपांतरण"
 
 #: gtksourceview/gtksourcebufferoutputstream.c:930
 #, c-format
-msgid "Conversion from character set '%s' to 'UTF-8' is not supported"
+msgid "Conversion from character set “%s” to “UTF-8” is not supported"
 msgstr ""
 
 #: gtksourceview/gtksourcebufferoutputstream.c:936
 #, c-format
-msgid "Could not open converter from '%s' to 'UTF-8'"
+msgid "Could not open converter from “%s” to “UTF-8”"
 msgstr ""
 
 #: gtksourceview/gtksourcebufferoutputstream.c:996
@@ -3216,7 +440,8 @@ msgid "Show detailed proposal information"
 msgstr "विस्तृत प्रस्ताव जानकारी दिखाएं"
 
 #: gtksourceview/gtksourcecompletion.ui:89
-msgid "_Details..."
+#, fuzzy
+msgid "_Details…"
 msgstr "विवरण (_D)..."
 
 #. regex_new could fail, for instance if there are different
@@ -3240,36 +465,36 @@ msgid ""
 msgstr "एक पंक्ति का आलोकन अधिक समय लेता है, वाक्यरचना आलोकन निष्क्रिय किया जाएगा"
 
 #: gtksourceview/gtksourcecontextengine.c:5712
-#, c-format
-msgid "context '%s' cannot contain a \\%%{...@start} command"
+#, fuzzy, c-format
+msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "context '%s' cannot contain a \\%%{...@start} command"
 
 #: gtksourceview/gtksourcecontextengine.c:5875
-#: gtksourceview/gtksourcecontextengine.c:5966
-#, c-format
-msgid "duplicated context id '%s'"
+#: gtksourceview/gtksourcecontextengine.c:5965
+#, fuzzy, c-format
+msgid "duplicated context id “%s”"
 msgstr "अनुकृत संदर्भ id '%s'"
 
-#: gtksourceview/gtksourcecontextengine.c:6080
-#: gtksourceview/gtksourcecontextengine.c:6140
-#, c-format
+#: gtksourceview/gtksourcecontextengine.c:6079
+#: gtksourceview/gtksourcecontextengine.c:6139
+#, fuzzy, c-format
 msgid ""
-"style override used with wildcard context reference in language '%s' in ref "
-"'%s'"
+"style override used with wildcard context reference in language “%s” in ref "
+"“%s”"
 msgstr "वाइल्ड कार्ड संदर्भ के साथ भाषा में शैली अधिरोहन '%s' संदर्भ में '%s'"
 
-#: gtksourceview/gtksourcecontextengine.c:6154
-#, c-format
-msgid "invalid context reference '%s'"
+#: gtksourceview/gtksourcecontextengine.c:6153
+#, fuzzy, c-format
+msgid "invalid context reference “%s”"
 msgstr "अवैध संदर्भ विवरण '%s'"
 
-#: gtksourceview/gtksourcecontextengine.c:6173
-#: gtksourceview/gtksourcecontextengine.c:6183
-#, c-format
-msgid "unknown context '%s'"
+#: gtksourceview/gtksourcecontextengine.c:6172
+#: gtksourceview/gtksourcecontextengine.c:6182
+#, fuzzy, c-format
+msgid "unknown context “%s”"
 msgstr "अज्ञात संदर्भ '%s'"
 
-#: gtksourceview/gtksourcecontextengine.c:6282
+#: gtksourceview/gtksourcecontextengine.c:6281
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "अनुपस्थित मुख्य भाषा परिभाषा (id = \"%s\".)"
@@ -3409,36 +634,52 @@ msgstr ""
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 
-#: gtksourceview/gtksourcefileloader.c:508
+#: gtksourceview/gtksourcefileloader.c:516
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
 msgstr ""
 
-#: gtksourceview/gtksourcefileloader.c:615
+#: gtksourceview/gtksourcefileloader.c:623
 msgid "File too big."
 msgstr ""
 
-#: gtksourceview/gtksourcefileloader.c:769
+#: gtksourceview/gtksourcefileloader.c:777
 msgid "Not a regular file."
 msgstr ""
 
-#: gtksourceview/gtksourcefilesaver.c:968
+#: gtksourceview/gtksourcefilesaver.c:976
 msgid "The file is externally modified."
 msgstr ""
 
-#: gtksourceview/gtksourcefilesaver.c:1420
+#: gtksourceview/gtksourcefilesaver.c:1428
 msgid "The buffer contains invalid characters."
 msgstr ""
 
+#. *
+#. * SECTION:language
+#. * @Short_description: Represents a syntax highlighted language
+#. * @Title: GtkSourceLanguage
+#. * @See_also: #GtkSourceLanguageManager
+#. *
+#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * syntax highlighting and [context classes][context-classes].
+#. *
+#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
+#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#.
+#: gtksourceview/gtksourcelanguage.c:56
+msgid "Others"
+msgstr "अन्य"
+
 #: gtksourceview/gtksourcelanguage-parser-2.c:950
-#, c-format
-msgid "Unknown id '%s' in regex '%s'"
+#, fuzzy, c-format
+msgid "Unknown id “%s” in regex “%s”"
 msgstr "अज्ञात id '%s' regex '%s' में"
 
 #: gtksourceview/gtksourcelanguage-parser-2.c:1180
-#, c-format
-msgid "in regex '%s': backreferences are not supported"
+#, fuzzy, c-format
+msgid "in regex “%s”: backreferences are not supported"
 msgstr "regex '%s': पश्चसंदर्भ समर्थित नहीं है"
 
 #: gtksourceview/gtksourceregex.c:129
@@ -3461,32 +702,32 @@ msgid "_Select"
 msgstr "आईडी चयनकर्ता "
 
 #. create redo menu_item.
-#: gtksourceview/gtksourceview.c:1722
+#: gtksourceview/gtksourceview.c:1781
 msgid "_Redo"
 msgstr ""
 
 #. create undo menu_item.
-#: gtksourceview/gtksourceview.c:1733
+#: gtksourceview/gtksourceview.c:1792
 msgid "_Undo"
 msgstr ""
 
-#: gtksourceview/gtksourceview.c:1752
+#: gtksourceview/gtksourceview.c:1811
 msgid "All _Upper Case"
 msgstr ""
 
-#: gtksourceview/gtksourceview.c:1762
+#: gtksourceview/gtksourceview.c:1821
 msgid "All _Lower Case"
 msgstr ""
 
-#: gtksourceview/gtksourceview.c:1772
+#: gtksourceview/gtksourceview.c:1831
 msgid "_Invert Case"
 msgstr ""
 
-#: gtksourceview/gtksourceview.c:1782
+#: gtksourceview/gtksourceview.c:1841
 msgid "_Title Case"
 msgstr ""
 
-#: gtksourceview/gtksourceview.c:1792
+#: gtksourceview/gtksourceview.c:1851
 #, fuzzy
 msgid "C_hange Case"
 msgstr "बदली गई पंक्ति"
@@ -3494,19 +735,1348 @@ msgstr "बदली गई पंक्ति"
 #~ msgid "GtkSourceView"
 #~ msgstr "GtkSourceView"
 
+#~| msgid "Scripts"
+#~ msgid "ActionScript"
+#~ msgstr "ActionScript"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "Comment"
+#~ msgstr "टिप्पणी"
+
+#~ msgid "Error"
+#~ msgstr "त्रुटि"
+
+# src/gconf-key-editor.c:94
+#~ msgid "String"
+#~ msgstr "स्ट्रिंग"
+
+#~ msgid "External"
+#~ msgstr "बाहरी"
+
+#~ msgid "Declaration"
+#~ msgstr "घोषणा"
+
+#~ msgid "Storage Class"
+#~ msgstr "भंडार वर्ग"
+
+#~ msgid "Scope Declaration"
+#~ msgstr "स्कोप डिक्लेरेशन्स"
+
+#~ msgid "Keyword"
+#~ msgstr "कीवर्ड"
+
+#~ msgid "Null Value"
+#~ msgstr "रिक्त मान"
+
+#~ msgid "Boolean value"
+#~ msgstr "बूलिए मान"
+
+#~ msgid "Number"
+#~ msgstr "संख्या"
+
+#~ msgid "Future Reserved Keywords"
+#~ msgstr "भविष्य रिजर्व्ड शब्द"
+
+#~ msgid "Data Type"
+#~ msgstr "डेटा प्रकार"
+
+#~ msgid "Ada"
+#~ msgstr "एडीए"
+
+#~ msgid "Decimal number"
+#~ msgstr "दशमलव संख्या"
+
+#~ msgid "Preprocessor"
+#~ msgstr "प्री-प्रोसेसर"
+
+#~ msgid "Arbitrary base number"
+#~ msgstr "यादृच्छिक बेस संख्या"
+
+#~ msgid "Real number"
+#~ msgstr "वास्तविक संख्या"
+
+#~ msgid "Escaped Character"
+#~ msgstr "एस्केप वर्ण"
+
+#~ msgid "ASP"
+#~ msgstr "ASP"
+
+#~ msgid "Function"
+#~ msgstr "फंक्शन"
+
+#~ msgid "Operator"
+#~ msgstr "ऑपरेटर"
+
+#~ msgid "ASP Object"
+#~ msgstr "ASP वस्तु"
+
+#~ msgid "VBScript and ADO constants"
+#~ msgstr "VBScript और ADO स्थिरांक"
+
+#~ msgid "Special constant"
+#~ msgstr "विशेष स्थिरांक"
+
+#~ msgid "Automake"
+#~ msgstr "Automake"
+
+#~| msgid "Global Variable"
+#~ msgid "Automake Variable"
+#~ msgstr "Automake चर"
+
+#~ msgid "Primary"
+#~ msgstr "प्राथमिक"
+
+#~ msgid "Secondary"
+#~ msgstr "द्वितीयक"
+
+#~ msgid "Prefix"
+#~ msgstr "उपसर्ग"
+
+#~| msgid "Option Name"
+#~ msgid "Optional Target"
+#~ msgstr "वैकल्पिक लक्ष्य"
+
+#~| msgid "Builtin Variable"
+#~ msgid "Built-in Target"
+#~ msgstr "अंतर्निमित लक्ष्य"
+
+#~| msgid "Control Keyword"
+#~ msgid "Other Keyword"
+#~ msgstr "अन्य खोजशब्द"
+
+#~ msgid "Substitution"
+#~ msgstr "सबस्टीट्यूशन "
+
+#~ msgid "awk"
+#~ msgstr "awk"
+
+#~ msgid "Pattern"
+#~ msgstr "पैटर्न"
+
+#~ msgid "Variable"
+#~ msgstr "चर"
+
+#~ msgid "Builtin Function"
+#~ msgstr "विल्टइन फंक्शन्स"
+
+#~ msgid "BennuGD"
+#~ msgstr "BennuGD"
+
+#~ msgid "Identifier"
+#~ msgstr "पहचानकर्ता"
+
+#~ msgid "Floating point number"
+#~ msgstr "फ्लोटिंग पाइंट संख्या"
+
+#~ msgid "Hexadecimal number"
+#~ msgstr "हेक्साडेसीमल संख्या"
+
+#~ msgid "BibTeX"
+#~ msgstr "BibTeX"
+
+#~ msgid "Entries"
+#~ msgstr "प्रविष्टियाँ"
+
+#~ msgid "Field"
+#~ msgstr "क्षेत्र"
+
+#~| msgid "SystemVerilog"
+#~ msgid "Bluespec SystemVerilog"
+#~ msgstr "Bluespec SystemVerilog"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "System Task"
+#~ msgstr "तंत्र कार्य"
+
+#~| msgid "Activation"
+#~ msgid "Annotation"
+#~ msgstr "एन्नोटेशन"
+
+#~| msgid "Attribute name"
+#~ msgid "Attribute"
+#~ msgstr "विशेषता"
+
+#~ msgid "Import BVI"
+#~ msgstr "आयात BVI"
+
+#~ msgid "Type"
+#~ msgstr "क़िस्म"
+
+#~ msgid "Boo"
+#~ msgstr "बू"
+
+#~ msgid "Multiline string"
+#~ msgstr "मल्टीलाइन स्ट्रिंग"
+
+#~ msgid "Regular Expression"
+#~ msgstr "नियमित (रेगुलर) एक्सप्रेशन."
+
+#~ msgid "Namespace"
+#~ msgstr "नेमस्पेस"
+
+#~ msgid "Definition"
+#~ msgstr "परिभाषा"
+
+#~ msgid "Special Variable"
+#~ msgstr "विशेष चर"
+
+#~ msgid "Boolean"
+#~ msgstr "बूलियन"
+
+#~ msgid "Bindings"
+#~ msgstr "बाइंडिंग"
+
+#~ msgid "Included File"
+#~ msgstr "इनक्लूड फाइल"
+
+#~ msgid "Octal number"
+#~ msgstr "ऑक्टल संख्या"
+
+#~ msgid "Swizzle operator"
+#~ msgstr "स्विजल ऑपरेटर"
+
+#~ msgid "Builtin"
+#~ msgstr "अंतर्निर्मित"
+
+#~ msgid "ChangeLog"
+#~ msgstr "ChangeLog"
+
+#~ msgid "Date"
+#~ msgstr "तिथि"
+
+#~ msgid "Name"
+#~ msgstr "नाम"
+
+#~ msgid "E-mail address"
+#~ msgstr "ई-मेल पता"
+
+#~ msgid "File"
+#~ msgstr "फ़ाइल"
+
+#~ msgid "Bullet"
+#~ msgstr "बुल्लेट"
+
+#~ msgid "Release"
+#~ msgstr "जारी"
+
+#~ msgid "C"
+#~ msgstr "सी"
+
+#~ msgid "Common Defines"
+#~ msgstr "सामान्य परिभाषा देता है"
+
+#~ msgid "Character"
+#~ msgstr "अक्षर"
+
+#~ msgid "printf Conversion"
+#~ msgstr "printf वार्तालाप"
+
+#~ msgid "Standard stream"
+#~ msgstr "मानक धारा"
+
+#~ msgid "Signal name"
+#~ msgstr "संकेत नाम"
+
+#~ msgid "CMake"
+#~ msgstr "सी-मेक"
+
+#~ msgid "Builtin Command"
+#~ msgstr "अंतर्निहित कमांड"
+
+#~ msgid "Builtin Variable"
+#~ msgstr "अंतर्निमित चर"
+
+#~ msgid "Constant"
+#~ msgstr "स्थिर"
+
+#~ msgid "Control Keyword"
+#~ msgstr "कंट्रोल कीवर्ड"
+
 #~ msgid "Cobol"
 #~ msgstr "कोबोल"
+
+#~ msgid "Statement"
+#~ msgstr "स्टेटमेन्ट"
+
+#~ msgid "C++"
+#~ msgstr "सी++"
+
+#~ msgid "C#"
+#~ msgstr "सी#"
+
+#~ msgid "String Format"
+#~ msgstr "स्ट्रिंग प्रारूप"
+
+#~ msgid "CSS"
+#~ msgstr "CSS"
+
+#~ msgid "Others 2"
+#~ msgstr "अन्य 2"
+
+#~ msgid "Color"
+#~ msgstr "रंग"
+
+#~ msgid "Others 3"
+#~ msgstr "अन्य 3"
+
+#~ msgid "Decimal"
+#~ msgstr "दशमलव"
+
+#~ msgid "Dimension"
+#~ msgstr "आयाम"
+
+#~ msgid "Known Property Value"
+#~ msgstr "ज्ञात गुण मान"
+
+#~ msgid "at-rules"
+#~ msgstr "नियम पर"
+
+#~ msgid "Class Selector"
+#~ msgstr "वर्ग चयनकर्ता"
+
+#~ msgid "Tag Name Selector"
+#~ msgstr "टैग नाम चयनकर्ता "
+
+#~ msgid "CUDA"
+#~ msgstr "CUDA"
+
+#~ msgid "Global Functions"
+#~ msgstr "वैश्विक फंक्शन्स"
+
+#~ msgid "Device Functions"
+#~ msgstr "युक्ति फंक्शन"
+
+#~ msgid "Global Variables"
+#~ msgstr "वैश्विक चर"
+
+#~ msgid "Defaults"
+#~ msgstr "डिफ़ॉल्ट्स"
+
+#~ msgid "Shebang"
+#~ msgstr "Shebang"
+
+#~ msgid "Documentation comment"
+#~ msgstr "दस्तावेजीकरण टिप्पणी"
+
+#~ msgid "Documentation comment element"
+#~ msgstr "दस्तावेजीकरण टिप्पणी तत्व"
+
+#~ msgid "Special character (inside a string)"
+#~ msgstr "विशेष वर्ण (inside a string)"
+
+#~ msgid "Base-N number"
+#~ msgstr "बेस-एन पूर्णांक"
+
+#~ msgid "Complex number"
+#~ msgstr "कॉम्प्लैक्स संख्या"
+
+#~ msgid "Built-in identifier"
+#~ msgstr "विल्टइन फंक्शन्स"
+
+#~ msgid "Data type"
+#~ msgstr "डाटा प्रकार"
+
+#~ msgid "Preprocessor directive"
+#~ msgstr "प्रीप्रोसेसर दिशा"
+
+#~ msgid "Warning"
+#~ msgstr "चेतावनी"
+
+#~ msgid "Reserved keyword"
+#~ msgstr "रिज़र्व्ड कीशब्द"
+
+#~ msgid "Note (FIXME, TODO, XXX, etc.)"
+#~ msgstr "नोट (FIXME, TODO, XXX, etc.)"
+
+#~ msgid "Underlined"
+#~ msgstr "रेखांकित"
+
+#~ msgid ".desktop"
+#~ msgstr ".डेस्कटॉप"
+
+#~ msgid "Group"
+#~ msgstr "समूह"
+
+#~ msgid "Key"
+#~ msgstr "कुंजी"
+
+#~ msgid "Translation"
+#~ msgstr "अनुवाद "
+
+#~ msgid "Exec parameter"
+#~ msgstr "ईएक्सईसी पैरामीटर"
+
+#~ msgid "Encoding"
+#~ msgstr "एनकोडिंग"
+
+#~ msgid "Main Category"
+#~ msgstr "मुख्य श्रेणी"
+
+#~ msgid "Additional Category"
+#~ msgstr "अतिरिक्त श्रेणी"
+
+#~ msgid "Reserved Category"
+#~ msgstr "आरक्षित श्रेणी"
+
+#~ msgid "Diff"
+#~ msgstr "डिफ़"
+
+#~ msgid "Added line"
+#~ msgstr "जोड़ी गई पंक्ति"
+
+#~ msgid "Removed line"
+#~ msgstr "मिटाई गई पंक्ति"
+
+#~ msgid "Special case"
+#~ msgstr "विशेष केस"
+
+#~ msgid "Location"
+#~ msgstr "स्थान"
+
+#~ msgid "Ignore"
+#~ msgstr "नज़रअंदाज़ करें"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "Special Token"
+#~ msgstr "विशेष टोकेन"
+
+#~ msgid "Binary number"
+#~ msgstr "द्विचर संख्या"
+
+#~ msgid "DocBook"
+#~ msgstr "डॉकबुक"
+
+#~ msgid "Header Elements"
+#~ msgstr "हेडर तत्व"
+
+#~ msgid "Formatting Elements"
+#~ msgstr "प्रारूपण तत्व"
+
+#~ msgid "GUI Elements"
+#~ msgstr "GUI तत्व"
+
+#~ msgid "Structural Elements"
+#~ msgstr "संरचनात्मक तत्व"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "Command"
+#~ msgstr "कमांड"
+
+#~ msgid "Graphviz Dot"
+#~ msgstr "Graphviz Dot"
+
+#~ msgid "Attribute name"
+#~ msgstr "गुण नाम"
+
+#~ msgid "DPatch"
+#~ msgstr "तिथि"
+
+#~ msgid "patch-start"
+#~ msgstr "patch-start"
+
+#~ msgid "DTD"
+#~ msgstr "डीटीडी"
+
+#~ msgid "entity"
+#~ msgstr "एंटिटी"
+
+#~ msgid "decl"
+#~ msgstr "decl"
+
+#~ msgid "error"
+#~ msgstr "त्रुटि"
+
+#~ msgid "quoted-value"
+#~ msgstr "उद्धरित मान"
+
+#~ msgid "Eiffel"
+#~ msgstr "एफिल"
+
+#~ msgid "Debug"
+#~ msgstr "दोषसुधार"
+
+#~ msgid "Assertion"
+#~ msgstr "पुनर्प्रेषण"
+
+#~ msgid "Design by Contract"
+#~ msgstr "संविदा से निर्मित"
+
+#~ msgid "Exception Handling"
+#~ msgstr "गलती नियंत्रक"
+
+#~ msgid "Predefined Variable"
+#~ msgstr "पूर्वपरिभाषित चर"
+
+#~ msgid "Void Value"
+#~ msgstr "रिक्त मान"
+
+#~ msgid "Boolean Value"
+#~ msgstr "बूलिये मान"
+
+#~ msgid "Erlang"
+#~ msgstr "Erlang"
+
+#~ msgid "Atom"
+#~ msgstr "अणु"
+
+#~ msgid "Base-N Integer"
+#~ msgstr "बेस-एन पूर्णांक"
+
+#~ msgid "Compiler Directive"
+#~ msgstr "कंपाइलर डायरेक्टिव"
+
+#~ msgid "FCL"
+#~ msgstr "FCL"
+
+#~ msgid "Floating Point"
+#~ msgstr "फ्लोटिंग पाइंट"
+
+#~ msgid "Block"
+#~ msgstr "रोकें"
+
+#~ msgid "Reserved Constant"
+#~ msgstr "आरक्षित स्थिरांक"
+
+#~ msgid "Forth"
+#~ msgstr "Forth"
+
+#~ msgid "Debug Code"
+#~ msgstr "डिबग कोड"
+
+#~ msgid "Error Text"
+#~ msgstr "त्रुटि पाठ"
+
+#~ msgid "Fortran 95"
+#~ msgstr "Fortran 95"
+
+#~ msgid "Intrinsic function"
+#~ msgstr "आंतरिक फंक्शन्स"
+
+#~ msgid "BOZ Literal"
+#~ msgstr "बोज लिटरल्स"
+
+#~ msgid "F#"
+#~ msgstr "F#"
+
+#~ msgid "Floating Point number"
+#~ msgstr "फ्लोटिंग पाइंट संख्या"
+
+#~ msgid "Type, module or object keyword"
+#~ msgstr "प्रकार, वर्ग, और वस्तु कुंजीशब्द"
+
+#~ msgid "Builtin-function keyword"
+#~ msgstr "विल्टइन फंक्शन्स कीवर्ड"
+
+#~ msgid "Labeled argument"
+#~ msgstr "लेबल किया तर्क"
+
+#~ msgid "Polymorphic Variant"
+#~ msgstr "पोलीमॉर्फिक चर"
+
+#~ msgid "Variant Constructor"
+#~ msgstr "चर निर्माता"
+
+#~ msgid "Type Variable"
+#~ msgstr "चर टाइप करें"
+
+#~ msgid "Module Path"
+#~ msgstr "मॉड्यूल पथ"
+
+#~ msgid "GAP"
+#~ msgstr "GAP"
+
+#~ msgid "Thread Action"
+#~ msgstr "लड़ी क्रिया"
+
+#~ msgid "Thread Header"
+#~ msgstr "लड़ी शीर्षिका"
+
+#~ msgid "Frame Number"
+#~ msgstr "फ्रेम संख्या"
+
+#~ msgid "Address"
+#~ msgstr "पता"
+
+#~ msgid "Optimized Out"
+#~ msgstr "अनुकूलित करें"
+
+#~ msgid "Prompt"
+#~ msgstr "संकेत"
+
+#~ msgid "Builtin Constant"
+#~ msgstr "अंतर्निहित स्थिरांक"
+
+#~ msgid "Reserved Keywords"
+#~ msgstr "आरक्षित बीजशब्द"
+
+#~ msgid "Go"
+#~ msgstr "जाएँ"
+
+#~| msgid "Binary number"
+#~ msgid "Imaginary number"
+#~ msgstr "काल्पनिक संख्या"
+
+#~ msgid "gtk-doc"
+#~ msgstr "gtk-doc"
+
+#~ msgid "Inline Documentation Section"
+#~ msgstr "अंतर्रेखीय दस्तावेजीकरण खंड"
+
+#~ msgid "Function Name"
+#~ msgstr "फंक्शन नाम"
+
+#~ msgid "Signal Name"
+#~ msgstr "संकेत नाम"
+
+#~ msgid "Property Name"
+#~ msgstr "गुण नाम"
+
+#~ msgid "Parameter"
+#~ msgstr "पैरामीटर"
+
+#~ msgid "Return"
+#~ msgstr "रिटर्न"
+
+#~ msgid "Since"
+#~ msgstr "जबसे"
+
+#~ msgid "Deprecated"
+#~ msgstr "पदावनत"
+
+#~ msgid "GtkRC"
+#~ msgstr "GtkRC"
+
+#~ msgid "Widget State"
+#~ msgstr "विजेट स्थिति"
+
+#~ msgid "Include directive"
+#~ msgstr "डायरेक्टिव शामिल करें"
+
+#~ msgid "Haddock"
+#~ msgstr "Haddock"
+
+#~ msgid "Inline Haddock Section"
+#~ msgstr "अंतर्रेखीय हैडोक खंड"
+
+#~ msgid "Haddock Directive"
+#~ msgstr "हैडोक डायरेक्टिव"
+
+#~ msgid "Hyperlinked Identifier"
+#~ msgstr "हाइपरलिंक पहचानकर्ता"
+
+#~ msgid "Hyperlinked Module Name"
+#~ msgstr "हाइपरलिंक मॉड्यूल नाम"
+
+#~ msgid "Escape"
+#~ msgstr "एस्केप"
+
+#~ msgid "Emphasis"
+#~ msgstr "एम्फेसिस"
+
+#~ msgid "Monospace"
+#~ msgstr "मोनोस्पेस"
+
+#~ msgid "Code Block"
+#~ msgstr "कोड ब्लॉक"
+
+#~ msgid "Header Property"
+#~ msgstr "शीर्षिका गुण"
+
+#~ msgid "Itemized list"
+#~ msgstr "मदीकृत सूची"
+
+#~ msgid "Enumerated list"
+#~ msgstr "प्रसरित सूची"
+
+#~ msgid "Definition list"
+#~ msgstr "परिभाषा सूची"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Anchor"
+#~ msgstr "एंकर"
+
+#~ msgid "Haskell"
+#~ msgstr "हास्कल"
+
+#~ msgid "Symbol"
+#~ msgstr "प्रतीक"
+
+#~ msgid "Float"
+#~ msgstr "फ्लोट"
+
+#~ msgid "Octal"
+#~ msgstr "ओक्टल"
+
+#~ msgid "Hex"
+#~ msgstr "हेक्स"
+
+#~ msgid "Literate Haskell"
+#~ msgstr "लिटरेट हास्कल"
+
+#~ msgid "HTML"
+#~ msgstr "एचटीएमएल"
+
+#~ msgid "Tag"
+#~ msgstr "टैग"
+
+#~ msgid "Attribute Name"
+#~ msgstr "गुणधर्म नाम"
+
+#~ msgid "Attribute Value"
+#~ msgstr "गुणधर्म मान"
+
+#~ msgid "IDL-Exelis"
+#~ msgstr "आईडीएल-Exelis"
+
+#~ msgid "IDL"
+#~ msgstr "आईडीएल"
+
+#~ msgid "ImageJ"
+#~ msgstr "ImageJ"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "Commands"
+#~ msgstr "कमांड"
+
+#~ msgid "Storage Type"
+#~ msgstr "भंडार प्रकार"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "एस्केप वर्ण"
 
+#~ msgid ".ini"
+#~ msgstr ".ini"
+
+#~ msgid "Java"
+#~ msgstr "जावा"
+
+#~ msgid "JavaScript"
+#~ msgstr "जावास्क्रिप्ट "
+
+#~ msgid "Undefined Value"
+#~ msgstr "अपरिभाषित मान"
+
+#~ msgid "Properties"
+#~ msgstr "गुण"
+
+#~ msgid "Constructors"
+#~ msgstr "निर्माता"
+
+#~ msgid "J"
+#~ msgstr "J"
+
+#~ msgid "Adverb"
+#~ msgstr "क्रियाविशेषण"
+
+#~| msgid "Common Function"
+#~ msgid "Conjunction"
+#~ msgstr "कंजक्शन"
+
+#~ msgid "Control"
+#~ msgstr "नियंत्रण"
+
+#~ msgid "Explicit Argument"
+#~ msgstr "स्पष्ट तर्क"
+
+#~| msgid "Cobalt"
+#~ msgid "Global"
+#~ msgstr "वैश्विक"
+
+#~| msgid "Link Text"
+#~ msgid "Lab Text"
+#~ msgstr "लैब पाठ"
+
+#~| msgid "Location"
+#~ msgid "Local"
+#~ msgstr "स्थानीय"
+
+#~ msgid "Noun"
+#~ msgstr "संज्ञा"
+
+#~ msgid "Explicit Noun Definition"
+#~ msgstr "स्पष्ट संज्ञा परिभाषा"
+
+#~ msgid "Parens"
+#~ msgstr "Parens"
+
+#~ msgid "Primitive"
+#~ msgstr "प्राचीन"
+
+#~| msgid "Verbatim"
+#~ msgid "Verb"
+#~ msgstr "क्रिया"
+
+#~ msgid "LaTeX"
+#~ msgstr "लेटेक्स"
+
+#~ msgid "Math Mode"
+#~ msgstr "मैथ मोड"
+
+#~ msgid "Inline Math Mode"
+#~ msgstr "अंतर्रेखीय मैथ मोड"
+
 #~ msgid "math-bound"
 #~ msgstr "math-bound"
+
+#~ msgid "Include"
+#~ msgstr "इनक्लूड"
+
+#~ msgid "Verbatim"
+#~ msgstr "Verbatim"
+
+#~ msgid "libtool"
+#~ msgstr "libtool"
+
+#~ msgid "Lua"
+#~ msgstr "Lua"
+
+#~ msgid "Reserved Identifier"
+#~ msgstr "आरक्षित पहचानकर्ता"
+
+#~ msgid "Nil Constant"
+#~ msgstr "निल स्थिरांक"
+
+#~ msgid "m4"
+#~ msgstr "m4"
 
 # libgnome-desktop/gnome-ditem-edit.c:626
 # libgnome-desktop/gnome-ditem-edit.c:736
 #~ msgid "m4-comment"
 #~ msgstr "m4-comment"
+
+#~ msgid "m4 Macro"
+#~ msgstr "m4 मैक्रो"
+
+#~ msgid "Autoconf Macro"
+#~ msgstr "Autoconf मैक्रो"
+
+#~ msgid "Obsolete Autoconf Macro"
+#~ msgstr "पुराना Autoconf मैक्रो"
+
+#~ msgid "Makefile"
+#~ msgstr "मेकफाइल"
+
+#~ msgid "Assignment Right Hand Side"
+#~ msgstr "दक्षिण हस्त पक्षीय कार्यभार"
+
+#~ msgid "Assignment Left Hand Side"
+#~ msgstr "वाम हस्त पक्षीय कार्यभार"
+
+#~ msgid "targets"
+#~ msgstr "लक्ष्य"
+
+#~ msgid "prereq"
+#~ msgstr "prereq"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "command"
+#~ msgstr "कमांड"
+
+#~ msgid "Trailing Tab"
+#~ msgstr "पीछा करता टैब"
+
+#~ msgid "function"
+#~ msgstr "फंक्शन"
+
+#~ msgid "keyword"
+#~ msgstr "कीवर्ड"
+
+#~ msgid "Mallard"
+#~ msgstr "मलार्ड"
+
+#~ msgid "Page Elements"
+#~ msgstr "पृष्ठ तत्व"
+
+#~ msgid "Section Elements"
+#~ msgstr "खंड तत्व"
+
+#~ msgid "Block Elements"
+#~ msgstr "ब्लॉक तत्व"
+
+#~ msgid "Inline Elements"
+#~ msgstr "अंतर्रेखीय तत्व"
+
+#~ msgid "Markdown"
+#~ msgstr "मार्कडाउन"
+
+#~ msgid "Horizontal Rule"
+#~ msgstr "क्षैतिज नियम"
+
+#~ msgid "List Marker"
+#~ msgstr "सूची मार्कर"
+
+#~ msgid "Code"
+#~ msgstr "कोड"
+
+#~ msgid "Blockquote Marker"
+#~ msgstr "Blockquote मार्कर"
+
+#~ msgid "Link Text"
+#~ msgstr "कड़ी पाठ"
+
+#~ msgid "Label"
+#~ msgstr "लेबल"
+
+#~ msgid "Image Marker"
+#~ msgstr "छवि मार्कर"
+
+#~ msgid "Strong Emphasis"
+#~ msgstr "मजबूत बलाघात"
+
+#~ msgid "Backslash Escape"
+#~ msgstr "बैकस्लैश एस्केप"
+
+#~ msgid "Line Break"
+#~ msgstr "पंक्ति अंतराल"
+
+#~ msgid "Matlab"
+#~ msgstr "मैटलैब"
+
+#~ msgid "Modelica"
+#~ msgstr "Modelica"
+
+#~| msgid "Class"
+#~ msgid "Class type"
+#~ msgstr "वर्ग के प्रकार"
+
+#~| msgid "File Attributes"
+#~ msgid "Default Attribute"
+#~ msgstr "डिफ़ॉल्ट गुणधर्म"
+
+#~ msgid "MXML"
+#~ msgstr "MXML"
+
+#~ msgid "Element name"
+#~ msgstr "तत्व नाम"
+
+#~ msgid "CDATA delimiter"
+#~ msgstr "CDATA परिसीमक"
+
+#~ msgid "Nemerle"
+#~ msgstr "Nemerle"
+
+#~ msgid "NetRexx"
+#~ msgstr "NetRexx"
+
+#~| msgid "External"
+#~ msgid "Externals"
+#~ msgstr " बाहरी"
+
+#~| msgid "Option"
+#~ msgid "Options"
+#~ msgstr " विकल्प"
+
+#~| msgid "Data Type"
+#~ msgid "Data Types"
+#~ msgstr " डेटा प्रकार"
+
+#~ msgid "Special"
+#~ msgstr "विशेष"
+
+#~| msgid "Visible"
+#~ msgid "Visibility"
+#~ msgstr "दृश्यता"
+
+#~| msgid "Identifier"
+#~ msgid "Modifiers"
+#~ msgstr "परिवर्धक:"
+
+#~| msgid "Keyword"
+#~ msgid "Keywords"
+#~ msgstr "की-वर्डस"
+
+#~| msgid "Keyword"
+#~ msgid "Sub Keywords"
+#~ msgstr "उप कीवर्ड"
+
+#~ msgid "NSIS"
+#~ msgstr "NSIS"
+
+#~ msgid "Objective-C"
+#~ msgstr "Objective-C"
+
+#~ msgid "Objective-J"
+#~ msgstr "Objective-J"
+
+#~ msgid "OCaml"
+#~ msgstr "OCaml"
+
+#~ msgid "Ocamldoc Comments"
+#~ msgstr "Ocamldoc टिप्पणी"
+
+#~| msgid "Standart Modules"
+#~ msgid "Standard Modules"
+#~ msgstr "मानक मॉड्यूल "
+
+#~ msgid "OCL"
+#~ msgstr "OCL"
+
+#~ msgid "Type Operators"
+#~ msgstr "प्रकार ऑपरेटर"
+
+#~ msgid "Operation operator"
+#~ msgstr "ऑपरेशन ऑपरेटर्स"
+
+#~ msgid "Octave"
+#~ msgstr "ओक्टेव"
+
+#~ msgid "Package Manager"
+#~ msgstr "संकुल प्रबंधक"
+
+#~ msgid "OOC"
+#~ msgstr "OOC"
+
+#~ msgid "Opal"
+#~ msgstr "ओपल"
+
+#~ msgid "Module Handler"
+#~ msgstr "मॉड्यूल हैंडलर"
+
+#~ msgid "Keysymbol"
+#~ msgstr "बीजसंकेत"
+
+#~ msgid "OpenCL"
+#~ msgstr "OpenCL"
+
+#~ msgid "Global Function"
+#~ msgstr "वैश्विक फंक्शन"
+
+#~ msgid "Device Function"
+#~ msgstr "युक्ति फंक्शन"
+
+#~ msgid "Device Cast"
+#~ msgstr "युक्ति कास्ट"
+
+#~ msgid "OpenCL Constant"
+#~ msgstr "OpenCL स्थिरांक"
+
+#~ msgid "Global Variable"
+#~ msgstr "वैश्विक चर"
+
+#~ msgid "Pascal"
+#~ msgstr "पास्कल"
+
+#~ msgid "Perl"
+#~ msgstr "पर्ल"
+
+#~ msgid "Line Directive"
+#~ msgstr "पंक्ति डायरेक्टिव"
+
+#~ msgid "Include Statement"
+#~ msgstr "कथन शामिल करें"
+
+#~ msgid "Heredoc"
+#~ msgstr "Heredoc"
+
+#~ msgid "Heredoc Bound"
+#~ msgstr "Heredoc बाउंड"
+
+# libgnome-desktop/gnome-ditem-edit.c:626
+# libgnome-desktop/gnome-ditem-edit.c:736
+#~ msgid "System Command"
+#~ msgstr "तंत्र कमांड"
+
+#~ msgid "File Descriptor"
+#~ msgstr "फ़ाइल विवरक"
+
+#~ msgid "POD"
+#~ msgstr "POD"
+
+#~ msgid "POD Escape"
+#~ msgstr "POD Escape"
+
+#~ msgid "POD keyword"
+#~ msgstr "POD बीडशब्द"
+
+#~ msgid "POD heading"
+#~ msgstr "POD शीर्षक"
+
+#~ msgid "PHP"
+#~ msgstr "पीएचपी"
+
+#~ msgid "Common Function"
+#~ msgstr "सामान्य फंक्शन"
+
+#~ msgid "pkg-config"
+#~ msgstr "pkg-config"
+
+#~ msgid "Package Info"
+#~ msgstr "संकुल सूचना"
+
+#~ msgid "Fuzzy"
+#~ msgstr "फजी"
+
+#~ msgid "Prolog"
+#~ msgstr "प्रोलॉग"
+
+#~ msgid "Puppet"
+#~ msgstr "कठपुतली"
+
+#~| msgid "Sources"
+#~ msgid "Resources"
+#~ msgstr "संसाधन "
+
+#~| msgid "Parameter"
+#~ msgid "Parameters"
+#~ msgstr "पैरामीटर्स"
+
+#~| msgid "Exec parameter"
+#~ msgid "Metaparameters"
+#~ msgstr "Metaparameters"
+
+#~| msgid "Function"
+#~ msgid "Functions"
+#~ msgstr "फंक्शन्स"
+
+#~| msgid "Null Value"
+#~ msgid "Values"
+#~ msgstr "मान"
+
+#~| msgid "Variable"
+#~ msgid "Variables"
+#~ msgstr "चर"
+
+#~| msgid "Class"
+#~ msgid "Class names"
+#~ msgstr "वर्ग के नाम"
+
+#~| msgid "Python"
+#~ msgid "Python 3"
+#~ msgstr "पायथन 3"
+
+#~ msgid "Format"
+#~ msgstr "फॉर्मेट"
+
+#~ msgid "Builtin Object"
+#~ msgstr "अंतर्निर्मित वस्तु"
+
+#~ msgid "Python"
+#~ msgstr "पायथन"
+
+#~ msgid "R"
+#~ msgstr "आर"
+
+#~ msgid "Reserved Class"
+#~ msgstr "आरक्षित वर्ग"
+
+#~ msgid "Assignment Operator"
+#~ msgstr "एसाइनमेंट ऑपरेटर्स"
+
+#~ msgid "Delimiter"
+#~ msgstr "परिसीमक"
+
+#~ msgid "Special Constant"
+#~ msgstr "विशेष स्थिरांक"
+
+#~ msgid "Integer Number"
+#~ msgstr "पूर्णांक संख्या"
+
+#~ msgid "Define"
+#~ msgstr "परिभाषा दो"
+
+#~ msgid "Section"
+#~ msgstr "विभाग"
+
+#~ msgid "Spec Macro"
+#~ msgstr "Spec मेक्रो"
+
+#~ msgid "Directory Macro"
+#~ msgstr "निर्देशिका मैक्रो"
+
+#~ msgid "Command Macro"
+#~ msgstr "कमांड मेक्रो"
+
+#~ msgid "Conditional Macro"
+#~ msgstr "सशर्त मेक्रो"
+
+#~ msgid "Other Macro"
+#~ msgstr "अन्य मैक्रो"
+
+#~ msgid "Flow Conditional"
+#~ msgstr "सशर्त प्रवाह"
+
+#~ msgid "RPM Variable"
+#~ msgstr "RPM चर"
+
+#~ msgid "Switch"
+#~ msgstr "बदलें"
+
+#~ msgid "Email"
+#~ msgstr "ईमेल"
+
+#~ msgid "Ruby"
+#~ msgstr "रूबी"
+
+#~ msgid "Attribute Definition"
+#~ msgstr "गुणधर्म परिभाषा"
+
+#~ msgid "Module handler"
+#~ msgstr "मॉड्यूल हैंडलर"
+
+#~ msgid "Numeric literal"
+#~ msgstr "संख्या शाब्दिक"
+
+#~ msgid "Literal"
+#~ msgstr "लिटरल"
+
+#~ msgid "Scheme"
+#~ msgstr "योजना"
+
+#~ msgid "Scilab"
+#~ msgstr "Scilab"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "Variable Definition"
+#~ msgstr "चर परिभाषा"
+
+#~ msgid "Common Commands"
+#~ msgstr "सामान्य कमांड"
+
+#~ msgid "Subshell"
+#~ msgstr "उपशेल"
+
+#~ msgid "Standard ML"
+#~ msgstr "मानक ML"
+
+#~ msgid "Module name, Variant, etc"
+#~ msgstr "मॉडयूल नाम, चर आदि"
+
+#~ msgid "SPARQL"
+#~ msgstr "SPARQL"
+
+#~ msgid "Class"
+#~ msgstr "वर्ग"
+
+#~ msgid "Individual"
+#~ msgstr "व्यक्ति"
+
+#~ msgid "Predicate"
+#~ msgstr "Predicate"
+
+#~ msgid "QName"
+#~ msgstr "QName"
+
+#~ msgid "IRI"
+#~ msgstr "IRI"
+
+#~ msgid "SQL"
+#~ msgstr "SQL"
+
+#~ msgid "No idea what it is"
+#~ msgstr "कोई जानकारी नहीं कि यह क्या है"
+
+#~ msgid "SystemVerilog"
+#~ msgstr "SystemVerilog"
+
+#~ msgid "txt2tags"
+#~ msgstr "txt2tags"
+
+#~ msgid "Option"
+#~ msgstr "विकल्प"
+
+#~ msgid "Option Name"
+#~ msgstr "विकल्प नाम"
+
+#~ msgid "Section 1"
+#~ msgstr "खंड 1"
+
+#~ msgid "Section 2"
+#~ msgstr "खंड 2"
+
+#~ msgid "Section 3"
+#~ msgstr "खंड 3"
+
+#~ msgid "Section 4"
+#~ msgstr "खंड 4"
+
+#~ msgid "Section 5"
+#~ msgstr "खंड 5"
+
+#~ msgid "Italic"
+#~ msgstr "ईटैलिक"
+
+#~ msgid "Bold"
+#~ msgstr "गाढ़ा"
+
+#~ msgid "Verbatim Block"
+#~ msgstr "Verbatim खंड"
+
+#~ msgid "Tcl"
+#~ msgstr "Tcl"
+
+#~ msgid "Texinfo"
+#~ msgstr "Texinfo"
+
+#~ msgid "Macros"
+#~ msgstr "मेक्रोज़"
+
+#~ msgid "File Attributes"
+#~ msgstr "फाइल गुणधर्म"
+
+#~ msgid "Generated Content"
+#~ msgstr "जनित सामग्री"
+
+#~ msgid "Vala"
+#~ msgstr "वाला"
+
+#~ msgid "VB.NET"
+#~ msgstr "VB.NET"
+
+#~ msgid "Verilog"
+#~ msgstr "वेरिलॉग"
+
+#~ msgid "IEEE System Task"
+#~ msgstr "IEEE तंत्र कार्य"
+
+#~ msgid "LRM Additional System Task"
+#~ msgstr "LRM अतिरिक्त तंत्र कार्य"
+
+#~ msgid "Gate"
+#~ msgstr "गेट"
+
+#~ msgid "VHDL"
+#~ msgstr "VHDL"
+
+#~ msgid "XML"
+#~ msgstr "एक्सएमएल"
+
+#~ msgid "DOCTYPE"
+#~ msgstr "DOCTYPE"
+
+#~ msgid "Processing instruction"
+#~ msgstr "प्रोसेसिंग निर्देश"
+
+#~ msgid "Attribute value"
+#~ msgstr "गुण मान"
+
+#~ msgid "Entity"
+#~ msgstr "एंटिटी"
+
+#~ msgid "XSLT"
+#~ msgstr "XSLT"
+
+#~ msgid "Element"
+#~ msgstr "तत्व"
+
+#~ msgid "Yacc"
+#~ msgstr "Yacc"
+
+#~ msgid "token-type"
+#~ msgstr "टोकन प्रकार"
+
+#~ msgid "rule"
+#~ msgstr "नियम"
 
 #~ msgid "The provider name"
 #~ msgstr "प्रदाता का नाम"
