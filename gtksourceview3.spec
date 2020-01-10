@@ -5,7 +5,7 @@
 Summary: A library for viewing source files
 Name: gtksourceview3
 Version: 3.8.1
-Release: 2%{?dist}
+Release: 4%{?dist}
 License: LGPLv2+ and GPLv2+
 # the library itself is LGPL, some .lang files are GPL
 Group: System Environment/Libraries
@@ -79,6 +79,12 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/gtksourceview-3.0/language-specs/convert.py
 %{_datadir}/glade/catalogs/gtksourceview.xml
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.8.1-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.8.1-3
+- Mass rebuild 2013-12-27
+
 * Mon May 13 2013 Matthias Clasen <mclasen@redhat.com> - 3.8.1-2
 - Install a glade catalog
 
